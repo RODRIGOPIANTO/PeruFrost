@@ -25,10 +25,7 @@ export default function PrivacidadPage() {
       <Navbar />
       <main style={{ paddingTop: '72px', minHeight: '100vh' }}>
         <div style={{ maxWidth: '900px', margin: '0 auto', paddingInline: '1.5rem', paddingTop: '5rem', paddingBottom: '6rem' }}>
-          <Link href="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', color: '#8BA0B4', textDecoration: 'none', fontSize: '0.875rem', marginBottom: '3rem', transition: 'color 0.2s' }}
-            onMouseEnter={e => (e.currentTarget as HTMLElement).style.color = '#00E5FF'}
-            onMouseLeave={e => (e.currentTarget as HTMLElement).style.color = '#8BA0B4'}
-          >
+          <Link href="/" className="inline-flex items-center gap-2 text-[#8BA0B4] hover:text-[#00E5FF] no-underline text-sm mb-12 transition-colors duration-200">
             <ArrowLeft size={16} /> Volver al inicio
           </Link>
 
