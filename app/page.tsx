@@ -31,7 +31,7 @@ const products = [
     descriptionEn: 'Peruvian jumbo squid from FAO Zone 87, processed under the strictest international standards. Wide range of cuts for different markets.',
     specs: ['Tentáculos', 'Aletas', 'Filetes', 'Botones', 'Bloques 10kg/7kg', 'Sacos 20kg/21kg'],
     specsEn: ['Tentacles', 'Fins', 'Fillets', 'Buttons', '10kg/7kg Blocks', '20kg/21kg Bags'],
-    image: '/recursos/embarcacion_merluza.jpg',
+    image: '/recursos/producto_1.jpeg',
   },
   {
     name: 'Merluza',
@@ -42,7 +42,7 @@ const products = [
     descriptionEn: 'Fillets, HGT and whole fish in IQF and block processes for the most demanding markets. Caught in the rich Humboldt Current waters.',
     specs: ['Filetes con/sin piel', 'HGT', 'Entera', 'IQF o Bloque'],
     specsEn: ['Fillets with/without skin', 'HGT', 'Whole', 'IQF or Block'],
-    image: '/recursos/planta.webp',
+    image: '/recursos/producto_2.jpeg',
   },
   {
     name: 'Mahi Mahi',
@@ -53,7 +53,7 @@ const products = [
     descriptionEn: 'Peruvian mahi mahi in fillets, portions and loins of the best organoleptic quality. Highly valued in premium markets in Europe and the US.',
     specs: ['Filetes', 'Porciones', 'Lomos', 'Con/sin piel'],
     specsEn: ['Fillets', 'Portions', 'Loins', 'With/without skin'],
-    image: '/recursos/120m.jpg',
+    image: '/recursos/producto_3.jpeg',
   },
 ];
 
