@@ -8,6 +8,14 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'perufrost.com',
       },
+      {
+        protocol: 'http',
+        hostname: '76.13.224.112',
+      },
+      {
+        protocol: 'https',
+        hostname: '76.13.224.112',
+      },
     ],
   },
   // Allow large video assets
