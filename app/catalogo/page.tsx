@@ -42,7 +42,7 @@ export default function CatalogoPage() {
             <div className="grid-pattern absolute inset-0 opacity-[0.12]" />
           </div>
           
-          <div className="container mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center text-center">
+          <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 relative z-10 flex flex-col items-center text-center">
             <motion.div initial="hidden" animate="visible" variants={stagger} className="max-w-3xl w-full">
               <motion.div variants={fadeUp} className="mb-6 lg:mb-8">
                 <span className="inline-block bg-[#0ea5e9]/10 border border-[#0ea5e9]/20 text-[#0ea5e9] text-xs lg:text-sm font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full">
@@ -68,7 +68,7 @@ export default function CatalogoPage() {
 
         {/* ─── RESPONSIVE FILTER TABS ─── */}
         <section className="sticky top-[72px] z-40 bg-[#0A0F1F]/90 backdrop-blur-md border-b border-white/5 py-4 lg:py-5 shadow-2xl">
-          <div className="container mx-auto px-4 sm:px-6 overflow-x-auto hide-scrollbar">
+          <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 overflow-x-auto hide-scrollbar">
             <div className="flex gap-2 sm:gap-4 flex-nowrap w-max sm:w-auto sm:justify-center mx-auto pb-1 sm:pb-0">
               {categories.map(cat => (
                 <button
@@ -91,7 +91,7 @@ export default function CatalogoPage() {
         <div className="flex-1">
           {/* ══════════ GIANT SQUID / POTA ══════════ */}
           {(filter === 'todos' || filter === 'pota') && (
-            <section className="py-16 lg:py-24 container mx-auto px-4 sm:px-6">
+            <section className="py-16 lg:py-24 w-full max-w-[1400px] mx-auto px-4 sm:px-6">
 
               {/* HERO CARD DE POTA */}
               <motion.div
@@ -226,8 +226,8 @@ export default function CatalogoPage() {
 
           {/* ══════════ PECES / FISH ══════════ */}
           {(filter === 'todos' || filter === 'pez') && (
-            <section className="py-16 lg:py-24 bg-[#0a1628] border-y border-white/5">
-              <div className="container mx-auto px-4 sm:px-6">
+            <section className="py-16 lg:py-24 bg-[#0a1628] border-y border-white/5 w-full">
+              <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6">
                 <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="mb-10 lg:mb-16 text-center flex flex-col items-center">
                   <span className="highlight-tag mb-4">🐟 {lang === 'es' ? 'Peces' : 'Fish'}</span>
                   <h2 className="text-3xl md:text-5xl font-black font-tight tracking-tight">
@@ -266,8 +266,8 @@ export default function CatalogoPage() {
 
           {/* ══════════ MARISCOS / SHELLFISH ══════════ */}
           {(filter === 'todos' || filter === 'marisco') && (
-            <section className="py-16 lg:py-24">
-              <div className="container mx-auto px-4 sm:px-6">
+            <section className="py-16 lg:py-24 bg-[#0A0F1F] w-full">
+              <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6">
                 <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="mb-10 lg:mb-16 text-center flex flex-col items-center">
                   <span className="highlight-tag mb-4">🦐 {lang === 'es' ? 'Mariscos & Cefalópodos' : 'Shellfish & Cephalopods'}</span>
                   <h2 className="text-3xl md:text-5xl font-black font-tight tracking-tight">
@@ -317,8 +317,8 @@ export default function CatalogoPage() {
         </div>
 
         {/* ─── SCALABLE CTA ─── */}
-        <section className="py-20 lg:py-32 bg-[#060c17] flex-none">
-          <div className="container mx-auto px-4 sm:px-6">
+        <section className="py-20 lg:py-32 bg-[#060c17] flex-none w-full">
+          <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6">
             <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
               <h2 className="text-4xl md:text-5xl font-black mb-6 font-tight tracking-tight">
                 {lang === 'es' ? '¿Listo para cotizar?' : 'Ready to get a quote?'}
