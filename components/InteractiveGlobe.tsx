@@ -6,26 +6,29 @@ import { useLang } from '@/components/LanguageContext'
 import regionesExportacion, { PaisDestino } from '@/data/mercados'
 import { Globe, ArrowRight, MapPin } from 'lucide-react'
 
-// Puntos centrales aproximados para las regiones en el SVG 850x430
-const regionPositions: Record<string, [number, number]> = {
-  norteamerica: [150, 140],
-  centroamerica: [165, 215],
-  sudamerica: [180, 290],
-  europa: [440, 110],
-  africa: [450, 230],
-  'rusia-cei': [580, 70],
-  asia: [680, 150],
+import {
+  ComposableMap,
+  Geographies,
+  Geography,
+  Marker,
+  Line,
+} from 'react-simple-maps'
+
+// Topología estándar
+const geoUrl = "https://unpkg.com/world-atlas@2.0.2/countries-110m.json"
+
+// Coordenadas reales aproximadas [Longitud, Latitud] para los destinos
+const geoCoords: Record<string, [number, number]> = {
+  US: [-95.7, 37.0], CA: [-106.3, 56.1], MX: [-102.5, 23.6], CR: [-83.7, 9.7], PA: [-80.7, 8.5],
+  BR: [-51.9, -14.2], AR: [-63.6, -38.4], CL: [-71.5, -35.6], CO: [-74.2, 4.5],
+  ES: [-3.7, 40.4], PT: [-8.2, 39.3], FR: [2.2, 46.2], IT: [12.5, 41.8], DE: [10.4, 51.1], GB: [-3.4, 55.3],
+  CN: [104.1, 35.8], JP: [138.2, 36.2], KR: [127.7, 35.9], TH: [100.9, 15.8], VN: [108.2, 14.0],
+  MA: [-7.0, 31.7], EG: [30.8, 26.8], ZA: [22.9, -30.5],
+  RU: [105.3, 61.5],
 }
 
-// Coordenadas de los países de destino para los puntos pulsantes
-const countryPoints: Record<string, [number, number]> = {
-  US: [140, 130], CA: [140, 80], MX: [160, 170],
-  ES: [415, 125], PT: [405, 125], FR: [430, 110], IT: [450, 125], DE: [450, 100], GB: [420, 95],
-  CN: [680, 140], JP: [750, 130], KR: [740, 140], TH: [680, 210], VN: [700, 200],
-  BR: [220, 280], AR: [195, 360], CL: [175, 350],
-  MA: [415, 175], EG: [485, 185], ZA: [470, 360],
-  RU: [620, 70],
-}
+// Origen
+const paitaCoord: [number, number] = [-81.11, -5.08]
 
 interface WorldMapProps {
   activeId: string | null
@@ -33,105 +36,106 @@ interface WorldMapProps {
 }
 
 const WorldMap = ({ activeId, onSelect }: WorldMapProps) => {
-  const { lang } = useLang()
   const activeRegion = regionesExportacion.find(r => r.id === activeId)
 
   return (
-    <svg viewBox="0 0 850 430" className="w-full h-auto drop-shadow-2xl">
-      <defs>
-        <filter id="map-glow" x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur stdDeviation="5" result="blur" />
-          <feComposite in="SourceGraphic" in2="blur" operator="over" />
-        </filter>
-        
-        {regionesExportacion.map(r => (
-          <marker key={`marker-${r.id}`} id={`marker-${r.id}`} markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-            <polygon points="0 0, 6 3, 0 6" fill={r.color} />
-          </marker>
-        ))}
-      </defs>
-
-      {/* Ocean Background */}
-      <rect width="850" height="430" fill="#0c1a2e" rx="24" />
+    <div className="w-full h-auto drop-shadow-2xl rounded-[24px] overflow-hidden" style={{ background: '#0c1a2e', position: 'relative' }}>
+      {/* Grid Pattern para el océano */}
+      <div className="absolute inset-0 grid-pattern opacity-10 pointer-events-none" />
       
-      {/* Grid Pattern */}
-      <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(14,165,233,0.05)" strokeWidth="0.5" />
-      </pattern>
-      <rect width="850" height="430" fill="url(#grid)" rx="24" />
+      <ComposableMap
+        projection="geoMercator"
+        projectionConfig={{
+          scale: 130,
+          center: [10, 20] // Centro visual para abarcar desde Perú hasta Japón/Rusia
+        }}
+        width={850}
+        height={430}
+        style={{ width: "100%", height: "auto" }}
+      >
+        <defs>
+          {regionesExportacion.map(r => (
+            <marker key={`marker-${r.id}`} id={`marker-${r.id}`} markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+              <polygon points="0 0, 6 3, 0 6" fill={r.color} />
+            </marker>
+          ))}
+        </defs>
 
-      {/* Base Continents (Static) */}
-      <g opacity="0.4">
-        {/* Simplified Continent Paths */}
-        <path d="M 100 100 L 220 100 L 230 160 L 210 200 L 180 205 L 140 195 L 100 150 Z" fill="#1e3a5f" /> {/* N.America */}
-        <path d="M 180 205 L 205 205 L 215 240 L 195 245 L 175 235 Z" fill="#1e3a5f" /> {/* C.America */}
-        <path d="M 175 245 L 240 245 L 255 310 L 235 400 L 180 400 L 160 300 Z" fill="#1e3a5f" /> {/* S.America */}
-        <path d="M 400 80 L 520 75 L 540 120 L 520 160 L 460 170 L 410 140 Z" fill="#1e3a5f" /> {/* Europe */}
-        <path d="M 420 170 L 530 170 L 550 250 L 530 350 L 480 370 L 420 300 Z" fill="#1e3a5f" /> {/* Africa */}
-        <path d="M 540 50 L 800 50 L 820 100 L 780 130 L 600 130 Z" fill="#1e3a5f" /> {/* Russia */}
-        <path d="M 540 130 L 800 130 L 830 200 L 780 280 L 650 280 L 580 200 Z" fill="#1e3a5f" /> {/* Asia */}
-      </g>
+        <Geographies geography={geoUrl}>
+          {({ geographies }) =>
+            geographies.map((geo) => (
+              <Geography
+                key={geo.rsmKey}
+                geography={geo}
+                fill="#1e3a5f"
+                stroke="rgba(14,165,233,0.15)"
+                strokeWidth={0.5}
+                style={{
+                  default: { outline: "none" },
+                  hover: { fill: "#274b7a", outline: "none", cursor: "pointer" },
+                  pressed: { outline: "none" },
+                }}
+              />
+            ))
+          }
+        </Geographies>
 
-      {/* Origin: PAITA, PERU */}
-      <g>
-        <circle cx="185" cy="275" r="4" fill="#f59e0b">
-          <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite" />
-        </circle>
-        <circle cx="185" cy="275" r="10" fill="rgba(245,158,11,0.2)">
-          <animate attributeName="r" values="8;14;8" dur="2s" repeatCount="indefinite" />
-        </circle>
-        <text x="185" y="260" textAnchor="middle" fill="#f59e0b" fontSize="9" fontWeight="800" className="font-tight tracking-widest">PAITA, PE</text>
-      </g>
-
-      {/* Routes & Destinations */}
-      <g>
+        {/* Renderizado de Regiones Activas */}
         {regionesExportacion.map((region) => {
           const isActive = activeId === region.id
-          const pos = regionPositions[region.id] || [0, 0]
           
           return (
-            <g key={region.id} className="cursor-pointer" onClick={() => onSelect(region.id)}>
-              {/* Route line */}
-              <motion.path
-                d={`M 185 275 Q ${(185+pos[0])/2} ${((275+pos[1])/2)-40} ${pos[0]} ${pos[1]}`}
-                fill="none"
-                stroke={region.color}
-                strokeWidth={isActive ? 2 : 1}
-                strokeDasharray="4 4"
-                opacity={isActive ? 0.8 : 0.2}
-                animate={isActive ? { strokeDashoffset: [-20, 0] } : {}}
-                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                markerEnd={`url(#marker-${region.id})`}
-              />
-
-              {/* Pulsing Dots in Destination Countries */}
+            <g key={region.id}>
+              {/* Rutas y Puntos si está activo */}
               {isActive && region.paises.map(pais => {
-                const pt = countryPoints[pais.codigo]
+                const pt = geoCoords[pais.codigo]
                 if (!pt) return null
                 return (
                   <g key={pais.codigo}>
-                    <circle cx={pt[0]} cy={pt[1]} r="3" fill="#0ea5e9" />
-                    <circle cx={pt[0]} cy={pt[1]} r="8" fill="rgba(14,165,233,0.3)">
-                      <animate attributeName="r" values="5;10;5" dur="1.5s" repeatCount="indefinite" />
-                      <animate attributeName="opacity" values="0.6;0;0.6" dur="1.5s" repeatCount="indefinite" />
-                    </circle>
+                    {/* Línea Curva (Trayectoria) */}
+                    <Line
+                      from={paitaCoord}
+                      to={pt}
+                      stroke={region.color}
+                      strokeWidth={1.5}
+                      strokeDasharray="4 4"
+                      strokeOpacity={0.8}
+                      style={{
+                        animation: "dash 20s linear infinite",
+                      }}
+                      className="transition-all duration-500"
+                    />
+
+                    {/* Marcador Destino */}
+                    <Marker coordinates={pt}>
+                      <circle r={3} fill="#0ea5e9" />
+                      <circle r={8} fill="rgba(14,165,233,0.3)">
+                        <animate attributeName="r" values="5;10;5" dur="1.5s" repeatCount="indefinite" />
+                        <animate attributeName="opacity" values="0.6;0;0.6" dur="1.5s" repeatCount="indefinite" />
+                      </circle>
+                    </Marker>
                   </g>
                 )
               })}
-
-              {/* Region Trigger (Invisible Path for broader interaction if needed, or point) */}
-              <circle 
-                cx={pos[0]} cy={pos[1]} r="8" 
-                fill={isActive ? region.color : "transparent"} 
-                stroke={region.color} 
-                strokeWidth="2"
-                opacity={isActive ? 1 : 0.4}
-              />
             </g>
           )
         })}
-      </g>
-    </svg>
+
+        {/* Origen: PAITA, PERU */}
+        <Marker coordinates={paitaCoord}>
+          <circle r={4} fill="#f59e0b">
+            <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite" />
+          </circle>
+          <circle r={10} fill="rgba(245,158,11,0.2)">
+            <animate attributeName="r" values="8;14;8" dur="2s" repeatCount="indefinite" />
+          </circle>
+          <text textAnchor="middle" y={-10} fill="#f59e0b" fontSize={10} fontWeight={800} className="font-tight tracking-widest drop-shadow-lg">
+            PAITA, PE
+          </text>
+        </Marker>
+
+      </ComposableMap>
+    </div>
   )
 }
 
