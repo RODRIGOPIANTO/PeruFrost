@@ -137,12 +137,12 @@ function ProductCard({ p, index }: { p: Producto; index: number }) {
       </div>
 
       {/* Contenido */}
-      <div className="flex flex-col flex-1 p-5 lg:p-6 gap-3">
-        <div>
-          <h3 className="text-white font-black text-lg leading-tight tracking-tight mb-0.5 group-hover:text-[#00e5ff] transition-colors duration-300">
+      <div className="flex flex-col flex-1 p-5 lg:p-6 gap-3 min-w-0">
+        <div className="min-w-0">
+          <h3 className="text-white font-black text-lg leading-tight tracking-tight mb-0.5 group-hover:text-[#00e5ff] transition-colors duration-300 truncate">
             {p.nombre}
           </h3>
-          <p className="text-[#00e5ff]/60 text-xs italic font-medium">{p.nombreEN} · <em className="text-[#a0b2c6]">{p.cientifico}</em></p>
+          <p className="text-[#00e5ff]/60 text-xs italic font-medium truncate">{p.nombreEN} · <em className="text-[#a0b2c6]">{p.cientifico}</em></p>
         </div>
 
         <p className="text-[#a0b2c6] text-sm leading-relaxed flex-1 line-clamp-3">
@@ -234,13 +234,13 @@ export default function CatalogoPage() {
 
         {/* ═══ TABS PRINCIPALES ═══ */}
         <div className="sticky top-[72px] z-40 border-b" style={{ background: 'rgba(11,25,44,0.92)', backdropFilter: 'blur(20px)', borderColor: 'rgba(255,255,255,0.06)' }}>
-          <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6">
-            <div className="flex items-stretch overflow-x-auto hide-scrollbar">
+          <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 min-w-0">
+            <div className="flex items-stretch overflow-x-auto hide-scrollbar gap-2 sm:gap-4 pb-1">
               {TABS.map(t => (
                 <button
                   key={t.id}
                   onClick={() => setTab(t.id)}
-                  className={`relative flex items-center gap-2.5 px-6 py-4 text-sm font-bold whitespace-nowrap transition-all duration-300 border-b-2 ${
+                  className={`relative flex flex-shrink-0 items-center justify-center gap-2.5 px-6 py-4 text-sm font-bold whitespace-nowrap transition-all duration-300 border-b-2 ${
                     tab === t.id
                       ? 'text-[#00e5ff] border-[#00e5ff]'
                       : 'text-[#a0b2c6] border-transparent hover:text-white hover:border-white/20'
@@ -270,15 +270,15 @@ export default function CatalogoPage() {
                   className="rounded-3xl overflow-hidden border border-[#00e5ff]/15 shadow-[0_0_80px_-30px_rgba(0,229,255,0.2)]"
                   style={{ background: 'linear-gradient(135deg, rgba(0,229,255,0.06) 0%, rgba(14,25,44,0.8) 50%, rgba(96,165,250,0.06) 100%)' }}
                 >
-                  <div className="flex flex-col lg:flex-row items-center gap-0">
+                  <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-12 w-full min-w-0">
                     {/* Imagen */}
-                    <motion.div variants={fadeUp} className="relative w-full lg:w-[45%] aspect-square lg:aspect-auto lg:h-[480px] flex-shrink-0 overflow-hidden">
-                      <Image src="/recursos/product_squid.png" alt="Calamar Gigante Pota" fill className="object-contain p-8 lg:p-12 animate-[float_6s_ease-in-out_infinite]" priority sizes="(max-width:1024px) 100vw, 45vw" />
+                    <motion.div variants={fadeUp} className="relative w-full lg:w-1/2 aspect-square md:aspect-video lg:aspect-square min-h-0 overflow-hidden">
+                      <Image src="/recursos/product_squid.png" alt="Calamar Gigante Pota" fill className="object-contain p-6 md:p-10 lg:p-12 animate-[float_6s_ease-in-out_infinite]" priority sizes="(max-width:1024px) 100vw, 50vw" />
                       <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at center, rgba(0,229,255,0.08) 0%, transparent 65%)' }} />
                     </motion.div>
 
                     {/* Info */}
-                    <motion.div variants={fadeUp} className="flex-1 p-8 lg:p-14 flex flex-col justify-center">
+                    <motion.div variants={fadeUp} className="w-full lg:w-1/2 p-6 sm:p-8 lg:p-12 flex flex-col justify-center min-w-0">
                       <span className="inline-flex items-center gap-2 bg-[#00e5ff] text-[#0b192c] text-[11px] font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full w-fit mb-6 shadow-lg shadow-[#00e5ff]/20">
                         <Star size={11} fill="currentColor" /> Producto Estrella
                       </span>
@@ -302,14 +302,14 @@ export default function CatalogoPage() {
               </section>
 
               {/* Sub-tabs */}
-              <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 mb-8">
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-start sm:items-center">
-                  <div className="flex items-center gap-1 p-1 rounded-xl" style={{ background: 'rgba(22,51,84,0.6)', border: '1px solid rgba(255,255,255,0.06)' }}>
+              <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 mb-8 min-w-0">
+                <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+                  <div className="flex flex-wrap items-center gap-2 p-1.5 rounded-xl w-full sm:w-auto overflow-hidden" style={{ background: 'rgba(22,51,84,0.6)', border: '1px solid rgba(255,255,255,0.06)' }}>
                     {SUB_TABS.map(st => (
                       <button
                         key={st.id}
                         onClick={() => setSubTab(st.id)}
-                        className={`px-4 py-2 rounded-lg text-sm font-bold transition-all duration-200 whitespace-nowrap ${
+                        className={`px-4 py-2 rounded-lg text-sm font-bold transition-all duration-200 whitespace-nowrap overflow-hidden text-ellipsis ${
                           subTab === st.id
                             ? 'bg-[#00e5ff] text-[#0b192c] shadow-md'
                             : 'text-[#a0b2c6] hover:text-white'
