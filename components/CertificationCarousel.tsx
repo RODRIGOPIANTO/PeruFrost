@@ -2,15 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-
-const certifications = [
-  { name: 'BRCGS', sub: 'Grado AA — Calidad Alimentaria Global', icon: '🏆', color: 'rgba(234,179,8,0.15)', border: 'rgba(234,179,8,0.35)' },
-  { name: 'MSC', sub: 'Marine Stewardship Council', icon: '🌊', color: 'rgba(59,130,246,0.15)', border: 'rgba(59,130,246,0.35)' },
-  { name: 'MarinTrust', sub: 'Cadena de Suministro Sostenible', icon: '🐟', color: 'rgba(20,184,166,0.15)', border: 'rgba(20,184,166,0.35)' },
-  { name: 'FDA', sub: 'Registrado — Estados Unidos', icon: '🇺🇸', color: 'rgba(239,68,68,0.15)', border: 'rgba(239,68,68,0.35)' },
-  { name: 'DG SANTE', sub: 'Habilitado Unión Europea', icon: '🇪🇺', color: 'rgba(99,102,241,0.15)', border: 'rgba(99,102,241,0.35)' },
-  { name: 'SANIPES', sub: 'Habilitación Clase A — Perú', icon: '🏅', color: 'rgba(34,197,94,0.15)', border: 'rgba(34,197,94,0.35)' },
-];
+import { certificaciones } from '@/data/certificaciones';
 
 export default function CertificationCarousel() {
   const [active, setActive] = useState(0);
@@ -19,102 +11,74 @@ export default function CertificationCarousel() {
   useEffect(() => {
     if (paused) return;
     const id = setInterval(() => {
-      setActive((prev) => (prev + 1) % certifications.length);
-    }, 2800);
+      setActive((prev) => (prev + 1) % certificaciones.length);
+    }, 3000);
     return () => clearInterval(id);
   }, [paused]);
 
+  const activeCert = certificaciones[active];
+
   return (
-    <div>
+    <div className="w-full">
       {/* Auto-rotating spotlight */}
       <div
-        style={{ position: 'relative', marginBottom: '2.5rem' }}
+        className="relative mb-10"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
       >
         <AnimatePresence mode="wait">
           <motion.div
-            key={active}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.45 }}
-            style={{
-              background: certifications[active].color,
-              border: `1.5px solid ${certifications[active].border}`,
-              borderRadius: '20px',
-              padding: '2.5rem 3rem',
-              textAlign: 'center',
-              minHeight: '160px',
-              display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '0.75rem',
-            }}
+            key={activeCert.id}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.05 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="glass-card p-10 lg:p-16 text-center min-h-[220px] flex flex-col items-center justify-center gap-6 border-t-4"
+            style={{ borderColor: activeCert.color }}
           >
-            <span style={{ fontSize: '3.5rem', lineHeight: 1 }}>{certifications[active].icon}</span>
+            <span className="text-6xl drop-shadow-xl">{activeCert.emoji}</span>
             <div>
-              <p style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: '2rem', color: '#fff', marginBottom: '0.4rem' }}>
-                {certifications[active].name}
-              </p>
-              <p style={{ color: '#8BA0B4', fontSize: '1rem', fontWeight: 500 }}>{certifications[active].sub}</p>
+              <h3 className="text-3xl lg:text-4xl font-black text-white mb-2 font-tight tracking-tight uppercase">
+                {activeCert.nombre}
+                {activeCert.nivel && <span className="text-[#0ea5e9] ml-3 text-xl">{activeCert.nivel}</span>}
+              </h3>
+              <p className="text-[#8BA0B4] text-lg font-medium">{activeCert.subtitulo}</p>
+              <p className="text-white/40 text-sm mt-4 italic max-w-md mx-auto">{activeCert.descripcion}</p>
             </div>
           </motion.div>
         </AnimatePresence>
 
         {/* Progress dots */}
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', marginTop: '1.25rem' }}>
-          {certifications.map((_, i) => (
+        <div className="flex justify-center gap-2 mt-8">
+          {certificaciones.map((_, i) => (
             <button
               key={i}
-              onClick={() => { setActive(i); setPaused(true); setTimeout(() => setPaused(false), 5000); }}
-              style={{
-                width: i === active ? '28px' : '8px',
-                height: '8px',
-                borderRadius: '9999px',
-                background: i === active ? '#00E5FF' : 'rgba(139,160,180,0.4)',
-                border: 'none', cursor: 'pointer',
-                transition: 'all 0.35s ease',
-                padding: 0,
-              }}
+              onClick={() => { setActive(i); setPaused(true); }}
+              className={`h-2 rounded-full transition-all duration-500 ${
+                i === active ? 'w-12 bg-[#0ea5e9]' : 'w-2 bg-white/10 hover:bg-white/30'
+              }`}
             />
           ))}
         </div>
       </div>
 
       {/* Static grid - all badges */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.75rem' }}
-        className="md:grid-cols-3 lg:grid-cols-6"
-      >
-        {certifications.map((cert, i) => (
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3">
+        {certificaciones.map((cert, i) => (
           <button
-            key={cert.name}
-            onClick={() => { setActive(i); setPaused(true); setTimeout(() => setPaused(false), 5000); }}
-            style={{
-              background: i === active ? cert.color : 'rgba(26,34,56,0.5)',
-              border: `1.5px solid ${i === active ? cert.border : 'rgba(0,229,255,0.12)'}`,
-              borderRadius: '14px',
-              padding: '1rem 0.75rem',
-              display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem',
-              cursor: 'pointer', transition: 'all 0.3s ease',
-            }}
-            onMouseEnter={e => {
-              if (i !== active) {
-                (e.currentTarget as HTMLElement).style.background = cert.color;
-                (e.currentTarget as HTMLElement).style.borderColor = cert.border;
-              }
-            }}
-            onMouseLeave={e => {
-              if (i !== active) {
-                (e.currentTarget as HTMLElement).style.background = 'rgba(26,34,56,0.5)';
-                (e.currentTarget as HTMLElement).style.borderColor = 'rgba(0,229,255,0.12)';
-              }
-            }}
+            key={cert.id}
+            onClick={() => { setActive(i); setPaused(true); }}
+            className={`p-4 rounded-xl flex flex-col items-center gap-3 transition-all duration-300 border ${
+              i === active 
+              ? 'bg-white/5 border-[#0ea5e9] shadow-lg shadow-[#0ea5e9]/10 scale-105 z-10' 
+              : 'bg-white/[0.02] border-white/5 grayscale hover:grayscale-0 hover:border-white/20'
+            }`}
           >
-            <span style={{ fontSize: '1.5rem' }}>{cert.icon}</span>
-            <span style={{
-              fontFamily: "'Inter Tight', sans-serif", fontWeight: 800,
-              fontSize: '0.85rem', color: i === active ? '#fff' : '#8BA0B4',
-              transition: 'color 0.3s',
-            }}>
-              {cert.name}
+            <span className="text-2xl">{cert.emoji}</span>
+            <span className={`text-[10px] font-black uppercase tracking-widest text-center leading-tight ${
+              i === active ? 'text-[#0ea5e9]' : 'text-[#8BA0B4]'
+            }`}>
+              {cert.nombre}
             </span>
           </button>
         ))}

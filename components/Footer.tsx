@@ -1,25 +1,12 @@
 'use client';
 
 import Link from 'next/link';
-import { Mail, Phone, MapPin, Globe } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
 import { useLang } from '@/components/LanguageContext';
+import { infoEmpresa } from '@/data/empresa';
 
 export default function Footer() {
   const { t, lang } = useLang();
-
-  const navLinks = [
-    { label: t('nav.about'), href: '/nosotros' },
-    { label: t('nav.catalog'), href: '/catalogo' },
-    { label: t('nav.quality'), href: '/calidad' },
-    { label: t('nav.infra'), href: '/infraestructura' },
-  ];
-
-  const legalLinks = [
-    { label: lang === 'es' ? 'Política de Privacidad' : 'Privacy Policy', href: '/privacidad' },
-    { label: lang === 'es' ? 'Gestión Ética' : 'Ethics', href: '/gestion-etica' },
-    { label: lang === 'es' ? 'Política SIG' : 'SIG Policy', href: '/politica-sig' },
-    { label: 'Compliance', href: '/compliance' },
-  ];
 
   return (
     <footer style={{ background: '#070D1A', borderTop: '1px solid rgba(0,229,255,0.12)', paddingTop: '4rem', paddingBottom: '2rem' }}>
@@ -31,16 +18,14 @@ export default function Footer() {
           {/* Brand */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', marginBottom: '0.5rem' }}>
-              <img src="/recursos/logo_white.png" alt="Perú Frost" style={{ height: '34px', width: 'auto', objectFit: 'contain' }} />
+              <img src="/recursos/logo_white.png" alt={infoEmpresa.nombre} style={{ height: '34px', width: 'auto', objectFit: 'contain' }} />
               <div>
-                <div style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: '13px', color: '#fff', lineHeight: 1.1 }}>PERÚ FROST</div>
-                <div style={{ fontSize: '8px', fontWeight: 600, letterSpacing: '0.15em', color: '#00E5FF' }}>S.A.C.</div>
+                <div style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: '13px', color: '#fff', lineHeight: 1.1 }}>{infoEmpresa.nombre.split(' ')[0]} {infoEmpresa.nombre.split(' ')[1]}</div>
+                <div style={{ fontSize: '8px', fontWeight: 600, letterSpacing: '0.15em', color: '#00E5FF' }}>{infoEmpresa.nombre.split(' ')[2]}</div>
               </div>
             </Link>
             <p style={{ color: '#8BA0B4', fontSize: '0.85rem', lineHeight: 1.7 }}>
-              {lang === 'es' 
-                ? 'Exportamos productos marinos de primera calidad bajo estrictos estándares internacionales. Del mar peruano al mundo.' 
-                : 'We export premium marine products under strict international standards. From the Peruvian sea to the world.'}
+              {lang === 'es' ? infoEmpresa.branding.desc.es : infoEmpresa.branding.desc.en}
             </p>
           </div>
 
@@ -48,9 +33,10 @@ export default function Footer() {
           <div>
             <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '0.8rem', color: '#00E5FF', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>{t('footer.nav')}</h3>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-              {navLinks.map(link => (
-                <li key={link.href}><Link href={link.href} style={{ color: '#8BA0B4', fontSize: '0.85rem', textDecoration: 'none' }} onMouseEnter={e => e.currentTarget.style.color = '#00E5FF'} onMouseLeave={e => e.currentTarget.style.color = '#8BA0B4'}>{link.label}</Link></li>
-              ))}
+              <li><Link href="/nosotros" className="footer-link">{t('nav.about')}</Link></li>
+              <li><Link href="/catalogo" className="footer-link">{t('nav.catalog')}</Link></li>
+              <li><Link href="/calidad" className="footer-link">{t('nav.quality')}</Link></li>
+              <li><Link href="/infraestructura" className="footer-link">{t('nav.infra')}</Link></li>
             </ul>
           </div>
 
@@ -58,50 +44,44 @@ export default function Footer() {
           <div>
             <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '0.8rem', color: '#00E5FF', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>{t('footer.legal')}</h3>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-              {legalLinks.map(link => (
-                <li key={link.href}><Link href={link.href} style={{ color: '#8BA0B4', fontSize: '0.85rem', textDecoration: 'none' }} onMouseEnter={e => e.currentTarget.style.color = '#00E5FF'} onMouseLeave={e => e.currentTarget.style.color = '#8BA0B4'}>{link.label}</Link></li>
-              ))}
+              <li><Link href="/privacidad" className="footer-link">{lang === 'es' ? 'Privacidad' : 'Privacy'}</Link></li>
+              <li><Link href="/terminos" className="footer-link">{lang === 'es' ? 'Términos' : 'Terms'}</Link></li>
+              <li><Link href="/compliance" className="footer-link">Compliance</Link></li>
             </ul>
           </div>
 
-          {/* Contact Details (Combined to save space) */}
+          {/* Contact */}
           <div>
              <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '0.8rem', color: '#00E5FF', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>{t('footer.contact')}</h3>
              <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                <li style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
-                 <Mail size={16} color="#00E5FF" style={{ flexShrink: 0 }} />
-                 <a href="mailto:ventas@perufrost.com" style={{ color: '#fff', fontSize: '0.9rem', fontWeight: 600, textDecoration: 'none' }}>ventas@perufrost.com</a>
+                 <Mail size={16} color="#00E5FF" />
+                 <a href={`mailto:${infoEmpresa.contacto.email}`} style={{ color: '#fff', fontSize: '0.9rem', fontWeight: 600, textDecoration: 'none' }}>{infoEmpresa.contacto.email}</a>
                </li>
-               <li style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
-                 <MapPin size={16} color="#00E5FF" style={{ flexShrink: 0, marginTop: '2px' }} />
-                 <div>
-                   <p style={{ color: '#fff', fontSize: '0.85rem', lineHeight: 1.5 }}>
-                     <strong>Planta:</strong> Paita, Piura (Perú)<br/>
-                     <span style={{ color: '#8BA0B4' }}>Jr. Los Pescadores Nº 946</span>
-                   </p>
-                 </div>
-               </li>
-               <li style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
-                 <MapPin size={16} color="#8BA0B4" style={{ flexShrink: 0, marginTop: '2px' }} />
-                 <div>
-                   <p style={{ color: '#fff', fontSize: '0.85rem', lineHeight: 1.5 }}>
-                     <strong>Oficina:</strong> Surco, Lima (Perú)<br/>
-                     <span style={{ color: '#8BA0B4' }}>Av. Manuel Olguín Nº 501</span>
-                   </p>
-                 </div>
-               </li>
+               {infoEmpresa.ubicaciones.map((loc) => (
+                 <li key={loc.tipo} style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+                   <MapPin size={16} color="#00E5FF" style={{ marginTop: '2px' }} />
+                   <div>
+                     <p style={{ color: '#fff', fontSize: '0.85rem', lineHeight: 1.5 }}>
+                       <strong>{loc.tipo}:</strong> {loc.ciudad}<br/>
+                       <span style={{ color: '#8BA0B4' }}>{loc.direccion}</span>
+                     </p>
+                   </div>
+                 </li>
+               ))}
              </ul>
           </div>
         </div>
 
         {/* Bottom bar */}
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '1rem' }}>
-          <p style={{ color: '#8BA0B4', fontSize: '0.8rem' }}>{t('footer.copy')}</p>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(0,229,255,0.05)', padding: '6px 12px', borderRadius: '9999px', border: '1px solid rgba(0,229,255,0.2)' }}>
-            <span style={{ color: '#00E5FF', fontSize: '0.75rem', fontWeight: 800 }}>BRCGS Food Safety — Grado AA</span>
+          <p style={{ color: '#8BA0B4', fontSize: '0.8rem' }}>
+            © {new Date().getFullYear()} {infoEmpresa.nombre} — RUC {infoEmpresa.ruc}. {lang === 'es' ? 'Todos los derechos reservados.' : 'All rights reserved.'}
+          </p>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(0,229,255,0.05)', padding: '6px 24px', borderRadius: '12px', border: '1px solid rgba(0,229,255,0.2)' }}>
+            <span style={{ color: '#00E5FF', fontSize: '0.75rem', fontWeight: 900 }}>{infoEmpresa.certificacionPrincipal.nombre} — Grado {infoEmpresa.certificacionPrincipal.grado}</span>
           </div>
         </div>
-
       </div>
     </footer>
   );

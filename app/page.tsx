@@ -14,6 +14,8 @@ import CertificationCarousel from '@/components/CertificationCarousel';
 import ColdChainTimeline from '@/components/ColdChainTimeline';
 import { AnimatedCounter } from '@/components/AnimatedCounter';
 import { useLang } from '@/components/LanguageContext';
+import { statsEmpresa } from '@/data/stats';
+import CountryTicker from '@/components/CountryTicker';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 48 },
@@ -157,11 +159,18 @@ export default function HomePage() {
         {/* ═══ STATS ═══ */}
         <section style={{ padding: '5rem 0', background: '#1A2238', borderTop: '1px solid rgba(0,229,255,0.08)', borderBottom: '1px solid rgba(0,229,255,0.08)' }}>
           <div style={{ maxWidth: '1280px', margin: '0 auto', paddingInline: '1.5rem' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem' }} className="lg:grid-cols-4">
-              <AnimatedCounter end={20} prefix="+" label={t('stats.years')} sublabel={t('stats.years.sub')} icon={<Award size={28} />} />
-              <AnimatedCounter end={56} prefix="+" label={t('stats.countries')} sublabel={t('stats.countries.sub')} icon={<Globe size={28} />} />
-              <AnimatedCounter end={5500} prefix="+" suffix=" TM" label={t('stats.capacity')} sublabel={t('stats.capacity.sub')} icon={<Thermometer size={28} />} />
-              <AnimatedCounter end={200} prefix="+" label={t('stats.clients')} sublabel={t('stats.clients.sub')} icon={<Shield size={28} />} />
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem' }} className="lg:grid-cols-4 lg:flex lg:justify-between">
+              {statsEmpresa.slice(0, 4).map((stat) => (
+                <AnimatedCounter 
+                  key={stat.id}
+                  end={stat.valor} 
+                  prefix={stat.sufijo.includes('+') ? '+' : ''} 
+                  suffix={!stat.sufijo.includes('+') ? stat.sufijo : ''} 
+                  label={stat.label} 
+                  sublabel={stat.subLabel} 
+                  icon={stat.id === 'experiencia' ? <Award size={28} /> : stat.id === 'paises' ? <Globe size={28} /> : stat.id === 'capacidad' ? <Thermometer size={28} /> : <Shield size={28} />} 
+                />
+              ))}
             </div>
           </div>
         </section>
@@ -436,6 +445,7 @@ export default function HomePage() {
           </div>
         </section>
       </main>
+      <CountryTicker />
       <Footer />
     </>
   );
