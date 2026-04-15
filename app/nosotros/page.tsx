@@ -65,8 +65,8 @@ const values = [
   },
   {
     icon: <Globe size={28} />, title: 'Visión Global', color: '#6EE7FA',
-    desc: 'Pensamos en escala global actuando con conocimiento local. Exportamos a +56 países porque entendemos lo que cada mercado exige.',
-    bullets: ['+56 países de destino directo', 'Equipo multilingüe (ES, EN, ZH)', 'Adaptación de especificaciones por mercado'],
+    desc: 'Pensamos en escala global actuando con conocimiento local. Exportamos a +20 países porque entendemos lo que cada mercado exige.',
+    bullets: ['+20 países de destino directo', 'Equipo multilingüe (ES, EN, ZH)', 'Adaptación de especificaciones por mercado'],
   },
   {
     icon: <Leaf size={28} />, title: 'Sostenibilidad', color: '#10B981',
@@ -77,7 +77,7 @@ const values = [
 
 const stats = [
   { icon: <Package size={20} />, value: '+200', label: 'Clientes activos' },
-  { icon: <Globe size={20} />, value: '+56', label: 'Países de destino' },
+  { icon: <Globe size={20} />, value: '+20', label: 'Países de destino' },
   { icon: <Star size={20} />, value: '20+', label: 'Años de experiencia' },
   { icon: <Users size={20} />, value: '150+', label: 'Colaboradores' },
   { icon: <Anchor size={20} />, value: '-25°C', label: 'Temp. garantizada' },
@@ -302,7 +302,7 @@ export default function NosotrosPage() {
                       className="lg:flex"
                     >
                       {/* Desktop layout */}
-                      <div style={{ display: 'none', width: '100%', alignItems: 'flex-start', gap: '0' }} className="lg:flex">
+                      <div style={{ width: '100%', alignItems: 'flex-start', gap: '0' }} className="hidden lg:flex">
                         {/* Left side */}
                         <div style={{ flex: 1, paddingRight: '2.5rem', display: 'flex', justifyContent: 'flex-end' }}>
                           {isLeft && (
@@ -365,7 +365,7 @@ export default function NosotrosPage() {
                       <div style={{ paddingLeft: '56px', width: '100%', position: 'relative' }} className="lg:hidden">
                         {/* Mobile dot */}
                         <div style={{
-                          position: 'absolute', left: '20px', top: '1.5rem',
+                          position: 'absolute', left: '29px', top: '1.5rem',
                           width: '16px', height: '16px', borderRadius: '50%',
                           background: 'linear-gradient(135deg, #00E5FF, #0099BB)',
                           border: '3px solid #0A0F1F',
@@ -465,56 +465,49 @@ export default function NosotrosPage() {
           </div>
         </section>
 
-        {/* ─── SUSTAINABILITY ─── */}
-        <section style={{ padding: '7rem 0' }}>
+        {/* ─── SOCIOS ESTRATÉGICOS ─── */}
+        <section style={{ padding: '7rem 0', background: '#0D1326' }}>
           <div style={{ maxWidth: '1280px', margin: '0 auto', paddingInline: '1.5rem' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '4rem', alignItems: 'center' }} className="lg:grid-cols-2">
-              <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-                <span className="highlight-tag" style={{ marginBottom: '1.5rem', display: 'inline-block' }}>
-                  {lang === 'es' ? 'Sostenibilidad' : 'Sustainability'}
-                </span>
-                <h2 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: 'clamp(1.75rem, 3.5vw, 2.85rem)', lineHeight: 1.15, marginBottom: '1.5rem' }}>
-                  {lang === 'es' ? <>Pesca responsable para las <span className="gradient-text">generaciones futuras</span></> : <>Responsible fishing for <span className="gradient-text">future generations</span></>}
-                </h2>
-                <p style={{ color: '#8BA0B4', fontSize: '1.05rem', lineHeight: 1.85, marginBottom: '2rem' }}>
-                  {lang === 'es'
-                    ? 'Participamos activamente en el Proyecto de Mejora Pesquera (FIP) de la pota peruana liderado por CAPECAL, comprometidos con la extracción sostenible y responsable de los recursos marinos del Pacífico Sur.'
-                    : 'We actively participate in the Fishery Improvement Project (FIP) for Peruvian jumbo squid led by CAPECAL, committed to the sustainable and responsible extraction of marine resources from the South Pacific.'}
-                </p>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '2.75rem' }}>
-                  {(lang === 'es'
-                    ? ['Miembro activo del FIP pota peruana (CAPECAL)', 'Certificación MSC — Marine Stewardship Council', 'Certificación MarinTrust — cadena de suministro', 'Reducción de descarte y aprovechamiento integral']
-                    : ['Active member of Peruvian squid FIP (CAPECAL)', 'MSC certification — Marine Stewardship Council', 'MarinTrust certification — supply chain', 'Waste reduction and full utilization']
-                  ).map((item) => (
-                    <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.875rem' }}>
-                      <Leaf size={17} color="#10B981" style={{ flexShrink: 0, marginTop: '2px' }} />
-                      <span style={{ color: '#fff', fontSize: '0.97rem', lineHeight: 1.5 }}>{item}</span>
-                    </div>
-                  ))}
-                </div>
-                <Link href="/calidad" className="btn-outline">
-                  {lang === 'es' ? 'Ver certificaciones' : 'View certifications'} <ArrowRight size={16} />
-                </Link>
+            <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+              <span className="highlight-tag" style={{ marginBottom: '1.25rem', display: 'inline-block' }}>
+                {lang === 'es' ? 'Alianzas' : 'Alliances'}
+              </span>
+              <h2 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: 'clamp(1.75rem, 4vw, 3rem)', lineHeight: 1.15 }}>
+                {lang === 'es' ? <>Colaborando con la <span className="gradient-text">industria</span></> : <>Collaborating with the <span className="gradient-text">industry</span></>}
+              </h2>
+            </div>
+            
+            <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr)', gap: '1.5rem' }} className="sm:grid-cols-2 lg:grid-cols-4">
+              {/* SNP */}
+              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
+                style={{ background: 'rgba(26,34,56,0.6)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '20px', padding: '2.5rem 2rem', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem', fontSize: '2.5rem' }}>🇵🇪</div>
+                <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1.1rem', color: '#fff', marginBottom: '1rem', lineHeight: 1.3 }}>Sociedad Nacional<br/>de Pesquería</h3>
+                <p style={{ color: '#8BA0B4', fontSize: '0.9rem', lineHeight: 1.6 }}>Miembro institucional comprometido con la industria peruana.</p>
               </motion.div>
-              <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-                <div style={{ background: 'rgba(16,185,129,0.05)', border: '1.5px solid rgba(16,185,129,0.2)', borderRadius: '24px', padding: '3rem 2.5rem', textAlign: 'center' }}>
-                  <div style={{ fontSize: '4.5rem', marginBottom: '1.75rem' }}>🌊</div>
-                  <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: '1.85rem', color: '#fff', marginBottom: '1rem' }}>CAPECAL</h3>
-                  <p style={{ color: '#8BA0B4', fontSize: '0.97rem', lineHeight: 1.85, marginBottom: '2rem' }}>
-                    {lang === 'es'
-                      ? 'Cámara de la Industria Pesquera de Consumo Humano. Asociación que lidera el Proyecto de Mejora Pesquera (FIP) de la pota peruana orientado a la certificación MSC.'
-                      : 'Chamber of the Human Consumption Fishing Industry. Association leading the Fishery Improvement Project (FIP) for Peruvian squid aimed at MSC certification.'}
-                  </p>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.625rem', justifyContent: 'center' }}>
-                    {['MSC Ready', 'FIP Pota', 'MarinTrust', 'Pesca Sostenible'].map((tag) => (
-                      <span key={tag} style={{
-                        background: 'rgba(16,185,129,0.12)', border: '1px solid rgba(16,185,129,0.3)',
-                        borderRadius: '9999px', padding: '5px 16px',
-                        fontSize: '0.8rem', fontWeight: 700, color: '#10B981',
-                      }}>{tag}</span>
-                    ))}
-                  </div>
-                </div>
+              
+              {/* SNI */}
+              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
+                style={{ background: 'rgba(26,34,56,0.6)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '20px', padding: '2.5rem 2rem', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem', fontSize: '2.5rem' }}>🏭</div>
+                <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1.1rem', color: '#fff', marginBottom: '1rem', lineHeight: 1.3 }}>Sociedad Nacional<br/>de Industrias</h3>
+                <p style={{ color: '#8BA0B4', fontSize: '0.9rem', lineHeight: 1.6 }}>Participación en la estandarización y calidad industrial.</p>
+              </motion.div>
+
+              {/* CAPECAL */}
+              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
+                style={{ background: 'rgba(16,185,129,0.05)', border: '1px solid rgba(16,185,129,0.2)', borderRadius: '20px', padding: '2.5rem 2rem', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'rgba(16,185,129,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem', fontSize: '2.5rem' }}>🦑</div>
+                <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1.1rem', color: '#fff', marginBottom: '1rem', lineHeight: 1.3 }}>Cámara Peruana<br/>del Calamar Gigante</h3>
+                <p style={{ color: '#8BA0B4', fontSize: '0.9rem', lineHeight: 1.6 }}>Participación activa en el Proyecto de Mejora Pesquera (FIP).</p>
+              </motion.div>
+
+              {/* Paita */}
+              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
+                style={{ background: 'rgba(26,34,56,0.6)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '20px', padding: '2.5rem 2rem', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem', fontSize: '2.5rem' }}>⚓</div>
+                <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1.1rem', color: '#fff', marginBottom: '1rem', lineHeight: 1.3 }}>Association of Fishing<br/>Companies of Paita</h3>
+                <p style={{ color: '#8BA0B4', fontSize: '0.9rem', lineHeight: 1.6 }}>Alianza de procesadores locales del norte del mar de Grau.</p>
               </motion.div>
             </div>
           </div>

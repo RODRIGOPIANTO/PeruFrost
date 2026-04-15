@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Corte } from '@/data/productos'
 import { Package, Info } from 'lucide-react'
+import Image from 'next/image'
 
 interface PotaDiagramProps {
   cortes: Corte[]
@@ -24,9 +25,12 @@ export default function PotaDiagram({ cortes, className = "" }: PotaDiagramProps
 
   return (
     <div className={`flex flex-col lg:flex-row gap-8 items-center ${className}`}>
-      {/* SVG Diagram */}
-      <div className="relative w-full max-w-[400px] aspect-[1/1.5]">
-        <svg viewBox="0 0 200 600" className="w-full h-full drop-shadow-2xl">
+      {/* SVG Diagram with Real Image */}
+      <div className="relative w-full max-w-[400px] aspect-[1/1.5] flex justify-center items-center">
+        <div className="absolute inset-0 z-0 p-4">
+          <Image src="/recursos/calamar-real.png" alt="Dosidicus Gigas Anatome" fill className="object-contain" />
+        </div>
+        <svg viewBox="0 0 200 600" className="relative z-10 w-full h-full">
           <defs>
             <filter id="glow">
               <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
@@ -42,26 +46,22 @@ export default function PotaDiagram({ cortes, className = "" }: PotaDiagramProps
             <motion.path
               key={zone.id}
               d={zone.path}
-              fill={activeZone === zone.id ? "#0ea5e9" : "#1e3a5f"}
-              stroke="#0ea5e9"
+              fill={activeZone === zone.id ? "#0ea5e9" : "transparent"}
+              stroke={activeZone === zone.id ? "#0ea5e9" : "transparent"}
               strokeWidth="2"
-              strokeOpacity={activeZone === zone.id ? "1" : "0.3"}
-              fillOpacity={activeZone === zone.id ? "0.8" : "0.4"}
+              strokeOpacity={activeZone === zone.id ? "1" : "0"}
+              fillOpacity={activeZone === zone.id ? "0.6" : "0"}
               initial={{ scale: 1 }}
-              whileHover={{ scale: 1.02, fillOpacity: 0.6 }}
+              whileHover={{ fillOpacity: 0.3, fill: '#0ea5e9', stroke: '#0ea5e9', strokeOpacity: 0.5 }}
               animate={{ 
-                scale: activeZone === zone.id ? 1.05 : 1,
                 filter: activeZone === zone.id ? "url(#glow)" : "none"
               }}
               onClick={() => setActiveZone(activeZone === zone.id ? null : zone.id)}
-              className="cursor-pointer transition-colors duration-300"
+              className="cursor-pointer transition-all duration-300"
             />
           ))}
 
-          {/* Botones (Decorative) */}
-          <circle cx="100" cy="250" r="5" fill="#0ea5e9" opacity="0.4" />
-          <circle cx="80" cy="200" r="4" fill="#0ea5e9" opacity="0.3" />
-          <circle cx="120" cy="300" r="4" fill="#0ea5e9" opacity="0.3" />
+          {/* Botones (Decorative) removed for realism */}
         </svg>
 
         {/* Labels Overlay */}

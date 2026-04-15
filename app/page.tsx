@@ -65,7 +65,7 @@ const coldChainSteps = [
   { icon: '❄️', labelEs: 'Congelado', labelEn: 'Frozen', subEs: 'Túnel y placas -25°C', subEn: 'Tunnel and plate -25°C' },
   { icon: '🔬', labelEs: 'Control Lab', labelEn: 'Lab Control', subEs: 'Análisis microbiológico', subEn: 'Microbiological analysis' },
   { icon: '📦', labelEs: 'Empaque', labelEn: 'Packaging', subEs: 'IQF o Block según spec', subEn: 'IQF or Block per spec' },
-  { icon: '🚢', labelEs: 'Exportación', labelEn: 'Export', subEs: '+56 países de destino', subEn: '+56 destination countries' },
+  { icon: '🚢', labelEs: 'Exportación', labelEn: 'Export', subEs: '+20 países de destino', subEn: '+20 destination countries' },
 ];
 
 export default function HomePage() {

@@ -32,7 +32,7 @@ const techSpecs = [
     category: 'Refrigeración', icon: <Thermometer size={24} />, title: 'Yantai Moon — Tecnología de Punta',
     specs: [
       { label: 'Temperatura de almacenamiento', value: '-25°C' },
-      { label: 'Capacidad total', value: '5,500 TM' },
+      { label: 'Capacidad total', value: '5,000 TM' },
       { label: 'Tipo de sistema', value: 'Túnel y placas' },
       { label: 'Tecnología', value: 'Yantai Moon' },
     ],
@@ -299,6 +299,32 @@ export default function InfraestructuraPage() {
                   Esta infraestructura es un diferencial competitivo clave que nos permite garantizar la inocuidad total y mantener las certificaciones BRCGS AA, FDA y DG SANTE.
                 </p>
               </motion.div>
+            </div>
+          </div>
+        </section>
+
+
+        {/* Localización Google Maps */}
+        <section style={{ padding: '7rem 0', background: '#0D1326' }}>
+          <div style={{ maxWidth: '1280px', margin: '0 auto', paddingInline: '1.5rem' }}>
+            <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
+              <span className="highlight-tag" style={{ marginBottom: '1.25rem', display: 'inline-block' }}>
+                {lang === 'es' ? 'Ubicación Estratégica' : 'Strategic Location'}
+              </span>
+              <h2 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: 'clamp(1.75rem, 4vw, 3rem)', lineHeight: 1.15 }}>
+                {lang === 'es' ? <>Encuéntranos en <span className="gradient-text">Paita</span></> : <>Find us in <span className="gradient-text">Paita</span></>}
+              </h2>
+            </div>
+            <div style={{ width: '100%', height: '500px', borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)' }}>
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15895.105741639893!2d-81.11182470000002!3d-5.074747799999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x90363ecc620614eb%3A0xcb1b51eacc17c6b9!2sPaita%2C%20Per%C3%BA!5e0!3m2!1ses-419!2s!4v1714421425112!5m2!1ses-419!2s" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }} 
+                allowFullScreen={false} 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </div>
         </section>

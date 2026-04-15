@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   keywords: "exportación pota perú, calamar gigante, dosidicus gigas, exportación hidrobiológicos, peru frost, paita piura, BRCGS, MSC",
   openGraph: {
     title: "Perú Frost S.A.C. | Exportación de Pota y Productos del Mar",
-    description: "20+ años protegiendo la inversión de nuestros clientes. Exportamos a +56 países.",
+    description: "20+ años protegiendo la inversión de nuestros clientes. Exportamos a +20 países.",
     url: "https://perufrost.com",
     siteName: "Perú Frost S.A.C.",
     locale: "es_PE",
