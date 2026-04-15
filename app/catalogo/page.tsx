@@ -114,11 +114,10 @@ function ProductCard({ p, index }: { p: Producto; index: number }) {
     <motion.article
       variants={fadeUp}
       custom={index}
-      className="group relative flex flex-col rounded-2xl overflow-hidden border border-white/5 transition-all duration-500 hover:border-[#00e5ff]/40 hover:shadow-[0_0_40px_-10px_rgba(0,229,255,0.2)]"
-      style={{ background: 'rgba(22,51,84,0.55)', backdropFilter: 'blur(12px)' }}
+      className="group relative flex flex-col rounded-[2rem] overflow-hidden border border-white/5 transition-all duration-500 hover:border-[#00e5ff]/40 hover:shadow-[0_0_40px_-10px_rgba(0,229,255,0.2)] bg-[#102035]"
     >
       {/* Imagen */}
-      <div className="relative w-full aspect-[16/9] overflow-hidden bg-[#0d2137]">
+      <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#0d2137]">
         <Image
           src={imgSrc}
           alt={p.nombre}
@@ -127,42 +126,41 @@ function ProductCard({ p, index }: { p: Producto; index: number }) {
           className="object-cover transition-transform duration-700 group-hover:scale-[1.06]"
           sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0b192c] via-transparent to-transparent opacity-80" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#102035] via-transparent to-transparent opacity-90" />
         {p.destacado && (
-          <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-[#00e5ff] text-[#0b192c] text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full shadow-lg shadow-[#00e5ff]/30">
+          <div className="absolute top-5 left-5 flex items-center gap-1.5 bg-[#00e5ff] text-[#0b192c] text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full shadow-lg shadow-[#00e5ff]/30">
             <Star size={10} fill="currentColor" />
             Producto Estrella
           </div>
         )}
       </div>
 
-      {/* Contenido */}
-      <div className="flex flex-col flex-1 p-5 lg:p-6 gap-3 min-w-0">
-        <div className="min-w-0">
-          <h3 className="text-white font-black text-lg leading-tight tracking-tight mb-0.5 group-hover:text-[#00e5ff] transition-colors duration-300 truncate">
+      {/* Contenido (Protip 1 & 5: Padding uniforme de p-8 y alineación en eje) */}
+      <div className="flex flex-col flex-1 p-8 min-w-0">
+        
+        {/* Protip 4: Jerarquía tipográfica con márgenes generosos (mb-6) */}
+        <div className="min-w-0 mb-6">
+          <h3 className="text-white font-black text-2xl leading-tight tracking-tight mb-2 group-hover:text-[#00e5ff] transition-colors duration-300 truncate">
             {p.nombre}
           </h3>
-          <p className="text-[#00e5ff]/60 text-xs italic font-medium truncate">{p.nombreEN} · <em className="text-[#a0b2c6]">{p.cientifico}</em></p>
+          <p className="text-[#00e5ff]/70 text-sm italic font-medium truncate">{p.nombreEN} · <em className="text-[#a0b2c6]">{p.cientifico}</em></p>
         </div>
 
-        <p className="text-[#a0b2c6] text-sm leading-relaxed flex-1 line-clamp-3">
+        <p className="text-[#a0b2c6] text-base leading-relaxed flex-1 line-clamp-3 mb-6">
           {p.descripcion}
         </p>
 
         {/* Formatos */}
-        <div>
-          <p className="text-[9px] uppercase tracking-[0.18em] text-[#a0b2c6]/50 font-bold mb-2">Formatos de exportación</p>
-          <div className="flex flex-wrap gap-1.5">
+        <div className="min-w-0 mb-8">
+          <p className="text-[10px] uppercase tracking-[0.2em] text-[#a0b2c6]/50 font-bold mb-3">Formatos de exportación</p>
+          <div className="flex flex-wrap gap-2">
             {p.formatos.map(f => <FormatoBadge key={f.label} f={f} />)}
           </div>
         </div>
 
         {/* Acción */}
-        <button className="mt-1 flex items-center gap-2 text-[#00e5ff] text-xs font-bold group/btn hover:gap-3 transition-all duration-300 w-fit">
-          <Download size={13} />
-          <span className="underline underline-offset-4 decoration-[#00e5ff]/30 group-hover/btn:decoration-[#00e5ff]">
-            Solicitar Ficha Técnica
-          </span>
+        <button className="mt-auto flex items-center justify-center gap-3 bg-[#00e5ff]/10 hover:bg-[#00e5ff] text-[#00e5ff] hover:text-[#0b192c] text-sm font-bold rounded-xl px-6 py-4 transition-all duration-300 w-full group/btn">
+          Ver Ficha Técnica <ArrowRight size={18} className="group-hover/btn:translate-x-1 transition-transform" />
         </button>
       </div>
     </motion.article>
@@ -335,7 +333,7 @@ export default function CatalogoPage() {
                     initial="hidden"
                     animate="visible"
                     variants={stagger}
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 lg:gap-6 auto-rows-fr"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 lg:gap-10 auto-rows-fr"
                   >
                     {potaFiltrada.map((p, i) => (
                       <ProductCard key={p.id} p={p} index={i} />
@@ -361,7 +359,7 @@ export default function CatalogoPage() {
                     Captura sostenible certificada. 8 especies de alta valorización para los mercados más exigentes.
                   </p>
                 </motion.div>
-                <motion.div initial="hidden" animate="visible" variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 lg:gap-6 auto-rows-fr">
+                <motion.div initial="hidden" animate="visible" variants={stagger} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 lg:gap-10 auto-rows-fr">
                   {PECES.map((p, i) => <ProductCard key={p.id} p={p} index={i} />)}
                 </motion.div>
               </div>
@@ -383,7 +381,7 @@ export default function CatalogoPage() {
                     Desde el langostino artesanal hasta la concha de abanico de acuicultura certificada. La élite del mar peruano.
                   </p>
                 </motion.div>
-                <motion.div initial="hidden" animate="visible" variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6 auto-rows-fr">
+                <motion.div initial="hidden" animate="visible" variants={stagger} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 auto-rows-fr">
                   {MARISCOS.map((p, i) => <ProductCard key={p.id} p={p} index={i} />)}
                 </motion.div>
               </div>
