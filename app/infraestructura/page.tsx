@@ -304,27 +304,41 @@ export default function InfraestructuraPage() {
         </section>
 
 
-        {/* Localización Google Maps */}
+        {/* Localización Google Maps — Planta exacta */}
         <section style={{ padding: '7rem 0', background: '#0D1326' }}>
           <div style={{ maxWidth: '1280px', margin: '0 auto', paddingInline: '1.5rem' }}>
             <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
               <span className="highlight-tag" style={{ marginBottom: '1.25rem', display: 'inline-block' }}>
-                {lang === 'es' ? 'Ubicación Estratégica' : 'Strategic Location'}
+                {lang === 'es' ? 'Nuestra Planta' : 'Our Plant'}
               </span>
               <h2 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: 'clamp(1.75rem, 4vw, 3rem)', lineHeight: 1.15 }}>
-                {lang === 'es' ? <>Encuéntranos en <span className="gradient-text">Paita</span></> : <>Find us in <span className="gradient-text">Paita</span></>}
+                {lang === 'es' ? <>Encuéntranos en <span className="gradient-text">Paita, Piura</span></> : <>Find us in <span className="gradient-text">Paita, Piura</span></>}
               </h2>
+              <p style={{ color: '#8BA0B4', marginTop: '1rem', fontSize: '1rem' }}>
+                Av. Fortunato Chirichigno s/n, Zona Industrial — Paita, Piura, Perú
+              </p>
             </div>
-            <div style={{ width: '100%', height: '500px', borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.1)' }}>
-              <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15895.105741639893!2d-81.11182470000002!3d-5.074747799999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x90363ecc620614eb%3A0xcb1b51eacc17c6b9!2sPaita%2C%20Per%C3%BA!5e0!3m2!1ses-419!2s!4v1714421425112!5m2!1ses-419!2s" 
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen={false} 
-                loading="lazy" 
+            <div style={{ width: '100%', borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(0,229,255,0.15)', boxShadow: '0 0 60px rgba(0,229,255,0.06)' }}>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3979.3155871547553!2d-81.11420312484658!3d-5.077000194886786!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x90361e6f5b9c0001%3A0x5f0b86462a9b810!2sPer%C3%BA%20Frost%20S.A.C.!5e0!3m2!1ses-419!2spe!4v1714000000000!5m2!1ses-419!2spe"
+                width="100%"
+                height="520"
+                style={{ border: 0, display: 'block' }}
+                allowFullScreen
+                loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
+            </div>
+            <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+              <a
+                href="https://maps.app.goo.gl/WzFAoGVnTpdNLUNp6"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary"
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.95rem', padding: '0.875rem 2rem' }}
+              >
+                📍 {lang === 'es' ? 'Ver en Google Maps' : 'Open in Google Maps'}
+              </a>
             </div>
           </div>
         </section>

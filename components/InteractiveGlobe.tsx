@@ -1,34 +1,82 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useLang } from '@/components/LanguageContext'
-import regionesExportacion, { PaisDestino } from '@/data/mercados'
+import regionesExportacion from '@/data/mercados'
 import { Globe, ArrowRight, MapPin } from 'lucide-react'
-
 import {
   ComposableMap,
   Geographies,
   Geography,
   Marker,
-  Line,
 } from 'react-simple-maps'
 
-// Topología estándar
+// Topolog\u00eda est\u00e1ndar
 const geoUrl = "https://unpkg.com/world-atlas@2.0.2/countries-110m.json"
 
-// Coordenadas reales aproximadas [Longitud, Latitud] para los destinos
+// Coordenadas reales [Longitud, Latitud]
 const geoCoords: Record<string, [number, number]> = {
   US: [-95.7, 37.0], CA: [-106.3, 56.1], MX: [-102.5, 23.6], CR: [-83.7, 9.7], PA: [-80.7, 8.5],
   BR: [-51.9, -14.2], AR: [-63.6, -38.4], CL: [-71.5, -35.6], CO: [-74.2, 4.5],
   ES: [-3.7, 40.4], PT: [-8.2, 39.3], FR: [2.2, 46.2], IT: [12.5, 41.8], DE: [10.4, 51.1], GB: [-3.4, 55.3],
   CN: [104.1, 35.8], JP: [138.2, 36.2], KR: [127.7, 35.9], TH: [100.9, 15.8], VN: [108.2, 14.0],
   MA: [-7.0, 31.7], EG: [30.8, 26.8], ZA: [22.9, -30.5],
-  RU: [105.3, 61.5],
+  RU: [62.0, 55.0], // moved west (European Russia) so line doesn't wrap
 }
 
-// Origen
+// Origen Paita, Per\u00fa
 const paitaCoord: [number, number] = [-81.11, -5.08]
+
+// Proyecci\u00f3n Mercator — width=900, height=450, scale=140, center=[20,20]
+// Convertir [lon,lat] a [x,y] para esta proyecci\u00f3n
+function lonLatToXY(lon: number, lat: number, width: number, height: number, scale: number, centerLon: number, centerLat: number): [number, number] {
+  const lambda = (lon - centerLon) * Math.PI / 180
+  const phi = lat * Math.PI / 180
+  const centerPhi = centerLat * Math.PI / 180
+  const x = scale * lambda + width / 2
+  const mercatorY = Math.log(Math.tan(Math.PI / 4 + phi / 2))
+  const centerMercatorY = Math.log(Math.tan(Math.PI / 4 + centerPhi / 2))
+  const y = height / 2 - scale * (mercatorY - centerMercatorY)
+  return [x, y]
+}
+
+const MAP_W = 900, MAP_H = 450, MAP_SCALE = 140, MAP_CX = 20, MAP_CY = 15
+
+interface ArcProps {
+  from: [number, number]
+  to: [number, number]
+  color: string
+  animated?: boolean
+}
+
+function Arc({ from, to, color, animated }: ArcProps) {
+  const [x1, y1] = lonLatToXY(from[0], from[1], MAP_W, MAP_H, MAP_SCALE, MAP_CX, MAP_CY)
+  const [x2, y2] = lonLatToXY(to[0], to[1], MAP_W, MAP_H, MAP_SCALE, MAP_CX, MAP_CY)
+
+  // Control point: mid-point pulled upward for parabolic arc
+  const cx = (x1 + x2) / 2
+  const cy = Math.min(y1, y2) - Math.abs(x2 - x1) * 0.18 - 40
+
+  const d = `M ${x1} ${y1} Q ${cx} ${cy} ${x2} ${y2}`
+  const pathLen = Math.hypot(x2 - x1, y2 - y1) * 1.5 + 60
+
+  return (
+    <path
+      d={d}
+      fill="none"
+      stroke={color}
+      strokeWidth={1.5}
+      strokeOpacity={0.85}
+      strokeDasharray={animated ? "6 4" : "none"}
+      style={animated ? {
+        strokeDashoffset: pathLen,
+        animation: `arcDash ${pathLen / 40}s linear infinite`,
+      } : {}}
+      markerEnd={`url(#arrow-${color.replace('#', '')})`}
+    />
+  )
+}
 
 interface WorldMapProps {
   activeId: string | null
@@ -37,42 +85,46 @@ interface WorldMapProps {
 
 const WorldMap = ({ activeId, onSelect }: WorldMapProps) => {
   const activeRegion = regionesExportacion.find(r => r.id === activeId)
+  const [paitaX, paitaY] = lonLatToXY(paitaCoord[0], paitaCoord[1], MAP_W, MAP_H, MAP_SCALE, MAP_CX, MAP_CY)
+
+  // Unique colors for arrow markers
+  const uniqueColors = [...new Set(regionesExportacion.map(r => r.color))]
 
   return (
-    <div className="w-full h-auto drop-shadow-2xl rounded-[24px] overflow-hidden" style={{ background: '#0c1a2e', position: 'relative' }}>
-      {/* Grid Pattern para el océano */}
-      <div className="absolute inset-0 grid-pattern opacity-10 pointer-events-none" />
-      
+    <div className="w-full drop-shadow-2xl rounded-[24px] overflow-hidden" style={{ background: '#060d1f', position: 'relative' }}>
+      <style>{`@keyframes arcDash { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -200; } }`}</style>
+
       <ComposableMap
         projection="geoMercator"
-        projectionConfig={{
-          scale: 130,
-          center: [10, 20] // Centro visual para abarcar desde Perú hasta Japón/Rusia
-        }}
-        width={850}
-        height={430}
-        style={{ width: "100%", height: "auto" }}
+        projectionConfig={{ scale: MAP_SCALE, center: [MAP_CX, MAP_CY] }}
+        width={MAP_W}
+        height={MAP_H}
+        style={{ width: "100%", height: "auto", display: "block" }}
       >
         <defs>
-          {regionesExportacion.map(r => (
-            <marker key={`marker-${r.id}`} id={`marker-${r.id}`} markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-              <polygon points="0 0, 6 3, 0 6" fill={r.color} />
+          {uniqueColors.map(color => (
+            <marker key={color} id={`arrow-${color.replace('#', '')}`} markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+              <polygon points="0 0, 6 3, 0 6" fill={color} opacity="0.8" />
             </marker>
           ))}
         </defs>
 
+        {/* Oc\u00e9ano */}
+        <rect width={MAP_W} height={MAP_H} fill="#060d1f" />
+
+        {/* Pa\u00edses base */}
         <Geographies geography={geoUrl}>
           {({ geographies }) =>
             geographies.map((geo) => (
               <Geography
                 key={geo.rsmKey}
                 geography={geo}
-                fill="#1e3a5f"
-                stroke="rgba(14,165,233,0.15)"
+                fill="#162040"
+                stroke="rgba(14,165,233,0.12)"
                 strokeWidth={0.5}
                 style={{
                   default: { outline: "none" },
-                  hover: { fill: "#274b7a", outline: "none", cursor: "pointer" },
+                  hover: { fill: "#1e3a5f", outline: "none", cursor: "default" },
                   pressed: { outline: "none" },
                 }}
               />
@@ -80,64 +132,53 @@ const WorldMap = ({ activeId, onSelect }: WorldMapProps) => {
           }
         </Geographies>
 
-        {/* Renderizado de Regiones Activas */}
-        {regionesExportacion.map((region) => {
-          const isActive = activeId === region.id
-          
+        {/* Arcos activos — dibujados ANTES del punto de origen para que quede encima */}
+        {activeRegion && activeRegion.paises.map(pais => {
+          const pt = geoCoords[pais.codigo]
+          if (!pt) return null
           return (
-            <g key={region.id}>
-              {/* Rutas y Puntos si está activo */}
-              {isActive && region.paises.map(pais => {
-                const pt = geoCoords[pais.codigo]
-                if (!pt) return null
-                return (
-                  <g key={pais.codigo}>
-                    {/* Línea Curva (Trayectoria) */}
-                    <Line
-                      from={paitaCoord}
-                      to={pt}
-                      stroke={region.color}
-                      strokeWidth={1.5}
-                      strokeDasharray="4 4"
-                      strokeOpacity={0.8}
-                      style={{
-                        animation: "dash 20s linear infinite",
-                      }}
-                      className="transition-all duration-500"
-                    />
-
-                    {/* Marcador Destino */}
-                    <Marker coordinates={pt}>
-                      <circle r={3} fill="#0ea5e9" />
-                      <circle r={8} fill="rgba(14,165,233,0.3)">
-                        <animate attributeName="r" values="5;10;5" dur="1.5s" repeatCount="indefinite" />
-                        <animate attributeName="opacity" values="0.6;0;0.6" dur="1.5s" repeatCount="indefinite" />
-                      </circle>
-                    </Marker>
-                  </g>
-                )
-              })}
-            </g>
+            <Arc
+              key={pais.codigo}
+              from={paitaCoord}
+              to={pt}
+              color={activeRegion.color}
+              animated
+            />
           )
         })}
 
-        {/* Origen: PAITA, PERU */}
+        {/* Marcadores destino */}
+        {activeRegion && activeRegion.paises.map(pais => {
+          const pt = geoCoords[pais.codigo]
+          if (!pt) return null
+          return (
+            <Marker key={pais.codigo} coordinates={pt}>
+              <circle r={4} fill={activeRegion.color} opacity={0.9} />
+              <circle r={9} fill={activeRegion.color} opacity={0.2}>
+                <animate attributeName="r" values="6;12;6" dur="1.8s" repeatCount="indefinite" />
+                <animate attributeName="opacity" values="0.4;0;0.4" dur="1.8s" repeatCount="indefinite" />
+              </circle>
+            </Marker>
+          )
+        })}
+
+        {/* Origen: PAITA, PER\u00da */}
         <Marker coordinates={paitaCoord}>
-          <circle r={4} fill="#f59e0b">
-            <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite" />
+          <circle r={5} fill="#f59e0b">
+            <animate attributeName="r" values="4;7;4" dur="2.5s" repeatCount="indefinite" />
           </circle>
-          <circle r={10} fill="rgba(245,158,11,0.2)">
-            <animate attributeName="r" values="8;14;8" dur="2s" repeatCount="indefinite" />
+          <circle r={13} fill="rgba(245,158,11,0.15)">
+            <animate attributeName="r" values="10;18;10" dur="2.5s" repeatCount="indefinite" />
           </circle>
-          <text textAnchor="middle" y={-10} fill="#f59e0b" fontSize={10} fontWeight={800} className="font-tight tracking-widest drop-shadow-lg">
+          <text textAnchor="middle" y={-14} fill="#f59e0b" fontSize={9} fontWeight={800} style={{ letterSpacing: '0.1em' }}>
             PAITA, PE
           </text>
         </Marker>
-
       </ComposableMap>
     </div>
   )
 }
+
 
 export default function InteractiveGlobe() {
   const [activeRegion, setActiveRegion] = useState<string | null>('europa')

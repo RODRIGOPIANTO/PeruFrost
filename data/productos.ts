@@ -1,3 +1,12 @@
+// ═══════════════════════════════════════════════════
+// PERÚ FROST S.A.C. — Catálogo Oficial de Productos
+// Fuente: Brochure Oficial 2026
+// ═══════════════════════════════════════════════════
+
+export interface Empaque {
+  tipo: string      // IQF, BLOCK, IWP, IVP, SKIN PACK, TRAY, BAGS
+}
+
 export interface Corte {
   id: string
   nombre: string
@@ -5,7 +14,7 @@ export interface Corte {
   categoria: 'producto' | 'subproducto' | 'valorAgregado'
   empaques: string[]
   descripcion?: string
-  zona?: string // zona del cuerpo para el diagrama SVG
+  zona?: string
   emoji?: string
 }
 
@@ -27,232 +36,70 @@ export interface Producto {
   valorAgregado?: Corte[]
 }
 
-// ═══════════════════════════════════════════════
-// GIANT SQUID / POTA — PRODUCTO ESTRELLA
+// ═══════════════════════════════════════════════════
+// 🦑 GIANT SQUID / POTA — PRODUCTO ESTRELLA
 // Dosidicus gigas — FAO 87, Pacífico Sur
-// ═══════════════════════════════════════════════
+// ═══════════════════════════════════════════════════
 export const pota: Producto = {
   id: 'pota',
   nombre: 'Calamar Gigante / Pota',
-  nombreEN: 'Giant Squid',
+  nombreEN: 'Giant Squid / Humboldt Squid',
   nombreCientifico: 'Dosidicus gigas',
   categoria: 'pota',
   badge: 'Producto Estrella',
   badgeColor: '#0ea5e9',
   zona: 'FAO 87 — Pacífico Sur',
+  imagen: '/recursos/calamar_real.png',
   empaques: ['BLOCK 10kg', 'BLOCK 7kg', 'SACO 20kg', 'IQF'],
   mercados: ['China', 'España', 'Japón', 'EE.UU.', 'Corea', 'Tailandia'],
-  descripcion: 'La pota peruana es nuestro producto estrella. Capturada en las ricas aguas del Pacífico Sur, procesada bajo estrictos estándares BRCGS Grado AA.',
+  descripcion: 'La pota peruana es nuestro producto estrella. Capturada en las ricas aguas del Pacífico Sur (FAO 87), procesada bajo estrictos estándares BRCGS Grado AA. Amplio portafolio de cortes para diferentes mercados y especificaciones.',
 
-  // PRODUCTOS PRINCIPALES
   cortes: [
-    {
-      id: 'filete',
-      nombre: 'Filete',
-      nombreEN: 'Fillet',
-      categoria: 'producto',
-      empaques: ['BLOCK'],
-      descripcion: 'Manto limpio sin piel, presentación principal para mercados europeos y asiáticos',
-      zona: 'manto',
-      emoji: '🦑',
-    },
-    {
-      id: 'alas',
-      nombre: 'Alas',
-      nombreEN: 'Wings',
-      categoria: 'producto',
-      empaques: ['BLOCK'],
-      descripcion: 'Aletas laterales del manto, muy apreciadas en el mercado asiático',
-      zona: 'alas',
-      emoji: '🪶',
-    },
-    {
-      id: 'tentaculos',
-      nombre: 'Tentáculos',
-      nombreEN: 'Tentacles',
-      categoria: 'producto',
-      empaques: ['BLOCK'],
-      descripcion: 'Ocho tentáculos más dos largos, alta demanda en Asia y Europa del Sur',
-      zona: 'tentaculos',
-      emoji: '🐙',
-    },
-    {
-      id: 'reproductor',
-      nombre: 'Reproductor',
-      nombreEN: 'Sexual Tentacle',
-      categoria: 'producto',
-      empaques: ['BLOCK'],
-      descripcion: 'Tentáculo reproductor, nicho de mercado especializado',
-      zona: 'cabeza',
-      emoji: '🔬',
-    },
-    {
-      id: 'nucas',
-      nombre: 'Nucas',
-      nombreEN: 'Necks',
-      categoria: 'producto',
-      empaques: ['BLOCK'],
-      descripcion: 'Zona de unión entre cabeza y manto',
-      zona: 'cabeza',
-      emoji: '🔗',
-    },
+    { id: 'filete', nombre: 'Filete', nombreEN: 'Fillet', categoria: 'producto', empaques: ['BLOCK'], descripcion: 'Manto limpio sin piel, presentación principal para mercados europeos y asiáticos', zona: 'manto', emoji: '🦑' },
+    { id: 'alas', nombre: 'Alas', nombreEN: 'Wings', categoria: 'producto', empaques: ['BLOCK'], descripcion: 'Aletas laterales del manto, muy apreciadas en el mercado asiático', zona: 'alas', emoji: '🪶' },
+    { id: 'tentaculos', nombre: 'Tentáculos', nombreEN: 'Tentacles', categoria: 'producto', empaques: ['BLOCK'], descripcion: 'Ocho tentáculos más dos largos, alta demanda en Asia y Europa del Sur', zona: 'tentaculos', emoji: '🐙' },
+    { id: 'reproductor', nombre: 'Reproductor', nombreEN: 'Sexual Tentacle', categoria: 'producto', empaques: ['BLOCK'], descripcion: 'Tentáculos reproductores, presentación especial para mercados asiáticos', zona: 'tentaculos', emoji: '🎣' },
+    { id: 'nucas', nombre: 'Nucas', nombreEN: 'Necks', categoria: 'producto', empaques: ['BLOCK'], descripcion: 'Parte superior del manto, popular en mercados de comida rápida', zona: 'manto', emoji: '✂️' },
   ],
 
-  // SUB PRODUCTOS
   subProductos: [
-    {
-      id: 'membrana',
-      nombre: 'Membrana',
-      nombreEN: 'Membrane',
-      categoria: 'subproducto',
-      empaques: ['BLOCK'],
-      emoji: '📄',
-    },
-    {
-      id: 'membrana-cocida',
-      nombre: 'Membrana Cocida',
-      nombreEN: 'Boiled Membrane',
-      categoria: 'subproducto',
-      empaques: ['BLOCK'],
-      emoji: '♨️',
-    },
-    {
-      id: 'telilla',
-      nombre: 'Telilla',
-      nombreEN: 'Belly',
-      categoria: 'subproducto',
-      empaques: ['BLOCK'],
-      emoji: '🧬',
-    },
-    {
-      id: 'telilla-cocida',
-      nombre: 'Telilla Cocida',
-      nombreEN: 'Boiled Belly',
-      categoria: 'subproducto',
-      empaques: ['BLOCK'],
-      emoji: '♨️',
-    },
-    {
-      id: 'pico',
-      nombre: 'Pico',
-      nombreEN: 'Mouth',
-      categoria: 'subproducto',
-      empaques: ['BLOCK'],
-      emoji: '🦷',
-    },
+    { id: 'membrana', nombre: 'Membrana', nombreEN: 'Membrane', categoria: 'subproducto', empaques: ['BLOCK'], emoji: '📋' },
+    { id: 'membrana-cocida', nombre: 'Membrana Cocida', nombreEN: 'Boiled Membrane', categoria: 'subproducto', empaques: ['BLOCK'], emoji: '♨️' },
+    { id: 'telilla', nombre: 'Telilla', nombreEN: 'Belly', categoria: 'subproducto', empaques: ['BLOCK'], emoji: '📋' },
+    { id: 'telilla-cocida', nombre: 'Telilla Cocida', nombreEN: 'Boiled Belly', categoria: 'subproducto', empaques: ['BLOCK'], emoji: '♨️' },
+    { id: 'pico', nombre: 'Pico', nombreEN: 'Mouth', categoria: 'subproducto', empaques: ['BLOCK'], emoji: '🦷' },
+    { id: 'ventosa', nombre: 'Ventosa', nombreEN: 'Suckers', categoria: 'subproducto', empaques: ['BLOCK'], emoji: '🔵' },
+    { id: 'recortes', nombre: 'Recortes', nombreEN: 'Bits & Pieces', categoria: 'subproducto', empaques: ['IQF', 'BLOCK'], emoji: '📦' },
+    { id: 'recorte-precocido', nombre: 'Recorte Precocido', nombreEN: 'Boiled Bits & Pieces', categoria: 'subproducto', empaques: ['BLOCK'], emoji: '♨️' },
   ],
 
-  // VALOR AGREGADO
   valorAgregado: [
-    {
-      id: 'daruma',
-      nombre: 'Daruma Cocida',
-      nombreEN: 'Boiled Fillet',
-      categoria: 'valorAgregado',
-      empaques: ['BLOCK'],
-      descripcion: 'Filete precocido listo para consumo o procesamiento mínimo',
-      emoji: '🍱',
-    },
-    {
-      id: 'anillas',
-      nombre: 'Anillas',
-      nombreEN: 'Rings',
-      categoria: 'valorAgregado',
-      empaques: ['BLOCK', 'IQF'],
-      descripcion: 'Anillas de calamar para food service y retail',
-      emoji: '⭕',
-    },
-    {
-      id: 'alas-cocidas',
-      nombre: 'Alas Cocidas',
-      nombreEN: 'Boiled Wings',
-      categoria: 'valorAgregado',
-      empaques: ['BLOCK'],
-      emoji: '🍳',
-    },
-    {
-      id: 'labios',
-      nombre: 'Labios',
-      nombreEN: 'Squid Lips',
-      categoria: 'valorAgregado',
-      empaques: ['BLOCK'],
-      emoji: '💋',
-    },
-    {
-      id: 'cono',
-      nombre: 'Cono',
-      nombreEN: 'Squid Cone',
-      categoria: 'valorAgregado',
-      empaques: ['BLOCK'],
-      emoji: '🔺',
-    },
-    {
-      id: 'recortes',
-      nombre: 'Recortes',
-      nombreEN: 'Bits & Pieces',
-      categoria: 'valorAgregado',
-      empaques: ['IQF', 'BLOCK'],
-      emoji: '✂️',
-    },
-    {
-      id: 'botones',
-      nombre: 'Botones',
-      nombreEN: 'Buttons',
-      categoria: 'valorAgregado',
-      empaques: ['BLOCK', 'IQF'],
-      descripcion: 'Porciones pequeñas ideales para mezclas y preparaciones',
-      emoji: '🔘',
-    },
-    {
-      id: 'rabas',
-      nombre: 'Rabas',
-      nombreEN: 'Squid Strips',
-      categoria: 'valorAgregado',
-      empaques: ['BLOCK', 'IQF'],
-      descripcion: 'Tiras de calamar para fritura y food service',
-      emoji: '🍟',
-    },
-    {
-      id: 'recorte-precocido',
-      nombre: 'Recorte Precocido',
-      nombreEN: 'Boiled Bits & Pieces',
-      categoria: 'valorAgregado',
-      empaques: ['BLOCK'],
-      emoji: '♨️',
-    },
-    {
-      id: 'ventosa',
-      nombre: 'Ventosa',
-      nombreEN: 'Suckers',
-      categoria: 'valorAgregado',
-      empaques: ['BLOCK'],
-      emoji: '🔵',
-    },
+    { id: 'daruma', nombre: 'Daruma Cocida', nombreEN: 'Boiled Fillet', categoria: 'valorAgregado', empaques: ['BLOCK'], emoji: '🍣' },
+    { id: 'anillas', nombre: 'Anillas', nombreEN: 'Rings', categoria: 'valorAgregado', empaques: ['BLOCK', 'IQF'], emoji: '⭕' },
+    { id: 'alas-cocidas', nombre: 'Alas Cocidas', nombreEN: 'Boiled Wings', categoria: 'valorAgregado', empaques: ['BLOCK'], emoji: '♨️' },
+    { id: 'labios', nombre: 'Labios', nombreEN: 'Squid Lips', categoria: 'valorAgregado', empaques: ['BLOCK'], emoji: '💋' },
+    { id: 'cono', nombre: 'Cono', nombreEN: 'Squid Cone', categoria: 'valorAgregado', empaques: ['BLOCK'], emoji: '🔺' },
+    { id: 'botones', nombre: 'Botones', nombreEN: 'Buttons', categoria: 'valorAgregado', empaques: ['BLOCK', 'IQF'], emoji: '🔘' },
+    { id: 'rabas', nombre: 'Rabas', nombreEN: 'Squid Strips', categoria: 'valorAgregado', empaques: ['BLOCK', 'IQF'], emoji: '🍟' },
   ],
 }
 
-// ═══════════════════════════════════════════════
-// PECES / FISH
-// ═══════════════════════════════════════════════
+// ═══════════════════════════════════════════════════
+// 🐟 PECES / FISH
+// ═══════════════════════════════════════════════════
 export const peces: Producto[] = [
   {
     id: 'merluza',
-    nombre: 'Merluza',
+    nombre: 'Merluza Peruana',
     nombreEN: 'Peruvian Hake',
     nombreCientifico: 'Merluccius gayi',
     categoria: 'pez',
-    badge: 'Alta Demanda',
-    badgeColor: '#10b981',
-    zona: 'FAO 87 — Perú',
+    badge: 'IQF / BLOCK / IWP',
+    badgeColor: '#3b82f6',
+    imagen: '/recursos/product_merluza.png',
     empaques: ['IQF', 'BLOCK', 'IWP'],
-    mercados: ['España', 'Portugal', 'Francia', 'EE.UU.', 'Brasil'],
-    descripcion: 'Merluza peruana de alta calidad para mercados europeos y americanos. Procesada con equipos JBT Marel de clasificación automática.',
-    cortes: [
-      { id: 'filete-piel', nombre: 'Filete con piel', nombreEN: 'Skin-on Fillet', categoria: 'producto', empaques: ['IQF', 'BLOCK'] },
-      { id: 'filete-sin-piel', nombre: 'Filete sin piel', nombreEN: 'Skinless Fillet', categoria: 'producto', empaques: ['IQF', 'BLOCK'] },
-      { id: 'hgt', nombre: 'HGT', nombreEN: 'HGT', categoria: 'producto', empaques: ['BLOCK', 'IWP'] },
-      { id: 'entera', nombre: 'Entera', nombreEN: 'Whole', categoria: 'producto', empaques: ['BLOCK'] },
-    ],
+    mercados: ['España', 'Francia', 'Italia', 'EE.UU.', 'Brasil'],
+    descripcion: 'Capturada en las aguas peruanas con flota propia (11% de cuota nacional). Filetes, HGT y entera para los mercados más exigentes. Cadena de frío continua desde captura.',
   },
   {
     id: 'mahi-mahi',
@@ -260,17 +107,12 @@ export const peces: Producto[] = [
     nombreEN: 'Mahi Mahi / Dolphinfish',
     nombreCientifico: 'Coryphaena hippurus',
     categoria: 'pez',
-    badge: 'Premium',
+    badge: 'IQF / IWP / IVP',
     badgeColor: '#f59e0b',
-    zona: 'Océano Pacífico — Perú',
+    imagen: '/recursos/product_mahi.png',
     empaques: ['IQF', 'IWP', 'IVP'],
-    mercados: ['EE.UU.', 'Canadá', 'Japón', 'Australia'],
-    descripcion: 'Apreciado en mercados premium por sabor y textura superiores. Presentaciones de alta gama para restaurantes y distribuidores.',
-    cortes: [
-      { id: 'filetes', nombre: 'Filetes', nombreEN: 'Fillets', categoria: 'producto', empaques: ['IQF', 'IVP'] },
-      { id: 'porciones', nombre: 'Porciones', nombreEN: 'Portions', categoria: 'producto', empaques: ['IQF', 'IVP'] },
-      { id: 'lomos', nombre: 'Lomos', nombreEN: 'Loins', categoria: 'producto', empaques: ['IQF'] },
-    ],
+    mercados: ['EE.UU.', 'Alemania', 'Japón', 'Reino Unido'],
+    descripcion: 'Perico peruano premium en filetes, porciones y lomos de la mejor calidad organoléptica. Altamente valorado en mercados premium de Europa y EE.UU.',
   },
   {
     id: 'pejerrey',
@@ -278,9 +120,12 @@ export const peces: Producto[] = [
     nombreEN: 'Silverside',
     nombreCientifico: 'Odontesthes regia regia',
     categoria: 'pez',
+    badge: 'IQF / BLOCK',
+    badgeColor: '#6366f1',
+    imagen: '/recursos/product_merluza.png',
     empaques: ['IQF', 'BLOCK'],
-    mercados: [],
-    descripcion: 'Pequeño pez pelágico de alta rotación en mercados latinoamericanos.',
+    mercados: ['Chile', 'Argentina', 'Brasil'],
+    descripcion: 'Pejerrey peruano procesado en IQF y bloque. Presentación entera o en filetes según especificación del cliente.',
   },
   {
     id: 'bonito',
@@ -288,9 +133,12 @@ export const peces: Producto[] = [
     nombreEN: 'Bonito',
     nombreCientifico: 'Sarda chiliensis',
     categoria: 'pez',
+    badge: 'BLOCK / IQF',
+    badgeColor: '#ef4444',
+    imagen: '/recursos/product_merluza.png',
     empaques: ['BLOCK', 'IQF'],
-    mercados: [],
-    descripcion: 'Atún menor de la Corriente de Humboldt, alta demanda en conservas.',
+    mercados: ['España', 'Italia', 'Colombia'],
+    descripcion: 'Bonito del Pacífico peruano, ideal para conservas y filetes marinados. Procesado en planta propia bajo normas HACCP.',
   },
   {
     id: 'anchoveta',
@@ -298,9 +146,12 @@ export const peces: Producto[] = [
     nombreEN: 'Anchovy',
     nombreCientifico: 'Engraulis ringens',
     categoria: 'pez',
+    badge: 'BLOCK / IQF',
+    badgeColor: '#10b981',
+    imagen: '/recursos/product_merluza.png',
     empaques: ['BLOCK', 'IQF'],
-    mercados: [],
-    descripcion: 'Base de la cadena trófica del Pacífico Sur. Alta demanda en Europa.',
+    mercados: ['España', 'Portugal', 'Italia'],
+    descripcion: 'Anchoveta peruana, base de la cocina mediterránea. Procesada entera o en filetes, ideal para conservas de alta calidad.',
   },
   {
     id: 'jurel',
@@ -308,9 +159,12 @@ export const peces: Producto[] = [
     nombreEN: 'Horse Mackerel',
     nombreCientifico: 'Trachurus murphyi',
     categoria: 'pez',
+    badge: 'BLOCK / IQF',
+    badgeColor: '#8b5cf6',
+    imagen: '/recursos/product_merluza.png',
     empaques: ['BLOCK', 'IQF'],
-    mercados: [],
-    descripcion: 'Especie pelágica de alto valor nutricional.',
+    mercados: ['China', 'Rusia', 'Alemania'],
+    descripcion: 'Jurel del Pacífico Sur peruano, ideal para mercados asiáticos y europeos. Presentación entera o HGT.',
   },
   {
     id: 'caballa',
@@ -318,9 +172,12 @@ export const peces: Producto[] = [
     nombreEN: 'Mackerel',
     nombreCientifico: 'Scomber japonicus',
     categoria: 'pez',
+    badge: 'BLOCK / IQF',
+    badgeColor: '#0ea5e9',
+    imagen: '/recursos/product_merluza.png',
     empaques: ['BLOCK', 'IQF'],
-    mercados: [],
-    descripcion: 'Especie grasa con alto contenido de Omega-3.',
+    mercados: ['Japón', 'Corea', 'China', 'España'],
+    descripcion: 'Caballa peruana de alto valor nutricional, rica en Omega-3. Exportada entera o en filetes para mercados en Asia y Europa.',
   },
   {
     id: 'chiri',
@@ -328,15 +185,18 @@ export const peces: Producto[] = [
     nombreEN: 'Pacific Butterfish',
     nombreCientifico: 'Peprilus medius',
     categoria: 'pez',
+    badge: 'BLOCK / IQF',
+    badgeColor: '#f97316',
+    imagen: '/recursos/product_merluza.png',
     empaques: ['BLOCK', 'IQF'],
-    mercados: [],
-    descripcion: 'Pez de carne blanca y textura suave.',
+    mercados: ['China', 'Tailandia', 'Vietnam'],
+    descripcion: 'Chiri del Pacífico, especie de alto valor en mercados asiáticos. Carne suave y de fácil fileteo.',
   },
 ]
 
-// ═══════════════════════════════════════════════
-// MARISCOS Y CEFALÓPODOS / SHELLFISH & CEPHALOPODS
-// ═══════════════════════════════════════════════
+// ═══════════════════════════════════════════════════
+// 🦐 MARISCOS Y CEFALÓPODOS / SHELLFISH & CEPHALOPODS
+// ═══════════════════════════════════════════════════
 export const mariscos: Producto[] = [
   {
     id: 'pulpo',
@@ -344,19 +204,25 @@ export const mariscos: Producto[] = [
     nombreEN: 'Octopus',
     nombreCientifico: 'Octopus spp.',
     categoria: 'marisco',
+    badge: 'BLOCK / SKIN PACK / TRAY',
+    badgeColor: '#ec4899',
+    imagen: '/recursos/product_pulpo.png',
     empaques: ['BLOCK', 'SKIN PACK', 'TRAY', 'BAGS'],
-    mercados: ['España', 'Japón', 'Italia'],
-    descripcion: 'Pulpo entero o en porciones, múltiples presentaciones para retail y food service.',
+    mercados: ['España', 'Italia', 'Portugal', 'Japón'],
+    descripcion: 'Pulpo peruano de alta calidad, procesado en diversas presentaciones para el mercado gourmet europeo y asiático. Skin pack y tray pack para retail premium.',
   },
   {
-    id: 'langostino-california',
+    id: 'langostino-californicus',
     nombre: 'Langostino Californiensis',
     nombreEN: 'California Brown Shrimp',
     nombreCientifico: 'Farfantepenaeus californiensis',
     categoria: 'marisco',
+    badge: 'BLOCK / IQF',
+    badgeColor: '#f59e0b',
+    imagen: '/recursos/product_langostino.png',
     empaques: ['BLOCK', 'IQF'],
-    mercados: [],
-    descripcion: 'Langostino del Pacífico norte peruano, muy apreciado por su sabor.',
+    mercados: ['EE.UU.', 'España', 'Japón'],
+    descripcion: 'Langostino californiensis del Pacífico peruano, de carne firme y sabor pronunciado. Procesado entero o pelado según especificación.',
   },
   {
     id: 'langostino-blanco',
@@ -364,9 +230,12 @@ export const mariscos: Producto[] = [
     nombreEN: 'White Shrimp',
     nombreCientifico: 'Litopenaeus vannamei',
     categoria: 'marisco',
+    badge: 'BLOCK / IQF',
+    badgeColor: '#06b6d4',
+    imagen: '/recursos/product_langostino.png',
     empaques: ['BLOCK', 'IQF'],
-    mercados: [],
-    descripcion: 'La especie de camarón más cultivada mundialmente.',
+    mercados: ['EE.UU.', 'China', 'Japón', 'Europa'],
+    descripcion: 'Camarón blanco de alta producción, carne suave y sabor delicado. Preferido para mercados de retail en todo el mundo.',
   },
   {
     id: 'gambon-argentino',
@@ -374,9 +243,12 @@ export const mariscos: Producto[] = [
     nombreEN: 'Argentine Red Shrimp',
     nombreCientifico: 'Pleoticus muelleri',
     categoria: 'marisco',
+    badge: 'BLOCK / IQF',
+    badgeColor: '#ef4444',
+    imagen: '/recursos/product_langostino.png',
     empaques: ['BLOCK', 'IQF'],
-    mercados: ['España', 'EE.UU.', 'Japón'],
-    descripcion: 'Gamba salvaje del Atlántico Sur, sabor excepcional y carne firme.',
+    mercados: ['España', 'Italia', 'Francia', 'EE.UU.'],
+    descripcion: 'Gambón argentino de color rojo intenso natural, sabor premium. Muy apreciado en mercados gourmet europeos y americanos. Sin colorantes.',
   },
   {
     id: 'concha-abanico',
@@ -384,9 +256,12 @@ export const mariscos: Producto[] = [
     nombreEN: 'Scallop',
     nombreCientifico: 'Argopecten purpuratus',
     categoria: 'marisco',
+    badge: 'IQF',
+    badgeColor: '#a855f7',
+    imagen: '/recursos/product_concha.png',
     empaques: ['IQF'],
-    mercados: ['Francia', 'Japón', 'EE.UU.'],
-    descripcion: 'El mejillón de abanico peruano, joya gastronómica del Pacífico.',
+    mercados: ['Francia', 'Japón', 'EE.UU.', 'Bélgica'],
+    descripcion: 'Concha de abanico peruana, considerada entre las mejores del mundo. Criada en las frías aguas de Tumbes y Ancash, con exclusivo programa de trazabilidad.',
   },
   {
     id: 'calamar',
@@ -394,12 +269,11 @@ export const mariscos: Producto[] = [
     nombreEN: 'Squid',
     nombreCientifico: 'Loligo spp.',
     categoria: 'marisco',
+    badge: 'BLOCK / IQF',
+    badgeColor: '#0ea5e9',
+    imagen: '/recursos/calamar_real.png',
     empaques: ['BLOCK', 'IQF'],
-    mercados: ['España', 'Italia', 'Japón'],
-    descripcion: 'Calamar de menor tamaño, ideal para presentaciones enteras y anillas.',
+    mercados: ['España', 'Italia', 'Japón', 'EE.UU.'],
+    descripcion: 'Calamar patagónico (loligo) de la costa peruana, carne blanca y tierna. Presentación entera, en tubos o en anillas según requerimiento.',
   },
 ]
-
-// EXPORT AGRUPADO
-export const todosLosProductos: Producto[] = [pota, ...peces, ...mariscos]
-export default todosLosProductos
