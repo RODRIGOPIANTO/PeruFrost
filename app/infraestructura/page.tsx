@@ -195,6 +195,50 @@ export default function InfraestructuraPage() {
           </div>
         </section>
 
+        {/* Flota Section */}
+        <section style={S.section}>
+          <div style={S.inner}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '4rem', alignItems: 'center' }} className="lg:grid-cols-2">
+              <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+                <span className="highlight-tag" style={S.tag}>{lang === 'es' ? 'Nuestra Flota' : 'Our Fleet'}</span>
+                <h2 style={S.h2}>Embarcaciones propias para una <span className="gradient-text">pesca sostenible</span></h2>
+                <p style={{ color: '#8BA0B4', fontSize: '1.05rem', lineHeight: 1.85, marginBottom: '1.5rem' }}>
+                  {lang === 'es'
+                    ? 'Operamos con tres embarcaciones exclusivamente dedicadas a la pesca de merluza, asegurando así el cumplimiento del 11% de la cuota nacional en Perú.'
+                    : 'We operate three vessels exclusively dedicated to hake fishing, ensuring compliance with 11% of the national quota in Peru.'}
+                </p>
+                <div style={{ background: 'rgba(0,229,255,0.05)', border: '1px solid rgba(0,229,255,0.15)', borderRadius: '16px', padding: '1.5rem', marginBottom: '2rem' }}>
+                  <h4 style={{ color: '#fff', fontWeight: 800, marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <Droplets size={18} color="#00E5FF" /> Tecnología de Preservación
+                  </h4>
+                  <p style={{ color: '#8BA0B4', fontSize: '0.95rem', lineHeight: 1.7 }}>
+                    {lang === 'es'
+                      ? 'Nuestras bodegas de barcos están equipadas con sistemas innovadores de agua de mar refrigerada para mantener la frescura durante todo el viaje. Este método preservativo es completamente natural, sin químicos, asegurando la calidad y protegiendo el ecosistema.'
+                      : 'Our ship holds are equipped with innovative refrigerated seawater systems to maintain freshness throughout the trip. This preservation method is completely natural, chemical-free, ensuring quality and protecting the ecosystem.'}
+                  </p>
+                </div>
+              </motion.div>
+              <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+                <div style={{ position: 'relative', height: '440px', borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.05)' }}>
+                  {/* Using existing placeholder or generic styling if we don't have a ship image. We use a styled wrapper. */}
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, #0A0F1F 0%, #1A2238 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                     <Ship size={120} color="rgba(0,229,255,0.2)" />
+                     <div className="grid-pattern" style={{ position: 'absolute', inset: 0, opacity: 0.4 }} />
+                  </div>
+                  <div style={{ position: 'absolute', bottom: '2rem', left: '2rem', right: '2rem' }}>
+                    <div className="glass-card-strong" style={{ padding: '1.25rem', display: 'flex', alignItems: 'center', gap: '1rem', borderRadius: '16px' }}>
+                      <div>
+                        <p style={{ fontWeight: 800, color: '#fff', fontSize: '1.1rem' }}>3 Embarcaciones Industriales</p>
+                        <p style={{ fontSize: '0.85rem', color: '#8BA0B4' }}>{lang === 'es' ? '11% de la cuota de Merluza Peruana' : '11% of the Peruvian Hake quota'}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
         {/* Three highlights */}
         <section style={S.section}>
           <div style={S.inner}>

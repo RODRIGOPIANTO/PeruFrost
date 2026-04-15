@@ -156,12 +156,12 @@ export default function NosotrosPage() {
                   {lang === 'es' ? 'Misión' : 'Mission'}
                 </span>
                 <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: '1.75rem', color: '#fff', marginBottom: '1.25rem', lineHeight: 1.2 }}>
-                  {lang === 'es' ? 'Proteger la inversión de nuestros clientes' : 'Protect our clients\' investment'}
+                  {lang === 'es' ? 'Satisfacer necesidades nutricionales de manera óptima' : 'Optimally satisfy nutritional needs'}
                 </h3>
                 <p style={{ color: '#8BA0B4', fontSize: '1rem', lineHeight: 1.9, marginBottom: '2rem' }}>
                   {lang === 'es'
-                    ? 'Procesar y exportar productos hidrobiológicos con los más altos estándares de calidad, inocuidad y sostenibilidad, garantizando que cada envío llegue al destino en perfectas condiciones y bajo los parámetros exactos acordados con nuestros clientes.'
-                    : 'Process and export hydrobiological products with the highest standards of quality, safety and sustainability, ensuring every shipment reaches its destination in perfect condition under the exact parameters agreed with our clients.'}
+                    ? 'Satisfacer las necesidades nutricionales de manera óptima y garantizar siempre la frescura, el sabor y la seguridad en cada uno de nuestros productos a nivel global.'
+                    : 'To optimally satisfy nutritional needs and always guarantee freshness, flavor and safety in each of our products globally.'}
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                   {(lang === 'es'
@@ -187,12 +187,12 @@ export default function NosotrosPage() {
                   {lang === 'es' ? 'Visión' : 'Vision'}
                 </span>
                 <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: '1.75rem', color: '#fff', marginBottom: '1.25rem', lineHeight: 1.2 }}>
-                  {lang === 'es' ? 'Líderes globales de la industria pesquera peruana' : 'Global leaders in the Peruvian fishing industry'}
+                  {lang === 'es' ? 'Líderes indiscutibles en la industria pesquera' : 'Undisputed leaders in the fishing industry'}
                 </h3>
                 <p style={{ color: '#8BA0B4', fontSize: '1rem', lineHeight: 1.9, marginBottom: '2rem' }}>
                   {lang === 'es'
-                    ? 'Ser la empresa pesquera peruana de referencia a nivel mundial, distinguiéndonos por nuestra calidad certificada, innovación tecnológica continua y firme compromiso con la extracción sostenible de los recursos marinos del Pacífico Sur.'
-                    : 'Be the world\'s benchmark Peruvian fishing company, distinguished by our certified quality, continuous technological innovation and firm commitment to the sustainable extraction of marine resources from the South Pacific.'}
+                    ? 'En nuestra visión, nos proyectamos como líderes indiscutibles en la industria pesquera. Buscamos ser reconocidos nacional e internacionalmente por nuestra calidad incomparable, sostenibilidad e innovación para superar las expectativas.'
+                    : 'In our vision, we project ourselves as undisputed leaders in the fishing industry. We seek to be recognized nationally and internationally for our incomparable quality, sustainability and innovation to exceed expectations.'}
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                   {(lang === 'es'
@@ -218,17 +218,17 @@ export default function NosotrosPage() {
               <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
                 <span className="highlight-tag" style={{ marginBottom: '1.5rem', display: 'inline-block' }}>{lang === 'es' ? 'Nuestra Historia' : 'Our Story'}</span>
                 <h2 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: 'clamp(1.75rem, 4vw, 3rem)', lineHeight: 1.15, marginBottom: '1.75rem' }}>
-                  {lang === 'es' ? <>Del mar peruano al <span className="gradient-text">mundo entero</span></> : <>From the Peruvian sea to the <span className="gradient-text">whole world</span></>}
+                  {lang === 'es' ? <>Conscientes del invaluable <span className="gradient-text">tesoro pesquero</span></> : <>Aware of the invaluable <span className="gradient-text">fishing treasure</span></>}
                 </h2>
                 <p style={{ color: '#8BA0B4', fontSize: '1.05rem', lineHeight: 1.85, marginBottom: '1.5rem' }}>
                   {lang === 'es'
-                    ? 'Desde nuestros inicios a principios de siglo, Perú Frost ha crecido de forma sostenida hasta convertirse en uno de los referentes de la industria pesquera peruana. Nuestra fortaleza radica en la combinación de experiencia artesanal, tecnología de vanguardia y un equipo humano comprometido con la excelencia.'
-                    : 'Since our beginnings at the turn of the century, Perú Frost has grown steadily to become one of the benchmarks of the Peruvian fishing industry. Our strength lies in combining artisanal expertise, cutting-edge technology and a human team committed to excellence.'}
+                    ? 'Conscientes del invaluable tesoro que es nuestro mar peruano, en Perú Frost nos hemos dedicado a extraer, procesar y entregar al mundo productos hidrobiológicos de la más alta calidad desde Paita, al norte del Perú.'
+                    : 'Aware of the invaluable treasure that is our Peruvian sea, at Perú Frost we have dedicated ourselves to extracting, processing and delivering the highest quality hydrobiological products to the world from Paita, northern Peru.'}
                 </p>
                 <p style={{ color: '#8BA0B4', fontSize: '1.05rem', lineHeight: 1.85, marginBottom: '2.75rem' }}>
                   {lang === 'es'
-                    ? 'Nuestra planta en la Zona Industrial de Paita — a 5 minutos del Puerto de Paita — nos posiciona estratégicamente para garantizar la cadena de frío ininterrumpida desde la captura hasta el contenedor refrigerado con destino internacional.'
-                    : 'Our plant in the Paita Industrial Zone — 5 minutes from Paita Port — strategically positions us to guarantee an uninterrupted cold chain from catch to the refrigerated container bound for international destinations.'}
+                    ? 'Estamos fuertemente comprometidos con aportar valor a las comunidades en las que operamos, integrando prácticas sostenibles con pescadores artesanales y aplicando el tratamiento de aguas residuales en toda nuestra operación.'
+                    : 'We are strongly committed to adding value to the communities in which we operate, integrating sustainable practices with artisanal fishermen and applying wastewater treatment clean protocols throughout our operation.'}
                 </p>
                 <Link href="/infraestructura" className="btn-primary">
                   {lang === 'es' ? 'Ver Infraestructura' : 'View Infrastructure'} <ArrowRight size={16} />
