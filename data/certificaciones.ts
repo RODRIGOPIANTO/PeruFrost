@@ -5,6 +5,7 @@ export const certificaciones = [
     subtitulo: 'Grado AA',
     descripcion: 'Certificación GFSI requerida internacionalmente para estándares de calidad, seguridad y cumplimiento normativo en procesos.',
     emoji: '🏆',
+    imagen: '/recursos/cert_brcgs.png',
     color: '#f59e0b',
     nivel: 'AA',
   },
@@ -14,6 +15,7 @@ export const certificaciones = [
     subtitulo: 'Certificado',
     descripcion: 'Hazard Analysis and Critical Control Points. Sistema riguroso de gestión preventiva de inocuidad alimentaria y peligros biológicos.',
     emoji: '🔬',
+    imagen: '/recursos/cert_haccp.png',
     color: '#8b5cf6',
   },
   {
@@ -22,6 +24,7 @@ export const certificaciones = [
     subtitulo: 'Auditoría Ética',
     descripcion: 'Estándar de auditoría Sedex que asegura prácticas laborales responsables, salud, seguridad y ética empresarial en la cadena de suministro.',
     emoji: '✅',
+    imagen: '/recursos/cert_smeta.png',
     color: '#10b981',
   },
 ]
