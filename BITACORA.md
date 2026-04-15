@@ -37,3 +37,5 @@ Se desarrollaron nuevos componentes para elevar la experiencia B2B:
 - [ ] Subida de cambios al repositorio Git (`main`).
 - [ ] Investigación y corrección de lentitud en VPS (Optimización de Nginx y caché).
 - [ ] Auditoría de activos visuales pesados.
+
+- **2026-04-15**: Integracion final de textos corporativos desde el documento oficial Word (Mision, Vision, historia, 3 buques para merluza y 4 nuevas certificaciones ambientales). Sincronizado con GitHub.
