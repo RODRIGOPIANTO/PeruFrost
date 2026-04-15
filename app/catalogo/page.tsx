@@ -274,39 +274,85 @@ export default function CatalogoPage() {
           </div>
         </section>
 
-        {/* ═══ TABS PRINCIPALES — sticky debajo del Navbar ═══ */}
+        {/* ═══ TABS PRINCIPALES — Sticky Premium Centrado ═══ */}
         <div style={{
           position: 'sticky', top: `${NAVBAR_H}px`, zIndex: 40,
-          background: 'rgba(10,15,31,0.96)', backdropFilter: 'blur(20px)',
-          borderBottom: '1px solid rgba(0,229,255,0.08)',
+          background: 'rgba(10,15,31,0.98)', backdropFilter: 'blur(20px)',
+          borderBottom: '1px solid rgba(255,255,255,0.06)',
         }}>
           <div style={INNER}>
-            <div style={{ display: 'flex', alignItems: 'stretch', overflowX: 'auto', gap: '4px' }}>
-              {TABS.map(t => (
-                <button
-                  key={t.id}
-                  onClick={() => setTab(t.id)}
-                  style={{
-                    flexShrink: 0, display: 'flex', alignItems: 'center', gap: '10px',
-                    padding: '1rem 1.5rem', fontSize: '0.875rem', fontWeight: 700,
-                    whiteSpace: 'nowrap', cursor: 'pointer', background: 'none', border: 'none',
-                    borderBottom: tab === t.id ? '2px solid #00E5FF' : '2px solid transparent',
-                    color: tab === t.id ? '#00E5FF' : '#8BA0B4',
-                    transition: 'all 0.2s',
-                  }}
-                >
-                  <span style={{ fontSize: '1.25rem' }}>{t.emoji}</span>
-                  <span>{lang === 'es' ? t.label : t.labelEN}</span>
-                  <span style={{
-                    fontSize: '10px', fontWeight: 900, padding: '2px 8px', borderRadius: '9999px',
-                    background: tab === t.id ? 'rgba(0,229,255,0.15)' : 'rgba(255,255,255,0.06)',
-                    color: tab === t.id ? '#00E5FF' : '#8BA0B4',
-                    transition: 'all 0.2s',
-                  }}>
-                    {t.count}
-                  </span>
-                </button>
-              ))}
+            <div style={{ 
+              display: 'flex', 
+              justifyContent: 'center', 
+              alignItems: 'center', 
+              gap: '3rem', 
+              overflowX: 'auto',
+              msOverflowStyle: 'none', 
+              scrollbarWidth: 'none'
+            }} className="no-scrollbar">
+              {TABS.map(t => {
+                const isActive = tab === t.id;
+                return (
+                  <button
+                    key={t.id}
+                    onClick={() => setTab(t.id)}
+                    style={{
+                      position: 'relative',
+                      display: 'flex', alignItems: 'center', gap: '14px',
+                      padding: '1.5rem 0.5rem', 
+                      cursor: 'pointer', background: 'none', border: 'none',
+                      color: isActive ? '#00E5FF' : '#8BA0B4',
+                      transition: 'all 0.3s ease',
+                      outline: 'none',
+                    }}
+                  >
+                    {/* Icono con Glass/Glow */}
+                    <span style={{ 
+                      fontSize: '1.75rem', 
+                      filter: isActive ? 'drop-shadow(0 0 12px rgba(0,229,255,0.5))' : 'grayscale(0.4) opacity(0.7)',
+                      transform: isActive ? 'scale(1.1)' : 'scale(1)',
+                      transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
+                    }}>
+                      {t.emoji}
+                    </span>
+                    
+                    <span style={{ 
+                      fontSize: '1.125rem', 
+                      fontWeight: 800, 
+                      letterSpacing: '-0.02em',
+                      whiteSpace: 'nowrap' 
+                    }}>
+                      {lang === 'es' ? t.label : t.labelEN}
+                    </span>
+
+                    {/* Pill Badge */}
+                    <span style={{
+                      fontSize: '11px', fontWeight: 900, 
+                      padding: '3px 10px', borderRadius: '99px',
+                      background: isActive ? 'rgba(0,229,255,0.15)' : 'rgba(255,255,255,0.03)',
+                      color: isActive ? '#00E5FF' : '#5C7285',
+                      border: isActive ? '1px solid rgba(0,229,255,0.2)' : '1px solid rgba(255,255,255,0.05)',
+                      transition: 'all 0.3s'
+                    }}>
+                      {t.count}
+                    </span>
+
+                    {/* Underline Interactivo (Premium Sliding Indicator) */}
+                    {isActive && (
+                      <motion.div 
+                        layoutId="activeTabIndicator"
+                        style={{
+                          position: 'absolute', bottom: 0, left: 0, right: 0,
+                          height: '4px', background: '#00E5FF',
+                          borderRadius: '12px 12px 0 0',
+                          boxShadow: '0 -4px 15px rgba(0,229,255,0.4)'
+                        }}
+                        transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+                      />
+                    )}
+                  </button>
+                )
+              })}
             </div>
           </div>
         </div>
@@ -354,31 +400,64 @@ export default function CatalogoPage() {
                 </div>
               </section>
 
-              {/* Sub-tabs */}
-              <div style={{ ...INNER, marginBottom: '2.5rem' }}>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', alignItems: 'center' }}>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', padding: '6px', borderRadius: '14px', background: 'rgba(15,24,41,0.8)', border: '1px solid rgba(255,255,255,0.07)' }}>
-                    {SUB_TABS.map(st => (
+              {/* Sub-tabs — Centrados e Interactivos con Layout Animation */}
+              <div style={{ ...INNER, marginBottom: '3.5rem', display: 'flex', justifyContent: 'center' }}>
+                <div style={{ 
+                  display: 'flex', 
+                  flexWrap: 'wrap', 
+                  gap: '4px', 
+                  padding: '6px', 
+                  borderRadius: '18px', 
+                  background: 'rgba(15,24,41,0.9)', 
+                  border: '1px solid rgba(255,255,255,0.08)',
+                  boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
+                  backdropFilter: 'blur(10px)'
+                }}>
+                  {SUB_TABS.map(st => {
+                    const isSubActive = subTab === st.id;
+                    return (
                       <button
                         key={st.id}
                         onClick={() => setSubTab(st.id)}
                         style={{
-                          padding: '8px 18px', borderRadius: '9px', fontSize: '0.875rem', fontWeight: 700,
+                          position: 'relative',
+                          padding: '12px 26px', borderRadius: '13px', 
+                          fontSize: '0.925rem', fontWeight: 800,
                           cursor: 'pointer', border: 'none', whiteSpace: 'nowrap',
-                          background: subTab === st.id ? '#00E5FF' : 'transparent',
-                          color: subTab === st.id ? '#0A0F1F' : '#8BA0B4',
-                          transition: 'all 0.2s',
+                          color: isSubActive ? '#0A0F1F' : '#8BA0B4',
+                          background: 'transparent',
+                          transition: 'color 0.3s ease',
+                          outline: 'none',
                         }}
                       >
-                        {lang === 'es' ? st.label : st.labelEN}
-                        <span style={{ marginLeft: '8px', fontSize: '11px', opacity: 0.6 }}>{POTA.filter(p => p.subSeccion === st.id).length}</span>
+                        {isSubActive && (
+                          <motion.div 
+                            layoutId="subTabHighlight"
+                            style={{
+                              position: 'absolute', inset: 0,
+                              background: '#00E5FF',
+                              borderRadius: '13px',
+                              zIndex: 0,
+                              boxShadow: '0 4px 12px rgba(0,229,255,0.3)'
+                            }}
+                            transition={{ type: 'spring', bounce: 0.15, duration: 0.5 }}
+                          />
+                        )}
+                        <span style={{ position: 'relative', zIndex: 1, display: 'flex', alignItems: 'center', gap: '10px' }}>
+                          {lang === 'es' ? st.label : st.labelEN}
+                          <span style={{ 
+                            fontSize: '11px', 
+                            padding: '2px 6px',
+                            borderRadius: '6px',
+                            background: isSubActive ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.05)',
+                            fontWeight: 900
+                          }}>
+                            {POTA.filter(p => p.subSeccion === st.id).length}
+                          </span>
+                        </span>
                       </button>
-                    ))}
-                  </div>
-                  <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, rgba(0,229,255,0.15), transparent)', display: 'none' }} className="sm:block" />
-                  <p style={{ color: 'rgba(138,160,180,0.45)', fontSize: '12px', fontStyle: 'italic' }}>
-                    {potaFiltrada.length} productos en esta categoría
-                  </p>
+                    )
+                  })}
                 </div>
               </div>
 
