@@ -98,50 +98,38 @@ export default function CatalogoPage() {
                 initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-50px' }} variants={fadeUp}
                 className="mb-12 lg:mb-20 rounded-3xl overflow-hidden border border-[#0ea5e9]/20 bg-gradient-to-br from-[#0d1f3c] to-[#0a1628] shadow-[0_0_50px_-20px_rgba(14,165,233,0.15)]"
               >
-                <div className="flex flex-col lg:flex-row">
-                  {/* Contenedor de Imagen adaptativo */}
-                  <div className="relative w-full lg:w-1/2 aspect-video lg:aspect-auto lg:min-h-[480px]">
-                    <Image src={pota.imagen!} alt={pota.nombre} fill className="object-cover object-center" sizes="(max-width: 1024px) 100vw, 50vw" />
-                    <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-[#0a1628] lg:from-transparent to-transparent lg:to-[#0a1628]/80" />
+                <div className="flex flex-col lg:flex-row items-center">
+                  {/* Imagen - Centrada y Proporcionada */}
+                  <div className="relative w-full lg:w-1/2 aspect-square max-h-[500px] flex items-center justify-center p-8 lg:p-12">
+                     <Image src={pota.imagen!} alt={pota.nombre} fill className="object-contain p-8 animate-float" priority sizes="(max-width: 1024px) 100vw, 50vw" />
+                     <div className="absolute inset-0 bg-radial-gradient from-[#0ea5e9]/5 to-transparent pointer-events-none" />
                   </div>
                   
-                  {/* Detalles T\u00e9cnicos */}
-                  <div className="flex flex-col justify-center w-full lg:w-1/2 p-6 sm:p-8 lg:p-12">
-                    <div className="mb-6">
-                      <span className="inline-block bg-[#0ea5e9]/10 text-[#0ea5e9] border border-[#0ea5e9]/30 text-xs font-black uppercase tracking-[0.15em] px-3 py-1.5 rounded-md">
+                  {/* Info - Centrada verticalmente y alineada */}
+                  <div className="flex flex-col justify-center w-full lg:w-1/2 p-8 lg:p-16 text-center lg:text-left">
+                    <div className="mb-6 flex justify-center lg:justify-start">
+                      <span className="inline-block bg-[#0ea5e9] text-white text-[10px] font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full shadow-lg shadow-[#0ea5e9]/20">
                         {pota.badge}
                       </span>
                     </div>
                     
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-3 text-white font-tight leading-none tracking-tight flex items-center gap-3">
-                      <span>🦑</span> {pota.nombre}
+                    <h2 className="text-4xl lg:text-6xl font-black mb-4 text-white font-tight tracking-tight leading-[1.05]">
+                      {pota.nombre}
                     </h2>
-                    <p className="text-[#0ea5e9] text-base font-semibold italic mb-6">{pota.nombreCientifico}</p>
+                    <p className="text-[#0ea5e9] text-xl font-bold italic mb-6 tracking-wide">{pota.nombreCientifico}</p>
                     
-                    <p className="text-[#8BA0B4] text-base lg:text-lg leading-relaxed mb-8">
-                       {lang === 'es' ? pota.descripcion : 'Giant squid from FAO Zone 87 — Peru\'s flagship export product, processed under BRCGS Grade AA standards.'}
+                    <p className="text-[#8BA0B4] text-base lg:text-lg leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0">
+                       {lang === 'es' ? pota.descripcion : pota.descripcion}
                     </p>
                     
-                    <div className="flex flex-col gap-5">
+                    <div className="flex flex-col gap-8">
                       <div>
-                        <h4 className="text-xs uppercase font-bold text-white/50 mb-2 tracking-widest">{lang === 'es' ? 'Presentaciones' : 'Presentations'}</h4>
-                        <div className="flex flex-wrap gap-2">
+                        <h4 className="text-[10px] uppercase font-black text-[#0ea5e9] mb-3 tracking-widest opacity-70">{lang === 'es' ? 'Presentaciones' : 'Presentations'}</h4>
+                        <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
                           {pota.empaques.map(e => (
-                            <div key={e} className="flex items-center gap-1.5 bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-xs font-bold text-white">
+                            <div key={e} className="flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-xl text-xs font-bold text-white hover:bg-white/[0.08] transition-colors">
                               <Package size={14} className="text-[#0ea5e9]" />
                               <span>{e}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                      
-                      <div>
-                        <h4 className="text-xs uppercase font-bold text-white/50 mb-2 tracking-widest">{lang === 'es' ? 'Mercados Principales' : 'Main Markets'}</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {pota.mercados.map(m => (
-                            <div key={m} className="flex items-center gap-1 bg-[#0ea5e9]/5 border border-[#0ea5e9]/10 px-2.5 py-1 rounded md text-xs text-[#0ea5e9] font-medium">
-                              <Globe size={12} />
-                              <span>{m}</span>
                             </div>
                           ))}
                         </div>
@@ -152,7 +140,7 @@ export default function CatalogoPage() {
               </motion.div>
 
               {/* GRID DE CORTES ESTRUCTURADA EN CARDS */}
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 auto-rows-fr">
                 
                 {/* Columna: Productos Principales */}
                 <div className="bg-[#0b192c] border border-white/5 rounded-3xl p-6 lg:p-8 flex flex-col">
@@ -247,9 +235,9 @@ export default function CatalogoPage() {
                   </h2>
                 </motion.div>
                 
-                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-50px' }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-50px' }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 auto-rows-fr">
                   {peces.map(p => (
-                    <motion.div key={p.id} variants={fadeUp} className="bg-[#0b192c] rounded-3xl overflow-hidden border border-white/5 hover:border-[#3b82f6]/40 transition-colors duration-300 flex flex-col group">
+                    <motion.div key={p.id} variants={fadeUp} className="bg-[#0b192c] rounded-3xl overflow-hidden border border-white/5 hover:border-[#3b82f6]/40 transition-colors duration-300 flex flex-col h-full group">
                       <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#060c17]">
                         <Image src={p.imagen!} alt={p.nombre} fill className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#0b192c] via-[#0b192c]/20 to-transparent" />
@@ -287,9 +275,9 @@ export default function CatalogoPage() {
                   </h2>
                 </motion.div>
                 
-                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-50px' }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-50px' }} variants={stagger} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 auto-rows-fr">
                   {mariscos.map(p => (
-                    <motion.div key={p.id} variants={fadeUp} className="bg-[#0a1628] rounded-3xl overflow-hidden border border-white/5 hover:border-[#ec4899]/40 transition-colors duration-300 flex flex-col group">
+                    <motion.div key={p.id} variants={fadeUp} className="bg-[#0a1628] rounded-3xl overflow-hidden border border-white/5 hover:border-[#ec4899]/40 transition-colors duration-300 flex flex-col h-full group">
                       <div className="relative w-full aspect-video sm:aspect-[4/3] overflow-hidden bg-[#060c17]">
                         <Image src={p.imagen!} alt={p.nombre} fill className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
                         <div className="absolute inset-0 bg-gradient-to-t from-[#0a1628] via-[#0a1628]/20 to-transparent" />

@@ -43,7 +43,7 @@ export default function ContactoPage() {
                 </span>
               </motion.div>
               <motion.h1 variants={fadeUp} style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: 'clamp(2.5rem, 5vw, 4.5rem)', lineHeight: 1.05, color: '#fff', marginBottom: '1.5rem' }}>
-                {lang === 'es' ? <>Hablemos de <span className="gradient-text">negocios</span></> : <>Let's talk <span className="gradient-text">business</span></>}
+                {lang === 'es' ? <>Hablemos de <span className="gradient-text">negocios</span></> : <>Let&apos;s talk <span className="gradient-text">business</span></>}
               </motion.h1>
               <motion.p variants={fadeUp} style={{ color: '#8BA0B4', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto', lineHeight: 1.8 }}>
                 {lang === 'es' 
