@@ -91,7 +91,7 @@ const WorldMap = ({ activeId, onSelect }: WorldMapProps) => {
   const uniqueColors = [...new Set(regionesExportacion.map(r => r.color))]
 
   return (
-    <div className="w-full drop-shadow-2xl rounded-[24px] overflow-hidden" style={{ background: '#060d1f', position: 'relative' }}>
+    <div className="w-full overflow-hidden" style={{ background: '#1A2238', position: 'relative' }}>
       <style>{`@keyframes arcDash { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -200; } }`}</style>
 
       <ComposableMap
@@ -109,8 +109,8 @@ const WorldMap = ({ activeId, onSelect }: WorldMapProps) => {
           ))}
         </defs>
 
-        {/* Oc\u00e9ano */}
-        <rect width={MAP_W} height={MAP_H} fill="#060d1f" />
+        {/* Océano */}
+        <rect width={MAP_W} height={MAP_H} fill="#1A2238" />
 
         {/* Pa\u00edses base */}
         <Geographies geography={geoUrl}>
@@ -251,13 +251,12 @@ export default function InteractiveGlobe() {
         <div 
           className="order-1 lg:order-2 w-full"
           style={{ 
-            background: 'radial-gradient(circle at top, #0b2230, #07141c)', 
-            borderRadius: '20px', 
-            padding: '24px',
-            boxShadow: '0 20px 60px rgba(0,0,0,0.4)'
+            background: 'transparent',
+            borderRadius: '0', 
+            padding: '0',
           }}
         >
-          <div className="relative w-full min-h-[500px] lg:min-h-[650px] flex items-center justify-center overflow-hidden bg-[#060d1f]" style={{ borderRadius: '16px' }}>
+          <div className="relative w-full min-h-[450px] lg:min-h-[550px] flex items-center justify-center overflow-hidden bg-transparent">
             <WorldMap activeId={activeRegion} onSelect={setActiveRegion} />
             
             <AnimatePresence>
@@ -279,9 +278,16 @@ export default function InteractiveGlobe() {
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {selected.paises.map(p => (
-                      <div key={p.codigo} className="flex items-center gap-1.5 bg-white/5 px-2.5 py-1 rounded-md border border-white/5">
-                        <span className="text-[0.8rem]" style={{ fontFamily: 'Segoe UI Emoji, Apple Color Emoji, sans-serif' }}>{p.bandera}</span>
-                        <span className="text-[0.7rem] font-bold text-[#e2e8f0] tracking-wide">{p.nombre}</span>
+                      <div 
+                        key={p.codigo} 
+                        className="flex flex-col items-center justify-center bg-[#0d1425] p-2 rounded-lg border border-white/10 min-w-[70px] transition-all hover:border-[#00e5ff]/40"
+                        style={{ boxShadow: '0 4px 12px rgba(0,0,0,0.2)' }}
+                      >
+                        <span className="text-[1.2rem] mb-1" style={{ fontFamily: 'Segoe UI Emoji, Apple Color Emoji, sans-serif' }}>{p.bandera}</span>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                          <span className="text-[0.6rem] font-black text-[#00e5ff] opacity-60 uppercase">{p.codigo}</span>
+                          <span className="text-[0.7rem] font-bold text-white tracking-wide truncate max-w-[50px]">{p.nombre}</span>
+                        </div>
                       </div>
                     ))}
                   </div>

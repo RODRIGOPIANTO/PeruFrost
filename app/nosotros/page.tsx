@@ -146,7 +146,7 @@ export default function NosotrosPage() {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
               {/* Mission */}
               <motion.div
                 initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
@@ -413,11 +413,11 @@ export default function NosotrosPage() {
               </p>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
               {values.map((v, i) => (
                 <motion.div
                   key={v.title}
-                  className="w-full md:w-[450px] flex-shrink-0"
+                  className={`w-full ${i === 4 ? 'md:col-span-2 md:max-w-[500px] md:mx-auto' : ''}`}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -425,7 +425,7 @@ export default function NosotrosPage() {
                   style={{
                     background: 'rgba(10,15,31,0.6)', backdropFilter: 'blur(20px)',
                     border: '1px solid rgba(255,255,255,0.08)', borderRadius: '16px',
-                    padding: '1.75rem', cursor: 'default',
+                    padding: '2rem', cursor: 'default',
                     transition: 'all 0.35s ease',
                   }}
                   onMouseEnter={e => {
@@ -483,7 +483,7 @@ export default function NosotrosPage() {
               </h2>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
               {/* SNP */}
               <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
                 style={{ background: 'rgba(26,34,56,0.6)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '16px', padding: '2rem', display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
