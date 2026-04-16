@@ -190,55 +190,74 @@ export default function InteractiveGlobe() {
 
   return (
     <div className="w-full">
-      <div className="flex flex-col lg:flex-row gap-12 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1.3fr] gap-[60px] items-center">
         {/* LEFT: INFO */}
-        <div className="lg:w-1/3 order-2 lg:order-1">
-          <div className="mb-12">
-            <span className="text-[#0ea5e9] font-black uppercase tracking-[0.2em] text-sm mb-4 block">Presencia Global</span>
-            <h2 className="text-4xl lg:text-5xl font-black mb-6 font-tight">
-              Exportación <br /><span className="gradient-text">Sin Límites</span>
+        <div className="flex flex-col gap-6 order-2 lg:order-1">
+          <div>
+            <span className="text-[#0ea5e9] font-black uppercase tracking-[0.2em] text-sm mb-4 block">
+              {lang === 'es' ? 'Presencia Global' : 'Global Presence'}
+            </span>
+            <h2 className="text-4xl lg:text-5xl font-black mb-6 font-tight leading-[1.1]">
+              {lang === 'es' ? <>Exportación <br /><span className="gradient-text">Sin Límites</span></> : <>Boundless <br /><span className="gradient-text">Exportation</span></>}
             </h2>
             <p className="text-[#8BA0B4] text-lg leading-relaxed">
-              Desde Paita para el mundo. Nuestra red logística asegura la frescura y trazabilidad de cada contenedor en 7 regiones estratégicas.
+              {lang === 'es' 
+                ? 'Desde Paita para el mundo. Nuestra red logística asegura la frescura y trazabilidad de cada contenedor en 7 regiones estratégicas.'
+                : 'From Paita to the world. Our logistics network ensures freshness and traceability of every container across 7 strategic regions.'}
             </p>
           </div>
 
-          <div className="flex flex-col gap-2.5">
-            {regionesExportacion.map((region) => (
-              <button
-                key={region.id}
-                onClick={() => setActiveRegion(region.id)}
-                className={`w-full flex items-center justify-between py-2.5 px-4 rounded-xl border transition-all duration-300 ${
-                  activeRegion === region.id 
-                  ? 'bg-[#163354]/80 border-[#00e5ff] shadow-[0_0_20px_rgba(0,229,255,0.15)] scale-[1.02]' 
-                  : 'bg-[#0A0F1F]/50 border-white/5 hover:border-white/10 hover:bg-[#163354]/40'
-                }`}
-              >
-                <div className="flex items-center gap-4 min-w-0">
-                  <span className="text-xl w-6 flex justify-center items-center flex-shrink-0" style={{ fontFamily: 'Segoe UI Emoji, Apple Color Emoji, sans-serif' }}>
-                    {region.emoji}
-                  </span>
-                  <div className="text-left min-w-0">
-                    <p className={`font-bold text-base leading-none mb-1 truncate ${activeRegion === region.id ? 'text-[#00e5ff]' : 'text-white'}`}>
-                      {region.nombre}
-                    </p>
-                    <p className="text-[9px] text-[#8BA0B4] uppercase tracking-wider font-semibold truncate">
-                      {region.totalPaises} {lang === 'es' ? 'Países' : 'Countries'}
-                    </p>
+          <div className="flex flex-col gap-[24px]">
+            {regionesExportacion.map((region) => {
+              const isActive = activeRegion === region.id;
+              return (
+                <button
+                  key={region.id}
+                  onClick={() => setActiveRegion(region.id)}
+                  className="flex items-center justify-between transition-all duration-300 text-left"
+                  style={{
+                    padding: '12px 16px',
+                    borderRadius: '10px',
+                    background: isActive ? 'rgba(0, 229, 255, 0.08)' : 'rgba(255, 255, 255, 0.03)',
+                    border: `1px solid ${isActive ? 'rgba(0, 229, 255, 0.4)' : 'transparent'}`,
+                  }}
+                  onMouseEnter={(e) => { if (!isActive) e.currentTarget.style.background = 'rgba(0, 229, 255, 0.08)' }}
+                  onMouseLeave={(e) => { if (!isActive) e.currentTarget.style.background = 'rgba(255, 255, 255, 0.03)' }}
+                >
+                  <div className="flex items-center gap-4 min-w-0">
+                    <span className="text-xl w-6 flex justify-center items-center flex-shrink-0" style={{ fontFamily: 'Segoe UI Emoji, Apple Color Emoji, sans-serif' }}>
+                      {region.emoji}
+                    </span>
+                    <div className="min-w-0">
+                      <p className={`font-bold text-base leading-none mb-1 truncate ${isActive ? 'text-[#00e5ff]' : 'text-white'}`}>
+                        {region.nombre}
+                      </p>
+                      <p className="text-[9px] text-[#8BA0B4] uppercase tracking-wider font-semibold truncate">
+                        {region.totalPaises} {lang === 'es' ? 'Países' : 'Countries'}
+                      </p>
+                    </div>
                   </div>
-                </div>
-                <div 
-                  className={`w-2.5 h-2.5 rounded-full flex-shrink-0 transition-all duration-300 ${activeRegion === region.id ? 'shadow-[0_0_10px_currentColor]' : ''}`} 
-                  style={{ backgroundColor: region.color, color: region.color }}
-                />
-              </button>
-            ))}
+                  <div 
+                    className={`w-2 h-2 rounded-full flex-shrink-0 transition-all duration-300 ${isActive ? 'shadow-[0_0_10px_currentColor]' : ''}`} 
+                    style={{ backgroundColor: region.color, color: region.color }}
+                  />
+                </button>
+              );
+            })}
           </div>
         </div>
 
-        {/* RIGHT: MAP */}
-        <div className="lg:w-2/3 order-1 lg:order-2 w-full min-w-0">
-          <div className="glass-card p-8 lg:p-10 relative overflow-hidden flex items-center justify-center min-h-[500px]">
+        {/* RIGHT: MAP CONTAINER */}
+        <div 
+          className="order-1 lg:order-2 w-full"
+          style={{ 
+            background: 'radial-gradient(circle at top, #0b2230, #07141c)', 
+            borderRadius: '20px', 
+            padding: '24px',
+            boxShadow: '0 20px 60px rgba(0,0,0,0.4)'
+          }}
+        >
+          <div className="relative w-full min-h-[400px] flex items-center justify-center overflow-hidden bg-[#060d1f]" style={{ borderRadius: '16px' }}>
             <WorldMap activeId={activeRegion} onSelect={setActiveRegion} />
             
             <AnimatePresence>
@@ -247,18 +266,22 @@ export default function InteractiveGlobe() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 20 }}
-                  className="absolute bottom-8 left-8 right-8 lg:left-auto lg:right-8 lg:w-96 glass-card p-6 border-t-[4px] shadow-2xl"
-                  style={{ borderColor: selected.color, backgroundColor: 'rgba(10, 15, 31, 0.95)' }}
+                  className="absolute bottom-6 left-6 right-6 lg:left-auto lg:right-6 lg:w-80 backdrop-blur-md p-5 border border-white/10 shadow-2xl"
+                  style={{ 
+                    borderRadius: '16px',
+                    backgroundColor: 'rgba(10, 15, 31, 0.85)',
+                    borderTop: `3px solid ${selected.color}`
+                  }}
                 >
-                  <div className="flex items-center gap-4 mb-5">
-                    <span className="text-3xl flex-shrink-0" style={{ fontFamily: 'Segoe UI Emoji, Apple Color Emoji, sans-serif' }}>{selected.emoji}</span>
-                    <h4 className="text-xl font-black text-white">{selected.nombre}</h4>
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="text-2xl flex-shrink-0" style={{ fontFamily: 'Segoe UI Emoji, Apple Color Emoji, sans-serif' }}>{selected.emoji}</span>
+                    <h4 className="text-lg font-black text-white">{selected.nombre}</h4>
                   </div>
-                  <div className="flex flex-wrap gap-2.5">
+                  <div className="flex flex-wrap gap-2">
                     {selected.paises.map(p => (
-                      <div key={p.codigo} className="flex items-center gap-2 bg-[#163354]/60 px-3 py-1.5 rounded-lg border border-white/5">
-                        <span className="text-sm" style={{ fontFamily: 'Segoe UI Emoji, Apple Color Emoji, sans-serif' }}>{p.bandera}</span>
-                        <span className="text-xs font-bold text-[#e2e8f0] tracking-wide">{p.nombre}</span>
+                      <div key={p.codigo} className="flex items-center gap-1.5 bg-white/5 px-2.5 py-1 rounded-md border border-white/5">
+                        <span className="text-[0.8rem]" style={{ fontFamily: 'Segoe UI Emoji, Apple Color Emoji, sans-serif' }}>{p.bandera}</span>
+                        <span className="text-[0.7rem] font-bold text-[#e2e8f0] tracking-wide">{p.nombre}</span>
                       </div>
                     ))}
                   </div>
