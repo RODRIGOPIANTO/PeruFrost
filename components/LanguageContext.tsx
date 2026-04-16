@@ -46,6 +46,8 @@ const translations = {
     'footer.lima.label': 'Oficina Lima', 'footer.paita.label': 'Planta Paita',
     'footer.copy': '© 2026 Perú Frost S.A.C. — RUC 20607856517. Todos los derechos reservados.',
     'footer.cert': 'Planta certificada',
+    'partners.tag': 'Nuestras Alianzas',
+    'partners.h2': 'Socios Estratégicos',
   },
   en: {
     'nav.home': 'Home', 'nav.about': 'About Us', 'nav.catalog': 'Catalog',
@@ -89,6 +91,8 @@ const translations = {
     'footer.lima.label': 'Lima Office', 'footer.paita.label': 'Paita Plant',
     'footer.copy': '© 2026 Perú Frost S.A.C. — RUC 20607856517. All rights reserved.',
     'footer.cert': 'Certified plant',
+    'partners.tag': 'Our Alliances',
+    'partners.h2': 'Strategic Partners',
   },
 };
 
