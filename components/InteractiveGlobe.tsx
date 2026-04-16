@@ -224,21 +224,21 @@ export default function InteractiveGlobe() {
                   onMouseEnter={(e) => { if (!isActive) e.currentTarget.style.background = 'rgba(0, 229, 255, 0.08)' }}
                   onMouseLeave={(e) => { if (!isActive) e.currentTarget.style.background = 'rgba(255, 255, 255, 0.03)' }}
                 >
-                  <div className="flex items-center gap-4 min-w-0">
-                    <span className="text-xl w-6 flex justify-center items-center flex-shrink-0" style={{ fontFamily: 'Segoe UI Emoji, Apple Color Emoji, sans-serif' }}>
+                  <div className="flex items-center gap-3 min-w-0">
+                    <span className="text-lg w-5 flex justify-center items-center flex-shrink-0" style={{ fontFamily: 'Segoe UI Emoji, Apple Color Emoji, sans-serif' }}>
                       {region.emoji}
                     </span>
                     <div className="min-w-0">
-                      <p className={`font-bold text-base leading-none mb-1 truncate ${isActive ? 'text-[#00e5ff]' : 'text-white'}`}>
+                      <p className={`font-bold text-sm leading-none mb-1 truncate ${isActive ? 'text-[#00e5ff]' : 'text-white'}`}>
                         {region.nombre}
                       </p>
-                      <p className="text-[9px] text-[#8BA0B4] uppercase tracking-wider font-semibold truncate">
+                      <p className="text-[8px] text-[#8BA0B4] uppercase tracking-wider font-semibold truncate">
                         {region.totalPaises} {lang === 'es' ? 'Países' : 'Countries'}
                       </p>
                     </div>
                   </div>
                   <div 
-                    className={`w-2 h-2 rounded-full flex-shrink-0 transition-all duration-300 ${isActive ? 'shadow-[0_0_10px_currentColor]' : ''}`} 
+                    className={`w-1.5 h-1.5 rounded-full flex-shrink-0 transition-all duration-300 ${isActive ? 'shadow-[0_0_10px_currentColor]' : ''}`} 
                     style={{ backgroundColor: region.color, color: region.color }}
                   />
                 </button>
@@ -257,7 +257,7 @@ export default function InteractiveGlobe() {
             boxShadow: '0 20px 60px rgba(0,0,0,0.4)'
           }}
         >
-          <div className="relative w-full min-h-[400px] flex items-center justify-center overflow-hidden bg-[#060d1f]" style={{ borderRadius: '16px' }}>
+          <div className="relative w-full min-h-[450px] lg:min-h-[550px] flex items-center justify-center overflow-hidden bg-[#060d1f]" style={{ borderRadius: '16px' }}>
             <WorldMap activeId={activeRegion} onSelect={setActiveRegion} />
             
             <AnimatePresence>
