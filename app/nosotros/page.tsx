@@ -144,7 +144,7 @@ export default function NosotrosPage() {
               </h2>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr)', gap: '2rem' }} className="md:grid-cols-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Mission */}
               <motion.div
                 initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
@@ -411,7 +411,7 @@ export default function NosotrosPage() {
               </p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr)', gap: '1.25rem' }} className="md:grid-cols-2 lg:grid-cols-2 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-5xl mx-auto">
               {values.map((v, i) => (
                 <motion.div
                   key={v.title}
@@ -480,7 +480,7 @@ export default function NosotrosPage() {
               </h2>
             </div>
             
-            <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr)', gap: '1.25rem' }} className="md:grid-cols-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {/* SNP */}
               <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
                 style={{ background: 'rgba(26,34,56,0.6)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '16px', padding: '2rem', display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
