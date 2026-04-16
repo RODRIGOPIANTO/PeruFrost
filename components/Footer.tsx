@@ -5,6 +5,8 @@ import { Mail, MapPin } from 'lucide-react';
 import { useLang } from '@/components/LanguageContext';
 import { infoEmpresa } from '@/data/empresa';
 
+const STORAGE_URL = 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/'
+
 export default function Footer() {
   const { t, lang } = useLang();
 
@@ -18,7 +20,7 @@ export default function Footer() {
           {/* Brand */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '8px', textDecoration: 'none', marginBottom: '0.5rem' }}>
-              <img src="/recursos/logo_white.png" alt={infoEmpresa.nombre} style={{ height: '34px', width: 'auto', objectFit: 'contain' }} />
+              <img src={STORAGE_URL + 'logo_white.webp'} alt={infoEmpresa.nombre} style={{ height: '34px', width: 'auto', objectFit: 'contain' }} />
               <div>
                 <div style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: '13px', color: '#fff', lineHeight: 1.1 }}>{infoEmpresa.nombre.split(' ')[0]} {infoEmpresa.nombre.split(' ')[1]}</div>
                 <div style={{ fontSize: '8px', fontWeight: 600, letterSpacing: '0.15em', color: '#00E5FF' }}>{infoEmpresa.nombre.split(' ')[2]}</div>

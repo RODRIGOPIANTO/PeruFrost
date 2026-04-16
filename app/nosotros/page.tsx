@@ -83,6 +83,8 @@ const stats = [
   { icon: <Anchor size={20} />, value: '-25°C', label: 'Temp. garantizada' },
 ];
 
+const STORAGE_URL = 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/'
+
 export default function NosotrosPage() {
   const { lang } = useLang();
 
@@ -236,7 +238,7 @@ export default function NosotrosPage() {
               </motion.div>
               <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
                 <div style={{ position: 'relative', height: '480px', borderRadius: '24px', overflow: 'hidden' }}>
-                  <Image src="/recursos/planta.webp" alt="Planta Perú Frost Paita" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+                  <Image src={STORAGE_URL + 'planta.webp'} alt="Planta Perú Frost Paita" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
                   <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,15,31,0.75) 0%, transparent 50%)' }} />
                   <div style={{ position: 'absolute', bottom: '1.75rem', left: '1.75rem', right: '1.75rem' }}>
                     <div className="glass-card-strong" style={{ padding: '1.25rem 1.5rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>

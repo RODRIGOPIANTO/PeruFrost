@@ -10,6 +10,8 @@ import Footer from '@/components/Footer';
 import CertificationCarousel from '@/components/CertificationCarousel';
 import { useLang } from '@/components/LanguageContext';
 
+const STORAGE_URL = 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/'
+
 const S = {
   section: { padding: '7rem 0', position: 'relative' as const },
   sectionBg: { padding: '7rem 0', background: '#1A2238', position: 'relative' as const, overflow: 'hidden' as const },
@@ -203,7 +205,7 @@ export default function CalidadPage() {
               </motion.div>
               <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
                 <div style={{ position: 'relative', height: '420px', borderRadius: '20px', overflow: 'hidden' }}>
-                  <Image src="/recursos/planta.webp" alt="Control de calidad planta Paita" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+                  <Image src={STORAGE_URL + 'planta.webp'} alt="Control de calidad planta Paita" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
                   <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,15,31,0.8) 0%, transparent 55%)' }} />
                   <div style={{ position: 'absolute', bottom: '1.5rem', left: '1.5rem', right: '1.5rem' }}>
                     <div className="glass-card-strong" style={{ padding: '1rem 1.25rem' }}>

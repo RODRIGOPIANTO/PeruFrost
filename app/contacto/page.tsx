@@ -7,6 +7,8 @@ import Footer from '@/components/Footer';
 import { useLang } from '@/components/LanguageContext';
 import Image from 'next/image';
 
+const STORAGE_URL = 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/'
+
 const fadeUp = { hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7 } } };
 const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } };
 
@@ -90,7 +92,7 @@ export default function ContactoPage() {
                     {/* Paita */}
                     <div style={{ display: 'flex', gap: '1.25rem', background: 'rgba(0,229,255,0.04)', border: '1px solid rgba(0,229,255,0.15)', borderRadius: '16px', padding: '1.25rem', alignItems: 'center' }}>
                       <div style={{ width: '90px', height: '90px', position: 'relative', borderRadius: '12px', overflow: 'hidden', flexShrink: 0 }}>
-                        <Image src="/recursos/planta.webp" alt="Paita" fill className="object-cover" />
+                        <Image src={STORAGE_URL + 'planta.webp'} alt="Paita" fill className="object-cover" />
                       </div>
                       <div>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>

@@ -20,11 +20,13 @@ const S = {
 const fadeUp = { hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7 } } };
 const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } };
 
+const STORAGE_URL = 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/'
+
 const galleryImages = [
-  { src: '/recursos/planta.webp', caption: 'Planta principal — Zona Industrial Paita' },
-  { src: '/recursos/120m.jpg', caption: 'Instalaciones de alta tecnología' },
-  { src: '/recursos/planta_osmosis.jpg', caption: 'Planta de ósmosis inversa — 2,000 m³/día' },
-  { src: '/recursos/contrato_yantai_moon.jpg', caption: 'Alianza estratégica con Yantai Moon' },
+  { src: STORAGE_URL + 'planta.webp', caption: 'Planta principal — Zona Industrial Paita' },
+  { src: STORAGE_URL + '120m.webp', caption: 'Instalaciones de alta tecnología' },
+  { src: STORAGE_URL + 'planta_osmosis.webp', caption: 'Planta de ósmosis inversa — 2,000 m³/día' },
+  { src: STORAGE_URL + 'contrato_yantai_moon.webp', caption: 'Alianza estratégica con Yantai Moon' },
 ];
 
 const techSpecs = [
@@ -84,7 +86,7 @@ export default function InfraestructuraPage() {
         {/* Hero */}
         <section style={{ ...S.sectionBg, minHeight: '420px', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
           <div style={{ position: 'absolute', inset: 0 }}>
-            <Image src="/recursos/planta.webp" alt="Planta Perú Frost" fill className="object-cover" style={{ opacity: 0.18 }} sizes="100vw" />
+            <Image src={STORAGE_URL + 'planta.webp'} alt="Planta Perú Frost" fill className="object-cover" style={{ opacity: 0.18 }} sizes="100vw" />
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(26,34,56,0.8), rgba(26,34,56,0.97))' }} />
           </div>
           <div className="grid-pattern" style={{ position: 'absolute', inset: 0, opacity: 0.18 }} />
@@ -255,7 +257,7 @@ export default function InfraestructuraPage() {
               <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
                 style={{ background: 'rgba(26,34,56,0.6)', border: '1px solid rgba(0,229,255,0.15)', borderRadius: '20px', padding: '2.5rem 2rem', textAlign: 'center' }}>
                 <div style={{ position: 'relative', height: '120px', borderRadius: '14px', overflow: 'hidden', marginBottom: '1.5rem' }}>
-                  <Image src="/recursos/contrato_yantai_moon.jpg" alt="Yantai Moon" fill className="object-cover" sizes="33vw" />
+                  <Image src={STORAGE_URL + 'contrato_yantai_moon.webp'} alt="Yantai Moon" fill className="object-cover" sizes="33vw" />
                 </div>
                 <p style={{ fontSize: '0.7rem', color: '#00E5FF', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.5rem' }}>Alianza Estratégica</p>
                 <p style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1.25rem', color: '#fff', marginBottom: '0.875rem' }}>Yantai Moon</p>
@@ -285,7 +287,7 @@ export default function InfraestructuraPage() {
             <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '4rem', alignItems: 'center' }} className="lg:grid-cols-2">
               <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
                 <div style={{ position: 'relative', height: '380px', borderRadius: '20px', overflow: 'hidden' }}>
-                  <Image src="/recursos/planta_osmosis.jpg" alt="Planta de ósmosis inversa" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+                  <Image src={STORAGE_URL + 'planta_osmosis.webp'} alt="Planta de ósmosis inversa" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
                 </div>
               </motion.div>
               <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>

@@ -6,6 +6,8 @@ import { usePathname } from 'next/navigation';
 import { Menu, X, Globe } from 'lucide-react';
 import { useLang } from '@/components/LanguageContext';
 
+const STORAGE_URL = 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/'
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -52,7 +54,7 @@ export default function Navbar() {
             {/* Logo + Name */}
             <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
               <img
-                src="/recursos/logo_white.png"
+                src={STORAGE_URL + 'logo_white.webp'}
                 alt="Perú Frost"
                 style={{ height: '38px', width: 'auto', objectFit: 'contain', display: 'block', flexShrink: 0 }}
               />

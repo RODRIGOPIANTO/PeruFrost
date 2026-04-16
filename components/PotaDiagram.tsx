@@ -6,6 +6,8 @@ import { Corte } from '@/data/productos'
 import { Package, Info } from 'lucide-react'
 import Image from 'next/image'
 
+const STORAGE_URL = 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/'
+
 interface PotaDiagramProps {
   cortes: Corte[]
   className?: string
@@ -28,7 +30,7 @@ export default function PotaDiagram({ cortes, className = "" }: PotaDiagramProps
       {/* SVG Diagram with Real Image */}
       <div className="relative w-full max-w-[400px] aspect-[1/1.5] flex justify-center items-center">
         <div className="absolute inset-0 z-0 p-4">
-          <Image src="/recursos/calamar_real.png" alt="Dosidicus Gigas Anatome" fill className="object-contain" />
+          <Image src={STORAGE_URL + 'calamar_real.webp'} alt="Dosidicus Gigas Anatome" fill className="object-contain" />
         </div>
         <svg viewBox="0 0 200 600" className="relative z-10 w-full h-full">
           <defs>

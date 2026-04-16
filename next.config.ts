@@ -9,12 +9,8 @@ const nextConfig: NextConfig = {
         hostname: 'perufrost.com',
       },
       {
-        protocol: 'http',
-        hostname: '76.13.224.112',
-      },
-      {
         protocol: 'https',
-        hostname: '76.13.224.112',
+        hostname: 'rywzpyzdyxzdhivjlclm.supabase.co',
       },
     ],
   },

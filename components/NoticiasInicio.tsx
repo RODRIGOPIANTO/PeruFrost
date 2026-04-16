@@ -5,25 +5,27 @@ import Image from 'next/image';
 import { useLang } from './LanguageContext';
 import { ArrowRight } from 'lucide-react';
 
+const STORAGE_URL = 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/'
+
 const noticiasEscritas = {
   es: [
     {
       id: 1,
       titulo: 'ALIANZA PARA MODERNIZACIÓN',
       descripcion: 'Perú Frost firma acuerdo con Yantai Moon para la mejora tecnológica de su planta de procesamiento.',
-      imagen: '/recursos/noticia_alianza.png',
+      imagen: STORAGE_URL + 'noticia_alianza.webp',
     },
     {
       id: 2,
       titulo: 'AMPLIACIÓN DE PLANTA DE ÓSMOSIS',
       descripcion: 'Capacidad incrementada a 2,000 m³ diarios para optimizar el suministro de agua y los estándares sanitarios.',
-      imagen: '/recursos/noticia_osmosis.png',
+      imagen: STORAGE_URL + 'noticia_osmosis.webp',
     },
     {
       id: 3,
       titulo: 'PLANTA PERÚ FROST SE MODERNIZA',
       descripcion: 'Planta de Perú Frost recibe la clasificación más alta de sanidad por parte de la autoridad operativa SANIPES.',
-      imagen: '/recursos/noticia_planta.png',
+      imagen: STORAGE_URL + 'noticia_planta.webp',
     }
   ],
   en: [
@@ -31,19 +33,19 @@ const noticiasEscritas = {
       id: 1,
       titulo: 'MODERNIZATION ALLIANCE',
       descripcion: 'Peru Frost signs an agreement with Yantai Moon to upgrade the processing plant\'s technology.',
-      imagen: '/recursos/noticia_alianza.png',
+      imagen: STORAGE_URL + 'noticia_alianza.webp',
     },
     {
       id: 2,
       titulo: 'OSMOSIS PLANT EXPANSION',
       descripcion: 'Capacity increased to 2,000 cubic meters per day to optimize our water supply and sanitary standards.',
-      imagen: '/recursos/noticia_osmosis.png',
+      imagen: STORAGE_URL + 'noticia_osmosis.webp',
     },
     {
       id: 3,
       titulo: 'PERU FROST PLANT SURGES FORWARD',
       descripcion: 'The Peru Frost processing plant receives the highest sanitary classification ranking from SANIPES authority.',
-      imagen: '/recursos/noticia_planta.png',
+      imagen: STORAGE_URL + 'noticia_planta.webp',
     }
   ]
 };
