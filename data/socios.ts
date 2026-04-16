@@ -4,20 +4,26 @@ export const socios = [
   {
     id: 'snp',
     nombre: 'Sociedad Nacional de Pesquería',
-    imagen: STORAGE_URL + 'partner_snp.svg',
+    imagen: STORAGE_URL + 'partner_snp_new.webp',
     url: 'https://www.snp.org.pe/',
   },
   {
     id: 'sni',
     nombre: 'Sociedad Nacional de Industrias',
-    imagen: STORAGE_URL + 'partner_sni.webp',
+    imagen: STORAGE_URL + 'partner_sni_new.webp',
     url: 'https://www.sni.org.pe/',
   },
   {
      id: 'capecal',
      nombre: 'CAPECAL',
      subtitulo: 'Cámara Peruana de Calamar Gigante',
-     imagen: STORAGE_URL + 'partner_capecal.webp',
+     imagen: STORAGE_URL + 'partner_capecal_new.webp',
      url: 'https://capecal.com.pe/',
+  },
+  {
+    id: 'sap',
+    nombre: 'Sociedad Anónima de Pesqueros',
+    imagen: STORAGE_URL + 'partner_snp_new.webp',
+    url: '#',
   }
 ];
