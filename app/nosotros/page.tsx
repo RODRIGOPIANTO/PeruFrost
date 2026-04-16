@@ -144,33 +144,33 @@ export default function NosotrosPage() {
               </h2>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '2rem' }} className="lg:grid-cols-2">
+            <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr)', gap: '2rem' }} className="md:grid-cols-2">
               {/* Mission */}
               <motion.div
                 initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
-                style={{ background: 'rgba(0,229,255,0.04)', border: '1.5px solid rgba(0,229,255,0.2)', borderRadius: '24px', padding: '3rem', position: 'relative', overflow: 'hidden' }}
+                style={{ background: 'rgba(0,229,255,0.04)', border: '1.5px solid rgba(0,229,255,0.2)', borderRadius: '24px', padding: '2rem', position: 'relative', overflow: 'hidden' }}
               >
-                <div style={{ position: 'absolute', top: '-40px', right: '-40px', width: '200px', height: '200px', background: 'radial-gradient(circle, rgba(0,229,255,0.08) 0%, transparent 70%)', borderRadius: '50%' }} />
-                <div style={{ fontSize: '3.5rem', marginBottom: '1.5rem' }}>🎯</div>
-                <span style={{ fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#00E5FF', display: 'block', marginBottom: '0.875rem' }}>
+                <div style={{ position: 'absolute', top: '-40px', right: '-40px', width: '150px', height: '150px', background: 'radial-gradient(circle, rgba(0,229,255,0.08) 0%, transparent 70%)', borderRadius: '50%' }} />
+                <div style={{ fontSize: '2.5rem', marginBottom: '1.25rem' }}>🎯</div>
+                <span style={{ fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#00E5FF', display: 'block', marginBottom: '0.75rem' }}>
                   {lang === 'es' ? 'Misión' : 'Mission'}
                 </span>
-                <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: '1.75rem', color: '#fff', marginBottom: '1.25rem', lineHeight: 1.2 }}>
+                <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: '1.4rem', color: '#fff', marginBottom: '1rem', lineHeight: 1.25 }}>
                   {lang === 'es' ? 'Satisfacer necesidades nutricionales de manera óptima' : 'Optimally satisfy nutritional needs'}
                 </h3>
-                <p style={{ color: '#8BA0B4', fontSize: '1rem', lineHeight: 1.9, marginBottom: '2rem' }}>
+                <p style={{ color: '#8BA0B4', fontSize: '0.9rem', lineHeight: 1.7, marginBottom: '1.75rem' }}>
                   {lang === 'es'
                     ? 'Satisfacer las necesidades nutricionales de manera óptima y garantizar siempre la frescura, el sabor y la seguridad en cada uno de nuestros productos a nivel global.'
                     : 'To optimally satisfy nutritional needs and always guarantee freshness, flavor and safety in each of our products globally.'}
                 </p>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
                   {(lang === 'es'
                     ? ['Calidad certificada BRCGS Grado AA', 'Trazabilidad completa de cada lote', 'Cadena de frío -25°C garantizada', 'Especificaciones exactas por mercado']
                     : ['BRCGS Grade AA certified quality', 'Full traceability for every batch', 'Guaranteed -25°C cold chain', 'Exact specifications per market']
                   ).map((item) => (
-                    <div key={item} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                      <CheckCircle size={16} color="#00E5FF" style={{ flexShrink: 0 }} />
-                      <span style={{ color: '#fff', fontSize: '0.9rem' }}>{item}</span>
+                    <div key={item} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+                      <CheckCircle size={14} color="#00E5FF" style={{ flexShrink: 0 }} />
+                      <span style={{ color: '#fff', fontSize: '0.82rem' }}>{item}</span>
                     </div>
                   ))}
                 </div>
@@ -179,29 +179,29 @@ export default function NosotrosPage() {
               {/* Vision */}
               <motion.div
                 initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
-                style={{ background: 'rgba(99,102,241,0.04)', border: '1.5px solid rgba(99,102,241,0.25)', borderRadius: '24px', padding: '3rem', position: 'relative', overflow: 'hidden' }}
+                style={{ background: 'rgba(99,102,241,0.04)', border: '1.5px solid rgba(99,102,241,0.25)', borderRadius: '24px', padding: '2rem', position: 'relative', overflow: 'hidden' }}
               >
-                <div style={{ position: 'absolute', top: '-40px', right: '-40px', width: '200px', height: '200px', background: 'radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%)', borderRadius: '50%' }} />
-                <div style={{ fontSize: '3.5rem', marginBottom: '1.5rem' }}>🌟</div>
-                <span style={{ fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#818CF8', display: 'block', marginBottom: '0.875rem' }}>
+                <div style={{ position: 'absolute', top: '-40px', right: '-40px', width: '150px', height: '150px', background: 'radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%)', borderRadius: '50%' }} />
+                <div style={{ fontSize: '2.5rem', marginBottom: '1.25rem' }}>🌟</div>
+                <span style={{ fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#818CF8', display: 'block', marginBottom: '0.75rem' }}>
                   {lang === 'es' ? 'Visión' : 'Vision'}
                 </span>
-                <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: '1.75rem', color: '#fff', marginBottom: '1.25rem', lineHeight: 1.2 }}>
+                <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: '1.4rem', color: '#fff', marginBottom: '1rem', lineHeight: 1.25 }}>
                   {lang === 'es' ? 'Líderes indiscutibles en la industria pesquera' : 'Undisputed leaders in the fishing industry'}
                 </h3>
-                <p style={{ color: '#8BA0B4', fontSize: '1rem', lineHeight: 1.9, marginBottom: '2rem' }}>
+                <p style={{ color: '#8BA0B4', fontSize: '0.9rem', lineHeight: 1.7, marginBottom: '1.75rem' }}>
                   {lang === 'es'
                     ? 'En nuestra visión, nos proyectamos como líderes indiscutibles en la industria pesquera. Buscamos ser reconocidos nacional e internacionalmente por nuestra calidad incomparable, sostenibilidad e innovación para superar las expectativas.'
                     : 'In our vision, we project ourselves as undisputed leaders in the fishing industry. We seek to be recognized nationally and internationally for our incomparable quality, sustainability and innovation to exceed expectations.'}
                 </p>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
                   {(lang === 'es'
                     ? ['Presencia en los 5 continentes', 'Referente de buenas prácticas del sector', 'Tecnología de vanguardia en cada proceso', 'Modelo de sostenibilidad replicable']
                     : ['Presence on all 5 continents', 'Reference for industry best practices', 'Cutting-edge technology in every process', 'Replicable sustainability model']
                   ).map((item) => (
-                    <div key={item} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                    <div key={item} style={{ display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
                       <Star size={14} color="#818CF8" style={{ flexShrink: 0 }} />
-                      <span style={{ color: '#fff', fontSize: '0.9rem' }}>{item}</span>
+                      <span style={{ color: '#fff', fontSize: '0.82rem' }}>{item}</span>
                     </div>
                   ))}
                 </div>
@@ -411,7 +411,7 @@ export default function NosotrosPage() {
               </p>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: '1.5rem' }} className="sm:grid-cols-2 lg:grid-cols-3">
+            <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr)', gap: '1.25rem' }} className="md:grid-cols-2 lg:grid-cols-2 max-w-5xl mx-auto">
               {values.map((v, i) => (
                 <motion.div
                   key={v.title}
@@ -421,16 +421,16 @@ export default function NosotrosPage() {
                   transition={{ delay: i * 0.09 }}
                   style={{
                     background: 'rgba(10,15,31,0.6)', backdropFilter: 'blur(20px)',
-                    border: '1px solid rgba(255,255,255,0.08)', borderRadius: '20px',
-                    padding: '2.75rem 2.25rem', cursor: 'default',
+                    border: '1px solid rgba(255,255,255,0.08)', borderRadius: '16px',
+                    padding: '1.75rem', cursor: 'default',
                     transition: 'all 0.35s ease',
                   }}
                   onMouseEnter={e => {
                     const el = e.currentTarget as HTMLElement;
                     el.style.borderColor = `${v.color}40`;
-                    el.style.transform = 'translateY(-6px)';
+                    el.style.transform = 'translateY(-4px)';
                     el.style.background = 'rgba(26,34,56,0.8)';
-                    el.style.boxShadow = `0 20px 60px ${v.color}15`;
+                    el.style.boxShadow = `0 15px 40px ${v.color}15`;
                   }}
                   onMouseLeave={e => {
                     const el = e.currentTarget as HTMLElement;
@@ -440,22 +440,25 @@ export default function NosotrosPage() {
                     el.style.boxShadow = 'none';
                   }}
                 >
-                  <div style={{
-                    width: '60px', height: '60px',
-                    background: `${v.color}18`,
-                    border: `1px solid ${v.color}30`,
-                    borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    color: v.color, marginBottom: '1.75rem',
-                  }}>
-                    {v.icon}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.25rem' }}>
+                    <div style={{
+                      width: '44px', height: '44px',
+                      background: `${v.color}18`, flexShrink: 0,
+                      border: `1px solid ${v.color}30`,
+                      borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      color: v.color,
+                    }}>
+                      {v.icon}
+                    </div>
+                    <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: '1.15rem', color: '#fff' }}>{v.title}</h3>
                   </div>
-                  <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: '1.3rem', color: '#fff', marginBottom: '1rem' }}>{v.title}</h3>
-                  <p style={{ color: '#8BA0B4', fontSize: '0.93rem', lineHeight: 1.85, marginBottom: '1.5rem' }}>{v.desc}</p>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  
+                  <p style={{ color: '#8BA0B4', fontSize: '0.85rem', lineHeight: 1.7, marginBottom: '1.25rem' }}>{v.desc}</p>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                     {v.bullets.map((b) => (
-                      <div key={b} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.625rem' }}>
-                        <div style={{ width: '5px', height: '5px', borderRadius: '50%', background: v.color, marginTop: '7px', flexShrink: 0 }} />
-                        <span style={{ color: '#8BA0B4', fontSize: '0.82rem', lineHeight: 1.5 }}>{b}</span>
+                      <div key={b} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
+                        <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: v.color, marginTop: '6px', flexShrink: 0 }} />
+                        <span style={{ color: '#8BA0B4', fontSize: '0.8rem', lineHeight: 1.4 }}>{b}</span>
                       </div>
                     ))}
                   </div>
@@ -467,7 +470,7 @@ export default function NosotrosPage() {
 
         {/* ─── SOCIOS ESTRATÉGICOS ─── */}
         <section style={{ padding: '7rem 0', background: '#0D1326' }}>
-          <div style={{ maxWidth: '1280px', margin: '0 auto', paddingInline: '1.5rem' }}>
+          <div style={{ maxWidth: '1000px', margin: '0 auto', paddingInline: '1.5rem' }}>
             <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
               <span className="highlight-tag" style={{ marginBottom: '1.25rem', display: 'inline-block' }}>
                 {lang === 'es' ? 'Alianzas' : 'Alliances'}
@@ -477,37 +480,45 @@ export default function NosotrosPage() {
               </h2>
             </div>
             
-            <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr)', gap: '1.5rem' }} className="sm:grid-cols-2 lg:grid-cols-4">
+            <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr)', gap: '1.25rem' }} className="md:grid-cols-2">
               {/* SNP */}
               <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
-                style={{ background: 'rgba(26,34,56,0.6)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '20px', padding: '2.5rem 2rem', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem', fontSize: '2.5rem' }}>🇵🇪</div>
-                <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1.1rem', color: '#fff', marginBottom: '1rem', lineHeight: 1.3 }}>Sociedad Nacional<br/>de Pesquería</h3>
-                <p style={{ color: '#8BA0B4', fontSize: '0.9rem', lineHeight: 1.6 }}>Miembro institucional comprometido con la industria peruana.</p>
+                style={{ background: 'rgba(26,34,56,0.6)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '16px', padding: '2rem', display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+                <div style={{ width: '60px', height: '60px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.75rem', flexShrink: 0 }}>🇵🇪</div>
+                <div>
+                  <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1rem', color: '#fff', marginBottom: '0.3rem', lineHeight: 1.2 }}>Sociedad Nacional de Pesquería</h3>
+                  <p style={{ color: '#8BA0B4', fontSize: '0.85rem', lineHeight: 1.5 }}>Miembro institucional comprometido con la industria peruana.</p>
+                </div>
               </motion.div>
               
               {/* SNI */}
               <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
-                style={{ background: 'rgba(26,34,56,0.6)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '20px', padding: '2.5rem 2rem', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem', fontSize: '2.5rem' }}>🏭</div>
-                <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1.1rem', color: '#fff', marginBottom: '1rem', lineHeight: 1.3 }}>Sociedad Nacional<br/>de Industrias</h3>
-                <p style={{ color: '#8BA0B4', fontSize: '0.9rem', lineHeight: 1.6 }}>Participación en la estandarización y calidad industrial.</p>
+                style={{ background: 'rgba(26,34,56,0.6)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '16px', padding: '2rem', display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+                <div style={{ width: '60px', height: '60px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.75rem', flexShrink: 0 }}>🏭</div>
+                <div>
+                  <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1rem', color: '#fff', marginBottom: '0.3rem', lineHeight: 1.2 }}>Sociedad Nacional de Industrias</h3>
+                  <p style={{ color: '#8BA0B4', fontSize: '0.85rem', lineHeight: 1.5 }}>Participación en la estandarización y calidad industrial.</p>
+                </div>
               </motion.div>
 
               {/* CAPECAL */}
               <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
-                style={{ background: 'rgba(16,185,129,0.05)', border: '1px solid rgba(16,185,129,0.2)', borderRadius: '20px', padding: '2.5rem 2rem', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'rgba(16,185,129,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem', fontSize: '2.5rem' }}>🦑</div>
-                <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1.1rem', color: '#fff', marginBottom: '1rem', lineHeight: 1.3 }}>Cámara Peruana<br/>del Calamar Gigante</h3>
-                <p style={{ color: '#8BA0B4', fontSize: '0.9rem', lineHeight: 1.6 }}>Participación activa en el Proyecto de Mejora Pesquera (FIP).</p>
+                style={{ background: 'rgba(16,185,129,0.05)', border: '1px solid rgba(16,185,129,0.2)', borderRadius: '16px', padding: '2rem', display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+                <div style={{ width: '60px', height: '60px', borderRadius: '50%', background: 'rgba(16,185,129,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.75rem', flexShrink: 0 }}>🦑</div>
+                <div>
+                  <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1rem', color: '#fff', marginBottom: '0.3rem', lineHeight: 1.2 }}>Cámara Peruana del Calamar Gigante</h3>
+                  <p style={{ color: '#8BA0B4', fontSize: '0.85rem', lineHeight: 1.5 }}>Participación activa en el Proyecto de Mejora Pesquera (FIP).</p>
+                </div>
               </motion.div>
 
               {/* Paita */}
               <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
-                style={{ background: 'rgba(26,34,56,0.6)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '20px', padding: '2.5rem 2rem', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '1.5rem', fontSize: '2.5rem' }}>⚓</div>
-                <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1.1rem', color: '#fff', marginBottom: '1rem', lineHeight: 1.3 }}>Association of Fishing<br/>Companies of Paita</h3>
-                <p style={{ color: '#8BA0B4', fontSize: '0.9rem', lineHeight: 1.6 }}>Alianza de procesadores locales del norte del mar de Grau.</p>
+                style={{ background: 'rgba(26,34,56,0.6)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '16px', padding: '2rem', display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+                <div style={{ width: '60px', height: '60px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.75rem', flexShrink: 0 }}>⚓</div>
+                <div>
+                  <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1rem', color: '#fff', marginBottom: '0.3rem', lineHeight: 1.2 }}>Association of Fishing Companies</h3>
+                  <p style={{ color: '#8BA0B4', fontSize: '0.85rem', lineHeight: 1.5 }}>Alianza de procesadores locales del norte del mar de Grau.</p>
+                </div>
               </motion.div>
             </div>
           </div>

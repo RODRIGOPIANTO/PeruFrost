@@ -203,32 +203,32 @@ export default function InteractiveGlobe() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-2.5">
             {regionesExportacion.map((region) => (
               <button
                 key={region.id}
                 onClick={() => setActiveRegion(region.id)}
-                className={`w-full flex items-center justify-between py-4 px-6 rounded-2xl border transition-all duration-300 ${
+                className={`w-full flex items-center justify-between py-2.5 px-4 rounded-xl border transition-all duration-300 ${
                   activeRegion === region.id 
                   ? 'bg-[#163354]/80 border-[#00e5ff] shadow-[0_0_20px_rgba(0,229,255,0.15)] scale-[1.02]' 
                   : 'bg-[#0A0F1F]/50 border-white/5 hover:border-white/10 hover:bg-[#163354]/40'
                 }`}
               >
-                <div className="flex items-center gap-5 min-w-0">
-                  <span className="text-2xl w-8 flex justify-center items-center flex-shrink-0" style={{ fontFamily: 'Segoe UI Emoji, Apple Color Emoji, sans-serif' }}>
+                <div className="flex items-center gap-4 min-w-0">
+                  <span className="text-xl w-6 flex justify-center items-center flex-shrink-0" style={{ fontFamily: 'Segoe UI Emoji, Apple Color Emoji, sans-serif' }}>
                     {region.emoji}
                   </span>
                   <div className="text-left min-w-0">
-                    <p className={`font-bold text-lg leading-none mb-1.5 truncate ${activeRegion === region.id ? 'text-[#00e5ff]' : 'text-white'}`}>
+                    <p className={`font-bold text-base leading-none mb-1 truncate ${activeRegion === region.id ? 'text-[#00e5ff]' : 'text-white'}`}>
                       {region.nombre}
                     </p>
-                    <p className="text-[10px] text-[#8BA0B4] uppercase tracking-widest font-semibold truncate">
+                    <p className="text-[9px] text-[#8BA0B4] uppercase tracking-wider font-semibold truncate">
                       {region.totalPaises} {lang === 'es' ? 'Países' : 'Countries'}
                     </p>
                   </div>
                 </div>
                 <div 
-                  className={`w-3 h-3 rounded-full flex-shrink-0 transition-all duration-300 ${activeRegion === region.id ? 'shadow-[0_0_10px_currentColor]' : ''}`} 
+                  className={`w-2.5 h-2.5 rounded-full flex-shrink-0 transition-all duration-300 ${activeRegion === region.id ? 'shadow-[0_0_10px_currentColor]' : ''}`} 
                   style={{ backgroundColor: region.color, color: region.color }}
                 />
               </button>
