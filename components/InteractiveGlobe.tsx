@@ -207,40 +207,40 @@ export default function InteractiveGlobe() {
             </p>
           </div>
 
-          <div className="flex flex-col gap-[24px]">
+          <div className="flex flex-wrap gap-2 lg:gap-3">
             {regionesExportacion.map((region) => {
               const isActive = activeRegion === region.id;
               return (
                 <button
                   key={region.id}
                   onClick={() => setActiveRegion(region.id)}
-                  className="flex items-center justify-between transition-all duration-300 text-left"
+                  className="flex flex-col items-center justify-center transition-all duration-300"
                   style={{
-                    padding: '12px 16px',
-                    borderRadius: '10px',
-                    background: isActive ? 'rgba(0, 229, 255, 0.08)' : 'rgba(255, 255, 255, 0.03)',
+                    padding: '12px 8px',
+                    borderRadius: '12px',
+                    minWidth: '95px',
+                    flex: '1 1 auto',
+                    background: isActive ? 'rgba(0, 229, 255, 0.1)' : 'rgba(255, 255, 255, 0.03)',
                     border: `1px solid ${isActive ? 'rgba(0, 229, 255, 0.4)' : 'transparent'}`,
+                    boxShadow: isActive ? '0 0 15px rgba(0,229,255,0.15)' : 'none',
                   }}
-                  onMouseEnter={(e) => { if (!isActive) e.currentTarget.style.background = 'rgba(0, 229, 255, 0.08)' }}
+                  onMouseEnter={(e) => { if (!isActive) e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)' }}
                   onMouseLeave={(e) => { if (!isActive) e.currentTarget.style.background = 'rgba(255, 255, 255, 0.03)' }}
                 >
-                  <div className="flex items-center gap-3 min-w-0">
-                    <span className="text-lg w-5 flex justify-center items-center flex-shrink-0" style={{ fontFamily: 'Segoe UI Emoji, Apple Color Emoji, sans-serif' }}>
+                  <div className="flex items-center justify-center gap-1.5 mb-1.5">
+                    <span className="text-xl flex-shrink-0" style={{ fontFamily: 'Segoe UI Emoji, Apple Color Emoji, sans-serif' }}>
                       {region.emoji}
                     </span>
-                    <div className="min-w-0">
-                      <p className={`font-bold text-sm leading-none mb-1 truncate ${isActive ? 'text-[#00e5ff]' : 'text-white'}`}>
-                        {region.nombre}
-                      </p>
-                      <p className="text-[8px] text-[#8BA0B4] uppercase tracking-wider font-semibold truncate">
-                        {region.totalPaises} {lang === 'es' ? 'Países' : 'Countries'}
-                      </p>
-                    </div>
+                    <div 
+                      className={`w-1.5 h-1.5 rounded-full flex-shrink-0 ${isActive ? 'shadow-[0_0_8px_currentColor]' : ''}`} 
+                      style={{ backgroundColor: region.color, color: region.color }}
+                    />
                   </div>
-                  <div 
-                    className={`w-1.5 h-1.5 rounded-full flex-shrink-0 transition-all duration-300 ${isActive ? 'shadow-[0_0_10px_currentColor]' : ''}`} 
-                    style={{ backgroundColor: region.color, color: region.color }}
-                  />
+                  <div className="min-w-0 px-1">
+                    <p className={`font-bold text-[11px] leading-tight text-center ${isActive ? 'text-[#00e5ff]' : 'text-[#8BA0B4]'}`}>
+                      {region.nombre}
+                    </p>
+                  </div>
                 </button>
               );
             })}
