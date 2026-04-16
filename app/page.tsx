@@ -16,6 +16,7 @@ import { AnimatedCounter } from '@/components/AnimatedCounter';
 import { useLang } from '@/components/LanguageContext';
 import { statsEmpresa } from '@/data/stats';
 import CountryTicker from '@/components/CountryTicker';
+import NoticiasInicio from '@/components/NoticiasInicio';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 48 },
@@ -414,6 +415,9 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        {/* ═══ NOTICIAS ═══ */}
+        <NoticiasInicio />
 
         {/* ═══ CTA ═══ */}
         <section style={{ padding: '7rem 0', background: '#1A2238', position: 'relative', overflow: 'hidden' }}>

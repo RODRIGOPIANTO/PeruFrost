@@ -190,9 +190,9 @@ export default function InteractiveGlobe() {
 
   return (
     <div className="w-full">
-      <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1.3fr] gap-[60px] items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-[1fr_2.5fr] gap-10 lg:gap-14 items-center">
         {/* LEFT: INFO */}
-        <div className="flex flex-col gap-6 order-2 lg:order-1">
+        <div className="flex flex-col gap-6 order-2 lg:order-1 h-full justify-center">
           <div>
             <span className="text-[#0ea5e9] font-black uppercase tracking-[0.2em] text-sm mb-4 block">
               {lang === 'es' ? 'Presencia Global' : 'Global Presence'}
@@ -257,7 +257,7 @@ export default function InteractiveGlobe() {
             boxShadow: '0 20px 60px rgba(0,0,0,0.4)'
           }}
         >
-          <div className="relative w-full min-h-[450px] lg:min-h-[550px] flex items-center justify-center overflow-hidden bg-[#060d1f]" style={{ borderRadius: '16px' }}>
+          <div className="relative w-full min-h-[500px] lg:min-h-[650px] flex items-center justify-center overflow-hidden bg-[#060d1f]" style={{ borderRadius: '16px' }}>
             <WorldMap activeId={activeRegion} onSelect={setActiveRegion} />
             
             <AnimatePresence>
