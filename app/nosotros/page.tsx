@@ -411,11 +411,11 @@ export default function NosotrosPage() {
               </p>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-5 max-w-5xl mx-auto">
+            <div className="flex flex-wrap justify-center gap-6 max-w-6xl mx-auto">
               {values.map((v, i) => (
                 <motion.div
                   key={v.title}
-                  className="w-full md:w-[calc(50%-0.625rem)]"
+                  className="w-full md:w-[450px] flex-shrink-0"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
