@@ -1,4 +1,4 @@
-import Navbar from '@/components/Navbar';
+﻿import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
@@ -88,7 +88,7 @@ export default function CompliancePage() {
             <div className="glass-card p-8 border border-cyan/20">
               <h2 className="text-xl font-bold text-frost font-tight mb-4">Contacto del Oficial de Compliance</h2>
               <p className="mb-4">Para consultas relacionadas con nuestro programa de compliance o para reportar una situación de riesgo ético:</p>
-              <a href="mailto:ventas@perufrost.com" className="text-cyan hover:underline font-semibold text-lg">ventas@perufrost.com</a>
+              <a href="mailto:mk@perufrost.com" className="text-cyan hover:underline font-semibold text-lg">mk@perufrost.com</a>
               <p className="text-sm mt-2 text-slate-frost">Toda comunicación es tratada con estricta confidencialidad.</p>
             </div>
           </div>
@@ -98,3 +98,4 @@ export default function CompliancePage() {
     </>
   );
 }
+

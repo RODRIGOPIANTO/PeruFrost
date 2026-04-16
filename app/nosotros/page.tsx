@@ -31,8 +31,8 @@ const milestones = [
     stats: 'Estándar de oro de la industria',
   },
   {
-    year: '2018', icon: '🏭', title: 'Nueva Planta Yantai Moon',
-    desc: 'Inauguración de la planta de última generación en la Zona Industrial de Paita, equipada con tecnología Yantai Moon: túneles IQF, prensas de placas y sistema HACCP digital.',
+    year: '2018', icon: '🏭', title: 'Nueva Planta De Procesamiento',
+    desc: 'Inauguración de la planta de última generación en la Zona Industrial de Paita, equipada con tecnología de primer nivel: túneles IQF, prensas de placas y sistema HACCP digital.',
     stats: '5 min del Puerto · 120m² de cámara',
   },
   {
@@ -56,7 +56,7 @@ const values = [
   {
     icon: <Award size={28} />, title: 'Excelencia', color: '#6EE7FA',
     desc: 'Exigimos los más altos estándares de calidad en cada etapa del proceso, desde la captura en el Pacífico hasta la entrega en destino.',
-    bullets: ['BRCGS Grado AA — la más alta calificación', 'Análisis en laboratorio propio por lote', 'Equipos JBT Marel y Yantai Moon de última generación'],
+    bullets: ['BRCGS Grado AA — la más alta calificación', 'Análisis en laboratorio propio por lote', 'Equipos JBT Marel de última generación'],
   },
   {
     icon: <Heart size={28} />, title: 'Compromiso', color: '#00E5FF',
@@ -455,7 +455,7 @@ export default function NosotrosPage() {
                     </div>
                     <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: '1.15rem', color: '#fff' }}>{v.title}</h3>
                   </div>
-                  
+
                   <p style={{ color: '#8BA0B4', fontSize: '0.85rem', lineHeight: 1.7, marginBottom: '1.25rem' }}>{v.desc}</p>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                     {v.bullets.map((b) => (
@@ -482,7 +482,7 @@ export default function NosotrosPage() {
                 {lang === 'es' ? <>Colaborando con la <span className="gradient-text">industria</span></> : <>Collaborating with the <span className="gradient-text">industry</span></>}
               </h2>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
               {/* SNP */}
               <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
@@ -495,7 +495,7 @@ export default function NosotrosPage() {
                   <p style={{ color: '#8BA0B4', fontSize: '0.85rem', lineHeight: 1.5 }}>Miembro institucional comprometido con la industria peruana.</p>
                 </div>
               </motion.div>
-              
+
               {/* SNI */}
               <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
                 style={{ background: 'rgba(26,34,56,0.6)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '16px', padding: '2rem', display: 'flex', alignItems: 'center', gap: '1.5rem' }}>

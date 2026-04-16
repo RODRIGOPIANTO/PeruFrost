@@ -9,7 +9,7 @@ export const infoEmpresa = {
     }
   },
   contacto: {
-    email: 'ventas@perufrost.com',
+    email: 'mk@perufrost.com',
     telefono: '+51 (073) 211 444', // Ejemplo, ajustar según brochure
     redes: {
       linkedin: 'https://linkedin.com/company/perufrost',

@@ -1,4 +1,4 @@
-import Navbar from '@/components/Navbar';
+﻿import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
@@ -14,9 +14,9 @@ const sections = [
   { title: '3. Finalidad del tratamiento', content: 'Sus datos son tratados para: (a) gestionar consultas comerciales y solicitudes de cotización; (b) envío de información sobre nuestros productos y servicios cuando haya dado su consentimiento; (c) cumplimiento de obligaciones legales y contractuales; (d) mejora de nuestros servicios digitales.' },
   { title: '4. Base legal del tratamiento', content: 'El tratamiento se basa en: (a) la ejecución de un contrato o solicitud precontractual; (b) el cumplimiento de obligaciones legales; (c) el interés legítimo de la empresa; (d) el consentimiento del interesado cuando así se requiera.' },
   { title: '5. Conservación de datos', content: 'Los datos se conservarán durante el tiempo necesario para cumplir con la finalidad para la que fueron recopilados y, en todo caso, durante los plazos legalmente establecidos según la Ley N° 29733 de Protección de Datos Personales del Perú.' },
-  { title: '6. Derechos del titular', content: 'Usted tiene derecho a: acceder a sus datos, rectificar datos inexactos, solicitar la supresión de sus datos, oponerse al tratamiento y solicitar la portabilidad de sus datos. Para ejercer estos derechos, diríjase a ventas@perufrost.com.' },
+  { title: '6. Derechos del titular', content: 'Usted tiene derecho a: acceder a sus datos, rectificar datos inexactos, solicitar la supresión de sus datos, oponerse al tratamiento y solicitar la portabilidad de sus datos. Para ejercer estos derechos, diríjase a mk@perufrost.com.' },
   { title: '7. Cookies', content: 'Este sitio web utiliza cookies técnicas necesarias para su funcionamiento. No utilizamos cookies de rastreo publicitario de terceros sin su consentimiento previo.' },
-  { title: '8. Contacto', content: 'Para cualquier consulta relacionada con el tratamiento de sus datos personales, puede contactarnos en: ventas@perufrost.com' },
+  { title: '8. Contacto', content: 'Para cualquier consulta relacionada con el tratamiento de sus datos personales, puede contactarnos en: mk@perufrost.com' },
 ];
 
 export default function PrivacidadPage() {
@@ -55,3 +55,4 @@ export default function PrivacidadPage() {
     </>
   );
 }
+

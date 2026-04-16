@@ -23,8 +23,8 @@ export const hitos = [
   {
     año: 2018,
     emoji: '🏭',
-    titulo: 'Nueva Planta Yantai Moon',
-    descripcion: 'Inauguración de la planta de última generación en la Zona Industrial de Paita, equipada con tecnología Yantai Moon.',
+    titulo: 'Nueva Planta de Procesamiento',
+    descripcion: 'Inauguración de la planta de última generación en la Zona Industrial de Paita, dotada de tecnología de congelado IQF y placas de primer nivel mundial.',
     tag: '5 min del Puerto · Zona Industrial',
   },
   {

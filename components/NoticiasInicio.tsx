@@ -11,130 +11,217 @@ const noticiasEscritas = {
   es: [
     {
       id: 1,
-      titulo: 'ALIANZA PARA MODERNIZACIÓN',
-      descripcion: 'Perú Frost firma acuerdo con Yantai Moon para la mejora tecnológica de su planta de procesamiento.',
+      titulo: 'Alianza para Modernización Tecnológica',
+      descripcion: 'Perú Frost firma acuerdo para la modernización tecnológica de su planta de procesamiento, incorporando equipos de congelado de última generación.',
       imagen: STORAGE_URL + 'news_yantai.webp',
+      featured: true,
     },
     {
       id: 2,
-      titulo: 'AMPLIACIÓN DE PLANTA DE ÓSMOSIS',
+      titulo: 'Ampliación de Planta de Ósmosis',
       descripcion: 'Capacidad incrementada a 2,000 m³ diarios para optimizar el suministro de agua y los estándares sanitarios.',
       imagen: STORAGE_URL + 'news_osmosis.webp',
+      featured: false,
     },
     {
       id: 3,
-      titulo: 'PLANTA PERÚ FROST SE MODERNIZA',
-      descripcion: 'Planta de Perú Frost recibe la clasificación más alta de sanidad por parte de la autoridad operativa SANIPES.',
+      titulo: 'Perú Frost Alcanza Máxima Calificación SANIPES',
+      descripcion: 'La planta recibe la clasificación más alta de sanidad por parte de la autoridad operativa SANIPES.',
       imagen: STORAGE_URL + 'news_planta.webp',
-    }
+      featured: false,
+    },
   ],
   en: [
     {
       id: 1,
-      titulo: 'MODERNIZATION ALLIANCE',
-      descripcion: 'Peru Frost signs an agreement with Yantai Moon to upgrade the processing plant\'s technology.',
+      titulo: 'Modernization Technology Alliance',
+      descripcion: 'Peru Frost signs a strategic agreement to modernize its processing plant with state-of-the-art freezing equipment.',
       imagen: STORAGE_URL + 'news_yantai.webp',
+      featured: true,
     },
     {
       id: 2,
-      titulo: 'OSMOSIS PLANT EXPANSION',
+      titulo: 'Osmosis Plant Expansion',
       descripcion: 'Capacity increased to 2,000 cubic meters per day to optimize our water supply and sanitary standards.',
       imagen: STORAGE_URL + 'news_osmosis.webp',
+      featured: false,
     },
     {
       id: 3,
-      titulo: 'PERU FROST PLANT SURGES FORWARD',
-      descripcion: 'The Peru Frost processing plant receives the highest sanitary classification ranking from SANIPES authority.',
+      titulo: 'Peru Frost Achieves Top SANIPES Rating',
+      descripcion: 'The processing plant receives the highest sanitary classification ranking from the SANIPES authority.',
       imagen: STORAGE_URL + 'news_planta.webp',
-    }
-  ]
-};
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+      featured: false,
+    },
+  ],
 };
 
 export default function NoticiasInicio() {
   const { lang } = useLang();
   const noticias = lang === 'es' ? noticiasEscritas.es : noticiasEscritas.en;
+  const label = lang === 'es' ? 'Corporativo' : 'Corporate';
+  const readMore = lang === 'es' ? 'LEER MÁS' : 'READ MORE';
 
   return (
-    <section className="py-28 relative overflow-hidden bg-[#0D1326]">
-      {/* Decorative background elements */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-sky-500/5 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-blue-500/5 blur-[100px] rounded-full pointer-events-none" />
+    <section style={{ background: '#04111f', padding: '80px 32px' }}>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@800;900&family=DM+Sans:wght@400;500&display=swap');
 
-      <div className="container mx-auto px-6 max-w-[1000px] relative z-10">
-        
-        {/* Header de la seccion - Centrado estilo Nosotros */}
-        <div className="text-center mb-16">
-          <span className="highlight-tag mb-4 inline-block">
-            {lang === 'es' ? 'Novedades y Actualidad' : 'Latest Updates'}
-          </span>
-          <h2 className="text-white font-black text-4xl lg:text-5xl font-tight tracking-tight leading-tight">
-            {lang === 'es' ? (
-              <>Últimas <span className="gradient-text">Noticias</span></>
-            ) : (
-              <>Latest <span className="gradient-text">News</span></>
-            )}
+        .news-card {
+          background: #071828;
+          border: 1px solid rgba(0,200,230,0.10);
+          border-radius: 14px;
+          overflow: hidden;
+          transition: border-color 0.25s, transform 0.25s;
+          display: flex;
+          flex-direction: column;
+        }
+        .news-card:hover {
+          border-color: rgba(0,200,230,0.45);
+          transform: translateY(-4px);
+        }
+        .news-read-more {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          color: #00c8e6;
+          font-size: 12px;
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          transition: gap 0.2s;
+          text-decoration: none;
+        }
+        .news-card:hover .news-read-more {
+          gap: 10px;
+        }
+      `}</style>
+
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+
+        {/* Eyebrow + Headline */}
+        <div style={{ marginBottom: '48px' }}>
+          <div style={{
+            display: 'inline-flex', alignItems: 'center', gap: '8px',
+            border: '1px solid rgba(0,200,230,0.3)', borderRadius: '20px',
+            padding: '5px 14px', marginBottom: '20px',
+          }}>
+            <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#00c8e6', flexShrink: 0 }} />
+            <span style={{ color: '#00c8e6', fontSize: '11px', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+              {lang === 'es' ? 'NOVEDADES Y ACTUALIDAD' : 'LATEST UPDATES'}
+            </span>
+          </div>
+
+          <h2 style={{
+            fontFamily: "'Barlow Condensed', sans-serif",
+            fontWeight: 900,
+            fontSize: 'clamp(40px, 5vw, 56px)',
+            lineHeight: 1.05,
+            color: '#ffffff',
+            margin: 0,
+          }}>
+            {lang === 'es'
+              ? <>Últimas <span style={{ color: '#00c8e6' }}>Noticias</span></>
+              : <>Latest <span style={{ color: '#00c8e6' }}>News</span></>}
           </h2>
         </div>
 
-        {/* Grid de Noticias - Centrado y con espaciado consistente */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {noticias.map((item, index) => (
-            <motion.div 
+        {/* Asymmetric Grid */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: '1.35fr 1fr 1fr',
+          gap: '20px',
+        }}
+          className="news-grid-responsive"
+        >
+          {noticias.map((item) => (
+            <motion.div
               key={item.id}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-50px' }}
-              variants={fadeUp}
-              transition={{ delay: index * 0.15 }}
-              className={`group cursor-pointer flex flex-col ${index === 2 ? 'md:col-span-2 md:max-w-[484px] md:mx-auto lg:col-span-1 lg:max-w-none' : ''}`}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.55, delay: (item.id - 1) * 0.12 }}
+              className="news-card"
             >
-              {/* Card Container Premium */}
-              <div 
-                className="flex-1 flex flex-col bg-[#1A2238]/40 backdrop-blur-md border border-white/5 rounded-2xl overflow-hidden transition-all duration-500 hover:border-[#0ea5e9]/30 hover:shadow-[0_20px_50px_rgba(0,0,0,0.5)] relative"
-              >
-                {/* Image Wrapper */}
-                <div className="relative w-full h-[240px] overflow-hidden">
-                  <div className="absolute inset-0 bg-[#0D1326]/30 z-10 transition-all duration-500 group-hover:bg-transparent" />
-                  <Image 
-                    src={item.imagen} 
-                    alt={item.titulo} 
-                    fill 
-                    className="object-cover transition-transform duration-1000 group-hover:scale-105"
-                  />
-                  <div className="absolute top-4 left-4 z-20">
-                    <span className="px-3 py-1 bg-[#1A2238]/80 backdrop-blur-md rounded border border-white/10 text-[9px] font-black text-[#0ea5e9] uppercase tracking-widest">
-                      {lang === 'es' ? 'Corporativo' : 'Corporate'}
-                    </span>
-                  </div>
-                </div>
+              {/* Image with overlay badge */}
+              <div style={{
+                position: 'relative',
+                width: '100%',
+                aspectRatio: item.featured ? '16/9' : '16/10',
+                overflow: 'hidden',
+                flexShrink: 0,
+              }}>
+                <Image
+                  src={item.imagen}
+                  alt={item.titulo}
+                  fill
+                  style={{ objectFit: 'cover', transition: 'transform 0.6s ease' }}
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                />
+                {/* Gradient overlay */}
+                <div style={{
+                  position: 'absolute', inset: 0,
+                  background: 'linear-gradient(transparent 40%, rgba(4,17,31,0.85))',
+                  zIndex: 1,
+                }} />
+                {/* Badge on bottom-left */}
+                <div style={{
+                  position: 'absolute', bottom: '12px', left: '12px', zIndex: 2,
+                  background: 'rgba(0,200,230,0.18)',
+                  color: '#00c8e6',
+                  border: '1px solid rgba(0,200,230,0.3)',
+                  borderRadius: '6px',
+                  padding: '3px 10px',
+                  fontSize: '10px',
+                  fontWeight: 700,
+                  letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                }}>{label}</div>
+              </div>
 
-                {/* Content */}
-                <div className="p-8 flex flex-col flex-1 relative">
-                  <h3 className="text-xl font-black text-white leading-snug mb-4 group-hover:text-[#00e5ff] transition-colors duration-300 font-tight">
-                    {item.titulo}
-                  </h3>
-                  
-                  <p className="text-[#8BA0B4] text-sm leading-relaxed mb-8 flex-1">
-                    {item.descripcion}
-                  </p>
-                  
-                  <div className="flex items-center gap-2 text-[#0ea5e9] group-hover:text-white transition-all duration-300">
-                    <span className="text-xs font-black tracking-widest uppercase">
-                      {lang === 'es' ? 'Leer Más' : 'Read More'}
-                    </span>
-                    <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
-                  </div>
+              {/* Card body */}
+              <div style={{ padding: '18px', display: 'flex', flexDirection: 'column', flex: 1, gap: '10px' }}>
+                <h3 style={{
+                  fontFamily: "'Barlow Condensed', sans-serif",
+                  fontWeight: 800,
+                  fontSize: item.featured ? '1.3rem' : '1.1rem',
+                  color: '#fff',
+                  lineHeight: 1.2,
+                  margin: 0,
+                }}>{item.titulo}</h3>
+
+                <p style={{
+                  fontSize: '13px',
+                  color: 'rgba(255,255,255,0.5)',
+                  lineHeight: 1.6,
+                  margin: 0,
+                  flex: 1,
+                }}>{item.descripcion}</p>
+
+                <div style={{ borderTop: '1px solid rgba(0,200,230,0.08)', paddingTop: '12px' }}>
+                  <span className="news-read-more">
+                    {readMore} <ArrowRight size={13} />
+                  </span>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
+
+      {/* Responsive: stack on mobile */}
+      <style>{`
+        @media (max-width: 900px) {
+          .news-grid-responsive {
+            grid-template-columns: 1fr !important;
+          }
+        }
+        @media (min-width: 601px) and (max-width: 900px) {
+          .news-grid-responsive {
+            grid-template-columns: 1fr 1fr !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

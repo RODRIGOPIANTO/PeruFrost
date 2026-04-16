@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import "./globals.css";
 import { LanguageProvider } from "@/components/LanguageContext";
 import CustomCursor from "@/components/CustomCursor";
@@ -34,7 +34,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               "name": "Perú Frost S.A.C.", "url": "https://perufrost.com",
               "description": "Empresa 100% peruana con más de 20 años de experiencia en exportación de productos hidrobiológicos congelados.",
               "address": { "@type": "PostalAddress", "streetAddress": "Av. Manuel Olguín Nº 501 – Of. 901/902", "addressLocality": "Santiago de Surco, Lima", "addressCountry": "PE" },
-              "contactPoint": { "@type": "ContactPoint", "email": "ventas@perufrost.com", "telephone": "+51073211412", "contactType": "sales" }
+              "contactPoint": { "@type": "ContactPoint", "email": "mk@perufrost.com", "telephone": "+51073211412", "contactType": "sales" }
             })
           }}
         />
@@ -49,3 +49,4 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     </html>
   );
 }
+

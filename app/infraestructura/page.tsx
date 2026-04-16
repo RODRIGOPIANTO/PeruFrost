@@ -26,17 +26,17 @@ const galleryImages = [
   { src: STORAGE_URL + 'planta.webp', caption: 'Planta principal — Zona Industrial Paita' },
   { src: STORAGE_URL + '120m.webp', caption: 'Instalaciones de alta tecnología' },
   { src: STORAGE_URL + 'planta_osmosis.webp', caption: 'Planta de ósmosis inversa — 2,000 m³/día' },
-  { src: STORAGE_URL + 'contrato_yantai_moon.webp', caption: 'Alianza estratégica con Yantai Moon' },
+  { src: STORAGE_URL + 'merluza_premium.webp', caption: 'Flota pesquera — captura de merluza peruana' },
 ];
 
 const techSpecs = [
   {
-    category: 'Refrigeración', icon: <Thermometer size={24} />, title: 'Yantai Moon — Tecnología de Punta',
+    category: 'Refrigeración', icon: <Thermometer size={24} />, title: 'Sistema IQF de Alta Performance',
     specs: [
       { label: 'Temperatura de almacenamiento', value: '-25°C' },
       { label: 'Capacidad total', value: '5,000 TM' },
       { label: 'Tipo de sistema', value: 'Túnel y placas' },
-      { label: 'Tecnología', value: 'Yantai Moon' },
+      { label: 'Tecnología', value: 'IQF Premium' },
     ],
     color: 'rgba(0,229,255,0.08)', border: 'rgba(0,229,255,0.25)',
   },
@@ -222,11 +222,14 @@ export default function InfraestructuraPage() {
               </motion.div>
               <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
                 <div style={{ position: 'relative', height: '440px', borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.05)' }}>
-                  {/* Using existing placeholder or generic styling if we don't have a ship image. We use a styled wrapper. */}
-                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg, #0A0F1F 0%, #1A2238 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                     <Ship size={120} color="rgba(0,229,255,0.2)" />
-                     <div className="grid-pattern" style={{ position: 'absolute', inset: 0, opacity: 0.4 }} />
-                  </div>
+                  <Image
+                    src={STORAGE_URL + 'merluza_premium.webp'}
+                    alt="Flota pesquera de merluza"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,15,31,0.85) 0%, transparent 55%)' }} />
                   <div style={{ position: 'absolute', bottom: '2rem', left: '2rem', right: '2rem' }}>
                     <div className="glass-card-strong" style={{ padding: '1.25rem', display: 'flex', alignItems: 'center', gap: '1rem', borderRadius: '16px' }}>
                       <div>
@@ -245,28 +248,22 @@ export default function InfraestructuraPage() {
         <section style={S.section}>
           <div style={S.inner}>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1.5rem' }} className="md:grid-cols-3">
-              {/* Osmosis */}
-              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                style={{ background: 'rgba(26,34,56,0.6)', border: '1px solid rgba(0,229,255,0.15)', borderRadius: '20px', padding: '2.5rem 2rem', textAlign: 'center' }}>
-                <div style={{ fontSize: '3.5rem', marginBottom: '1.25rem' }}>💧</div>
-                <div className="stat-number" style={{ fontSize: '2.5rem', marginBottom: '0.875rem' }}>2,000 m³</div>
-                <p style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1.1rem', color: '#fff', marginBottom: '0.875rem' }}>Planta de Ósmosis</p>
-                <p style={{ color: '#8BA0B4', fontSize: '0.9rem', lineHeight: 1.75 }}>Capacidad diaria de producción de agua purificada para garantizar la inocuidad en todos los procesos.</p>
-              </motion.div>
-              {/* Yantai */}
+              {/* Ósmosis 2000m³ */}
               <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
                 style={{ background: 'rgba(26,34,56,0.6)', border: '1px solid rgba(0,229,255,0.15)', borderRadius: '20px', padding: '2.5rem 2rem', textAlign: 'center' }}>
                 <div style={{ position: 'relative', height: '120px', borderRadius: '14px', overflow: 'hidden', marginBottom: '1.5rem' }}>
-                  <Image src={STORAGE_URL + 'contrato_yantai_moon.webp'} alt="Yantai Moon" fill className="object-cover" sizes="33vw" />
+                  <Image src={STORAGE_URL + 'planta_osmosis.webp'} alt="Planta de ósmosis" fill className="object-cover" sizes="33vw" />
                 </div>
-                <p style={{ fontSize: '0.7rem', color: '#00E5FF', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.5rem' }}>Alianza Estratégica</p>
-                <p style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1.25rem', color: '#fff', marginBottom: '0.875rem' }}>Yantai Moon</p>
-                <p style={{ color: '#8BA0B4', fontSize: '0.9rem', lineHeight: 1.75 }}>Sistemas de refrigeración de túnel y placas que garantizan la cadena de frío a -25°C sin interrupciones.</p>
+                <div className="stat-number" style={{ fontSize: '2rem', marginBottom: '0.875rem' }}>2,000 m³</div>
+                <p style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1.1rem', color: '#fff', marginBottom: '0.875rem' }}>Planta de Ósmosis</p>
+                <p style={{ color: '#8BA0B4', fontSize: '0.9rem', lineHeight: 1.75 }}>Capacidad diaria de producción de agua purificada para garantizar la inocuidad en todos los procesos.</p>
               </motion.div>
-              {/* JBT Marel */}
+              {/* JBT Marel — con imagen de maquinaria */}
               <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
                 style={{ background: 'rgba(26,34,56,0.6)', border: '1px solid rgba(0,229,255,0.15)', borderRadius: '20px', padding: '2.5rem 2rem', textAlign: 'center' }}>
-                <div style={{ fontSize: '3.5rem', marginBottom: '1.25rem' }}>🤖</div>
+                <div style={{ position: 'relative', height: '120px', borderRadius: '14px', overflow: 'hidden', marginBottom: '1.5rem' }}>
+                  <Image src={STORAGE_URL + 'maquinaria_marel.webp'} alt="Maquinaria JBT Marel" fill className="object-cover" sizes="33vw" />
+                </div>
                 <p style={{ fontSize: '0.7rem', color: '#00E5FF', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.5rem' }}>Automatización</p>
                 <p style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1.25rem', color: '#fff', marginBottom: '0.875rem' }}>JBT Marel</p>
                 <p style={{ color: '#8BA0B4', fontSize: '0.9rem', lineHeight: 1.75, marginBottom: '1.25rem' }}>Clasificadoras SmartLine y Compact Grader, más SpeedBatcher, optimizan el rendimiento y minimizan el error humano.</p>
@@ -333,7 +330,7 @@ export default function InfraestructuraPage() {
             </div>
             <div style={{ textAlign: 'center', marginTop: '2rem' }}>
               <a
-                href="https://maps.app.goo.gl/WzFAoGVnTpdNLUNp6"
+                href="https://maps.app.goo.gl/xdzzTju5SokJN8Ex9"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary"

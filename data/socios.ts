@@ -19,11 +19,5 @@ export const socios = [
      subtitulo: 'Cámara Peruana de Calamar Gigante',
      imagen: STORAGE_URL + 'partner_capecal_new.webp',
      url: 'https://capecal.com.pe/',
-  },
-  {
-    id: 'sap',
-    nombre: 'Sociedad Anónima de Pesqueros',
-    imagen: STORAGE_URL + 'partner_snp_new.webp',
-    url: '#',
   }
 ];

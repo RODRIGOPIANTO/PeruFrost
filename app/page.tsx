@@ -114,9 +114,6 @@ export default function HomePage() {
 
           <div ref={heroTextRef} style={{ position: 'relative', zIndex: 2, textAlign: 'center', maxWidth: '900px', margin: '0 auto', padding: '0 1.5rem' }}>
             <motion.div initial="hidden" animate="visible" variants={stagger}>
-              <motion.div variants={fadeUp} style={{ marginBottom: '1.75rem' }}>
-                <span className="highlight-tag" style={{ fontSize: '0.78rem' }}>{t('hero.tag')}</span>
-              </motion.div>
 
               <motion.h1 variants={fadeUp} style={{
                 fontFamily: "'Inter Tight', sans-serif", fontWeight: 900,
@@ -160,6 +157,9 @@ export default function HomePage() {
           </motion.div>
         </section>
 
+        {/* ═══ NOTICIAS — Movido al inicio ═══ */}
+        <NoticiasInicio />
+
         {/* ═══ STATS ═══ */}
         <section style={{ padding: '5rem 0', background: '#1A2238', borderTop: '1px solid rgba(0,229,255,0.08)', borderBottom: '1px solid rgba(0,229,255,0.08)' }}>
           <div style={{ maxWidth: '1280px', margin: '0 auto', paddingInline: '1.5rem' }}>
@@ -176,6 +176,66 @@ export default function HomePage() {
                 />
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* ═══ CERTIFICATIONS & PARTNERS — Agrupados ═══ */}
+        <section style={{ padding: '7rem 0', background: '#0D1326' }}>
+          <div style={{ maxWidth: '1280px', margin: '0 auto', paddingInline: '1.5rem' }}>
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} style={{ textAlign: 'center', marginBottom: '4rem' }}>
+              <motion.div variants={fadeUp}>
+                <span className="highlight-tag" style={{ marginBottom: '1.5rem', display: 'inline-block' }}>{t('certs.tag')}</span>
+              </motion.div>
+              <motion.h2 variants={fadeUp} style={{
+                fontFamily: "'Inter Tight', sans-serif", fontWeight: 900,
+                fontSize: 'clamp(1.75rem, 4vw, 3rem)', lineHeight: 1.15, marginBottom: '1rem',
+              }}>
+                {t('certs.h2a')}{' '}
+                <span className="gradient-text">{t('certs.h2b')}</span>{' '}
+                {t('certs.h2c')}
+              </motion.h2>
+            </motion.div>
+
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} style={{ marginBottom: '6rem' }}>
+              <CertificationCarousel />
+            </motion.div>
+
+            {/* Partners Grid inside the same logical flow */}
+            <motion.div 
+              initial="hidden" 
+              whileInView="visible" 
+              viewport={{ once: true }} 
+              variants={stagger} 
+              className="mt-20"
+            >
+              <div className="text-center mb-12">
+                <span className="text-[#0ea5e9] font-black uppercase tracking-[0.2em] text-sm mb-4 block">
+                  {t('partners.tag')}
+                </span>
+                <h3 className="text-3xl font-black text-white font-tight">{t('partners.h2')}</h3>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {socios.map((socio) => (
+                  <motion.a
+                    key={socio.id}
+                    href={socio.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variants={fadeUp}
+                    className="group relative flex items-center justify-center p-8 bg-[#111827]/40 backdrop-blur-sm rounded-[24px] border border-white/5 hover:border-sky-500/30 hover:bg-[#111827]/60 transition-all duration-500 aspect-video overflow-hidden"
+                  >
+                    <div className="relative w-full h-[60%]">
+                      <Image
+                        src={socio.imagen}
+                        alt={socio.nombre}
+                        fill
+                        className="object-contain filter grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
+                      />
+                    </div>
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
           </div>
         </section>
 
@@ -390,90 +450,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ═══ CERTIFICATIONS ═══ */}
-        <section style={{ padding: '7rem 0' }}>
-          <div style={{ maxWidth: '1000px', margin: '0 auto', paddingInline: '1.5rem' }}>
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} style={{ textAlign: 'center', marginBottom: '4rem' }}>
-              <motion.div variants={fadeUp}>
-                <span className="highlight-tag" style={{ marginBottom: '1.5rem', display: 'inline-block' }}>{t('certs.tag')}</span>
-              </motion.div>
-              <motion.h2 variants={fadeUp} style={{
-                fontFamily: "'Inter Tight', sans-serif", fontWeight: 900,
-                fontSize: 'clamp(1.75rem, 4vw, 3rem)', lineHeight: 1.15, marginBottom: '1rem',
-              }}>
-                {t('certs.h2a')}{' '}
-                <span className="gradient-text">{t('certs.h2b')}</span>{' '}
-                {t('certs.h2c')}
-              </motion.h2>
-            </motion.div>
-
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <CertificationCarousel />
-            </motion.div>
-
-            <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-              <Link href="/calidad" className="btn-outline">
-                {t('certs.btn')} <ArrowRight size={16} />
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* ═══ NOTICIAS ═══ */}
-        <NoticiasInicio />
-
-        {/* ═══ ALIANZAS ═══ */}
-        <section className="py-24 bg-[#0A0F1F]/20 relative overflow-hidden">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-sky-500/5 blur-[120px] rounded-full pointer-events-none" />
-          <div className="container mx-auto px-6 max-w-7xl relative z-10">
-            <motion.div 
-              initial="hidden" 
-              whileInView="visible" 
-              viewport={{ once: true }} 
-              variants={stagger} 
-              className="text-center mb-16 lg:mb-20"
-            >
-              <motion.div variants={fadeUp}>
-                <span className="text-[#0ea5e9] font-black uppercase tracking-[0.2em] text-sm mb-4 block">
-                  {t('partners.tag')}
-                </span>
-              </motion.div>
-              <motion.h2 variants={fadeUp} className="text-4xl lg:text-5xl font-black text-white font-tight tracking-tight">
-                {t('partners.h2')}
-              </motion.h2>
-              <div className="w-20 h-1 bg-[#0ea5e9] mx-auto mt-6 rounded-full" />
-            </motion.div>
-
-            <motion.div 
-               variants={stagger}
-               initial="hidden"
-               whileInView="visible"
-               viewport={{ once: true }}
-               className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center"
-            >
-              {socios.map((socio) => (
-                <motion.a
-                  key={socio.id}
-                  href={socio.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variants={fadeUp}
-                  className="group relative flex items-center justify-center p-10 bg-[#111827]/40 backdrop-blur-sm rounded-[24px] border border-white/5 hover:border-sky-500/30 hover:bg-[#111827]/60 transition-all duration-500 aspect-video overflow-hidden"
-                >
-                  <div className="relative w-full h-[60%]">
-                    <Image
-                      src={socio.imagen}
-                      alt={socio.nombre}
-                      fill
-                      className="object-contain filter grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
-                    />
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-tr from-sky-500/0 via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                </motion.a>
-              ))}
-            </motion.div>
-          </div>
-        </section>
 
         {/* ═══ CTA ═══ */}
         <section style={{ padding: '7rem 0', background: '#1A2238', position: 'relative', overflow: 'hidden' }}>

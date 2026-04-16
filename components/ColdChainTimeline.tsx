@@ -34,8 +34,8 @@ const steps = [
     labelEn: 'Freezing',
     subEs: 'Túnel y placas -25°C',
     subEn: 'Tunnel and plate -25°C',
-    detailEs: 'Sistema de congelado Yantai Moon de última generación: túneles de congelado rápido IQF y prensas de placas que alcanzan -25°C en tiempos mínimos para preservar la estructura celular del producto.',
-    detailEn: 'State-of-the-art Yantai Moon freezing system: rapid IQF freezing tunnels and plate presses reaching -25°C in minimum times to preserve the cellular structure of the product.',
+    detailEs: 'Sistema de congelado de última generación: túneles de congelado rápido IQF y prensas de placas que alcanzan -25°C en tiempos mínimos para preservar la estructura celular del producto.',
+    detailEn: 'State-of-the-art freezing system: rapid IQF freezing tunnels and plate presses reaching -25°C in minimum times to preserve the cellular structure of the product.',
     color: '#6EE7FA',
   },
   {

@@ -1,4 +1,4 @@
-import Navbar from '@/components/Navbar';
+﻿import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Link from 'next/link';
 import { ArrowLeft, CheckCircle } from 'lucide-react';
@@ -58,7 +58,7 @@ export default function GestionEticaPage() {
             <div className="glass-card p-8">
               <h2 className="text-xl font-bold text-frost font-tight mb-4">Reportar una irregularidad</h2>
               <p className="mb-4">Si tiene conocimiento de alguna situación que pueda constituir una violación a nuestros principios éticos, puede reportarla de manera confidencial a través de:</p>
-              <a href="mailto:ventas@perufrost.com" className="text-cyan hover:underline font-semibold">ventas@perufrost.com</a>
+              <a href="mailto:mk@perufrost.com" className="text-cyan hover:underline font-semibold">mk@perufrost.com</a>
               <p className="text-sm mt-2">Todas las denuncias son tratadas con absoluta confidencialidad y sin represalias para el denunciante de buena fe.</p>
             </div>
           </div>
@@ -68,3 +68,4 @@ export default function GestionEticaPage() {
     </>
   );
 }
+

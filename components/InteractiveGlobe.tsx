@@ -109,8 +109,8 @@ const WorldMap = ({ activeId, onSelect }: WorldMapProps) => {
           ))}
         </defs>
 
-        {/* Océano */}
-        <rect width={MAP_W} height={MAP_H} fill="#1A2238" />
+        {/* Océano — Un tono ligeramente más definido */}
+        <rect width={MAP_W} height={MAP_H} fill="#0d1425" />
 
         {/* Pa\u00edses base */}
         <Geographies geography={geoUrl}>
@@ -119,9 +119,9 @@ const WorldMap = ({ activeId, onSelect }: WorldMapProps) => {
               <Geography
                 key={geo.rsmKey}
                 geography={geo}
-                fill="#162040"
-                stroke="rgba(14,165,233,0.12)"
-                strokeWidth={0.5}
+                fill="#243c66"
+                stroke="rgba(0,229,255,0.25)"
+                strokeWidth={0.7}
                 style={{
                   default: { outline: "none" },
                   hover: { fill: "#1e3a5f", outline: "none", cursor: "default" },
