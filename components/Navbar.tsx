@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Globe } from 'lucide-react';
+import { Globe } from 'lucide-react';
 import { useLang } from '@/components/LanguageContext';
 
 const STORAGE_URL = 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/'
@@ -20,8 +20,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on route change
-  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { setMenuOpen(false); }, [pathname]);
 
   const navLinks = [
@@ -40,196 +38,97 @@ export default function Navbar() {
 
   return (
     <>
-      <nav
-        style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50 }}
-        className={`transition-all duration-500 ${
-          scrolled || menuOpen
-            ? 'bg-[#0A0F1F]/96 backdrop-blur-xl border-b border-[#00E5FF]/10 shadow-lg'
-            : 'bg-transparent'
-        }`}
-      >
-        <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 1.5rem' }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', height: '72px' }}>
+      <nav className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-500 ${scrolled || menuOpen ? 'bg-[#04111f] border-b border-[#00c8e6]/15' : 'bg-transparent'}`}>
+        <div className="nav-container">
+          
+          {/* Logo Section */}
+          <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
+            <img 
+              src={scrolled || menuOpen ? '/recursos/logo_dark.png' : '/recursos/logo_white.png'} 
+              alt="Perú Frost" 
+              style={{ height: '32px', width: 'auto' }} 
+            />
+            <div style={{ borderLeft: `1px solid ${scrolled || menuOpen ? 'rgba(255,255,255,0.15)' : 'rgba(4,17,31,0.15)'}`, paddingLeft: '12px' }}>
+              <div style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: '13px', color: scrolled || menuOpen ? '#fff' : '#04111f', lineHeight: 1.1, letterSpacing: '0.04em' }}>PERÚ FROST</div>
+              <div style={{ fontSize: '8px', fontWeight: 700, letterSpacing: '0.15em', color: '#00c8e6' }}>S.A.C.</div>
+            </div>
+          </Link>
 
-            {/* Logo + Name */}
-            <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}>
-              <img
-                src={STORAGE_URL + 'logo_white.webp'}
-                alt="Perú Frost"
-                style={{ height: '38px', width: 'auto', objectFit: 'contain', display: 'block', flexShrink: 0 }}
-              />
-              <div style={{ borderLeft: '1px solid rgba(255,255,255,0.15)', paddingLeft: '12px' }}>
-                <div style={{
-                  fontFamily: "'Inter Tight', sans-serif", fontWeight: 900,
-                  fontSize: '15px', color: '#fff', lineHeight: 1.1, letterSpacing: '0.03em',
-                }}>PERÚ FROST</div>
-                <div style={{ fontSize: '9px', fontWeight: 600, letterSpacing: '0.18em', color: '#00E5FF', marginTop: '1px' }}>S.A.C.</div>
-              </div>
+          {/* Center Links (Desktop Only) */}
+          <div className="nav-links">
+            {navLinks.map((link) => {
+              const active = isActive(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  style={{
+                    fontSize: '13px', fontWeight: active ? 700 : 500,
+                    color: active ? '#00c8e6' : 'rgba(255,255,255,0.65)',
+                    textDecoration: 'none', transition: 'color 0.2s', padding: '10px 0'
+                  }}
+                  onMouseEnter={e => !active && (e.currentTarget.style.color = '#fff')}
+                  onMouseLeave={e => !active && (e.currentTarget.style.color = 'rgba(255,255,255,0.65)')}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </div>
+
+          {/* Right Actions */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
+            {/* Lang Toggle (Desktop) */}
+            <button
+              onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
+              className="hidden lg:flex"
+              style={{
+                background: 'none', border: 'none', color: 'rgba(255,255,255,0.5)',
+                fontSize: '11px', fontWeight: 700, cursor: 'pointer', display: 'flex', gap: '4px'
+              }}
+            >
+              <span style={{ color: lang === 'es' ? '#00c8e6' : 'inherit' }}>ES</span>
+              <span>/</span>
+              <span style={{ color: lang === 'en' ? '#00c8e6' : 'inherit' }}>EN</span>
+            </button>
+
+            {/* CTA button (Desktop) */}
+            <Link href="/contacto" className="cta-desktop btn-primary" style={{ padding: '0.6rem 1.25rem', fontSize: '0.78rem' }}>
+              {t('nav.cta')}
             </Link>
 
-            {/* Desktop Nav */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }} className="hidden lg:flex">
-              {navLinks.map((link) => {
-                const active = isActive(link.href);
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    style={{
-                      fontSize: '0.85rem', fontWeight: active ? 700 : 500,
-                      color: active ? '#00E5FF' : '#8BA0B4',
-                      textDecoration: 'none', position: 'relative',
-                      padding: '6px 12px', borderRadius: '8px',
-                      background: active ? 'rgba(0,229,255,0.08)' : 'transparent',
-                      transition: 'all 0.2s',
-                    }}
-                    onMouseEnter={e => {
-                      if (!active) {
-                        (e.currentTarget as HTMLElement).style.color = '#fff';
-                        (e.currentTarget as HTMLElement).style.background = 'rgba(255,255,255,0.05)';
-                      }
-                    }}
-                    onMouseLeave={e => {
-                      if (!active) {
-                        (e.currentTarget as HTMLElement).style.color = '#8BA0B4';
-                        (e.currentTarget as HTMLElement).style.background = 'transparent';
-                      }
-                    }}
-                  >
-                    {link.label}
-                    {active && (
-                      <span style={{
-                        position: 'absolute', bottom: '-2px', left: '50%',
-                        transform: 'translateX(-50%)',
-                        width: '16px', height: '2px',
-                        background: '#00E5FF', borderRadius: '9999px',
-                      }} />
-                    )}
-                  </Link>
-                );
-              })}
-            </div>
-
-            {/* Right actions */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              {/* Language Toggle - Desktop */}
-              <button
-                onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
-                className="hidden lg:flex"
-                style={{
-                  display: 'flex', alignItems: 'center', gap: '5px',
-                  fontSize: '11px', fontWeight: 700, letterSpacing: '0.06em',
-                  color: '#8BA0B4', background: 'rgba(255,255,255,0.05)',
-                  border: '1px solid rgba(255,255,255,0.12)',
-                  borderRadius: '8px', padding: '6px 12px', cursor: 'pointer',
-                  transition: 'all 0.2s',
-                }}
-                onMouseEnter={e => {
-                  const el = e.currentTarget;
-                  el.style.color = '#00E5FF';
-                  el.style.borderColor = 'rgba(0,229,255,0.4)';
-                  el.style.background = 'rgba(0,229,255,0.08)';
-                }}
-                onMouseLeave={e => {
-                  const el = e.currentTarget;
-                  el.style.color = '#8BA0B4';
-                  el.style.borderColor = 'rgba(255,255,255,0.12)';
-                  el.style.background = 'rgba(255,255,255,0.05)';
-                }}
-              >
-                <Globe size={12} />
-                <span>{lang === 'es' ? 'ES' : 'EN'}</span>
-                <span style={{ opacity: 0.4 }}>|</span>
-                <span>{lang === 'es' ? 'EN' : 'ES'}</span>
-              </button>
-
-              {/* CTA - Desktop */}
-              <Link href="/contacto" className="btn-primary hidden lg:inline-flex" style={{ fontSize: '0.82rem', padding: '0.6rem 1.25rem' }}>
-                {t('nav.cta')}
-              </Link>
-
-              {/* Mobile hamburger */}
-              <button
-                onClick={() => setMenuOpen(!menuOpen)}
-                className="lg:hidden"
-                aria-label="Menú"
-                style={{
-                  padding: '8px', color: '#fff', background: menuOpen ? 'rgba(0,229,255,0.1)' : 'none',
-                  border: menuOpen ? '1px solid rgba(0,229,255,0.3)' : '1px solid transparent',
-                  borderRadius: '8px', cursor: 'pointer', transition: 'all 0.2s',
-                }}
-              >
-                {menuOpen ? <X size={22} /> : <Menu size={22} />}
-              </button>
-            </div>
+            {/* Hamburger (Mobile) */}
+            <button className={`hamburger ${menuOpen ? 'open' : ''}`} onClick={() => setMenuOpen(!menuOpen)}>
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
           </div>
         </div>
       </nav>
 
-      {/* Mobile Menu — full screen overlay */}
-      <div
-        style={{
-          position: 'fixed', top: 0, left: 0, right: 0, bottom: 0,
-          zIndex: 40, background: 'rgba(8,12,25,0.98)', backdropFilter: 'blur(24px)',
-          display: 'flex', flexDirection: 'column',
-          paddingTop: '90px', paddingBottom: '2rem',
-          transition: 'opacity 0.3s, transform 0.3s',
-          opacity: menuOpen ? 1 : 0,
-          transform: menuOpen ? 'translateY(0)' : 'translateY(-12px)',
-          pointerEvents: menuOpen ? 'auto' : 'none',
-        }}
-        className="lg:hidden"
-      >
-        {/* Nav links */}
-        <div style={{ flex: 1, overflowY: 'auto', paddingInline: '1.75rem' }}>
-          {navLinks.map((link, i) => {
-            const active = isActive(link.href);
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                style={{
-                  display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                  fontSize: '1.35rem', fontWeight: 800, fontFamily: "'Inter Tight', sans-serif",
-                  color: active ? '#00E5FF' : '#fff', textDecoration: 'none',
-                  padding: '1.1rem 0',
-                  borderBottom: '1px solid rgba(255,255,255,0.06)',
-                  opacity: menuOpen ? 1 : 0,
-                  transform: menuOpen ? 'translateX(0)' : 'translateX(-20px)',
-                  transition: `all 0.35s ease ${i * 0.06}s`,
-                }}
-              >
-                <span>{link.label}</span>
-                {active && <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#00E5FF' }} />}
-              </Link>
-            );
-          })}
+      {/* Mobile Menu Drawer */}
+      <div className={`mobile-menu ${menuOpen ? 'open' : ''}`}>
+        {navLinks.map((link) => (
+          <Link key={link.href} href={link.href} onClick={() => setMenuOpen(false)}>
+            {link.label}
+          </Link>
+        ))}
+        
+        {/* Mobile Language Toggle */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '16px 0', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+            <Globe size={14} color="#00c8e6" />
+            <button 
+                onClick={() => setLang(lang === 'es' ? 'en' : 'es')}
+                style={{ background: 'none', border: 'none', color: '#fff', fontSize: '14px', fontWeight: 600, padding: 0 }}
+            >
+                {lang === 'es' ? 'English Version' : 'Versión en Español'}
+            </button>
         </div>
 
-        {/* Bottom bar */}
-        <div style={{ paddingInline: '1.75rem', paddingTop: '1.5rem',  borderTop: '1px solid rgba(255,255,255,0.06)', display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
-          <button
-            onClick={() => { setLang(lang === 'es' ? 'en' : 'es'); setMenuOpen(false); }}
-            style={{
-              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',
-              fontSize: '0.9rem', fontWeight: 700, color: '#8BA0B4',
-              background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.12)',
-              borderRadius: '12px', padding: '0.875rem', cursor: 'pointer',
-            }}
-          >
-            <Globe size={16} />
-            {lang === 'es' ? '🌐 Switch to English' : '🌐 Cambiar a Español'}
-          </button>
-          <Link
-            href="/contacto"
-            onClick={() => setMenuOpen(false)}
-            className="btn-primary"
-            style={{ justifyContent: 'center', fontSize: '0.95rem', padding: '0.95rem 2rem' }}
-          >
-            {t('nav.cta')}
-          </Link>
-        </div>
+        <Link href="/contacto" className="cta-mobile" onClick={() => setMenuOpen(false)}>
+          {t('nav.cta')}
+        </Link>
       </div>
     </>
   );

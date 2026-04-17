@@ -10,8 +10,8 @@ import Footer from '@/components/Footer';
 import { useLang } from '@/components/LanguageContext';
 
 const S = {
-  section: { padding: '7rem 0', position: 'relative' as const },
-  sectionBg: { padding: '7rem 0', background: '#1A2238', position: 'relative' as const, overflow: 'hidden' as const },
+  section: { padding: '6rem 0', position: 'relative' as const },
+  sectionBg: { padding: '3.5rem 0 7rem', background: '#1A2238', position: 'relative' as const, overflow: 'hidden' as const },
   inner: { maxWidth: '1280px', margin: '0 auto', paddingInline: '1.5rem' },
   tag: { marginBottom: '1.5rem', display: 'inline-block' },
   h2: { fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: 'clamp(1.75rem, 4vw, 3rem)', lineHeight: 1.15, marginBottom: '1.5rem' },
@@ -84,10 +84,14 @@ export default function InfraestructuraPage() {
       <main style={{ paddingTop: '72px' }}>
 
         {/* Hero */}
-        <section style={{ ...S.sectionBg, minHeight: '420px', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
+        <section style={{ ...S.sectionBg, minHeight: '480px', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
           <div style={{ position: 'absolute', inset: 0 }}>
-            <Image src={STORAGE_URL + 'planta.webp'} alt="Planta Perú Frost" fill className="object-cover" style={{ opacity: 0.18 }} sizes="100vw" />
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(26,34,56,0.8), rgba(26,34,56,0.97))' }} />
+            <video
+              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.3 }}
+              src="/recursos/infra.mp4"
+              autoPlay muted loop playsInline preload="auto"
+            />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(26,34,56,0.7), rgba(26,34,56,0.95))' }} />
           </div>
           <div className="grid-pattern" style={{ position: 'absolute', inset: 0, opacity: 0.18 }} />
           <div style={{ ...S.inner, position: 'relative', zIndex: 1 }}>
@@ -97,8 +101,8 @@ export default function InfraestructuraPage() {
                 {lang === 'es' ? <>Infraestructura de <span className="gradient-text">clase mundial</span></> : <>World-class <span className="gradient-text">infrastructure</span></>}
               </motion.h1>
               <motion.p variants={fadeUp} style={{ color: '#8BA0B4', fontSize: '1.1rem', maxWidth: '600px', lineHeight: 1.8 }}>
-                {lang === 'es' 
-                  ? 'Nuestra planta en la Zona Industrial de Paita combina tecnología de última generación con procesos certificados para garantizar la máxima inocuidad y eficiencia productiva.' 
+                {lang === 'es'
+                  ? 'Nuestra planta en la Zona Industrial de Paita combina tecnología de última generación con procesos certificados para garantizar la máxima inocuidad y eficiencia productiva.'
                   : 'Our plant in the Paita Industrial Zone combines latest-generation technology with certified processes to guarantee maximum safety and productive efficiency.'}
               </motion.p>
             </motion.div>
@@ -223,7 +227,7 @@ export default function InfraestructuraPage() {
               <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
                 <div style={{ position: 'relative', height: '440px', borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.05)' }}>
                   <Image
-                    src={STORAGE_URL + 'merluza_premium.webp'}
+                    src="/recursos/embarcacion_merluza.jpg"
                     alt="Flota pesquera de merluza"
                     fill
                     className="object-cover"
@@ -252,7 +256,7 @@ export default function InfraestructuraPage() {
               <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
                 style={{ background: 'rgba(26,34,56,0.6)', border: '1px solid rgba(0,229,255,0.15)', borderRadius: '20px', padding: '2.5rem 2rem', textAlign: 'center' }}>
                 <div style={{ position: 'relative', height: '120px', borderRadius: '14px', overflow: 'hidden', marginBottom: '1.5rem' }}>
-                  <Image src={STORAGE_URL + 'planta_osmosis.webp'} alt="Planta de ósmosis" fill className="object-cover" sizes="33vw" />
+                  <Image src={STORAGE_URL + 'news_osmosis.webp'} alt="Planta de ósmosis" fill className="object-cover" sizes="33vw" />
                 </div>
                 <div className="stat-number" style={{ fontSize: '2rem', marginBottom: '0.875rem' }}>2,000 m³</div>
                 <p style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1.1rem', color: '#fff', marginBottom: '0.875rem' }}>Planta de Ósmosis</p>

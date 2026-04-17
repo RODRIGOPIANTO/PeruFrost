@@ -11,46 +11,46 @@ const noticiasEscritas = {
   es: [
     {
       id: 1,
-      titulo: 'Alianza para Modernización Tecnológica',
-      descripcion: 'Perú Frost firma acuerdo para la modernización tecnológica de su planta de procesamiento, incorporando equipos de congelado de última generación.',
-      imagen: STORAGE_URL + 'news_yantai.webp',
+      titulo: 'Modernización en Planta de Procesamiento',
+      descripcion: 'Culminamos la fase de modernización tecnológica en nuestra planta principal, integrando nuevos túneles de congelado para optimizar la cadena de frío.',
+      imagen: STORAGE_URL + 'news_planta.webp',
       featured: true,
     },
     {
       id: 2,
       titulo: 'Ampliación de Planta de Ósmosis',
-      descripcion: 'Capacidad incrementada a 2,000 m³ diarios para optimizar el suministro de agua y los estándares sanitarios.',
+      descripcion: 'Capacidad incrementada a 2,000 m³ diarios para garantizar estándares sanitarios internacionales en todos nuestros procesos.',
       imagen: STORAGE_URL + 'news_osmosis.webp',
       featured: false,
     },
     {
       id: 3,
-      titulo: 'Perú Frost Alcanza Máxima Calificación SANIPES',
-      descripcion: 'La planta recibe la clasificación más alta de sanidad por parte de la autoridad operativa SANIPES.',
-      imagen: STORAGE_URL + 'news_planta.webp',
+      titulo: 'Certificación SANIPES de Clase Mundial',
+      descripcion: 'Perú Frost mantiene la máxima calificación sanitaria, reafirmando nuestro compromiso con la inocuidad y la salud pública.',
+      imagen: STORAGE_URL + 'noticia_sanipes.webp',
       featured: false,
     },
   ],
   en: [
     {
       id: 1,
-      titulo: 'Modernization Technology Alliance',
-      descripcion: 'Peru Frost signs a strategic agreement to modernize its processing plant with state-of-the-art freezing equipment.',
-      imagen: STORAGE_URL + 'news_yantai.webp',
+      titulo: 'Processing Plant Modernization',
+      descripcion: 'We have completed the technological modernization phase at our main plant, integrating new freezing tunnels to optimize the cold chain.',
+      imagen: STORAGE_URL + 'news_planta.webp',
       featured: true,
     },
     {
       id: 2,
       titulo: 'Osmosis Plant Expansion',
-      descripcion: 'Capacity increased to 2,000 cubic meters per day to optimize our water supply and sanitary standards.',
+      descripcion: 'Capacity increased to 2,000 cubic meters per day to guarantee international sanitary standards in all our processes.',
       imagen: STORAGE_URL + 'news_osmosis.webp',
       featured: false,
     },
     {
       id: 3,
-      titulo: 'Peru Frost Achieves Top SANIPES Rating',
-      descripcion: 'The processing plant receives the highest sanitary classification ranking from the SANIPES authority.',
-      imagen: STORAGE_URL + 'news_planta.webp',
+      titulo: 'World-Class SANIPES Certification',
+      descripcion: 'Peru Frost maintains the highest sanitary rating, reaffirming our commitment to food safety and public health.',
+      imagen: STORAGE_URL + 'noticia_sanipes.webp',
       featured: false,
     },
   ],
@@ -100,7 +100,7 @@ export default function NoticiasInicio() {
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
 
         {/* Eyebrow + Headline */}
-        <div style={{ marginBottom: '48px' }}>
+        <div style={{ marginBottom: '48px', textAlign: 'center' }}>
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: '8px',
             border: '1px solid rgba(0,200,230,0.3)', borderRadius: '20px',
@@ -111,14 +111,16 @@ export default function NoticiasInicio() {
               {lang === 'es' ? 'NOVEDADES Y ACTUALIDAD' : 'LATEST UPDATES'}
             </span>
           </div>
-
+ 
           <h2 style={{
             fontFamily: "'Barlow Condensed', sans-serif",
             fontWeight: 900,
-            fontSize: 'clamp(40px, 5vw, 56px)',
-            lineHeight: 1.05,
+            fontSize: 'clamp(40px, 5vw, 64px)',
+            lineHeight: 1,
             color: '#ffffff',
-            margin: 0,
+            margin: '0 auto',
+            textAlign: 'center',
+            maxWidth: '800px'
           }}>
             {lang === 'es'
               ? <>Últimas <span style={{ color: '#00c8e6' }}>Noticias</span></>
@@ -180,7 +182,7 @@ export default function NoticiasInicio() {
               </div>
 
               {/* Card body */}
-              <div style={{ padding: '18px', display: 'flex', flexDirection: 'column', flex: 1, gap: '10px' }}>
+              <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', flex: 1, gap: '14px' }}>
                 <h3 style={{
                   fontFamily: "'Barlow Condensed', sans-serif",
                   fontWeight: 800,

@@ -121,10 +121,7 @@ export default function HomePage() {
                 lineHeight: 1.08, color: '#fff',
                 marginBottom: '1.75rem',
               }}>
-                {t('hero.h1a')}{' '}
-                <span className="gradient-text glow-cyan">{t('hero.h1b')}</span>{' '}
-                <span className="gradient-text glow-cyan">{t('hero.h1c')}</span>{' '}
-                <span style={{ color: '#fff' }}>{t('hero.h1d')}</span>
+                Perú Frost: <span className="gradient-text glow-cyan">Tradicion</span> transformada en <span className="gradient-text glow-cyan">excelencia</span>
               </motion.h1>
 
               <motion.p variants={fadeUp} style={{
@@ -165,14 +162,14 @@ export default function HomePage() {
           <div style={{ maxWidth: '1280px', margin: '0 auto', paddingInline: '1.5rem' }}>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1.5rem' }} className="lg:grid-cols-4 lg:flex lg:justify-between">
               {statsEmpresa.slice(0, 4).map((stat) => (
-                <AnimatedCounter 
+                <AnimatedCounter
                   key={stat.id}
-                  end={stat.valor} 
-                  prefix={stat.sufijo.includes('+') ? '+' : ''} 
-                  suffix={!stat.sufijo.includes('+') ? stat.sufijo : ''} 
-                  label={stat.label} 
-                  sublabel={stat.subLabel} 
-                  icon={stat.id === 'experiencia' ? <Award size={28} /> : stat.id === 'paises' ? <Globe size={28} /> : stat.id === 'capacidad' ? <Thermometer size={28} /> : <Shield size={28} />} 
+                  end={stat.valor}
+                  prefix={stat.sufijo.includes('+') ? '+' : ''}
+                  suffix={!stat.sufijo.includes('+') ? stat.sufijo : ''}
+                  label={stat.label}
+                  sublabel={stat.subLabel}
+                  icon={stat.id === 'experiencia' ? <Award size={28} /> : stat.id === 'paises' ? <Globe size={28} /> : stat.id === 'capacidad' ? <Thermometer size={28} /> : <Shield size={28} />}
                 />
               ))}
             </div>
@@ -201,11 +198,11 @@ export default function HomePage() {
             </motion.div>
 
             {/* Partners Grid inside the same logical flow */}
-            <motion.div 
-              initial="hidden" 
-              whileInView="visible" 
-              viewport={{ once: true }} 
-              variants={stagger} 
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={stagger}
               className="mt-20"
             >
               <div className="text-center mb-12">
@@ -239,84 +236,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ═══ QUALITY PARALLAX ═══ */}
-        <section ref={parallaxRef} style={{ padding: '7rem 0', position: 'relative', overflow: 'hidden' }}>
-          <div style={{ maxWidth: '1280px', margin: '0 auto', paddingInline: '1.5rem' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '4rem', alignItems: 'center' }} className="lg:grid-cols-2">
 
-              {/* Image */}
-              <motion.div
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                style={{ position: 'relative', height: '480px', borderRadius: '20px', overflow: 'hidden' }}
-                className="order-2 lg:order-1"
-              >
-                <div className="parallax-img" style={{ position: 'absolute', top: '-60px', bottom: '-60px', left: 0, right: 0 }}>
-                  <Image src={STORAGE_URL + 'planta.webp'} alt="Planta Perú Frost Paita" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
-                </div>
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,15,31,0.8) 0%, transparent 60%)', zIndex: 1 }} />
-                <div style={{ position: 'absolute', bottom: '1.5rem', left: '1.5rem', right: '1.5rem', zIndex: 2 }}>
-                  <div className="glass-card-strong" style={{ padding: '1rem 1.25rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                    <div style={{ width: '40px', height: '40px', background: 'rgba(0,229,255,0.2)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                      <Shield color="#00E5FF" size={20} />
-                    </div>
-                    <div>
-                      <p style={{ fontSize: '0.7rem', color: '#8BA0B4', marginBottom: '2px' }}>{lang === 'es' ? 'Certificación más alta' : 'Highest certification'}</p>
-                      <p style={{ fontWeight: 700, fontSize: '0.9rem', color: '#fff', fontFamily: "'Inter Tight', sans-serif" }}>BRCGS Food Safety — Grado AA</p>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Text */}
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: '-80px' }}
-                variants={stagger}
-                className="order-1 lg:order-2"
-              >
-                <motion.div variants={fadeUp}>
-                  <span className="highlight-tag" style={{ marginBottom: '1.5rem', display: 'inline-block' }}>{t('quality.tag')}</span>
-                </motion.div>
-                <motion.h2 variants={fadeUp} style={{
-                  fontFamily: "'Inter Tight', sans-serif", fontWeight: 900,
-                  fontSize: 'clamp(1.75rem, 3.5vw, 3rem)', lineHeight: 1.15,
-                  marginBottom: '1.75rem',
-                }}>
-                  {t('quality.h2a')}{' '}
-                  <span className="gradient-text">{t('quality.h2b')}</span>{' '}
-                  {t('quality.h2c')}
-                </motion.h2>
-                <motion.p variants={fadeUp} style={{ color: '#8BA0B4', fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '2.5rem' }}>
-                  {t('quality.body')}
-                </motion.p>
-
-                <motion.div variants={fadeUp} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginBottom: '2.75rem' }}>
-                  {[
-                    lang === 'es' ? 'HACCP en todas las etapas del proceso' : 'HACCP at every stage of the process',
-                    lang === 'es' ? 'Trazabilidad 100% digital desde la captura' : '100% digital traceability from catch',
-                    lang === 'es' ? 'Análisis de laboratorio en cada lote' : 'Laboratory analysis on every batch',
-                    lang === 'es' ? 'Proveedores evaluados y certificados' : 'Evaluated and certified suppliers',
-                  ].map((item) => (
-                    <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
-                      <CheckCircle color="#00E5FF" size={20} style={{ flexShrink: 0, marginTop: '2px' }} />
-                      <span style={{ color: '#fff', fontSize: '1rem', lineHeight: 1.5 }}>{item}</span>
-                    </div>
-                  ))}
-                </motion.div>
-
-                <motion.div variants={fadeUp}>
-                  <Link href="/calidad" className="btn-primary">
-                    {t('quality.btn')} <ArrowRight size={16} />
-                  </Link>
-                </motion.div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
 
         {/* ═══ COLD CHAIN ═══ */}
         <section style={{ padding: '7rem 0', background: '#1A2238', position: 'relative', overflow: 'hidden' }}>

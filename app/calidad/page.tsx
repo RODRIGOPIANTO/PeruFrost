@@ -13,8 +13,8 @@ import { useLang } from '@/components/LanguageContext';
 const STORAGE_URL = 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/'
 
 const S = {
-  section: { padding: '7rem 0', position: 'relative' as const },
-  sectionBg: { padding: '7rem 0', background: '#1A2238', position: 'relative' as const, overflow: 'hidden' as const },
+  section: { padding: '6rem 0', position: 'relative' as const },
+  sectionBg: { padding: '3.5rem 0 6rem', background: '#1A2238', position: 'relative' as const, overflow: 'hidden' as const },
   inner: { maxWidth: '1280px', margin: '0 auto', paddingInline: '1.5rem' },
   innerNarrow: { maxWidth: '900px', margin: '0 auto', paddingInline: '1.5rem' },
   tag: { marginBottom: '1.5rem', display: 'inline-block' },
@@ -61,7 +61,7 @@ export default function CalidadPage() {
                 {lang === 'es' ? <>Calidad que <span className="gradient-text">inspira confianza</span></> : <>Quality that <span className="gradient-text">inspires confidence</span></>}
               </motion.h1>
               <motion.p variants={fadeUp} style={{ color: '#8BA0B4', fontSize: '1.1rem', maxWidth: '580px', lineHeight: 1.8 }}>
-                {lang === 'es' 
+                {lang === 'es'
                   ? 'Nuestro sistema integrado garantiza que cada producto que exportamos cumple con las normativas más exigentes del mundo.'
                   : 'Our integrated system ensures that every product we export complies with the most demanding regulations in the world.'}
               </motion.p>
@@ -205,7 +205,15 @@ export default function CalidadPage() {
               </motion.div>
               <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
                 <div style={{ position: 'relative', height: '420px', borderRadius: '20px', overflow: 'hidden' }}>
-                  <Image src={STORAGE_URL + 'news_planta.webp'} alt="Control de calidad planta Paita" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+                  <video
+                    src={STORAGE_URL + 'video_institucional_final.mp4'}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    poster={STORAGE_URL + 'news_planta.webp'}
+                  />
                   <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,15,31,0.8) 0%, transparent 55%)' }} />
                   <div style={{ position: 'absolute', bottom: '1.5rem', left: '1.5rem', right: '1.5rem' }}>
                     <div className="glass-card-strong" style={{ padding: '1rem 1.25rem' }}>

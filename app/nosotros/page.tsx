@@ -94,16 +94,23 @@ export default function NosotrosPage() {
       <main style={{ paddingTop: '72px' }}>
 
         {/* ─── HERO ─── */}
-        <section style={{ padding: '6rem 0 5rem', background: '#1A2238', position: 'relative', overflow: 'hidden' }}>
-          <div className="grid-pattern" style={{ position: 'absolute', inset: 0, opacity: 0.18 }} />
-          <div style={{ position: 'absolute', top: '-100px', right: '-100px', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(0,229,255,0.07) 0%, transparent 65%)', borderRadius: '50%', pointerEvents: 'none' }} />
-          <div style={{ maxWidth: '1280px', margin: '0 auto', paddingInline: '1.5rem', position: 'relative', zIndex: 1 }}>
+        <section style={{ padding: '3rem 0 5rem', position: 'relative', overflow: 'hidden', minHeight: '60vh', display: 'flex', alignItems: 'center' }}>
+          {/* Background Image with Filter */}
+          <div style={{ position: 'absolute', inset: 0, zIndex: 0, backgroundColor: '#070b1a' }}>
+            <img 
+              src="/recursos/trabajadores.jpg" 
+              alt="Perú Frost Team" 
+              style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.3 }} 
+            />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(10,15,31,0.7) 0%, rgba(10,15,31,0.95) 100%)' }} />
+          </div>
+
+          <div className="grid-pattern" style={{ position: 'absolute', inset: 0, opacity: 0.12, zIndex: 1 }} />
+          <div style={{ position: 'absolute', top: '-100px', right: '-100px', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(0,229,255,0.07) 0%, transparent 65%)', borderRadius: '50%', pointerEvents: 'none', zIndex: 1 }} />
+          
+          <div style={{ maxWidth: '1280px', margin: '0 auto', paddingInline: '1.5rem', position: 'relative', zIndex: 2 }}>
             <motion.div initial="hidden" animate="visible" variants={stagger}>
-              <motion.div variants={fadeUp}>
-                <span className="highlight-tag" style={{ marginBottom: '1.75rem', display: 'inline-block' }}>
-                  {lang === 'es' ? 'Empresa 100% Peruana' : '100% Peruvian Company'}
-                </span>
-              </motion.div>
+
               <motion.h1 variants={fadeUp} style={{
                 fontFamily: "'Inter Tight', sans-serif", fontWeight: 900,
                 fontSize: 'clamp(2.5rem, 6vw, 5rem)', lineHeight: 1.08,
@@ -237,20 +244,16 @@ export default function NosotrosPage() {
                 </Link>
               </motion.div>
               <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-                <div style={{ position: 'relative', height: '480px', borderRadius: '24px', overflow: 'hidden' }}>
-                  <Image src={STORAGE_URL + 'planta.webp'} alt="Planta Perú Frost Paita" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
-                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,15,31,0.75) 0%, transparent 50%)' }} />
-                  <div style={{ position: 'absolute', bottom: '1.75rem', left: '1.75rem', right: '1.75rem' }}>
-                    <div className="glass-card-strong" style={{ padding: '1.25rem 1.5rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                      <div style={{ width: '44px', height: '44px', background: 'rgba(0,229,255,0.15)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#00E5FF', flexShrink: 0 }}>
-                        <Anchor size={20} />
-                      </div>
-                      <div>
-                        <p style={{ fontSize: '0.7rem', color: '#8BA0B4', marginBottom: '2px' }}>{lang === 'es' ? 'Planta de procesamiento' : 'Processing plant'}</p>
-                        <p style={{ fontWeight: 700, color: '#fff', fontSize: '0.95rem' }}>Zona Industrial Paita — Piura, Perú</p>
-                      </div>
-                    </div>
-                  </div>
+                <div style={{ position: 'relative', height: '480px', borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(0,229,255,0.2)' }}>
+                  <video
+                    src="/recursos/video_institucional.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,15,31,0.4) 0%, transparent 40%)' }} />
                 </div>
               </motion.div>
             </div>
@@ -413,25 +416,29 @@ export default function NosotrosPage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto" style={{ alignItems: 'stretch' }}>
               {values.map((v, i) => (
                 <motion.div
                   key={v.title}
-                  className={`w-full ${i === 4 ? 'md:col-span-2 md:max-w-[500px] md:mx-auto' : ''}`}
+                  className={`w-full h-full ${i === 4 ? 'md:col-span-2' : ''}`}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.09 }}
                   style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: '100%',
+                    flex: 1,
                     background: 'rgba(10,15,31,0.6)', backdropFilter: 'blur(20px)',
                     border: '1px solid rgba(255,255,255,0.08)', borderRadius: '16px',
-                    padding: '2rem', cursor: 'default',
+                    padding: '2.5rem', cursor: 'default',
                     transition: 'all 0.35s ease',
                   }}
                   onMouseEnter={e => {
                     const el = e.currentTarget as HTMLElement;
                     el.style.borderColor = `${v.color}40`;
-                    el.style.transform = 'translateY(-4px)';
+                    el.style.transform = 'translateY(-6px)';
                     el.style.background = 'rgba(26,34,56,0.8)';
                     el.style.boxShadow = `0 15px 40px ${v.color}15`;
                   }}
@@ -456,7 +463,7 @@ export default function NosotrosPage() {
                     <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: '1.15rem', color: '#fff' }}>{v.title}</h3>
                   </div>
 
-                  <p style={{ color: '#8BA0B4', fontSize: '0.85rem', lineHeight: 1.7, marginBottom: '1.25rem' }}>{v.desc}</p>
+                  <p style={{ color: '#8BA0B4', fontSize: '0.925rem', lineHeight: 1.7, marginBottom: '1.5rem', flex: 1 }}>{v.desc}</p>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                     {v.bullets.map((b) => (
                       <div key={b} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
