@@ -378,7 +378,7 @@ export default function CatalogoPage() {
                     {/* flex-wrap: permite que baje en mobile */}
                     <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
                       <motion.div variants={fadeUp} style={{ position: 'relative', flex: '1 1 320px', aspectRatio: '1', overflow: 'hidden', minHeight: '280px' }}>
-                        <Image src="/productos/calamar (1).jpg" alt="Calamar Gigante Pota" fill style={{ objectFit: 'contain', padding: '2.5rem' }} priority sizes="(max-width:1024px) 100vw, 50vw" />
+                        <Image src={STORAGE_URL + 'calamar_1.webp'} alt="Calamar Gigante Pota" fill style={{ objectFit: 'contain', padding: '2.5rem' }} priority sizes="(max-width:1024px) 100vw, 50vw" />
                         <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at center, rgba(0,229,255,0.06) 0%, transparent 65%)', pointerEvents: 'none' }} />
                       </motion.div>
                       <motion.div variants={fadeUp} style={{ flex: '1 1 320px', padding: '3rem' }}>
