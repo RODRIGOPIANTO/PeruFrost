@@ -37,7 +37,7 @@ const products = [
     descriptionEn: 'Peruvian jumbo squid from FAO Zone 87, processed under the strictest international standards. Wide range of cuts for different markets.',
     specs: ['Tentáculos', 'Aletas', 'Filetes', 'Botones', 'Bloques 10kg/7kg', 'Sacos 20kg/21kg'],
     specsEn: ['Tentacles', 'Fins', 'Fillets', 'Buttons', '10kg/7kg Blocks', '20kg/21kg Bags'],
-    image: STORAGE_URL + 'pota_industrial_premium.webp',
+    image: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/calamar_1.webp',
   },
   {
     name: 'Merluza',
@@ -48,7 +48,7 @@ const products = [
     descriptionEn: 'Fillets, HGT and whole fish in IQF and block processes for the most demanding markets. Caught in the rich Humboldt Current waters.',
     specs: ['Filetes con/sin piel', 'HGT', 'Entera', 'IQF o Bloque'],
     specsEn: ['Fillets with/without skin', 'HGT', 'Whole', 'IQF or Block'],
-    image: STORAGE_URL + 'merluza_premium.webp',
+    image: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/merluza_1.webp',
   },
   {
     name: 'Mahi Mahi',
@@ -59,7 +59,7 @@ const products = [
     descriptionEn: 'Peruvian mahi mahi in fillets, portions and loins of the best organoleptic quality. Highly valued in premium markets in Europe and the US.',
     specs: ['Filetes', 'Porciones', 'Lomos', 'Con/sin piel'],
     specsEn: ['Fillets', 'Portions', 'Loins', 'With/without skin'],
-    image: STORAGE_URL + 'mahi_mahi_premium.webp',
+    image: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/perico_1.webp',
   },
 ];
 
@@ -105,9 +105,9 @@ export default function HomePage() {
         <section style={{ position: 'relative', height: 'calc(100vh - 72px)', minHeight: '640px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
           <video
             style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
-            src={STORAGE_URL + 'video_institucional_final.mp4'}
+            src="/recursos/video_institucional.mp4"
             autoPlay muted loop playsInline preload="auto"
-            poster={STORAGE_URL + 'planta.webp'}
+            poster="/recursos/planta.webp"
           />
           <div className="video-overlay" style={{ position: 'absolute', inset: 0, zIndex: 1 }} />
           <div className="grid-pattern" style={{ position: 'absolute', inset: 0, zIndex: 1, opacity: 0.25 }} />

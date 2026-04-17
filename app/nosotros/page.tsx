@@ -8,6 +8,8 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { useLang } from '@/components/LanguageContext';
 
+const STORAGE_URL = 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/'
+
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
@@ -83,7 +85,7 @@ const stats = [
   { icon: <Anchor size={20} />, value: '-25°C', label: 'Temp. garantizada' },
 ];
 
-const STORAGE_URL = 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/'
+// Institutional assets are served from /recursos/
 
 export default function NosotrosPage() {
   const { lang } = useLang();
@@ -98,7 +100,7 @@ export default function NosotrosPage() {
           {/* Background Image with Filter */}
           <div style={{ position: 'absolute', inset: 0, zIndex: 0, backgroundColor: '#070b1a' }}>
             <img 
-              src="/recursos/trabajadores.jpg" 
+              src={STORAGE_URL + 'trabajadores.webp'} 
               alt="Perú Frost Team" 
               style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.3 }} 
             />
@@ -225,6 +227,19 @@ export default function NosotrosPage() {
           <div style={{ maxWidth: '1280px', margin: '0 auto', paddingInline: '1.5rem', position: 'relative', zIndex: 1 }}>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '5rem', alignItems: 'center' }} className="lg:grid-cols-2">
               <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+                <div style={{ position: 'relative', height: '480px', borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(0,229,255,0.2)' }}>
+                  <video
+                    src={STORAGE_URL + 'video_institucional.mp4'}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,15,31,0.4) 0%, transparent 40%)' }} />
+                </div>
+              </motion.div>
+              <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
                 <span className="highlight-tag" style={{ marginBottom: '1.5rem', display: 'inline-block' }}>{lang === 'es' ? 'Nuestra Historia' : 'Our Story'}</span>
                 <h2 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: 'clamp(1.75rem, 4vw, 3rem)', lineHeight: 1.15, marginBottom: '1.75rem' }}>
                   {lang === 'es' ? <>Conscientes del invaluable <span className="gradient-text">tesoro pesquero</span></> : <>Aware of the invaluable <span className="gradient-text">fishing treasure</span></>}
@@ -242,19 +257,6 @@ export default function NosotrosPage() {
                 <Link href="/infraestructura" className="btn-primary">
                   {lang === 'es' ? 'Ver Infraestructura' : 'View Infrastructure'} <ArrowRight size={16} />
                 </Link>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-                <div style={{ position: 'relative', height: '480px', borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(0,229,255,0.2)' }}>
-                  <video
-                    src="/recursos/video_institucional.mp4"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  />
-                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,15,31,0.4) 0%, transparent 40%)' }} />
-                </div>
               </motion.div>
             </div>
           </div>
@@ -495,7 +497,7 @@ export default function NosotrosPage() {
               <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
                 style={{ background: 'rgba(26,34,56,0.6)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '16px', padding: '2rem', display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
                 <div style={{ width: '60px', height: '60px', borderRadius: '12px', background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '8px', flexShrink: 0, overflow: 'hidden' }}>
-                  <img src="https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/partner_snp_new.webp" alt="SNP" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                  <img src={STORAGE_URL + 'partner_snp_new.webp'} alt="SNP" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                 </div>
                 <div>
                   <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1rem', color: '#fff', marginBottom: '0.3rem', lineHeight: 1.2 }}>Sociedad Nacional de Pesquería</h3>
@@ -507,7 +509,7 @@ export default function NosotrosPage() {
               <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
                 style={{ background: 'rgba(26,34,56,0.6)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '16px', padding: '2rem', display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
                 <div style={{ width: '60px', height: '60px', borderRadius: '12px', background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '8px', flexShrink: 0, overflow: 'hidden' }}>
-                  <img src="https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/partner_sni_new.webp" alt="SNI" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                  <img src={STORAGE_URL + 'partner_sni_new.webp'} alt="SNI" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                 </div>
                 <div>
                   <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1rem', color: '#fff', marginBottom: '0.3rem', lineHeight: 1.2 }}>Sociedad Nacional de Industrias</h3>
@@ -519,7 +521,7 @@ export default function NosotrosPage() {
               <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
                 style={{ background: 'rgba(26,34,56,0.6)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '16px', padding: '2rem', display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
                 <div style={{ width: '60px', height: '60px', borderRadius: '12px', background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '8px', flexShrink: 0, overflow: 'hidden' }}>
-                  <img src="https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/partner_capecal_new.webp" alt="CAPECAL" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                  <img src={STORAGE_URL + 'partner_capecal_new.webp'} alt="CAPECAL" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                 </div>
                 <div>
                   <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1rem', color: '#fff', marginBottom: '0.3rem', lineHeight: 1.2 }}>Cámara Peruana del Calamar Gigante</h3>

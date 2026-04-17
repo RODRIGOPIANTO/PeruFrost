@@ -23,10 +23,10 @@ const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } 
 const STORAGE_URL = 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/'
 
 const galleryImages = [
-  { src: STORAGE_URL + 'planta.webp', caption: 'Planta principal — Zona Industrial Paita' },
-  { src: STORAGE_URL + '120m.webp', caption: 'Instalaciones de alta tecnología' },
-  { src: STORAGE_URL + 'planta_osmosis.webp', caption: 'Planta de ósmosis inversa — 2,000 m³/día' },
-  { src: STORAGE_URL + 'merluza_premium.webp', caption: 'Flota pesquera — captura de merluza peruana' },
+  { type: 'video', src: STORAGE_URL + 'infra.mp4', caption: '' },
+  { type: 'image', src: STORAGE_URL + 'planta.webp', caption: 'Planta principal — Zona Industrial Paita' },
+  { type: 'image', src: STORAGE_URL + '120m.webp', caption: 'Instalaciones de alta tecnología' },
+  { type: 'image', src: STORAGE_URL + 'planta_osmosis.webp', caption: 'Planta de ósmosis inversa — 2,000 m³/día' },
 ];
 
 const techSpecs = [
@@ -84,13 +84,17 @@ export default function InfraestructuraPage() {
       <main style={{ paddingTop: '72px' }}>
 
         {/* Hero */}
-        <section style={{ ...S.sectionBg, minHeight: '480px', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
+        <section style={{ ...S.sectionBg, minHeight: '520px', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
           <div style={{ position: 'absolute', inset: 0 }}>
-            <video
-              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', opacity: 0.3 }}
-              src="/recursos/infra.mp4"
-              autoPlay muted loop playsInline preload="auto"
-            />
+            <div style={{ position: 'absolute', inset: 0, opacity: 0.35 }}>
+              <Image
+                src={STORAGE_URL + 'infrafondo.webp'}
+                alt="Fondo Infraestructura"
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(26,34,56,0.7), rgba(26,34,56,0.95))' }} />
           </div>
           <div className="grid-pattern" style={{ position: 'absolute', inset: 0, opacity: 0.18 }} />
@@ -120,11 +124,20 @@ export default function InfraestructuraPage() {
             </motion.div>
 
             {/* Main image */}
-            <div style={{ position: 'relative', height: '480px', borderRadius: '24px', overflow: 'hidden', marginBottom: '1rem' }}>
-              <Image
-                src={galleryImages[galleryIdx].src} alt={`Instalación ${galleryIdx + 1}`} fill
-                className="object-cover" style={{ transition: 'all 0.7s ease' }} sizes="100vw"
-              />
+            <div style={{ position: 'relative', height: '580px', borderRadius: '24px', overflow: 'hidden', marginBottom: '1rem', background: '#0D1326' }}>
+              {galleryImages[galleryIdx].type === 'video' ? (
+                <video
+                  key={galleryImages[galleryIdx].src}
+                  src={galleryImages[galleryIdx].src}
+                  autoPlay muted loop playsInline
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
+              ) : (
+                <Image
+                  src={galleryImages[galleryIdx].src} alt={`Instalación ${galleryIdx + 1}`} fill
+                  className="object-cover" style={{ transition: 'all 0.7s ease' }} sizes="100vw"
+                />
+              )}
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,15,31,0.8) 0%, transparent 50%)' }} />
               <div style={{ position: 'absolute', bottom: '2rem', left: '2rem', right: '2rem', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '1rem' }}>
                 <p style={{ color: '#fff', fontWeight: 700, fontSize: '1rem', fontFamily: "'Inter Tight', sans-serif" }}>{galleryImages[galleryIdx].caption}</p>
@@ -148,7 +161,13 @@ export default function InfraestructuraPage() {
                   opacity: i === galleryIdx ? 1 : 0.6, cursor: 'pointer',
                   transition: 'all 0.3s ease', padding: 0, background: 'none',
                 }}>
-                  <Image src={img.src} alt={img.caption} fill className="object-cover" sizes="25vw" />
+                  {img.type === 'video' ? (
+                    <div style={{ width: '100%', height: '100%', background: '#1A2238', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <Ship size={20} color="#00E5FF" />
+                    </div>
+                  ) : (
+                    <Image src={img.src} alt={img.caption} fill className="object-cover" sizes="25vw" />
+                  )}
                 </button>
               ))}
             </div>
@@ -247,66 +266,6 @@ export default function InfraestructuraPage() {
             </div>
           </div>
         </section>
-
-        {/* Three highlights */}
-        <section style={S.section}>
-          <div style={S.inner}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1.5rem' }} className="md:grid-cols-3">
-              {/* Ósmosis 2000m³ */}
-              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
-                style={{ background: 'rgba(26,34,56,0.6)', border: '1px solid rgba(0,229,255,0.15)', borderRadius: '20px', padding: '2.5rem 2rem', textAlign: 'center' }}>
-                <div style={{ position: 'relative', height: '120px', borderRadius: '14px', overflow: 'hidden', marginBottom: '1.5rem' }}>
-                  <Image src={STORAGE_URL + 'news_osmosis.webp'} alt="Planta de ósmosis" fill className="object-cover" sizes="33vw" />
-                </div>
-                <div className="stat-number" style={{ fontSize: '2rem', marginBottom: '0.875rem' }}>2,000 m³</div>
-                <p style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1.1rem', color: '#fff', marginBottom: '0.875rem' }}>Planta de Ósmosis</p>
-                <p style={{ color: '#8BA0B4', fontSize: '0.9rem', lineHeight: 1.75 }}>Capacidad diaria de producción de agua purificada para garantizar la inocuidad en todos los procesos.</p>
-              </motion.div>
-              {/* JBT Marel — con imagen de maquinaria */}
-              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
-                style={{ background: 'rgba(26,34,56,0.6)', border: '1px solid rgba(0,229,255,0.15)', borderRadius: '20px', padding: '2.5rem 2rem', textAlign: 'center' }}>
-                <div style={{ position: 'relative', height: '120px', borderRadius: '14px', overflow: 'hidden', marginBottom: '1.5rem' }}>
-                  <Image src={STORAGE_URL + 'maquinaria_marel.webp'} alt="Maquinaria JBT Marel" fill className="object-cover" sizes="33vw" />
-                </div>
-                <p style={{ fontSize: '0.7rem', color: '#00E5FF', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.5rem' }}>Automatización</p>
-                <p style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1.25rem', color: '#fff', marginBottom: '0.875rem' }}>JBT Marel</p>
-                <p style={{ color: '#8BA0B4', fontSize: '0.9rem', lineHeight: 1.75, marginBottom: '1.25rem' }}>Clasificadoras SmartLine y Compact Grader, más SpeedBatcher, optimizan el rendimiento y minimizan el error humano.</p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', justifyContent: 'center' }}>
-                  {['SmartLine', 'Compact Grader', 'SpeedBatcher'].map((eq) => (
-                    <span key={eq} className="highlight-tag" style={{ fontSize: '0.7rem' }}>{eq}</span>
-                  ))}
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-        {/* Osmosis focus */}
-        <section style={S.sectionBg}>
-          <div className="grid-pattern" style={{ position: 'absolute', inset: 0, opacity: 0.15 }} />
-          <div style={{ ...S.inner, position: 'relative', zIndex: 1 }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '4rem', alignItems: 'center' }} className="lg:grid-cols-2">
-              <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-                <div style={{ position: 'relative', height: '380px', borderRadius: '20px', overflow: 'hidden' }}>
-                  <Image src={STORAGE_URL + 'planta_osmosis.webp'} alt="Planta de ósmosis inversa" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
-                </div>
-              </motion.div>
-              <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-                <span className="highlight-tag" style={S.tag}>Agua de Proceso</span>
-                <h2 style={S.h2}>Pureza garantizada en <span className="gradient-text">cada proceso</span></h2>
-                <p style={{ color: '#8BA0B4', fontSize: '1rem', lineHeight: 1.85, marginBottom: '1.5rem' }}>
-                  Nuestra planta de ósmosis inversa propia con capacidad de{' '}
-                  <strong style={{ color: '#00E5FF' }}>2,000 m³ diarios</strong> garantiza que toda el agua utilizada en el procesamiento cumple con los estándares de pureza más exigentes a nivel internacional.
-                </p>
-                <p style={{ color: '#8BA0B4', fontSize: '1rem', lineHeight: 1.85 }}>
-                  Esta infraestructura es un diferencial competitivo clave que nos permite garantizar la inocuidad total y mantener las certificaciones BRCGS AA, FDA y DG SANTE.
-                </p>
-              </motion.div>
-            </div>
-          </div>
-        </section>
-
-
         {/* Localización Google Maps — Planta exacta */}
         <section style={{ padding: '7rem 0', background: '#0D1326' }}>
           <div style={{ maxWidth: '1280px', margin: '0 auto', paddingInline: '1.5rem' }}>

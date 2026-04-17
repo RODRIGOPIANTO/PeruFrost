@@ -32,59 +32,59 @@ type Producto = {
 }
 
 const FMT: Record<string, Formato> = {
-  BLOCK:     { label: 'BLOCK',     color: '#00e5ff', bg: 'rgba(0,229,255,0.12)'    },
-  IQF:       { label: 'IQF',       color: '#a78bfa', bg: 'rgba(167,139,250,0.12)'  },
-  IWP:       { label: 'IWP',       color: '#34d399', bg: 'rgba(52,211,153,0.12)'   },
-  IVP:       { label: 'IVP',       color: '#fbbf24', bg: 'rgba(251,191,36,0.12)'   },
-  SKIN_PACK: { label: 'SKIN PACK', color: '#f472b6', bg: 'rgba(244,114,182,0.12)'  },
-  TRAY:      { label: 'TRAY',      color: '#fb923c', bg: 'rgba(251,146,60,0.12)'   },
-  BAGS:      { label: 'BAGS',      color: '#60a5fa', bg: 'rgba(96,165,250,0.12)'   },
+  BLOCK: { label: 'BLOCK', color: '#00e5ff', bg: 'rgba(0,229,255,0.12)' },
+  IQF: { label: 'IQF', color: '#a78bfa', bg: 'rgba(167,139,250,0.12)' },
+  IWP: { label: 'IWP', color: '#34d399', bg: 'rgba(52,211,153,0.12)' },
+  IVP: { label: 'IVP', color: '#fbbf24', bg: 'rgba(251,191,36,0.12)' },
+  SKIN_PACK: { label: 'SKIN PACK', color: '#f472b6', bg: 'rgba(244,114,182,0.12)' },
+  TRAY: { label: 'TRAY', color: '#fb923c', bg: 'rgba(251,146,60,0.12)' },
+  BAGS: { label: 'BAGS', color: '#60a5fa', bg: 'rgba(96,165,250,0.12)' },
 }
 
 const POTA: Producto[] = [
   // PRINCIPALES
-  { id: 'filete',      nombre: 'Filete de Pota',          nombreEN: 'Giant Squid Fillet',        cientifico: 'Dosidicus gigas', descripcion: 'Filete premium limpio y calibrado. El corte más comercializado en mercados asiáticos y europeos.', imagen: '/recursos/filete_pota_premium.png', formatos: [FMT.BLOCK],           subSeccion: 'principal', destacado: true },
-  { id: 'alas',        nombre: 'Alas de Pota',            nombreEN: 'Giant Squid Wings',         cientifico: 'Dosidicus gigas', descripcion: 'Textura firme y sabor intenso. Alta demanda en mercados españoles y coreanos.', imagen: '/productos/ala2.jpg', formatos: [FMT.BLOCK],           subSeccion: 'principal' },
-  { id: 'tentaculos',  nombre: 'Tentáculos de Pota',      nombreEN: 'Giant Squid Tentacles',     cientifico: 'Dosidicus gigas', descripcion: 'Presentación entera. Mercado objetivo: España, Portugal y Japón.', imagen: '/recursos/tentaculo_pota_premium.png', formatos: [FMT.BLOCK],           subSeccion: 'principal' },
-  { id: 'reproductor', nombre: 'Reproductor',             nombreEN: 'Sexual Tentacle',           cientifico: 'Dosidicus gigas', descripcion: 'Corte especializado con alta valorización en mercados asiáticos.', imagen: '/productos/reproductor2.jpg', formatos: [FMT.BLOCK],           subSeccion: 'principal' },
-  { id: 'nucas',       nombre: 'Nucas de Pota',           nombreEN: 'Giant Squid Necks',         cientifico: 'Dosidicus gigas', descripcion: 'Parte dorsal con músculo de alta proteína. Presentado en bloques.', imagen: '/productos/nuca2.jpg', formatos: [FMT.BLOCK],           subSeccion: 'principal' },
+  { id: 'filete', nombre: 'Filete de Pota', nombreEN: 'Giant Squid Fillet', cientifico: 'Dosidicus gigas', descripcion: 'Filete premium limpio y calibrado. El corte más comercializado en mercados asiáticos y europeos.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/filetee.webp', formatos: [FMT.BLOCK], subSeccion: 'principal', destacado: true },
+  { id: 'alas', nombre: 'Alas de Pota', nombreEN: 'Giant Squid Wings', cientifico: 'Dosidicus gigas', descripcion: 'Textura firme y sabor intenso. Alta demanda en mercados españoles y coreanos.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/ala2.webp', formatos: [FMT.BLOCK], subSeccion: 'principal' },
+  { id: 'tentaculos', nombre: 'Tentáculos de Pota', nombreEN: 'Giant Squid Tentacles', cientifico: 'Dosidicus gigas', descripcion: 'Presentación entera. Mercado objetivo: España, Portugal y Japón.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/tentaculo2.webp', formatos: [FMT.BLOCK], subSeccion: 'principal' },
+  { id: 'reproductor', nombre: 'Reproductor', nombreEN: 'Sexual Tentacle', cientifico: 'Dosidicus gigas', descripcion: 'Corte especializado con alta valorización en mercados asiáticos.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/reproductor2.webp', formatos: [FMT.BLOCK], subSeccion: 'principal' },
+  { id: 'nucas', nombre: 'Nucas de Pota', nombreEN: 'Giant Squid Necks', cientifico: 'Dosidicus gigas', descripcion: 'Parte dorsal con músculo de alta proteína. Presentado en bloques.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/nuca2.webp', formatos: [FMT.BLOCK], subSeccion: 'principal' },
   // SUBPRODUCTOS
-  { id: 'membrana',    nombre: 'Membrana',                nombreEN: 'Membrane',                  cientifico: 'Dosidicus gigas', descripcion: 'Subproducto de alto rendimiento para mercados industriales.', imagen: '/productos/mebrana1.jpg', formatos: [FMT.BLOCK],           subSeccion: 'subproducto' },
-  { id: 'membranaCoc', nombre: 'Membrana Cocida',         nombreEN: 'Boiled Membrane',           cientifico: 'Dosidicus gigas', descripcion: 'Procesada en planta bajo estrictos controles HACCP.', imagen: '/productos/membrana cocida1.jpg', formatos: [FMT.BLOCK],           subSeccion: 'subproducto' },
-  { id: 'telilla',     nombre: 'Telilla',                 nombreEN: 'Belly',                     cientifico: 'Dosidicus gigas', descripcion: 'Capa interna gelatinosa. Uso industrial en Asia.', imagen: '/productos/telilla.jpg', formatos: [FMT.BLOCK],           subSeccion: 'subproducto' },
-  { id: 'telillaCoc',  nombre: 'Telilla Cocida',          nombreEN: 'Boiled Belly',              cientifico: 'Dosidicus gigas', descripcion: 'Proceso térmico controlado para eliminar riesgo microbiológico.', imagen: '/productos/telilla cocida.jpg', formatos: [FMT.BLOCK],           subSeccion: 'subproducto' },
-  { id: 'pico',        nombre: 'Pico (Boca)',             nombreEN: 'Mouth / Beak',              cientifico: 'Dosidicus gigas', descripcion: 'Subproducto de uso industrial con alta demanda en China.', imagen: '/productos/pico2.jpg', formatos: [FMT.BLOCK],           subSeccion: 'subproducto' },
-  { id: 'ventosa',     nombre: 'Ventosas',                nombreEN: 'Suckers',                   cientifico: 'Dosidicus gigas', descripcion: 'Uso culinario en Asia Oriental. Textura crujiente apreciada.', imagen: '/productos/ventosas.jpeg', formatos: [FMT.BLOCK],           subSeccion: 'subproducto' },
-  { id: 'recortes',    nombre: 'Recortes',                nombreEN: 'Bits & Pieces',             cientifico: 'Dosidicus gigas', descripcion: 'Trozos irregulares de alta proteína para procesadores de surimi.', imagen: '/productos/recortes2.jpg', formatos: [FMT.IQF, FMT.BLOCK], subSeccion: 'subproducto' },
-  { id: 'recortesCoc', nombre: 'Recorte Precocido',       nombreEN: 'Boiled Bits & Pieces',      cientifico: 'Dosidicus gigas', descripcion: 'Tratamiento térmico completo. Reducción enzimática garantizada.', imagen: '/productos/recorte-pre5.jpg', formatos: [FMT.BLOCK],           subSeccion: 'subproducto' },
+  { id: 'membrana', nombre: 'Membrana', nombreEN: 'Membrane', cientifico: 'Dosidicus gigas', descripcion: 'Subproducto de alto rendimiento para mercados industriales.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/mebrana1.webp', formatos: [FMT.BLOCK], subSeccion: 'subproducto' },
+  { id: 'membranaCoc', nombre: 'Membrana Cocida', nombreEN: 'Boiled Membrane', cientifico: 'Dosidicus gigas', descripcion: 'Procesada en planta bajo estrictos controles HACCP.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/membrana cocida1.webp', formatos: [FMT.BLOCK], subSeccion: 'subproducto' },
+  { id: 'telilla', nombre: 'Telilla', nombreEN: 'Belly', cientifico: 'Dosidicus gigas', descripcion: 'Capa interna gelatinosa. Uso industrial en Asia.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/telilla.webp', formatos: [FMT.BLOCK], subSeccion: 'subproducto' },
+  { id: 'telillaCoc', nombre: 'Telilla Cocida', nombreEN: 'Boiled Belly', cientifico: 'Dosidicus gigas', descripcion: 'Proceso térmico controlado para eliminar riesgo microbiológico.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/telilla cocida.webp', formatos: [FMT.BLOCK], subSeccion: 'subproducto' },
+  { id: 'pico', nombre: 'Pico (Boca)', nombreEN: 'Mouth / Beak', cientifico: 'Dosidicus gigas', descripcion: 'Subproducto de uso industrial con alta demanda en China.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/pico2.webp', formatos: [FMT.BLOCK], subSeccion: 'subproducto' },
+  { id: 'ventosa', nombre: 'Ventosas', nombreEN: 'Suckers', cientifico: 'Dosidicus gigas', descripcion: 'Uso culinario en Asia Oriental. Textura crujiente apreciada.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/ventosas.webp', formatos: [FMT.BLOCK], subSeccion: 'subproducto' },
+  { id: 'recortes', nombre: 'Recortes', nombreEN: 'Bits & Pieces', cientifico: 'Dosidicus gigas', descripcion: 'Trozos irregulares de alta proteína para procesadores de surimi.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/recortes2.webp', formatos: [FMT.IQF, FMT.BLOCK], subSeccion: 'subproducto' },
+  { id: 'recortesCoc', nombre: 'Recorte Precocido', nombreEN: 'Boiled Bits & Pieces', cientifico: 'Dosidicus gigas', descripcion: 'Tratamiento térmico completo. Reducción enzimática garantizada.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/recorte-pre5.webp', formatos: [FMT.BLOCK], subSeccion: 'subproducto' },
   // VALOR AGREGADO
-  { id: 'daruma',      nombre: 'Daruma Cocida',           nombreEN: 'Boiled Fillet (Daruma)',    cientifico: 'Dosidicus gigas', descripcion: 'Filete cocido y laminado tipo japonés. Producto estrella de exportación a Japón.', imagen: '/productos/daruma cocida2.jpg', formatos: [FMT.BLOCK],           subSeccion: 'valorAgregado' },
-  { id: 'anillas',     nombre: 'Anillas de Pota',         nombreEN: 'Squid Rings',               cientifico: 'Dosidicus gigas', descripcion: 'Corte transversal uniforme ideal para calamares a la romana. Mercado europeo.', imagen: '/productos/anillas1.jpg', formatos: [FMT.BLOCK, FMT.IQF], subSeccion: 'valorAgregado' },
-  { id: 'alasCoc',     nombre: 'Alas Cocidas',            nombreEN: 'Boiled Wings',              cientifico: 'Dosidicus gigas', descripcion: 'Wings procesadas por cocción al vapor. Listas para marinar o servir.', imagen: '/productos/ala-co.jpg', formatos: [FMT.BLOCK],           subSeccion: 'valorAgregado' },
-  { id: 'labios',      nombre: 'Labios de Pota',          nombreEN: 'Squid Lips',                cientifico: 'Dosidicus gigas', descripcion: 'Producto inusual de alta valorización en gastronomía asiática de vanguardia.', imagen: '/productos/labios.jpg', formatos: [FMT.BLOCK],           subSeccion: 'valorAgregado' },
-  { id: 'cono',        nombre: 'Cono de Pota',            nombreEN: 'Squid Cone',                cientifico: 'Dosidicus gigas', descripcion: 'Sifón completo ideal para relleno. Alta demanda en España.', imagen: '/productos/cono4.jpg', formatos: [FMT.BLOCK],           subSeccion: 'valorAgregado' },
-  { id: 'botones',     nombre: 'Botones de Pota',         nombreEN: 'Squid Buttons',             cientifico: 'Dosidicus gigas', descripcion: 'Porciones circulares de tamaño uniforme. Producto para foodservice y retail.', imagen: '/productos/botones.jpg', formatos: [FMT.BLOCK, FMT.IQF], subSeccion: 'valorAgregado' },
-  { id: 'rabas',       nombre: 'Rabas de Pota',           nombreEN: 'Squid Strips (Rabas)',      cientifico: 'Dosidicus gigas', descripcion: 'Tiras longitudinales empanizables. El producto de mayor crecimiento en mercados latinoeuropeos.', imagen: '/productos/rabas3.jpg', formatos: [FMT.BLOCK, FMT.IQF], subSeccion: 'valorAgregado' },
+  { id: 'daruma', nombre: 'Daruma Cocida', nombreEN: 'Boiled Fillet (Daruma)', cientifico: 'Dosidicus gigas', descripcion: 'Filete cocido y laminado tipo japonés. Producto estrella de exportación a Japón.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/daruma cocida2.webp', formatos: [FMT.BLOCK], subSeccion: 'valorAgregado' },
+  { id: 'anillas', nombre: 'Anillas de Pota', nombreEN: 'Squid Rings', cientifico: 'Dosidicus gigas', descripcion: 'Corte transversal uniforme ideal para calamares a la romana. Mercado europeo.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/anillas1.webp', formatos: [FMT.BLOCK, FMT.IQF], subSeccion: 'valorAgregado' },
+  { id: 'alasCoc', nombre: 'Alas Cocidas', nombreEN: 'Boiled Wings', cientifico: 'Dosidicus gigas', descripcion: 'Wings procesadas por cocción al vapor. Listas para marinar o servir.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/ala-co.webp', formatos: [FMT.BLOCK], subSeccion: 'valorAgregado' },
+  { id: 'labios', nombre: 'Labios de Pota', nombreEN: 'Squid Lips', cientifico: 'Dosidicus gigas', descripcion: 'Producto inusual de alta valorización en gastronomía asiática de vanguardia.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/labios.webp', formatos: [FMT.BLOCK], subSeccion: 'valorAgregado' },
+  { id: 'cono', nombre: 'Cono de Pota', nombreEN: 'Squid Cone', cientifico: 'Dosidicus gigas', descripcion: 'Sifón completo ideal para relleno. Alta demanda en España.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/cono4.webp', formatos: [FMT.BLOCK], subSeccion: 'valorAgregado' },
+  { id: 'botones', nombre: 'Botones de Pota', nombreEN: 'Squid Buttons', cientifico: 'Dosidicus gigas', descripcion: 'Porciones circulares de tamaño uniforme. Producto para foodservice y retail.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/botones.webp', formatos: [FMT.BLOCK, FMT.IQF], subSeccion: 'valorAgregado' },
+  { id: 'rabas', nombre: 'Rabas de Pota', nombreEN: 'Squid Strips (Rabas)', cientifico: 'Dosidicus gigas', descripcion: 'Tiras longitudinales empanizables. El producto de mayor crecimiento en mercados latinoeuropeos.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/rabas3.webp', formatos: [FMT.BLOCK, FMT.IQF], subSeccion: 'valorAgregado' },
 ]
 
 const PECES: Producto[] = [
-  { id: 'merluza',   nombre: 'Merluza Peruana',      nombreEN: 'Peruvian Hake',       cientifico: 'Merluccius gayi peruanus',   descripcion: 'Especie de alta valorización en mercados europeos. Filetes blancos, sin espinas, de textura suave y delicada.', imagen: '/recursos/merluza_premium.png', formatos: [FMT.IQF, FMT.BLOCK, FMT.IWP] },
-  { id: 'perico',    nombre: 'Perico / Mahi Mahi',   nombreEN: 'Mahi Mahi',           cientifico: 'Coryphaena hippurus',         descripcion: 'Pesca de temporada del Pacífico sur peruano. Alta valorización en EEUU y Asia. Sabor suave y versátil.', imagen: '/recursos/mahi_mahi_premium.png', formatos: [FMT.IQF, FMT.IWP, FMT.IVP] },
-  { id: 'pejerrey',  nombre: 'Pejerrey',             nombreEN: 'Silverside',          cientifico: 'Odontesthes regia regia',     descripcion: 'Especie artesanal del litoral peruano. Carne blanca y firme. Base de la gastronomía costeña peruana.', imagen: '/productos/pejerrey (1).jpg', formatos: [FMT.IQF, FMT.BLOCK] },
-  { id: 'anchoveta', nombre: 'Anchoveta',            nombreEN: 'Peruvian Anchovy',    cientifico: 'Engraulis ringens',           descripcion: 'La especie más abundante del Pacífico sur. Base de la cadena trófica marina y de la industria harinera.', imagen: '/productos/anchoveta.jpg.crdownload.jpeg', formatos: [FMT.BLOCK, FMT.IQF] },
-  { id: 'bonito',    nombre: 'Bonito',               nombreEN: 'Pacific Bonito',      cientifico: 'Sarda chiliensis',            descripcion: 'Túnido de aguas frías del Perú. Carne oscura y robusta ideal para conservas y mercados asiáticos.', imagen: '/productos/perico (1).jpg', formatos: [FMT.BLOCK, FMT.IQF] },
-  { id: 'jurel',     nombre: 'Jurel',                nombreEN: 'Horse Mackerel',      cientifico: 'Trachurus murphyi',           descripcion: 'Pelágico de alta productividad. Exportado principalmente a mercados africanos y del este europeo.', imagen: '/productos/perico (1).jpg', formatos: [FMT.BLOCK, FMT.IQF] },
-  { id: 'caballa',   nombre: 'Caballa',              nombreEN: 'Mackerel',            cientifico: 'Scomber japonicus',           descripcion: 'Alto contenido en Omega-3. Ideal para conservas y filetes ahumados. Exportado entero o en filetes.', imagen: '/productos/perico (1).jpg', formatos: [FMT.BLOCK, FMT.IQF] },
-  { id: 'chiri',     nombre: 'Chiri',                nombreEN: 'Pacific Butterfish',  cientifico: 'Peprilus medius',             descripcion: 'Carne suave y de fácil digestión. Alta demanda en mercados asiáticos por su sabor neutro y textura delicada.', imagen: '/productos/perico (1).jpg', formatos: [FMT.BLOCK, FMT.IQF] },
+  { id: 'merluza', nombre: 'Merluza Peruana', nombreEN: 'Peruvian Hake', cientifico: 'Merluccius gayi peruanus', descripcion: 'Especie de alta valorización en mercados europeos. Filetes blancos, sin espinas, de textura suave y delicada.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/merluza_1.webp', formatos: [FMT.IQF, FMT.BLOCK, FMT.IWP] },
+  { id: 'perico', nombre: 'Perico / Mahi Mahi', nombreEN: 'Mahi Mahi', cientifico: 'Coryphaena hippurus', descripcion: 'Pesca de temporada del Pacífico sur peruano. Alta valorización en EEUU y Asia. Sabor suave y versátil.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/perico_1.webp', formatos: [FMT.IQF, FMT.IWP, FMT.IVP] },
+  { id: 'pejerrey', nombre: 'Pejerrey', nombreEN: 'Silverside', cientifico: 'Odontesthes regia regia', descripcion: 'Especie artesanal del litoral peruano. Carne blanca y firme. Base de la gastronomía costeña peruana.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/pejerrey_1.webp', formatos: [FMT.IQF, FMT.BLOCK] },
+  { id: 'anchoveta', nombre: 'Anchoveta', nombreEN: 'Peruvian Anchovy', cientifico: 'Engraulis ringens', descripcion: 'La especie más abundante del Pacífico sur. Base de la cadena trófica marina y de la industria harinera.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/anchoveta.webp', formatos: [FMT.BLOCK, FMT.IQF] },
+  { id: 'bonito', nombre: 'Bonito', nombreEN: 'Pacific Bonito', cientifico: 'Sarda chiliensis', descripcion: 'Túnido de aguas frías del Perú. Carne oscura y robusta ideal para conservas y mercados asiáticos.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/Bonito.webp', formatos: [FMT.BLOCK, FMT.IQF] },
+  { id: 'jurel', nombre: 'Jurel', nombreEN: 'Horse Mackerel', cientifico: 'Trachurus murphyi', descripcion: 'Pelágico de alta productividad. Exportado principalmente a mercados africanos y del este europeo.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/Jurel.webp', formatos: [FMT.BLOCK, FMT.IQF] },
+  { id: 'caballa', nombre: 'Caballa', nombreEN: 'Mackerel', cientifico: 'Scomber japonicus', descripcion: 'Alto contenido en Omega-3. Ideal para conservas y filetes ahumados. Exportado entero o en filetes.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/Caballa.webp', formatos: [FMT.BLOCK, FMT.IQF] },
+  { id: 'chiri', nombre: 'Chiri', nombreEN: 'Pacific Butterfish', cientifico: 'Peprilus medius', descripcion: 'Carne suave y de fácil digestión. Alta demanda en mercados asiáticos por su sabor neutro y textura delicada.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/Chiri.webp', formatos: [FMT.BLOCK, FMT.IQF] },
 ]
 
 const MARISCOS: Producto[] = [
-  { id: 'pulpo',         nombre: 'Pulpo del Pacífico',        nombreEN: 'Pacific Octopus',          cientifico: 'Octopus spp.',                     descripcion: 'Capturado por pesquería artesanal. Cocido y limpiado en planta. Alta demanda en España, Japón y Corea.', imagen: '/recursos/pulpo_premium.png',      formatos: [FMT.BLOCK, FMT.SKIN_PACK, FMT.TRAY, FMT.BAGS] },
-  { id: 'langostinoCal', nombre: 'Langostino Californiensis', nombreEN: 'California Brown Shrimp',  cientifico: 'Farfantepenaeus californiensis',    descripcion: 'Camarón salvaje del norte peruano. Sabor intenso y dulce. Ruto hacia España, Italia y EE.UU.', imagen: '/recursos/langostino_premium.png', formatos: [FMT.BLOCK, FMT.IQF] },
-  { id: 'langostinoBlc', nombre: 'Langostino Blanco',         nombreEN: 'White Shrimp',             cientifico: 'Litopenaeus vannamei',              descripcion: 'De acuicultura certificada. Consistencia uniforme y sabor neutro ideal para mercados de foodservice global.', imagen: '/recursos/langostino_premium.png', formatos: [FMT.BLOCK, FMT.IQF] },
-  { id: 'gambon',        nombre: 'Gambón Argentino',          nombreEN: 'Argentine Red Shrimp',     cientifico: 'Pleoticus muelleri',                descripcion: 'Captura silvestre en el Atlántico Sur. Dulzor superior y color rojo intenso que lo diferencia en el mercado premium.', imagen: '/recursos/langostino_premium.png', formatos: [FMT.BLOCK, FMT.IQF] },
-  { id: 'concha',        nombre: 'Concha de Abanico',         nombreEN: 'Peruvian Scallop',         cientifico: 'Argopecten purpuratus',             descripcion: 'La joya de la acuicultura peruana. Cultivada en la bahía de Sechura. Textura mantecosa y perfil de sabor dulce.', imagen: '/recursos/concha_premium.png',     formatos: [FMT.IQF] },
-  { id: 'calamar',       nombre: 'Calamar del Pacífico',      nombreEN: 'Pacific Squid',            cientifico: 'Loligo spp.',                       descripcion: 'Especie de talla menor que la pota. Textura más fina y terneza superior. Exportado a España y EE.UU.', imagen: '/productos/calamar (1).jpg', formatos: [FMT.BLOCK, FMT.IQF] },
+  { id: 'pulpo', nombre: 'Pulpo del Pacífico', nombreEN: 'Pacific Octopus', cientifico: 'Octopus spp.', descripcion: 'Capturado por pesquería artesanal. Cocido y limpiado en planta. Alta demanda en España, Japón y Corea.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/pulpo_pacifico.webp', formatos: [FMT.BLOCK, FMT.SKIN_PACK, FMT.TRAY, FMT.BAGS] },
+  { id: 'langostinoCal', nombre: 'Langostino Californiensis', nombreEN: 'California Brown Shrimp', cientifico: 'Farfantepenaeus californiensis', descripcion: 'Camarón salvaje del norte peruano. Sabor intenso y dulce. Ruto hacia España, Italia y EE.UU.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/california.webp', formatos: [FMT.BLOCK, FMT.IQF] },
+  { id: 'langostinoBlc', nombre: 'Langostino Blanco', nombreEN: 'White Shrimp', cientifico: 'Litopenaeus vannamei', descripcion: 'De acuicultura certificada. Consistencia uniforme y sabor neutro ideal para mercados de foodservice global.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/langostino_blanco.webp', formatos: [FMT.BLOCK, FMT.IQF] },
+  { id: 'gambon', nombre: 'Gambón Argentino', nombreEN: 'Argentine Red Shrimp', cientifico: 'Pleoticus muelleri', descripcion: 'Captura silvestre en el Atlántico Sur. Dulzor superior y color rojo intenso que lo diferencia en el mercado premium.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/gambon_argentino.webp', formatos: [FMT.BLOCK, FMT.IQF] },
+  { id: 'concha', nombre: 'Concha de Abanico', nombreEN: 'Peruvian Scallop', cientifico: 'Argopecten purpuratus', descripcion: 'La joya de la acuicultura peruana. Cultivada en la bahía de Sechura. Textura mantecosa y perfil de sabor dulce.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/concha_abanico_1.webp', formatos: [FMT.IQF] },
+  { id: 'calamar', nombre: 'Calamar del Pacífico', nombreEN: 'Pacific Squid', cientifico: 'Loligo spp.', descripcion: 'Especie de talla menor que la pota. Textura más fina y terneza superior. Exportado a España y EE.UU.', imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/calamar_pacifico.webp', formatos: [FMT.BLOCK, FMT.IQF] },
 ]
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -100,7 +100,7 @@ type Tab = 'pota' | 'peces' | 'mariscos'
 type SubTab = 'principal' | 'subproducto' | 'valorAgregado'
 
 const fadeUp = {
-  hidden:  { opacity: 0, y: 32 },
+  hidden: { opacity: 0, y: 32 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' as const } },
 }
 const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }
@@ -232,15 +232,15 @@ export default function CatalogoPage() {
   const [subTab, setSubTab] = useState<SubTab>('principal')
 
   const TABS = [
-    { id: 'pota'     as Tab, label: 'Calamar Gigante', labelEN: 'Giant Squid',          emoji: '🦑', count: POTA.length     },
-    { id: 'peces'    as Tab, label: 'Peces',           labelEN: 'Fish',                 emoji: '🐟', count: PECES.length    },
-    { id: 'mariscos' as Tab, label: 'Mariscos',        labelEN: 'Shellfish & Octopus',  emoji: '🦐', count: MARISCOS.length },
+    { id: 'pota' as Tab, label: 'Calamar Gigante', labelEN: 'Giant Squid', emoji: '🦑', count: POTA.length },
+    { id: 'peces' as Tab, label: 'Peces', labelEN: 'Fish', emoji: '🐟', count: PECES.length },
+    { id: 'mariscos' as Tab, label: 'Mariscos', labelEN: 'Shellfish & Octopus', emoji: '🦐', count: MARISCOS.length },
   ]
 
   const SUB_TABS = [
-    { id: 'principal'     as SubTab, label: 'Productos Principales', labelEN: 'Main Products' },
-    { id: 'subproducto'   as SubTab, label: 'Subproductos',          labelEN: 'By-Products'   },
-    { id: 'valorAgregado' as SubTab, label: 'Valor Agregado',        labelEN: 'Value Added'   },
+    { id: 'principal' as SubTab, label: 'Productos Principales', labelEN: 'Main Products' },
+    { id: 'subproducto' as SubTab, label: 'Subproductos', labelEN: 'By-Products' },
+    { id: 'valorAgregado' as SubTab, label: 'Valor Agregado', labelEN: 'Value Added' },
   ]
 
   const potaFiltrada = POTA.filter(p => p.subSeccion === subTab)
@@ -286,13 +286,13 @@ export default function CatalogoPage() {
           borderBottom: '1px solid rgba(255,255,255,0.06)',
         }}>
           <div style={INNER}>
-            <div style={{ 
-              display: 'flex', 
-              justifyContent: 'center', 
-              alignItems: 'center', 
-              gap: '3rem', 
+            <div style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '3rem',
               overflowX: 'auto',
-              msOverflowStyle: 'none', 
+              msOverflowStyle: 'none',
               scrollbarWidth: 'none'
             }} className="no-scrollbar">
               {TABS.map(t => {
@@ -304,7 +304,7 @@ export default function CatalogoPage() {
                     style={{
                       position: 'relative',
                       display: 'flex', alignItems: 'center', gap: '14px',
-                      padding: '1.5rem 0.5rem', 
+                      padding: '1.5rem 0.5rem',
                       cursor: 'pointer', background: 'none', border: 'none',
                       color: isActive ? '#00E5FF' : '#8BA0B4',
                       transition: 'all 0.3s ease',
@@ -312,27 +312,27 @@ export default function CatalogoPage() {
                     }}
                   >
                     {/* Icono con Glass/Glow */}
-                    <span style={{ 
-                      fontSize: '1.75rem', 
+                    <span style={{
+                      fontSize: '1.75rem',
                       filter: isActive ? 'drop-shadow(0 0 12px rgba(0,229,255,0.5))' : 'grayscale(0.4) opacity(0.7)',
                       transform: isActive ? 'scale(1.1)' : 'scale(1)',
                       transition: 'all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)'
                     }}>
                       {t.emoji}
                     </span>
-                    
-                    <span style={{ 
-                      fontSize: '1.125rem', 
-                      fontWeight: 800, 
+
+                    <span style={{
+                      fontSize: '1.125rem',
+                      fontWeight: 800,
                       letterSpacing: '-0.02em',
-                      whiteSpace: 'nowrap' 
+                      whiteSpace: 'nowrap'
                     }}>
                       {lang === 'es' ? t.label : t.labelEN}
                     </span>
 
                     {/* Pill Badge */}
                     <span style={{
-                      fontSize: '11px', fontWeight: 900, 
+                      fontSize: '11px', fontWeight: 900,
                       padding: '3px 10px', borderRadius: '99px',
                       background: isActive ? 'rgba(0,229,255,0.15)' : 'rgba(255,255,255,0.03)',
                       color: isActive ? '#00E5FF' : '#5C7285',
@@ -344,7 +344,7 @@ export default function CatalogoPage() {
 
                     {/* Underline Interactivo (Premium Sliding Indicator) */}
                     {isActive && (
-                      <motion.div 
+                      <motion.div
                         layoutId="activeTabIndicator"
                         style={{
                           position: 'absolute', bottom: 0, left: 0, right: 0,
@@ -378,7 +378,7 @@ export default function CatalogoPage() {
                     {/* flex-wrap: permite que baje en mobile */}
                     <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
                       <motion.div variants={fadeUp} style={{ position: 'relative', flex: '1 1 320px', aspectRatio: '1', overflow: 'hidden', minHeight: '280px' }}>
-                        <Image src={STORAGE_URL + "pota_industrial_premium.webp"} alt="Calamar Gigante Pota" fill style={{ objectFit: 'contain', padding: '2.5rem' }} priority sizes="(max-width:1024px) 100vw, 50vw" />
+                        <Image src="/productos/calamar (1).jpg" alt="Calamar Gigante Pota" fill style={{ objectFit: 'contain', padding: '2.5rem' }} priority sizes="(max-width:1024px) 100vw, 50vw" />
                         <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at center, rgba(0,229,255,0.06) 0%, transparent 65%)', pointerEvents: 'none' }} />
                       </motion.div>
                       <motion.div variants={fadeUp} style={{ flex: '1 1 320px', padding: '3rem' }}>
@@ -407,13 +407,13 @@ export default function CatalogoPage() {
 
               {/* Sub-tabs — Centrados e Interactivos con Layout Animation */}
               <div style={{ ...INNER, marginBottom: '3.5rem', display: 'flex', justifyContent: 'center' }}>
-                <div style={{ 
-                  display: 'flex', 
-                  flexWrap: 'wrap', 
-                  gap: '4px', 
-                  padding: '6px', 
-                  borderRadius: '18px', 
-                  background: 'rgba(15,24,41,0.9)', 
+                <div style={{
+                  display: 'flex',
+                  flexWrap: 'wrap',
+                  gap: '4px',
+                  padding: '6px',
+                  borderRadius: '18px',
+                  background: 'rgba(15,24,41,0.9)',
                   border: '1px solid rgba(255,255,255,0.08)',
                   boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
                   backdropFilter: 'blur(10px)'
@@ -426,7 +426,7 @@ export default function CatalogoPage() {
                         onClick={() => setSubTab(st.id)}
                         style={{
                           position: 'relative',
-                          padding: '12px 26px', borderRadius: '13px', 
+                          padding: '12px 26px', borderRadius: '13px',
                           fontSize: '0.925rem', fontWeight: 800,
                           cursor: 'pointer', border: 'none', whiteSpace: 'nowrap',
                           color: isSubActive ? '#0A0F1F' : '#8BA0B4',
@@ -436,7 +436,7 @@ export default function CatalogoPage() {
                         }}
                       >
                         {isSubActive && (
-                          <motion.div 
+                          <motion.div
                             layoutId="subTabHighlight"
                             style={{
                               position: 'absolute', inset: 0,
@@ -450,8 +450,8 @@ export default function CatalogoPage() {
                         )}
                         <span style={{ position: 'relative', zIndex: 1, display: 'flex', alignItems: 'center', gap: '10px' }}>
                           {lang === 'es' ? st.label : st.labelEN}
-                          <span style={{ 
-                            fontSize: '11px', 
+                          <span style={{
+                            fontSize: '11px',
                             padding: '2px 6px',
                             borderRadius: '6px',
                             background: isSubActive ? 'rgba(0,0,0,0.1)' : 'rgba(255,255,255,0.05)',

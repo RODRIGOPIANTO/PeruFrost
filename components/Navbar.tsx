@@ -49,7 +49,7 @@ export default function Navbar() {
               style={{ height: '32px', width: 'auto' }} 
             />
             <div style={{ borderLeft: `1px solid ${scrolled || menuOpen ? 'rgba(255,255,255,0.15)' : 'rgba(4,17,31,0.15)'}`, paddingLeft: '12px' }}>
-              <div style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: '13px', color: scrolled || menuOpen ? '#fff' : '#04111f', lineHeight: 1.1, letterSpacing: '0.04em' }}>PERÚ FROST</div>
+              <div style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: '13px', color: '#fff', lineHeight: 1.1, letterSpacing: '0.04em' }}>PERÚ FROST</div>
               <div style={{ fontSize: '8px', fontWeight: 700, letterSpacing: '0.15em', color: '#00c8e6' }}>S.A.C.</div>
             </div>
           </Link>

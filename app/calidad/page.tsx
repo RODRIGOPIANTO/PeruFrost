@@ -203,23 +203,36 @@ export default function CalidadPage() {
                   ))}
                 </div>
               </motion.div>
-              <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-                <div style={{ position: 'relative', height: '420px', borderRadius: '20px', overflow: 'hidden' }}>
-                  <video
-                    src={STORAGE_URL + 'video_institucional_final.mp4'}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                    poster={STORAGE_URL + 'news_planta.webp'}
-                  />
-                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,15,31,0.8) 0%, transparent 55%)' }} />
-                  <div style={{ position: 'absolute', bottom: '1.5rem', left: '1.5rem', right: '1.5rem' }}>
-                    <div className="glass-card-strong" style={{ padding: '1rem 1.25rem' }}>
-                      <p style={{ fontSize: '0.7rem', color: '#8BA0B4', marginBottom: '2px' }}>Planta Paita — Zona Industrial</p>
-                      <p style={{ fontWeight: 700, color: '#fff', fontSize: '0.9rem' }}>Certificada BRCGS Grado AA</p>
-                    </div>
+              {/* Image removed as requested */}
+            </div>
+          </div>
+        </section>
+
+        {/* Marel Technology */}
+        <section style={S.section}>
+          <div style={S.inner}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '4rem', alignItems: 'center' }} className="lg:grid-cols-2">
+              <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: -0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} style={{ order: 2 }} className="lg:order-1">
+                <div style={{ position: 'relative', height: '480px', borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(0,229,255,0.2)', boxShadow: '0 0 40px rgba(0,229,255,0.1)' }}>
+                  <Image src={STORAGE_URL + 'marel.webp'} alt="Línea de procesamiento JBT Marel" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+                </div>
+              </motion.div>
+              <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} style={{ order: 1 }} className="lg:order-2">
+                <span className="highlight-tag" style={S.tag}>{lang === 'es' ? 'Tecnología' : 'Technology'}</span>
+                <h2 style={S.h2}>{lang === 'es' ? <>Precisión <span className="gradient-text">Automatizada</span></> : <>Automated <span className="gradient-text">Precision</span></>}</h2>
+                <p style={{ color: '#8BA0B4', fontSize: '1rem', lineHeight: 1.85, marginBottom: '2rem' }}>
+                  {lang === 'es' 
+                    ? 'Nuestras líneas de procesamiento JBT Marel de última generación aseguran una precisión milimétrica en el corte y una eficiencia operativa que minimiza la manipulación manual, garantizando la máxima inocuidad.'
+                    : 'Our state-of-the-art JBT Marel processing lines ensure millimeter precision in cutting and operational efficiency that minimizes manual handling, guaranteeing maximum safety.'}
+                </p>
+                <div style={{ display: 'flex', gap: '2rem' }}>
+                  <div>
+                    <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#fff' }}>100%</div>
+                    <div style={{ fontSize: '0.8rem', color: '#00E5FF', textTransform: 'uppercase' }}>{lang === 'es' ? 'Trazable' : 'Traceable'}</div>
+                  </div>
+                  <div style={{ borderLeft: '1px solid rgba(255,255,255,0.1)', paddingLeft: '2rem' }}>
+                    <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#fff' }}>0%</div>
+                    <div style={{ fontSize: '0.8rem', color: '#00E5FF', textTransform: 'uppercase' }}>{lang === 'es' ? 'Contaminación' : 'Contamination'}</div>
                   </div>
                 </div>
               </motion.div>
@@ -228,8 +241,8 @@ export default function CalidadPage() {
         </section>
 
         {/* CTA */}
-        <section style={{ padding: '5rem 0' }}>
-          <div style={{ ...S.innerNarrow, textAlign: 'center' }}>
+        <section style={{ ...S.sectionBg, padding: '6rem 0' }}>
+          <div style={{ ...S.innerNarrow, textAlign: 'center', position: 'relative', zIndex: 1 }}>
             <h2 style={{ ...S.h2, textAlign: 'center' }}>¿Necesita documentación técnica?</h2>
             <p style={{ color: '#8BA0B4', fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '2.5rem' }}>
               Nuestro equipo puede proveer fichas técnicas, certificados y especificaciones para cada producto según los requisitos de su mercado.
