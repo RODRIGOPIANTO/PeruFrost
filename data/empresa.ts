@@ -18,12 +18,14 @@ export const infoEmpresa = {
   ubicaciones: [
     {
       tipo: 'Planta Paita',
+      tipoEn: 'Paita Plant',
       ciudad: 'Paita, Piura',
       direccion: 'Jr. Los Pescadores Nº 946, Zona Industrial',
       maps: 'https://maps.app.goo.gl/...'
     },
     {
       tipo: 'Oficina Lima',
+      tipoEn: 'Lima Office',
       ciudad: 'Surco, Lima',
       direccion: 'Av. Manuel Olguín Nº 501, Oficina 801',
       maps: 'https://maps.app.goo.gl/...'
@@ -31,6 +33,7 @@ export const infoEmpresa = {
   ],
   certificacionPrincipal: {
     nombre: 'BRCGS Food Safety',
-    grado: 'AA'
+    grado: 'AA',
+    gradoEn: 'AA'
   }
 };

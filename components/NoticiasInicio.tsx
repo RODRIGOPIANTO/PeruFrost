@@ -34,22 +34,22 @@ const noticiasEscritas = {
   en: [
     {
       id: 1,
-      titulo: 'Modernización en Planta de Procesamiento',
-      descripcion: 'Culminamos la fase de modernización tecnológica en nuestra planta principal, integrando nuevos túneles de congelado para optimizar la cadena de frío.',
+      titulo: 'Processing Plant Modernization',
+      descripcion: 'We have completed the technological modernization phase at our main plant, integrating new freezing tunnels to optimize the cold chain.',
       imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/planta.webp',
       featured: true,
     },
     {
       id: 2,
-      titulo: 'Ampliación de Planta de Ósmosis',
-      descripcion: 'Capacidad incrementada a 2,000 m³ diarios para garantizar estándares sanitarios internacionales en todos nuestros procesos.',
+      titulo: 'Osmosis Plant Expansion',
+      descripcion: 'Capacity increased to 2,000 cubic meters per day to guarantee international sanitary standards in all our processes.',
       imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/planta_osmosis.webp',
       featured: false,
     },
     {
       id: 3,
-      titulo: 'Certificación SANIPES de Clase Mundial',
-      descripcion: 'Perú Frost mantiene la máxima calificación sanitaria, reafirmando nuestro compromiso con la inocuidad y la salud pública.',
+      titulo: 'World-Class SANIPES Certification',
+      descripcion: 'Peru Frost maintains the highest sanitary rating, reaffirming our commitment to food safety and public health.',
       imagen: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/sanipes.webp',
       featured: false,
     },
@@ -59,7 +59,8 @@ const noticiasEscritas = {
 export default function NoticiasInicio() {
   const { lang } = useLang();
   const noticias = lang === 'es' ? noticiasEscritas.es : noticiasEscritas.en;
-  const label = lang === 'es' ? 'Corporativo' : 'Corporativo';
+  const label = lang === 'es' ? 'Corporativo' : 'Corporate';
+  const readMore = lang === 'es' ? 'LEER MÁS' : 'READ MORE';
 
   return (
     <section style={{ background: '#04111f', padding: '80px 32px' }}>
@@ -79,6 +80,21 @@ export default function NoticiasInicio() {
           border-color: rgba(0,200,230,0.45);
           transform: translateY(-4px);
         }
+        .news-read-more {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          color: #00c8e6;
+          font-size: 12px;
+          font-weight: 700;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          transition: gap 0.2s;
+          text-decoration: none;
+        }
+        .news-card:hover .news-read-more {
+          gap: 10px;
+        }
       `}</style>
 
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
@@ -92,10 +108,10 @@ export default function NoticiasInicio() {
           }}>
             <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#00c8e6', flexShrink: 0 }} />
             <span style={{ color: '#00c8e6', fontSize: '11px', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-              NOVEDADES Y ACTUALIDAD
+              {lang === 'es' ? 'NOVEDADES Y ACTUALIDAD' : 'LATEST UPDATES'}
             </span>
           </div>
- 
+
           <h2 style={{
             fontFamily: "'Barlow Condensed', sans-serif",
             fontWeight: 900,
@@ -106,7 +122,9 @@ export default function NoticiasInicio() {
             textAlign: 'center',
             maxWidth: '800px'
           }}>
-            Últimas <span style={{ color: '#00c8e6' }}>Noticias</span>
+            {lang === 'es'
+              ? <>Últimas <span style={{ color: '#00c8e6' }}>Noticias</span></>
+              : <>Latest <span style={{ color: '#00c8e6' }}>News</span></>}
           </h2>
         </div>
 

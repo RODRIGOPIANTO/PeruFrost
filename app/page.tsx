@@ -121,7 +121,7 @@ export default function HomePage() {
                 lineHeight: 1.08, color: '#fff',
                 marginBottom: '1.75rem',
               }}>
-                Perú Frost: <span className="gradient-text glow-cyan">Tradicion</span> transformada en <span className="gradient-text glow-cyan">excelencia</span>
+                {t('hero.h1a')} <span className="gradient-text glow-cyan">{t('hero.h1b')}</span> {t('hero.h1c')} <span className="gradient-text glow-cyan">{t('hero.h1d')}</span>
               </motion.h1>
 
               <motion.p variants={fadeUp} style={{
@@ -167,8 +167,8 @@ export default function HomePage() {
                   end={stat.valor}
                   prefix={stat.sufijo.includes('+') ? '+' : ''}
                   suffix={!stat.sufijo.includes('+') ? stat.sufijo : ''}
-                  label={stat.label}
-                  sublabel={stat.subLabel}
+                  label={lang === 'es' ? stat.label : stat.labelEn}
+                  sublabel={lang === 'es' ? stat.subLabel : stat.subLabelEn}
                   icon={stat.id === 'experiencia' ? <Award size={28} /> : stat.id === 'paises' ? <Globe size={28} /> : stat.id === 'capacidad' ? <Thermometer size={28} /> : <Shield size={28} />}
                 />
               ))}

@@ -3,7 +3,10 @@
 import { motion } from 'framer-motion'
 import regionesExportacion from '@/data/mercados'
 
+import { useLang } from './LanguageContext'
+
 export default function CountryTicker() {
+  const { lang } = useLang()
   const allCountries = regionesExportacion.flatMap(r => r.paises)
   // Duplicar para el scroll infinito
   const tickerItems = [...allCountries, ...allCountries, ...allCountries]
@@ -25,7 +28,7 @@ export default function CountryTicker() {
               {pais.bandera}
             </span>
             <span className="text-sm font-black uppercase tracking-[0.2em] text-[#8BA0B4]">
-              {pais.nombre}
+              {lang === 'es' ? pais.nombre : (pais.nombreEn || pais.nombre)}
             </span>
             <div className="w-1.5 h-1.5 rounded-full bg-[#0ea5e9]/30 mx-4" />
           </div>

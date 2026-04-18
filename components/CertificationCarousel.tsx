@@ -4,10 +4,12 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { certificaciones } from '@/data/certificaciones';
 import Image from 'next/image';
+import { useLang } from './LanguageContext';
 
 export default function CertificationCarousel() {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
+  const { lang } = useLang();
 
   useEffect(() => {
     if (paused) return;
@@ -50,7 +52,7 @@ export default function CertificationCarousel() {
                 style={{ width: '120px', height: '120px' }}
               >
                 {(activeCert as any).imagen ? (
-                  <Image src={(activeCert as any).imagen} alt={activeCert.nombre} fill className="object-contain" />
+                  <Image src={(activeCert as any).imagen} alt={lang === 'es' ? activeCert.nombre : (activeCert as any).nombreEn} fill className="object-contain" />
                 ) : (
                   <span className="text-6xl flex h-full w-full justify-center items-center">{activeCert.emoji}</span>
                 )}
@@ -59,11 +61,11 @@ export default function CertificationCarousel() {
               {/* Texto */}
               <div className="text-center md:text-left md:max-w-[400px]">
                 <h3 className="text-2xl lg:text-3xl font-black text-white mb-2 font-tight tracking-tight uppercase">
-                  {activeCert.nombre}
+                  {lang === 'es' ? activeCert.nombre : (activeCert as any).nombreEn}
                   {activeCert.nivel && <span className="text-[#0ea5e9] ml-3 text-xl">{activeCert.nivel}</span>}
                 </h3>
-                <p className="text-[#8BA0B4] text-lg font-medium">{activeCert.subtitulo}</p>
-                <p className="text-white/60 text-sm mt-3 italic">{activeCert.descripcion}</p>
+                <p className="text-[#8BA0B4] text-lg font-medium">{lang === 'es' ? activeCert.subtitulo : (activeCert as any).subtituloEn}</p>
+                <p className="text-white/60 text-sm mt-3 italic">{lang === 'es' ? activeCert.descripcion : (activeCert as any).descripcionEn}</p>
               </div>
             </div>
           </motion.div>
@@ -74,6 +76,7 @@ export default function CertificationCarousel() {
       <div className="mt-[30px] flex flex-wrap justify-center gap-4">
         {certificaciones.map((cert, i) => {
           const isActive = i === active;
+          const certName = lang === 'es' ? cert.nombre : (cert as any).nombreEn;
           return (
             <button
               key={cert.id}
@@ -90,7 +93,7 @@ export default function CertificationCarousel() {
               onMouseEnter={(e) => { if (!isActive) { e.currentTarget.style.color = '#fff'; e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; } }}
               onMouseLeave={(e) => { if (!isActive) { e.currentTarget.style.color = '#8BA0B4'; e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; } }}
             >
-              {cert.nombre}
+              {certName}
             </button>
           );
         })}

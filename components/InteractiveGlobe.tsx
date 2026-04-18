@@ -84,6 +84,7 @@ interface WorldMapProps {
 }
 
 const WorldMap = ({ activeId, onSelect }: WorldMapProps) => {
+  const { lang } = useLang()
   const activeRegion = regionesExportacion.find(r => r.id === activeId)
   const [paitaX, paitaY] = lonLatToXY(paitaCoord[0], paitaCoord[1], MAP_W, MAP_H, MAP_SCALE, MAP_CX, MAP_CY)
 
@@ -171,7 +172,7 @@ const WorldMap = ({ activeId, onSelect }: WorldMapProps) => {
             <animate attributeName="r" values="10;18;10" dur="2.5s" repeatCount="indefinite" />
           </circle>
           <text textAnchor="middle" y={-14} fill="#f59e0b" fontSize={9} fontWeight={800} style={{ letterSpacing: '0.1em' }}>
-            PAITA, PE
+            {lang === 'es' ? 'PAITA, PE' : 'PAITA, PERU'}
           </text>
         </Marker>
       </ComposableMap>
@@ -238,7 +239,7 @@ export default function InteractiveGlobe() {
                   </div>
                   <div className="min-w-0 px-1">
                     <p className={`font-bold text-[11px] leading-tight text-center ${isActive ? 'text-[#00e5ff]' : 'text-[#8BA0B4]'}`}>
-                      {region.nombre}
+                      {lang === 'es' ? region.nombre : region.nombreEn}
                     </p>
                   </div>
                 </button>
@@ -274,7 +275,7 @@ export default function InteractiveGlobe() {
                 >
                   <div className="flex items-center gap-3 mb-4">
                     <span className="text-2xl flex-shrink-0" style={{ fontFamily: 'Segoe UI Emoji, Apple Color Emoji, sans-serif' }}>{selected.emoji}</span>
-                    <h4 className="text-lg font-black text-white">{selected.nombre}</h4>
+                    <h4 className="text-lg font-black text-white">{lang === 'es' ? selected.nombre : selected.nombreEn}</h4>
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {selected.paises.map(p => (
@@ -286,7 +287,7 @@ export default function InteractiveGlobe() {
                         <span className="text-[1.2rem] mb-1" style={{ fontFamily: 'Segoe UI Emoji, Apple Color Emoji, sans-serif' }}>{p.bandera}</span>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
                           <span className="text-[0.6rem] font-black text-[#00e5ff] opacity-60 uppercase">{p.codigo}</span>
-                          <span className="text-[0.7rem] font-bold text-white tracking-wide truncate max-w-[50px]">{p.nombre}</span>
+                          <span className="text-[0.7rem] font-bold text-white tracking-wide truncate max-w-[50px]">{lang === 'es' ? p.nombre : p.nombreEn}</span>
                         </div>
                       </div>
                     ))}

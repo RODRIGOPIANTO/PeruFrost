@@ -61,7 +61,7 @@ export default function Footer() {
               <div key={loc.tipo} className="footer-contact-item">
                 <MapPin size={16} color="#00c8e6" style={{ minWidth: '16px' }} />
                 <span>
-                  <strong>{loc.tipo}:</strong> {loc.ciudad}<br/>
+                  <strong>{lang === 'es' ? loc.tipo : loc.tipoEn}:</strong> {loc.ciudad}<br/>
                   <span style={{ color: 'rgba(255,255,255,0.45)' }}>{loc.direccion}</span>
                 </span>
               </div>
@@ -87,7 +87,7 @@ export default function Footer() {
           textTransform: 'uppercase',
           letterSpacing: '0.05em'
         }}>
-          {infoEmpresa.certificacionPrincipal.nombre} — Grado {infoEmpresa.certificacionPrincipal.grado}
+          {infoEmpresa.certificacionPrincipal.nombre} — {t('footer.aa')} {infoEmpresa.certificacionPrincipal.grado}
         </div>
       </div>
     </footer>
