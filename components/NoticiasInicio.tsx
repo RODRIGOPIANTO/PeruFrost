@@ -11,46 +11,46 @@ const noticiasEscritas = {
   es: [
     {
       id: 1,
-      titulo: 'Modernización en Planta de Procesamiento',
-      descripcion: 'Culminamos la fase de modernización tecnológica en nuestra planta principal, integrando nuevos túneles de congelado para optimizar la cadena de frío.',
-      imagen: '/recursos/planta.webp',
+      titulo: 'Certificación BRCGS Grado AA',
+      descripcion: 'Perú Frost renueva su compromiso con la excelencia obteniendo la máxima calificación en seguridad alimentaria.',
+      imagen: STORAGE_URL + 'sanipes.webp',
       featured: true,
     },
     {
       id: 2,
-      titulo: 'Ampliación de Planta de Ósmosis',
-      descripcion: 'Capacidad incrementada a 2,000 m³ diarios para garantizar estándares sanitarios internacionales en todos nuestros procesos.',
-      imagen: '/recursos/planta_osmosis.jpg',
+      titulo: 'Infraestructura de Vanguardia',
+      descripcion: 'Ampliación de nuestra capacidad de almacenamiento con nuevos túneles de congelado rápido.',
+      imagen: STORAGE_URL + 'infrafondo.webp',
       featured: false,
     },
     {
       id: 3,
-      titulo: 'Certificación SANIPES de Clase Mundial',
-      descripcion: 'Perú Frost mantiene la máxima calificación sanitaria, reafirmando nuestro compromiso con la inocuidad y la salud pública.',
-      imagen: '/recursos/sanipes.webp',
+      titulo: 'Compromiso con la Sostenibilidad',
+      descripcion: 'Implementación de nuevas políticas de pesca responsable y trazabilidad total.',
+      imagen: STORAGE_URL + 'planta.webp',
       featured: false,
     },
   ],
   en: [
     {
       id: 1,
-      titulo: 'Processing Plant Modernization',
-      descripcion: 'We have completed the technological modernization phase at our main plant, integrating new freezing tunnels to optimize the cold chain.',
-      imagen: '/recursos/planta.webp',
+      titulo: 'BRCGS Grade AA Certification',
+      descripcion: 'Perú Frost renews its commitment to excellence by obtaining the highest food safety rating.',
+      imagen: STORAGE_URL + 'sanipes.webp',
       featured: true,
     },
     {
       id: 2,
-      titulo: 'Osmosis Plant Expansion',
-      descripcion: 'Capacity increased to 2,000 cubic meters per day to guarantee international sanitary standards in all our processes.',
-      imagen: '/recursos/planta_osmosis.jpg',
+      titulo: 'State-of-the-Art Infrastructure',
+      descripcion: 'Expanding our storage capacity with new rapid freezing tunnels.',
+      imagen: STORAGE_URL + 'infrafondo.webp',
       featured: false,
     },
     {
       id: 3,
-      titulo: 'World-Class SANIPES Certification',
-      descripcion: 'Peru Frost maintains the highest sanitary rating, reaffirming our commitment to food safety and public health.',
-      imagen: '/recursos/sanipes.webp',
+      titulo: 'Commitment to Sustainability',
+      descripcion: 'Implementation of new responsible fishing policies and total traceability.',
+      imagen: STORAGE_URL + 'planta.webp',
       featured: false,
     },
   ],
@@ -60,7 +60,6 @@ export default function NoticiasInicio() {
   const { lang } = useLang();
   const noticias = lang === 'es' ? noticiasEscritas.es : noticiasEscritas.en;
   const label = lang === 'es' ? 'Corporativo' : 'Corporate';
-  const readMore = lang === 'es' ? 'LEER MÁS' : 'READ MORE';
 
   return (
     <section style={{ background: '#04111f', padding: '80px 32px' }}>
@@ -79,21 +78,6 @@ export default function NoticiasInicio() {
         .news-card:hover {
           border-color: rgba(0,200,230,0.45);
           transform: translateY(-4px);
-        }
-        .news-read-more {
-          display: inline-flex;
-          align-items: center;
-          gap: 6px;
-          color: #00c8e6;
-          font-size: 12px;
-          font-weight: 700;
-          letter-spacing: 0.08em;
-          text-transform: uppercase;
-          transition: gap 0.2s;
-          text-decoration: none;
-        }
-        .news-card:hover .news-read-more {
-          gap: 10px;
         }
       `}</style>
 
@@ -128,24 +112,23 @@ export default function NoticiasInicio() {
           </h2>
         </div>
 
-        {/* Asymmetric Grid */}
-        <div style={{
+        {/* Grid */}
+        <div className="news-grid-responsive" style={{
           display: 'grid',
-          gridTemplateColumns: '1.35fr 1fr 1fr',
-          gap: '20px',
-        }}
-          className="news-grid-responsive"
-        >
+          gridTemplateColumns: 'repeat(3, 1fr)',
+          gap: '24px',
+        }}>
           {noticias.map((item) => (
             <motion.div
               key={item.id}
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.55, delay: (item.id - 1) * 0.12 }}
               className="news-card"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              style={{ gridColumn: item.featured ? 'span 2' : 'span 1' }}
             >
-              {/* Image with overlay badge */}
+              {/* Card image */}
               <div style={{
                 position: 'relative',
                 width: '100%',
@@ -210,6 +193,9 @@ export default function NoticiasInicio() {
         @media (max-width: 900px) {
           .news-grid-responsive {
             grid-template-columns: 1fr !important;
+          }
+          .news-card {
+            grid-column: span 1 !important;
           }
         }
         @media (min-width: 601px) and (max-width: 900px) {

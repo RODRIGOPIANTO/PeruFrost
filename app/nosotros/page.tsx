@@ -229,7 +229,7 @@ export default function NosotrosPage() {
               <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
                 <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(0,229,255,0.2)', background: '#0D1326' }}>
                   <video
-                    src="/recursos/video_institucional.mp4"
+                    src={STORAGE_URL + 'video_institucional.mp4'}
                     autoPlay
                     muted
                     loop

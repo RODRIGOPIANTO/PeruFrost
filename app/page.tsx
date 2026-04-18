@@ -19,6 +19,8 @@ import CountryTicker from '@/components/CountryTicker';
 import NoticiasInicio from '@/components/NoticiasInicio';
 import { socios } from '@/data/socios';
 
+const STORAGE_URL = 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/'
+
 const fadeUp = {
   hidden: { opacity: 0, y: 48 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: 'easeOut' as const } },
@@ -104,7 +106,7 @@ export default function HomePage() {
         {/* ═══ HERO — Video fullscreen ═══ */}
         <section style={{ position: 'relative', height: 'calc(100vh - 72px)', minHeight: '640px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
           <Image
-            src="/recursos/fondo_inicio.webp"
+            src={STORAGE_URL + 'fondo_inicio.webp'}
             alt="Peru Frost Hero"
             fill
             className="object-cover"
