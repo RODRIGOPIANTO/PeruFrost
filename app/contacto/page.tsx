@@ -18,7 +18,7 @@ export default function ContactoPage() {
   const contactItems = [
     {
       icon: <Mail size={24} />, label: lang === 'es' ? 'Email Comercial' : 'Sales Email',
-      value: 'mk@perufrost.com', href: 'mailto:mk@perufrost.com',
+      value: 'mkt@perufrost.com', href: 'mailto:mkt@perufrost.com',
       note: lang === 'es' ? 'Respuesta en < 24h hábiles' : 'Reply within 24h',
     },
     {
@@ -134,7 +134,7 @@ export default function ContactoPage() {
                       </ul>
                     </div>
 
-                    <a href="mailto:mk@perufrost.com" className="btn-primary" style={{ display: 'flex', justifyContent: 'center', padding: '1.1rem', fontSize: '1.1rem' }}>
+                    <a href="mailto:mkt@perufrost.com" className="btn-primary" style={{ display: 'flex', justifyContent: 'center', padding: '1.1rem', fontSize: '1.1rem' }}>
                       <Mail size={18} /> {lang === 'es' ? 'Enviar solicitud a ventas' : 'Send request to sales'}
                     </a>
                   </div>
