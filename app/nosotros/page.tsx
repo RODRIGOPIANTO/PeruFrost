@@ -227,16 +227,16 @@ export default function NosotrosPage() {
           <div style={{ maxWidth: '1280px', margin: '0 auto', paddingInline: '1.5rem', position: 'relative', zIndex: 1 }}>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '5rem', alignItems: 'center' }} className="lg:grid-cols-2">
               <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-                <div style={{ position: 'relative', height: '480px', borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(0,229,255,0.2)' }}>
+                <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(0,229,255,0.2)', background: '#0D1326' }}>
                   <video
-                    src={STORAGE_URL + 'video_institucional.mp4'}
+                    src="/recursos/video_institucional.mp4"
                     autoPlay
                     muted
                     loop
                     playsInline
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    style={{ width: '100%', height: '100%', objectFit: 'contain' }}
                   />
-                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,15,31,0.4) 0%, transparent 40%)' }} />
+                  <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,15,31,0.4) 0%, transparent 40%)', pointerEvents: 'none' }} />
                 </div>
               </motion.div>
               <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>

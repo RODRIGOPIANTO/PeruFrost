@@ -103,11 +103,13 @@ export default function HomePage() {
       <main style={{ paddingTop: '72px' }}>
         {/* ═══ HERO — Video fullscreen ═══ */}
         <section style={{ position: 'relative', height: 'calc(100vh - 72px)', minHeight: '640px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-          <video
-            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
-            src="/recursos/video_institucional.mp4"
-            autoPlay muted loop playsInline preload="auto"
-            poster="/recursos/planta.webp"
+          <Image
+            src="/recursos/fondo_inicio.webp"
+            alt="Peru Frost Hero"
+            fill
+            className="object-cover"
+            priority
+            quality={90}
           />
           <div className="video-overlay" style={{ position: 'absolute', inset: 0, zIndex: 1 }} />
           <div className="grid-pattern" style={{ position: 'absolute', inset: 0, zIndex: 1, opacity: 0.25 }} />

@@ -23,10 +23,10 @@ const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } 
 const STORAGE_URL = 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/'
 
 const galleryImages = [
-  { type: 'video', src: STORAGE_URL + 'infra.mp4', caption: '' },
-  { type: 'image', src: STORAGE_URL + 'planta.webp', caption: 'Planta principal — Zona Industrial Paita' },
-  { type: 'image', src: STORAGE_URL + '120m.webp', caption: 'Instalaciones de alta tecnología' },
-  { type: 'image', src: STORAGE_URL + 'planta_osmosis.webp', caption: 'Planta de ósmosis inversa — 2,000 m³/día' },
+  { type: 'video', src: '/recursos/infra.mp4', caption: '' },
+  { type: 'image', src: '/recursos/planta.webp', caption: 'Planta principal — Zona Industrial Paita' },
+  { type: 'image', src: '/recursos/120m.webp', caption: 'Instalaciones de alta tecnología' },
+  { type: 'image', src: '/recursos/planta_osmosis.webp', caption: 'Planta de ósmosis inversa — 2,000 m³/día' },
 ];
 
 const techSpecs = [
@@ -88,7 +88,7 @@ export default function InfraestructuraPage() {
           <div style={{ position: 'absolute', inset: 0 }}>
             <div style={{ position: 'absolute', inset: 0, opacity: 0.35 }}>
               <Image
-                src={STORAGE_URL + 'infrafondo.webp'}
+                src="/recursos/infrafondo.webp"
                 alt="Fondo Infraestructura"
                 fill
                 className="object-cover"
