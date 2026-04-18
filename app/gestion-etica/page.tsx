@@ -65,7 +65,7 @@ export default function GestionEticaPage() {
           <Link href="/" className="flex items-center gap-2 text-slate-frost hover:text-cyan transition-colors mb-10 text-sm">
             <ArrowLeft size={16} /> {content.back}
           </Link>
-          <div className="highlight-tag mb-6 inline-block">{content.tag}</div>
+          <div style={{ marginBottom: '1.5rem', display: 'inline-block', color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{content.tag}</div>
           <h1 className="text-4xl lg:text-5xl font-black font-tight text-frost mb-4">{content.title}</h1>
           <p className="text-slate-frost mb-12">{content.subtitle}</p>
 

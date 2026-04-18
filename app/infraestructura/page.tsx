@@ -31,12 +31,12 @@ const galleryImages = [
 
 const techSpecs = [
   {
-    category: 'Refrigeración', icon: <Thermometer size={24} />, title: 'Sistema IQF de Alta Performance',
+    category: 'Refrigeración', icon: <Thermometer size={24} />, title: 'Sistema IQF Yantai Moon',
     specs: [
       { label: 'Temperatura de almacenamiento', value: '-25°C' },
       { label: 'Capacidad total', value: '5,000 TM' },
       { label: 'Tipo de sistema', value: 'Túnel y placas' },
-      { label: 'Tecnología', value: 'IQF Premium' },
+      { label: 'Tecnología', value: 'Premium Yantai Moon' },
     ],
     color: 'rgba(0,229,255,0.08)', border: 'rgba(0,229,255,0.25)',
   },
@@ -100,7 +100,7 @@ export default function InfraestructuraPage() {
           <div className="grid-pattern" style={{ position: 'absolute', inset: 0, opacity: 0.18 }} />
           <div style={{ ...S.inner, position: 'relative', zIndex: 1 }}>
             <motion.div initial="hidden" animate="visible" variants={stagger}>
-              <motion.div variants={fadeUp}><span className="highlight-tag" style={S.tag}>{lang === 'es' ? 'Planta Paita — Piura' : 'Paita Plant — Piura'}</span></motion.div>
+              <motion.div variants={fadeUp}><span style={{ ...S.tag, color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{lang === 'es' ? 'Planta Paita - Piura' : 'Paita Plant - Piura'}</span></motion.div>
               <motion.h1 variants={fadeUp} style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: 'clamp(2.25rem, 5.5vw, 4.5rem)', lineHeight: 1.08, color: '#fff', marginBottom: '1.5rem', maxWidth: '780px' }}>
                 {lang === 'es' ? <>Infraestructura de <span className="gradient-text">clase mundial</span></> : <>World-class <span className="gradient-text">infrastructure</span></>}
               </motion.h1>
@@ -117,9 +117,9 @@ export default function InfraestructuraPage() {
         <section style={S.section}>
           <div style={S.inner}>
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} style={{ textAlign: 'center', marginBottom: '4rem' }}>
-              <motion.div variants={fadeUp}><span className="highlight-tag" style={S.tag}>Galería de Instalaciones</span></motion.div>
+              <motion.div variants={fadeUp}><span style={{ ...S.tag, color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{lang === 'es' ? 'Galería de Instalaciones' : 'Facility Gallery'}</span></motion.div>
               <motion.h2 variants={fadeUp} style={S.h2}>
-                Recorrido <span className="gradient-text">virtual</span>
+                Infraestructura de <span className="gradient-text">{lang === 'es' ? 'clase mundial' : 'world class'}</span>
               </motion.h2>
             </motion.div>
 
@@ -179,9 +179,9 @@ export default function InfraestructuraPage() {
           <div className="grid-pattern" style={{ position: 'absolute', inset: 0, opacity: 0.15 }} />
           <div style={{ ...S.inner, position: 'relative', zIndex: 1 }}>
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} style={{ textAlign: 'center', marginBottom: '4.5rem' }}>
-              <motion.div variants={fadeUp}><span className="highlight-tag" style={S.tag}>Tecnología</span></motion.div>
+              <motion.div variants={fadeUp}><span style={{ ...S.tag, color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{lang === 'es' ? 'Tecnología' : 'Technology'}</span></motion.div>
               <motion.h2 variants={fadeUp} style={S.h2}>
-                Equipamiento de <span className="gradient-text">vanguardia</span>
+                {lang === 'es' ? <>Equipamiento de <span className="gradient-text">vanguardia</span></> : <>Modern <span className="gradient-text">Equipment</span></>}
               </motion.h2>
             </motion.div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1.5rem' }} className="md:grid-cols-2">
@@ -225,7 +225,7 @@ export default function InfraestructuraPage() {
           <div style={S.inner}>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '4rem', alignItems: 'center' }} className="lg:grid-cols-2">
               <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-                <span className="highlight-tag" style={S.tag}>{lang === 'es' ? 'Nuestra Flota' : 'Our Fleet'}</span>
+                <span style={{ ...S.tag, color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{lang === 'es' ? 'Nuestra Flota' : 'Our Fleet'}</span>
                 <h2 style={S.h2}>Embarcaciones propias para una <span className="gradient-text">pesca sostenible</span></h2>
                 <p style={{ color: '#8BA0B4', fontSize: '1.05rem', lineHeight: 1.85, marginBottom: '1.5rem' }}>
                   {lang === 'es'
@@ -270,8 +270,8 @@ export default function InfraestructuraPage() {
         <section style={{ padding: '7rem 0', background: '#0D1326' }}>
           <div style={{ maxWidth: '1280px', margin: '0 auto', paddingInline: '1.5rem' }}>
             <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-              <span className="highlight-tag" style={{ marginBottom: '1.25rem', display: 'inline-block' }}>
-                {lang === 'es' ? 'Nuestra Planta' : 'Our Plant'}
+              <span style={{ marginBottom: '1.25rem', display: 'inline-block', color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>
+                {lang === 'es' ? 'Logística Integral' : 'Integrated Logistics'}
               </span>
               <h2 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: 'clamp(1.75rem, 4vw, 3rem)', lineHeight: 1.15 }}>
                 {lang === 'es' ? <>Encuéntranos en <span className="gradient-text">Paita, Piura</span></> : <>Find us in <span className="gradient-text">Paita, Piura</span></>}

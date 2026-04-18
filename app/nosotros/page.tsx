@@ -34,7 +34,7 @@ const milestones = [
   },
   {
     year: '2018', icon: '🏭', title: 'Nueva Planta De Procesamiento',
-    desc: 'Inauguración de la planta de última generación en la Zona Industrial de Paita, equipada con tecnología de primer nivel: túneles IQF, prensas de placas y sistema HACCP digital.',
+    desc: 'Inauguración de la planta de última generación en la Zona Industrial de Paita, equipada con tecnología de primer nivel: túneles IQF Yantai Moon, prensas de placas y sistema HACCP digital.',
     stats: '5 min del Puerto · 120m² de cámara',
   },
   {
@@ -240,7 +240,7 @@ export default function NosotrosPage() {
                 </div>
               </motion.div>
               <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-                <span className="highlight-tag" style={{ marginBottom: '1.5rem', display: 'inline-block' }}>{lang === 'es' ? 'Nuestra Historia' : 'Our Story'}</span>
+                <span style={{ marginBottom: '1.5rem', display: 'inline-block', color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{lang === 'es' ? 'Nuestra Historia' : 'Our Story'}</span>
                 <h2 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: 'clamp(1.75rem, 4vw, 3rem)', lineHeight: 1.15, marginBottom: '1.75rem' }}>
                   {lang === 'es' ? <>Conscientes del invaluable <span className="gradient-text">tesoro pesquero</span></> : <>Aware of the invaluable <span className="gradient-text">fishing treasure</span></>}
                 </h2>
@@ -266,7 +266,7 @@ export default function NosotrosPage() {
         <section style={{ padding: '7rem 0' }}>
           <div style={{ maxWidth: '1100px', margin: '0 auto', paddingInline: '1.5rem' }}>
             <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
-              <span className="highlight-tag" style={{ marginBottom: '1.25rem', display: 'inline-block' }}>{lang === 'es' ? 'Hitos' : 'Milestones'}</span>
+              <span style={{ marginBottom: '1.25rem', display: 'inline-block', color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{lang === 'es' ? 'Hitos' : 'Milestones'}</span>
               <h2 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: 'clamp(1.75rem, 4vw, 3rem)', lineHeight: 1.15 }}>
                 {lang === 'es' ? <>Nuestra <span className="gradient-text">línea de tiempo</span></> : <>Our <span className="gradient-text">timeline</span></>}
               </h2>
@@ -405,8 +405,8 @@ export default function NosotrosPage() {
           <div className="grid-pattern" style={{ position: 'absolute', inset: 0, opacity: 0.15 }} />
           <div style={{ maxWidth: '1280px', margin: '0 auto', paddingInline: '1.5rem', position: 'relative', zIndex: 1 }}>
             <div style={{ textAlign: 'center', marginBottom: '4.5rem' }}>
-              <span className="highlight-tag" style={{ marginBottom: '1.25rem', display: 'inline-block' }}>
-                {lang === 'es' ? 'Valores Corporativos' : 'Corporate Values'}
+              <span style={{ marginBottom: '1.25rem', display: 'inline-block', color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>
+                {lang === 'es' ? 'ADN Corporativo' : 'Corporate DNA'}
               </span>
               <h2 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: 'clamp(1.75rem, 4vw, 3rem)', lineHeight: 1.15, marginBottom: '1.25rem' }}>
                 {lang === 'es' ? <>Lo que nos <span className="gradient-text">define</span></> : <>What <span className="gradient-text">defines us</span></>}
@@ -484,8 +484,8 @@ export default function NosotrosPage() {
         <section style={{ padding: '7rem 0', background: '#0D1326' }}>
           <div style={{ maxWidth: '1000px', margin: '0 auto', paddingInline: '1.5rem' }}>
             <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-              <span className="highlight-tag" style={{ marginBottom: '1.25rem', display: 'inline-block' }}>
-                {lang === 'es' ? 'Alianzas' : 'Alliances'}
+              <span style={{ marginBottom: '1.25rem', display: 'inline-block', color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>
+                {lang === 'es' ? 'Presencia Global' : 'Global Presence'}
               </span>
               <h2 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: 'clamp(1.75rem, 4vw, 3rem)', lineHeight: 1.15 }}>
                 {lang === 'es' ? <>Colaborando con la <span className="gradient-text">industria</span></> : <>Collaborating with the <span className="gradient-text">industry</span></>}

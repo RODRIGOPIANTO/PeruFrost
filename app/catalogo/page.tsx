@@ -160,7 +160,7 @@ function ProductCard({ p, index }: { p: Produto; index: number }) {
             padding: '4px 12px', borderRadius: '9999px',
           }}>
             <Star size={10} fill="currentColor" />
-            Producto Estrella
+            {lang === 'es' ? 'Producto Estrella' : 'Star Product'}
           </div>
         )}
       </div>
@@ -195,7 +195,7 @@ function ProductCard({ p, index }: { p: Produto; index: number }) {
         {/* Formatos */}
         <div style={{ marginBottom: '1.75rem' }}>
           <p style={{ fontSize: '10px', textTransform: 'uppercase' as const, letterSpacing: '0.18em', color: 'rgba(138,160,180,0.5)', fontWeight: 700, marginBottom: '0.625rem' }}>
-            Formatos de exportación
+            {lang === 'es' ? 'Formatos de exportación' : 'Export formats'}
           </p>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
             {p.formatos.map(f => <FormatoBadge key={f.label} f={f} />)}
@@ -212,7 +212,7 @@ function ProductCard({ p, index }: { p: Produto; index: number }) {
           transition: 'all 0.2s',
           width: '100%',
         }}>
-          Ver Ficha Técnica <ArrowRight size={16} />
+          {lang === 'es' ? 'Ver Ficha Técnica' : 'View Spec Sheet'} <ArrowRight size={16} />
         </button>
       </div>
     </motion.article>
@@ -261,7 +261,7 @@ export default function CatalogoPage() {
           <div style={{ ...INNER, position: 'relative', zIndex: 1, textAlign: 'center' }}>
             <motion.div initial="hidden" animate="visible" variants={stagger}>
               <motion.div variants={fadeUp} style={{ marginBottom: '1.5rem' }}>
-                <span className="highlight-tag">Catálogo Oficial 2026</span>
+                <span style={{ color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{lang === 'es' ? 'Catálogo Oficial 2026' : 'Official Catalog 2026'}</span>
               </motion.div>
               <motion.h1 variants={fadeUp} style={{
                 fontFamily: "'Inter Tight', sans-serif", fontWeight: 900,
@@ -383,21 +383,23 @@ export default function CatalogoPage() {
                       </motion.div>
                       <motion.div variants={fadeUp} style={{ flex: '1 1 320px', padding: '3rem' }}>
                         <span style={{ display: 'inline-flex', alignItems: 'center', gap: '7px', background: '#00E5FF', color: '#0A0F1F', fontSize: '11px', fontWeight: 900, textTransform: 'uppercase', letterSpacing: '0.18em', padding: '5px 14px', borderRadius: '9999px', marginBottom: '1.5rem' }}>
-                          <Star size={11} fill="currentColor" /> Producto Estrella
+                          <Star size={11} fill="currentColor" /> {lang === 'es' ? 'Producto Estrella' : 'Star Product'}
                         </span>
                         <h2 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: 'clamp(2rem, 4vw, 3.25rem)', lineHeight: 1.05, color: '#fff', marginBottom: '0.375rem' }}>
                           Calamar Gigante
                         </h2>
                         <h3 className="gradient-text" style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: 'clamp(2rem, 4vw, 3.25rem)', lineHeight: 1.05, marginBottom: '0.875rem' }}>
-                          Pota del Pacífico
+                          {lang === 'es' ? 'Pota del Pacífico' : 'Pacific Giant Squid'}
                         </h3>
                         <p style={{ color: 'rgba(138,160,180,0.7)', fontStyle: 'italic', marginBottom: '1rem', fontSize: '1rem' }}>Dosidicus gigas</p>
                         <p style={{ color: '#8BA0B4', fontSize: '1.05rem', lineHeight: 1.75, marginBottom: '2rem', maxWidth: '500px' }}>
-                          Capturada en las aguas peruanas con flota propia (98% de cuota nacional). El calamar más grande del Pacífico sur. Procesado bajo estricta cadena de frío en nuestra planta certificada BRCGS AA en Paita.
+                          {lang === 'es'
+                            ? 'Capturada en las aguas peruanas con flota propia (98% de cuota nacional). El calamar más grande del Pacífico sur. Procesado bajo estricta cadena de frío en nuestra planta certificada BRCGS AA en Paita.'
+                            : 'Caught in Peruvian waters with our own fleet (98% of national quota). The largest squid in the South Pacific. Processed under a strict cold chain in our BRCGS AA certified plant in Paita.'}
                         </p>
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', alignItems: 'center' }}>
                           {[FMT.BLOCK, FMT.IQF].map(f => <FormatoBadge key={f.label} f={f} />)}
-                          <span style={{ fontSize: '12px', color: '#8BA0B4', fontWeight: 600 }}>+20 cortes</span>
+                          <span style={{ fontSize: '12px', color: '#8BA0B4', fontWeight: 600 }}>{lang === 'es' ? '+20 cortes' : '+20 cuts'}</span>
                         </div>
                       </motion.div>
                     </div>
@@ -486,12 +488,14 @@ export default function CatalogoPage() {
             <motion.div key="peces" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
               <div style={{ ...INNER, paddingTop: '5rem', paddingBottom: '6rem' }}>
                 <motion.div initial="hidden" animate="visible" variants={fadeUp} style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-                  <span className="highlight-tag" style={{ marginBottom: '1.25rem', display: 'inline-block' }}>🐟 Especies Pelágicas y Demersales</span>
+                  <span style={{ marginBottom: '1.25rem', display: 'inline-block', color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>🐟 {lang === 'es' ? 'Especies Pelágicas y Demersales' : 'Pelagic & Demersal Species'}</span>
                   <h2 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: 'clamp(1.75rem, 4vw, 3rem)', lineHeight: 1.1, color: '#fff', marginBottom: '1rem' }}>
-                    Peces del Pacífico Sur
+                    {lang === 'es' ? 'Peces del Pacífico Sur' : 'South Pacific Fish'}
                   </h2>
                   <p style={{ color: '#8BA0B4', maxWidth: '560px', margin: '0 auto', lineHeight: 1.75 }}>
-                    Captura sostenible certificada. 8 especies de alta valorización para los mercados más exigentes.
+                    {lang === 'es'
+                      ? 'Captura sostenible certificada. 8 especies de alta valorización para los mercados más exigentes.'
+                      : 'Certified sustainable catch. 8 high-value species for the most demanding markets.'}
                   </p>
                 </motion.div>
                 <motion.div initial="hidden" animate="visible" variants={stagger} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '1.75rem' }}>
@@ -506,14 +510,16 @@ export default function CatalogoPage() {
             <motion.div key="mariscos" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}>
               <div style={{ ...INNER, paddingTop: '5rem', paddingBottom: '6rem' }}>
                 <motion.div initial="hidden" animate="visible" variants={fadeUp} style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-                  <span className="highlight-tag" style={{ marginBottom: '1.25rem', display: 'inline-block', borderColor: 'rgba(244,114,182,0.3)', background: 'rgba(244,114,182,0.08)', color: '#f472b6' }}>
-                    🦐 Mariscos &amp; Cefalópodos
+                  <span style={{ marginBottom: '1.25rem', display: 'inline-block', color: '#f472b6', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>
+                    🦐 {lang === 'es' ? 'Mariscos & Cefalópodos' : 'Shellfish & Cephalopods'}
                   </span>
                   <h2 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: 'clamp(1.75rem, 4vw, 3rem)', lineHeight: 1.1, color: '#fff', marginBottom: '1rem' }}>
-                    Mariscos Selectos
+                    {lang === 'es' ? 'Mariscos Selectos' : 'Selected Shellfish'}
                   </h2>
                   <p style={{ color: '#8BA0B4', maxWidth: '560px', margin: '0 auto', lineHeight: 1.75 }}>
-                    Desde el langostino artesanal hasta la concha de abanico de acuicultura certificada. La élite del mar peruano.
+                    {lang === 'es'
+                      ? 'Desde el langostino artesanal hasta la concha de abanico de acuicultura certificada. La élite del mar peruano.'
+                      : 'From artisanal shrimp to certified aquaculture scallops. The elite of the Peruvian sea.'}
                   </p>
                 </motion.div>
                 <motion.div initial="hidden" animate="visible" variants={stagger} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.75rem' }}>
@@ -528,15 +534,17 @@ export default function CatalogoPage() {
         {/* ═══ CTA FINAL ═══ */}
         <section style={{ padding: '7rem 0', borderTop: '1px solid rgba(255,255,255,0.05)', background: 'linear-gradient(180deg, rgba(0,229,255,0.03) 0%, transparent 100%)' }}>
           <div style={{ ...INNER, textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <span className="highlight-tag" style={{ marginBottom: '1.5rem' }}>¿Listo para cotizar?</span>
+            <span style={{ marginBottom: '1.5rem', display: 'inline-block', color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{lang === 'es' ? '¿Listo para cotizar?' : 'Ready to quote?'}</span>
             <h2 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: 'clamp(1.75rem, 4vw, 3rem)', lineHeight: 1.1, color: '#fff', marginBottom: '1.25rem', maxWidth: '600px' }}>
-              Solicita tu cotización en menos de 24h
+              {lang === 'es' ? 'Solicita tu cotización en menos de 24h' : 'Request your quote in less than 24h'}
             </h2>
             <p style={{ color: '#8BA0B4', fontSize: '1.05rem', maxWidth: '520px', lineHeight: 1.8, marginBottom: '2.5rem' }}>
-              Compártenos las especificaciones de volumen, empaque y destino y nuestro equipo comercial te responderá con una propuesta detallada.
+              {lang === 'es'
+                ? 'Compártenos las especificaciones de volumen, empaque y destino y nuestro equipo comercial te responderá con una propuesta detallada.'
+                : 'Share your volume, packaging and destination specifications and our sales team will respond with a detailed proposal.'}
             </p>
             <Link href="/contacto" className="btn-primary" style={{ fontSize: '0.875rem' }}>
-              Solicitar Cotización <ArrowRight size={16} />
+              {lang === 'es' ? 'Solicitar Cotización' : 'Request Quote'} <ArrowRight size={16} />
             </Link>
           </div>
         </section>

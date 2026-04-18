@@ -52,11 +52,19 @@ export default function CalidadPage() {
       <main style={{ paddingTop: '72px' }}>
 
         {/* Hero */}
-        <section style={{ ...S.sectionBg, minHeight: '380px', display: 'flex', alignItems: 'center' }}>
-          <div className="grid-pattern" style={{ position: 'absolute', inset: 0, opacity: 0.18 }} />
-          <div style={{ ...S.inner, position: 'relative', zIndex: 1 }}>
+        <section style={{ ...S.sectionBg, minHeight: '380px', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden' }}>
+          <Image 
+            src={STORAGE_URL + 'sanipes.webp'} 
+            alt="Calidad Hero" 
+            fill 
+            className="object-cover" 
+            style={{ opacity: 0.2, zIndex: 0 }} 
+            priority
+          />
+          <div className="grid-pattern" style={{ position: 'absolute', inset: 0, opacity: 0.12, zIndex: 1 }} />
+          <div style={{ ...S.inner, position: 'relative', zIndex: 2 }}>
             <motion.div initial="hidden" animate="visible" variants={stagger}>
-              <motion.div variants={fadeUp}><span className="highlight-tag" style={S.tag}>{lang === 'es' ? 'Sistema de Calidad Total' : 'Total Quality System'}</span></motion.div>
+              <motion.div variants={fadeUp}><span style={{ ...S.tag, color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{lang === 'es' ? 'Sistema de Calidad Total' : 'Total Quality System'}</span></motion.div>
               <motion.h1 variants={fadeUp} style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: 'clamp(2.25rem, 5.5vw, 4.5rem)', lineHeight: 1.08, color: '#fff', marginBottom: '1.5rem', maxWidth: '780px' }}>
                 {lang === 'es' ? <>Calidad que <span className="gradient-text">inspira confianza</span></> : <>Quality that <span className="gradient-text">inspires confidence</span></>}
               </motion.h1>
@@ -73,7 +81,7 @@ export default function CalidadPage() {
         <section style={S.section}>
           <div style={S.innerNarrow}>
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} style={{ textAlign: 'center', marginBottom: '4rem' }}>
-              <motion.div variants={fadeUp}><span className="highlight-tag" style={S.tag}>Aval Internacional</span></motion.div>
+              <motion.div variants={fadeUp}><span style={{ ...S.tag, color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>Aval Internacional</span></motion.div>
               <motion.h2 variants={fadeUp} style={S.h2}>
                 Certificaciones <span className="gradient-text">globales</span>
               </motion.h2>
@@ -90,7 +98,7 @@ export default function CalidadPage() {
           <div className="grid-pattern" style={{ position: 'absolute', inset: 0, opacity: 0.15 }} />
           <div style={{ ...S.inner, position: 'relative', zIndex: 1 }}>
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} style={{ textAlign: 'center', marginBottom: '4.5rem' }}>
-              <motion.div variants={fadeUp}><span className="highlight-tag" style={S.tag}>HACCP</span></motion.div>
+              <motion.div variants={fadeUp}><span style={{ ...S.tag, color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>HACCP</span></motion.div>
               <motion.h2 variants={fadeUp} style={S.h2}>
                 Análisis de Peligros y<br />
                 <span className="gradient-text">Puntos Críticos de Control</span>
@@ -131,7 +139,7 @@ export default function CalidadPage() {
         <section style={S.section}>
           <div style={S.innerNarrow}>
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} style={{ textAlign: 'center', marginBottom: '4rem' }}>
-              <motion.div variants={fadeUp}><span className="highlight-tag" style={S.tag}>Control de Laboratorio</span></motion.div>
+              <motion.div variants={fadeUp}><span style={{ ...S.tag, color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>Control de Laboratorio</span></motion.div>
               <motion.h2 variants={fadeUp} style={S.h2}>
                 Análisis en <span className="gradient-text">cada lote</span>
               </motion.h2>
@@ -182,20 +190,32 @@ export default function CalidadPage() {
           <div style={{ ...S.inner, position: 'relative', zIndex: 1 }}>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '4rem', alignItems: 'center' }} className="lg:grid-cols-2">
               <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-                <span className="highlight-tag" style={S.tag}>BPM y POES</span>
-                <h2 style={S.h2}>Buenas Prácticas de <span className="gradient-text">Manufactura</span></h2>
+                <span style={{ ...S.tag, color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{lang === 'es' ? 'BPM y POES' : 'GMP & SSOP'}</span>
+                <h2 style={S.h2}>{lang === 'es' ? <>Buenas Prácticas de <span className="gradient-text">Manufactura</span></> : <>Good Manufacturing <span className="gradient-text">Practices</span></>}</h2>
                 <p style={{ color: '#8BA0B4', fontSize: '1rem', lineHeight: 1.85, marginBottom: '2rem' }}>
-                  Cumplimiento estricto de las Buenas Prácticas de Manufactura (BPM) y Procedimientos Operacionales Estandarizados de Saneamiento (POES) en todas las áreas de nuestra planta.
+                  {lang === 'es' 
+                    ? 'Cumplimiento estricto de las Buenas Prácticas de Manufactura (BPM) y Procedimientos Operacionales Estandarizados de Saneamiento (POES) en todas las áreas de nuestra planta.'
+                    : 'Strict compliance with Good Manufacturing Practices (GMP) and Sanitation Standard Operating Procedures (SSOP) in all areas of our plant.'}
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                  {[
-                    'Control higiénico de personal y equipos',
-                    'Saneamiento y desinfección programada',
-                    'Control de plagas certificado',
-                    'Gestión de alérgenos',
-                    'Control de materiales extraños',
-                    'Calibración de equipos de medición',
-                  ].map((item) => (
+                  {(lang === 'es' 
+                    ? [
+                      'Control higiénico de personal y equipos',
+                      'Saneamiento y desinfección programada',
+                      'Control de plagas certificado',
+                      'Gestión de alérgenos',
+                      'Control de materiales extraños',
+                      'Calibración de equipos de medición',
+                    ]
+                    : [
+                      'Hygienic control of personnel and equipment',
+                      'Scheduled sanitation and disinfection',
+                      'Certified pest control',
+                      'Allergen management',
+                      'Foreign material control',
+                      'Calibration of measuring equipment',
+                    ]
+                  ).map((item) => (
                     <div key={item} style={{ display: 'flex', alignItems: 'center', gap: '0.875rem' }}>
                       <CheckCircle size={18} color="#00E5FF" style={{ flexShrink: 0 }} />
                       <span style={{ color: '#fff', fontSize: '0.97rem' }}>{item}</span>
@@ -218,7 +238,7 @@ export default function CalidadPage() {
                 </div>
               </motion.div>
               <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} style={{ order: 1 }} className="lg:order-2">
-                <span className="highlight-tag" style={S.tag}>{lang === 'es' ? 'Tecnología' : 'Technology'}</span>
+                <span style={{ ...S.tag, color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{lang === 'es' ? 'Tecnología' : 'Technology'}</span>
                 <h2 style={S.h2}>{lang === 'es' ? <>Precisión <span className="gradient-text">Automatizada</span></> : <>Automated <span className="gradient-text">Precision</span></>}</h2>
                 <p style={{ color: '#8BA0B4', fontSize: '1rem', lineHeight: 1.85, marginBottom: '2rem' }}>
                   {lang === 'es' 
@@ -243,12 +263,14 @@ export default function CalidadPage() {
         {/* CTA */}
         <section style={{ ...S.sectionBg, padding: '6rem 0' }}>
           <div style={{ ...S.innerNarrow, textAlign: 'center', position: 'relative', zIndex: 1 }}>
-            <h2 style={{ ...S.h2, textAlign: 'center' }}>¿Necesita documentación técnica?</h2>
+            <h2 style={{ ...S.h2, textAlign: 'center' }}>{lang === 'es' ? '¿Necesita documentación técnica?' : 'Need technical documentation?'}</h2>
             <p style={{ color: '#8BA0B4', fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '2.5rem' }}>
-              Nuestro equipo puede proveer fichas técnicas, certificados y especificaciones para cada producto según los requisitos de su mercado.
+              {lang === 'es'
+                ? 'Nuestro equipo puede proveer fichas técnicas, certificados y especificaciones para cada producto según los requisitos de su mercado.'
+                : 'Our team can provide technical data sheets, certificates and specifications for each product according to your market requirements.'}
             </p>
             <Link href="/contacto" className="btn-primary" style={{ fontSize: '1rem', padding: '1rem 2.5rem' }}>
-              Solicitar documentación <ArrowRight size={18} />
+              {lang === 'es' ? 'Solicitar documentación' : 'Request documentation'} <ArrowRight size={18} />
             </Link>
           </div>
         </section>

@@ -185,7 +185,7 @@ export default function HomePage() {
           <div style={{ maxWidth: '1280px', margin: '0 auto', paddingInline: '1.5rem' }}>
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} style={{ textAlign: 'center', marginBottom: '4rem' }}>
               <motion.div variants={fadeUp}>
-                <span className="highlight-tag" style={{ marginBottom: '1.5rem', display: 'inline-block' }}>{t('certs.tag')}</span>
+                <span style={{ marginBottom: '1.5rem', display: 'inline-block', color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{t('certs.tag')}</span>
               </motion.div>
               <motion.h2 variants={fadeUp} style={{
                 fontFamily: "'Inter Tight', sans-serif", fontWeight: 900,
@@ -249,7 +249,7 @@ export default function HomePage() {
             {/* Heading */}
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} style={{ textAlign: 'center', marginBottom: '4rem' }}>
               <motion.div variants={fadeUp}>
-                <span className="highlight-tag" style={{ marginBottom: '1.5rem', display: 'inline-block' }}>{t('cold.tag')}</span>
+                <span style={{ marginBottom: '1.5rem', display: 'inline-block', color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{t('cold.tag')}</span>
               </motion.div>
               <motion.h2 variants={fadeUp} style={{
                 fontFamily: "'Inter Tight', sans-serif", fontWeight: 900,
@@ -281,7 +281,7 @@ export default function HomePage() {
           <div style={{ maxWidth: '1280px', margin: '0 auto', paddingInline: '1.5rem' }}>
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} style={{ textAlign: 'center', marginBottom: '5rem' }}>
               <motion.div variants={fadeUp}>
-                <span className="highlight-tag" style={{ marginBottom: '1.5rem', display: 'inline-block' }}>{t('products.tag')}</span>
+                <span style={{ marginBottom: '1.5rem', display: 'inline-block', color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{t('products.tag')}</span>
               </motion.div>
               <motion.h2 variants={fadeUp} style={{
                 fontFamily: "'Inter Tight', sans-serif", fontWeight: 900,
@@ -321,7 +321,7 @@ export default function HomePage() {
                         background: i % 2 !== 0 ? 'linear-gradient(to right, transparent, rgba(10,15,31,0.3))' : 'linear-gradient(to left, transparent, rgba(10,15,31,0.3))',
                       }} />
                       <div style={{ position: 'absolute', top: '1.25rem', left: '1.25rem' }}>
-                        <span className="highlight-tag">{lang === 'es' ? product.tag : product.tagEn}</span>
+                        <span style={{ color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{lang === 'es' ? product.tag : product.tagEn}</span>
                       </div>
                     </div>
 
@@ -382,7 +382,7 @@ export default function HomePage() {
           <div style={{ maxWidth: '800px', margin: '0 auto', paddingInline: '1.5rem', textAlign: 'center', position: 'relative', zIndex: 1 }}>
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}>
               <motion.div variants={fadeUp}>
-                <span className="highlight-tag" style={{ marginBottom: '1.75rem', display: 'inline-block' }}>{t('cta.tag')}</span>
+                <span style={{ marginBottom: '1.75rem', display: 'inline-block', color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{t('cta.tag')}</span>
               </motion.div>
               <motion.h2 variants={fadeUp} style={{
                 fontFamily: "'Inter Tight', sans-serif", fontWeight: 900,
