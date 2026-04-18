@@ -27,8 +27,6 @@ const fadeUp = {
 };
 const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.15 } } };
 
-const STORAGE_URL = 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/'
-
 const products = [
   {
     name: 'Calamar Gigante',
@@ -39,7 +37,7 @@ const products = [
     descriptionEn: 'Peruvian jumbo squid from FAO Zone 87, processed under the strictest international standards. Wide range of cuts for different markets.',
     specs: ['Tentáculos', 'Aletas', 'Filetes', 'Botones', 'Bloques 10kg/7kg', 'Sacos 20kg/21kg'],
     specsEn: ['Tentacles', 'Fins', 'Fillets', 'Buttons', '10kg/7kg Blocks', '20kg/21kg Bags'],
-    image: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/calamar_1.webp',
+    image: STORAGE_URL + 'calamar_1.webp',
   },
   {
     name: 'Merluza',

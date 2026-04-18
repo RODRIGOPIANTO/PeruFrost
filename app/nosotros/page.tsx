@@ -34,7 +34,7 @@ const milestones = [
   },
   {
     year: '2018', icon: '🏭', title: 'Nueva Planta De Procesamiento',
-    desc: 'Inauguración de la planta de última generación en la Zona Industrial de Paita, equipada con tecnología de primer nivel: túneles IQF Yantai Moon, prensas de placas y sistema HACCP digital.',
+    desc: 'Inauguración de la planta de última generación en la Zona Industrial de Paita, equipada con tecnología de primer nivel: túneles IQF, prensas de placas y sistema HACCP digital.',
     stats: '5 min del Puerto · 120m² de cámara',
   },
   {
@@ -99,17 +99,17 @@ export default function NosotrosPage() {
         <section style={{ padding: '3rem 0 5rem', position: 'relative', overflow: 'hidden', minHeight: '60vh', display: 'flex', alignItems: 'center' }}>
           {/* Background Image with Filter */}
           <div style={{ position: 'absolute', inset: 0, zIndex: 0, backgroundColor: '#070b1a' }}>
-            <img 
-              src={STORAGE_URL + 'trabajadores.webp'} 
-              alt="Perú Frost Team" 
-              style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.3 }} 
+            <img
+              src={STORAGE_URL + 'trabajadores.webp'}
+              alt="Perú Frost Team"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.3 }}
             />
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(10,15,31,0.7) 0%, rgba(10,15,31,0.95) 100%)' }} />
           </div>
 
           <div className="grid-pattern" style={{ position: 'absolute', inset: 0, opacity: 0.12, zIndex: 1 }} />
           <div style={{ position: 'absolute', top: '-100px', right: '-100px', width: '600px', height: '600px', background: 'radial-gradient(circle, rgba(0,229,255,0.07) 0%, transparent 65%)', borderRadius: '50%', pointerEvents: 'none', zIndex: 1 }} />
-          
+
           <div style={{ maxWidth: '1280px', margin: '0 auto', paddingInline: '1.5rem', position: 'relative', zIndex: 2 }}>
             <motion.div initial="hidden" animate="visible" variants={stagger}>
 
@@ -162,7 +162,7 @@ export default function NosotrosPage() {
                 style={{ background: 'rgba(0,229,255,0.04)', border: '1.5px solid rgba(0,229,255,0.2)', borderRadius: '24px', padding: '2rem', position: 'relative', overflow: 'hidden' }}
               >
                 <div style={{ position: 'absolute', top: '-40px', right: '-40px', width: '150px', height: '150px', background: 'radial-gradient(circle, rgba(0,229,255,0.08) 0%, transparent 70%)', borderRadius: '50%' }} />
-                <div style={{ fontSize: '2.5rem', marginBottom: '1.25rem' }}>🎯</div>
+                <div style={{ fontSize: '2.5rem', marginBottom: '1.25rem' }}></div>
                 <span style={{ fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#00E5FF', display: 'block', marginBottom: '0.75rem' }}>
                   {lang === 'es' ? 'Misión' : 'Mission'}
                 </span>
@@ -193,7 +193,7 @@ export default function NosotrosPage() {
                 style={{ background: 'rgba(99,102,241,0.04)', border: '1.5px solid rgba(99,102,241,0.25)', borderRadius: '24px', padding: '2rem', position: 'relative', overflow: 'hidden' }}
               >
                 <div style={{ position: 'absolute', top: '-40px', right: '-40px', width: '150px', height: '150px', background: 'radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%)', borderRadius: '50%' }} />
-                <div style={{ fontSize: '2.5rem', marginBottom: '1.25rem' }}>🌟</div>
+                <div style={{ fontSize: '2.5rem', marginBottom: '1.25rem' }}></div>
                 <span style={{ fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em', color: '#818CF8', display: 'block', marginBottom: '0.75rem' }}>
                   {lang === 'es' ? 'Visión' : 'Vision'}
                 </span>
