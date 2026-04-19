@@ -16,7 +16,7 @@ export default function PoliticaSigPage() {
           <Link href="/" className="flex items-center gap-2 text-slate-frost hover:text-cyan transition-colors mb-10 text-sm">
             <ArrowLeft size={16} /> Volver al inicio
           </Link>
-          <div className="highlight-tag mb-6 inline-block">Sistema de Gestión</div>
+          <span style={{ color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem', marginBottom: '1.5rem', display: 'inline-block' }}>Sistema de Gestión</span>
           <h1 className="text-4xl lg:text-5xl font-black font-tight text-frost mb-4">
             Política del Sistema Integrado de Gestión
           </h1>
@@ -61,7 +61,7 @@ export default function PoliticaSigPage() {
               <h2 className="text-xl font-bold text-frost font-tight mb-4">Normas de Referencia</h2>
               <div className="flex flex-wrap gap-3">
                 {['BRCGS Food Safety V9', 'HACCP Codex Alimentarius', 'ISO 22000', 'MSC Chain of Custody', 'MarinTrust Standard', 'FDA 21 CFR', 'DG SANTE 854/2004', 'SANIPES'].map((norm) => (
-                  <span key={norm} className="highlight-tag">{norm}</span>
+                  <span style={{ color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{norm}</span>
                 ))}
               </div>
             </div>

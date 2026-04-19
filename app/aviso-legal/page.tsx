@@ -16,7 +16,7 @@ export default function AvisoLegalPage() {
           <Link href="/" className="flex items-center gap-2 text-slate-frost hover:text-cyan transition-colors mb-10 text-sm">
             <ArrowLeft size={16} /> Volver al inicio
           </Link>
-          <div className="highlight-tag mb-6 inline-block">Legal</div>
+          <span style={{ color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem', marginBottom: '1.5rem', display: 'inline-block' }}>Aviso Legal</span>
           <h1 className="text-4xl lg:text-5xl font-black font-tight text-frost mb-4">Aviso Legal</h1>
           <p className="text-slate-frost mb-12">Perú Frost S.A.C. — RUC 20607856517</p>
 

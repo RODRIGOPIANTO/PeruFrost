@@ -18,71 +18,103 @@ const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.12 } }
 
 const milestones = [
   {
-    year: '2001', icon: '🚢', title: 'Fundación en Paita',
+    year: '2001', icon: '🚢', 
+    title: 'Fundación en Paita', titleEn: 'Founded in Paita',
     desc: 'Inicio de operaciones en la costa norte del Perú, con visión exportadora desde el primer día. Primeros embarques hacia mercados asiáticos.',
-    stats: 'Costa norte · Puerto de Paita',
+    descEn: 'Commencement of operations on the north coast of Peru, with an export vision from day one. First shipments to Asian markets.',
+    stats: 'Costa norte · Puerto de Paita', statsEn: 'North coast · Paita Port',
   },
   {
-    year: '2008', icon: '🌍', title: 'Expansión Internacional',
+    year: '2008', icon: '🌍', 
+    title: 'Expansión Internacional', titleEn: 'International Expansion',
     desc: 'Primeras exportaciones directas a mercados europeos. Consolidación del modelo de trazabilidad completa desde la captura hasta el consumidor final.',
-    stats: '+12 países de destino',
+    descEn: 'First direct exports to European markets. Consolidation of the complete traceability model from catch to final consumer.',
+    stats: '+12 países de destino', statsEn: '+12 destination countries',
   },
   {
-    year: '2015', icon: '🏆', title: 'Certificación BRCGS',
+    year: '2015', icon: '🏆', 
+    title: 'Certificación BRCGS', titleEn: 'BRCGS Certification',
     desc: 'Obtención de la certificación BRCGS Food Safety, considerada el estándar de oro en inocuidad alimentaria. Hito que abrió las puertas a los mercados más exigentes.',
-    stats: 'Estándar de oro de la industria',
+    descEn: 'Obtainment of the BRCGS Food Safety certification, considered the gold standard in food safety. A milestone that opened doors to the most demanding markets.',
+    stats: 'Estándar de oro de la industria', statsEn: 'Industry gold standard',
   },
   {
-    year: '2018', icon: '🏭', title: 'Nueva Planta De Procesamiento',
-    desc: 'Inauguración de la planta de última generación en la Zona Industrial de Paita, equipada con tecnología de primer nivel: túneles IQF, prensas de placas y sistema HACCP digital.',
-    stats: '5 min del Puerto · 120m² de cámara',
+    year: '2018', icon: '🏭', 
+    title: 'Nueva Planta De Procesamiento', titleEn: 'New Processing Plant',
+    desc: 'Inauguración de la planta de última generación en Paita, equipada con tecnología Yantai Moon: túneles IQF, prensas de placas y sistema HACCP digital.',
+    descEn: 'Inauguration of the latest generation plant in Paita, equipped with Yantai Moon technology: IQF tunnels, plate freezers, and digital HACCP system.',
+    stats: 'Tecnología Premium Yantai Moon', statsEn: 'Premium Yantai Moon Technology',
   },
   {
-    year: '2021', icon: '📋', title: 'Constitución S.A.C.',
+    year: '2021', icon: '📋', 
+    title: 'Constitución S.A.C.', titleEn: 'S.A.C. Incorporation',
     desc: 'Consolidación jurídica como PERÚ FROST S.A.C. con RUC 20607856517. Inicio de nueva etapa de crecimiento y acceso a nuevos mercados regulados.',
-    stats: 'RUC 20607856517 · Lima, Perú',
+    descEn: 'Legal consolidation as PERÚ FROST S.A.C. with RUC 20607856517. Start of a new stage of growth and access to new regulated markets.',
+    stats: 'RUC 20607856517 · Lima, Perú', statsEn: 'RUC 20607856517 · Lima, Peru',
   },
   {
-    year: '2024', icon: '⭐', title: 'BRCGS Grado AA',
+    year: '2024', icon: '⭐', 
+    title: 'BRCGS Grado AA', titleEn: 'BRCGS Grade AA',
     desc: 'Renovación de BRCGS con calificación Grado AA — la más alta posible en la industria pesquera mundial. Reconocimiento a años de trabajo y disciplina operativa.',
-    stats: 'Grado AA · Máxima calificación',
+    descEn: 'BRCGS renewal with Grade AA rating — the highest possible in the global seafood industry. Recognition of years of hard work and operational discipline.',
+    stats: 'Grado AA · Máxima calificación', statsEn: 'Grade AA · Highest rating',
   },
 ];
 
 const values = [
   {
-    icon: <Shield size={28} />, title: 'Integridad', color: '#00E5FF',
+    icon: <Shield size={28} />, 
+    title: 'Integridad', titleEn: 'Integrity',
+    color: '#00E5FF',
     desc: 'Actuamos con honestidad y transparencia en cada relación comercial. La confianza de nuestros clientes es nuestra mayor responsabilidad.',
+    descEn: 'We act with honesty and transparency in every business relationship. The trust of our customers is our greatest responsibility.',
     bullets: ['Contratos claros y cumplidos', 'Trazabilidad total documentada', 'Comunicación proactiva ante imprevistos'],
+    bulletsEn: ['Clear and fulfilled contracts', 'Documented total traceability', 'Proactive communication in face of surprises'],
   },
   {
-    icon: <Award size={28} />, title: 'Excelencia', color: '#6EE7FA',
+    icon: <Award size={28} />, 
+    title: 'Excelencia', titleEn: 'Excellence',
+    color: '#6EE7FA',
     desc: 'Exigimos los más altos estándares de calidad en cada etapa del proceso, desde la captura en el Pacífico hasta la entrega en destino.',
+    descEn: 'We demand the highest quality standards at every stage of the process, from catch in the Pacific to delivery at destination.',
     bullets: ['BRCGS Grado AA — la más alta calificación', 'Análisis en laboratorio propio por lote', 'Equipos JBT Marel de última generación'],
+    bulletsEn: ['BRCGS Grade AA — the highest rating', 'On-site lab analysis per batch', 'Latest generation JBT Marel equipment'],
   },
   {
-    icon: <Heart size={28} />, title: 'Compromiso', color: '#00E5FF',
+    icon: <Heart size={28} />, 
+    title: 'Compromiso', titleEn: 'Commitment',
+    color: '#00E5FF',
     desc: 'Comprometidos con nuestros clientes, proveedores, colaboradores y las comunidades pesqueras artesanales del norte del Perú.',
+    descEn: 'Committed to our customers, suppliers, collaborators and the artisanal fishing communities of northern Peru.',
     bullets: ['Flota artesanal certificada y en régimen justo', 'Condiciones laborales dignas en planta', 'Apoyo a comunidades de Paita y alrededores'],
+    bulletsEn: ['Certified artisanal fleet and fair regime', 'Dignified working conditions at the plant', 'Support for Paita and surrounding communities'],
   },
   {
-    icon: <Globe size={28} />, title: 'Visión Global', color: '#6EE7FA',
+    icon: <Globe size={28} />, 
+    title: 'Visión Global', titleEn: 'Global Vision',
+    color: '#6EE7FA',
     desc: 'Pensamos en escala global actuando con conocimiento local. Exportamos a +20 países porque entendemos lo que cada mercado exige.',
+    descEn: 'We think on a global scale while acting with local knowledge. We export to +20 countries because we understand what each market demands.',
     bullets: ['+20 países de destino directo', 'Equipo multilingüe (ES, EN, ZH)', 'Adaptación de especificaciones por mercado'],
+    bulletsEn: ['+20 direct destination countries', 'Multilingual team (ES, EN, ZH)', 'Market specification adaptation'],
   },
   {
-    icon: <Leaf size={28} />, title: 'Sostenibilidad', color: '#10B981',
+    icon: <Leaf size={28} />, 
+    title: 'Sostenibilidad', titleEn: 'Sustainability',
+    color: '#10B981',
     desc: 'Gestionamos nuestros recursos con responsabilidad ambiental, participando activamente en el FIP de la pota peruana liderado por CAPECAL.',
+    descEn: 'We manage our resources with environmental responsibility, actively participating in the Peruvian jumbo squid FIP led by CAPECAL.',
     bullets: ['Miembro FIP pota — CAPECAL', 'Certificación MarinTrust activa', 'Reducción de descarte y uso integral'],
+    bulletsEn: ['Peruvian Squid FIP Member — CAPECAL', 'Active MarinTrust certification', 'Waste reduction and integral use'],
   },
 ];
 
 const stats = [
-  { icon: <Package size={20} />, value: '+200', label: 'Clientes activos' },
-  { icon: <Globe size={20} />, value: '+20', label: 'Países de destino' },
-  { icon: <Star size={20} />, value: '20+', label: 'Años de experiencia' },
-  { icon: <Users size={20} />, value: '150+', label: 'Colaboradores' },
-  { icon: <Anchor size={20} />, value: '-25°C', label: 'Temp. garantizada' },
+  { icon: <Package size={20} />, value: '+200', label: 'Clientes activos', labelEn: 'Active customers' },
+  { icon: <Globe size={20} />, value: '+20', label: 'Países de destino', labelEn: 'Destination countries' },
+  { icon: <Star size={20} />, value: '20+', label: 'Años de experiencia', labelEn: 'Years of experience' },
+  { icon: <Users size={20} />, value: '150+', label: 'Colaboradores', labelEn: 'Collaborators' },
+  { icon: <Anchor size={20} />, value: '-25°C', label: 'Temp. garantizada', labelEn: 'Guaranteed temp.' },
 ];
 
 // Institutional assets are served from /recursos/
@@ -133,7 +165,7 @@ export default function NosotrosPage() {
                     <div style={{ color: '#00E5FF' }}>{s.icon}</div>
                     <div>
                       <div style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: '1.35rem', color: '#fff', lineHeight: 1 }}>{s.value}</div>
-                      <div style={{ fontSize: '0.72rem', color: '#8BA0B4', marginTop: '1px' }}>{s.label}</div>
+                      <div style={{ fontSize: '0.72rem', color: '#8BA0B4', marginTop: '1px' }}>{lang === 'es' ? s.label : s.labelEn}</div>
                     </div>
                     <div style={{ width: '1px', height: '32px', background: 'rgba(255,255,255,0.1)', marginLeft: '0.5rem' }} />
                   </div>
@@ -231,8 +263,8 @@ export default function NosotrosPage() {
                   <video
                     src={STORAGE_URL + 'video_institucional.mp4'}
                     autoPlay
-                    muted
                     loop
+                    controls
                     playsInline
                     style={{ width: '100%', height: '100%', objectFit: 'contain' }}
                   />
@@ -327,9 +359,9 @@ export default function NosotrosPage() {
                                 }}>{m.year}</div>
                                 <span style={{ fontSize: '1.25rem' }}>{m.icon}</span>
                               </div>
-                              <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1.2rem', color: '#fff', marginBottom: '0.625rem' }}>{m.title}</h3>
-                              <p style={{ color: '#8BA0B4', fontSize: '0.9rem', lineHeight: 1.75, marginBottom: '0.75rem' }}>{m.desc}</p>
-                              <span style={{ fontSize: '0.72rem', color: '#00E5FF', fontWeight: 600, opacity: 0.8 }}>{m.stats}</span>
+                              <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1.2rem', color: '#fff', marginBottom: '0.625rem' }}>{lang === 'es' ? m.title : m.titleEn}</h3>
+                              <p style={{ color: '#8BA0B4', fontSize: '0.9rem', lineHeight: 1.75, marginBottom: '0.75rem' }}>{lang === 'es' ? m.desc : m.descEn}</p>
+                              <span style={{ fontSize: '0.72rem', color: '#00E5FF', fontWeight: 600, opacity: 0.8 }}>{lang === 'es' ? m.stats : m.statsEn}</span>
                             </div>
                           )}
                         </div>
@@ -453,24 +485,15 @@ export default function NosotrosPage() {
                   }}
                 >
                   <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.25rem' }}>
-                    <div style={{
-                      width: '44px', height: '44px',
-                      background: `${v.color}18`, flexShrink: 0,
-                      border: `1px solid ${v.color}30`,
-                      borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      color: v.color,
-                    }}>
-                      {v.icon}
-                    </div>
-                    <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: '1.15rem', color: '#fff' }}>{v.title}</h3>
+                    <div style={{ color: v.color }}>{v.icon}</div>
+                    <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: '1.5rem', color: '#fff', margin: 0 }}>{lang === 'es' ? v.title : v.titleEn}</h3>
                   </div>
-
-                  <p style={{ color: '#8BA0B4', fontSize: '0.925rem', lineHeight: 1.7, marginBottom: '1.5rem', flex: 1 }}>{v.desc}</p>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                    {v.bullets.map((b) => (
-                      <div key={b} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }}>
-                        <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: v.color, marginTop: '6px', flexShrink: 0 }} />
-                        <span style={{ color: '#8BA0B4', fontSize: '0.8rem', lineHeight: 1.4 }}>{b}</span>
+                  <p style={{ color: '#8BA0B4', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '2rem' }}>{lang === 'es' ? v.desc : v.descEn}</p>
+                  <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: '0.875rem' }}>
+                    {(lang === 'es' ? v.bullets : v.bulletsEn).map((b) => (
+                      <div key={b} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                        <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: v.color, opacity: 0.5 }} />
+                        <span style={{ color: '#fff', fontSize: '0.875rem', fontWeight: 500, opacity: 0.9 }}>{b}</span>
                       </div>
                     ))}
                   </div>

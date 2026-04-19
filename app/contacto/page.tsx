@@ -20,12 +20,7 @@ export default function ContactoPage() {
       icon: <Mail size={24} />, label: lang === 'es' ? 'Email Comercial' : 'Sales Email',
       value: 'mkt@perufrost.com', href: 'mailto:mkt@perufrost.com',
       note: lang === 'es' ? 'Respuesta en < 24h hábiles' : 'Reply within 24h',
-    },
-    {
-      icon: <Phone size={24} />, label: lang === 'es' ? 'Línea de Ventas' : 'Sales Line',
-      value: '+51 073 211 412', href: 'tel:+51073211412',
-      note: lang === 'es' ? 'Lunes - Viernes, 8am-6pm (PET)' : 'Mon - Fri, 8am-6pm (PET)',
-    },
+    }
   ];
 
   return (

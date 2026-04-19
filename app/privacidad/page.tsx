@@ -54,7 +54,7 @@ export default function PrivacidadPage() {
             <ArrowLeft size={16} /> {content.back}
           </Link>
 
-          <div className="highlight-tag" style={{ marginBottom: '1.5rem', display: 'inline-block' }}>{content.tag}</div>
+          <span style={{ color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem', marginBottom: '1.5rem', display: 'inline-block' }}>{content.tag}</span>
           <h1 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: 'clamp(2rem, 5vw, 3.5rem)', color: '#fff', marginBottom: '0.75rem', lineHeight: 1.1 }}>
             {content.title}
           </h1>

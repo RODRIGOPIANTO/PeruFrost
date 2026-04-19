@@ -123,6 +123,7 @@ function FormatoBadge({ f }: { f: Formato }) {
 }
 
 function ProductCard({ p, index }: { p: Produto; index: number }) {
+  const { lang } = useLang()
   const placeholder = `https://placehold.co/600x400/0d2137/00e5ff?text=${encodeURIComponent(p.nombreEN)}`
   const imgSrc = p.imagen ?? placeholder
 

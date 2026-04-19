@@ -10,18 +10,11 @@ const STORAGE_URL = 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/
 const noticiasEscritas = {
   es: [
     {
-      id: 1,
-      titulo: 'Certificación BRCGS Grado AA',
-      descripcion: 'Perú Frost renueva su compromiso con la excelencia obteniendo la máxima calificación en seguridad alimentaria.',
-      imagen: STORAGE_URL + 'sanipes.webp',
-      featured: true,
-    },
-    {
       id: 2,
       titulo: 'Infraestructura de Vanguardia',
       descripcion: 'Ampliación de nuestra capacidad de almacenamiento con nuevos túneles de congelado rápido.',
       imagen: STORAGE_URL + 'infrafondo.webp',
-      featured: false,
+      featured: true,
     },
     {
       id: 3,
@@ -33,18 +26,11 @@ const noticiasEscritas = {
   ],
   en: [
     {
-      id: 1,
-      titulo: 'BRCGS Grade AA Certification',
-      descripcion: 'Perú Frost renews its commitment to excellence by obtaining the highest food safety rating.',
-      imagen: STORAGE_URL + 'sanipes.webp',
-      featured: true,
-    },
-    {
       id: 2,
       titulo: 'State-of-the-Art Infrastructure',
       descripcion: 'Expanding our storage capacity with new rapid freezing tunnels.',
       imagen: STORAGE_URL + 'infrafondo.webp',
-      featured: false,
+      featured: true,
     },
     {
       id: 3,
@@ -115,8 +101,10 @@ export default function NoticiasInicio() {
         {/* Grid */}
         <div className="news-grid-responsive" style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
+          gridTemplateColumns: 'repeat(2, 1fr)',
           gap: '24px',
+          maxWidth: '1000px',
+          margin: '0 auto'
         }}>
           {noticias.map((item) => (
             <motion.div
@@ -126,13 +114,13 @@ export default function NoticiasInicio() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              style={{ gridColumn: item.featured ? 'span 2' : 'span 1' }}
+              style={{ gridColumn: 'span 1' }}
             >
               {/* Card image */}
               <div style={{
                 position: 'relative',
                 width: '100%',
-                aspectRatio: item.featured ? '16/9' : '16/10',
+                aspectRatio: '16/10',
                 overflow: 'hidden',
                 flexShrink: 0,
               }}>
@@ -169,7 +157,7 @@ export default function NoticiasInicio() {
                 <h3 style={{
                   fontFamily: "'Barlow Condensed', sans-serif",
                   fontWeight: 800,
-                  fontSize: item.featured ? '1.3rem' : '1.1rem',
+                  fontSize: '1.2rem',
                   color: '#fff',
                   lineHeight: 1.2,
                   margin: 0,
