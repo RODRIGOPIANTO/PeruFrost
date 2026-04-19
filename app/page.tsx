@@ -33,11 +33,11 @@ const products = [
     nameEn: 'Giant Squid',
     latin: 'Dosidicus gigas',
     tag: 'Producto estrella', tagEn: 'Star product',
-    description: 'Conscientes del invaluable tesoro que es nuestro mar peruano, en Perú Frost nos hemos dedicado a extraer, procesar y entregar al mundo productos hidrobiológicos de la más alta calidad con tecnología Yantai Moon desde Paita, al norte del Perú.',
-    descriptionEn: 'Aware of the invaluable treasure that is our Peruvian sea, at Perú Frost we have dedicated ourselves to extracting, processing and delivering the highest quality hydrobiological products to the world using Yantai Moon technology from Paita, northern Peru.',
+    description: 'Pota peruana de la Zona FAO 87, procesada bajo los más estrictos estándares internacionales. Amplio portafolio de cortes para diferentes mercados.',
+    descriptionEn: 'Peruvian jumbo squid from FAO Zone 87, processed under the strictest international standards. Wide range of cuts for different markets.',
     specs: ['Tentáculos', 'Aletas', 'Filetes', 'Botones', 'Bloques 10kg/7kg', 'Sacos 20kg/21kg'],
     specsEn: ['Tentacles', 'Fins', 'Fillets', 'Buttons', '10kg/7kg Blocks', '20kg/21kg Bags'],
-    image: STORAGE_URL + 'calamar_1.webp',
+    image: STORAGE_URL + 'pota_hero.webp',
   },
   {
     name: 'Merluza',
@@ -245,16 +245,21 @@ export default function HomePage() {
           <div className="grid-pattern" style={{ position: 'absolute', inset: 0, opacity: 0.15 }} />
           <div style={{ maxWidth: '1100px', margin: '0 auto', paddingInline: '1.5rem', position: 'relative', zIndex: 1 }}>
             {/* Heading */}
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} style={{ textAlign: 'center', marginBottom: '4.5rem' }}>
-              <motion.div variants={fadeUp}><span style={{ marginBottom: '1.25rem', display: 'inline-block', color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>HACCP</span></motion.div>
+            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} style={{ textAlign: 'center', marginBottom: '4rem' }}>
+              <motion.div variants={fadeUp}>
+                <span style={{ marginBottom: '1.5rem', display: 'inline-block', color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{t('cold.tag')}</span>
+              </motion.div>
               <motion.h2 variants={fadeUp} style={{
                 fontFamily: "'Inter Tight', sans-serif", fontWeight: 900,
                 fontSize: 'clamp(1.75rem, 4vw, 3.25rem)', lineHeight: 1.15,
                 marginBottom: '1.25rem',
               }}>
-                Análisis de Peligros y<br />
-                <span className="gradient-text">Puntos Críticos de Control</span>
+                {t('cold.h2a')}{' '}
+                <span className="gradient-text">-25°C</span>
               </motion.h2>
+              <motion.p variants={fadeUp} style={{ color: '#8BA0B4', fontSize: '1.05rem', maxWidth: '560px', margin: '0 auto', lineHeight: 1.8 }}>
+                {t('cold.body')}
+              </motion.p>
             </motion.div>
 
             {/* Interactive Timeline */}

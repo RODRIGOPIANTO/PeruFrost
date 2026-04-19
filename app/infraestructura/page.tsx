@@ -31,12 +31,12 @@ const galleryImages = [
 
 const techSpecs = [
   {
-    category: 'Refrigeración', icon: <Thermometer size={24} />, title: 'Sistema IQF Yantai Moon',
+    category: 'Refrigeración', icon: <Thermometer size={24} />, title: 'Sistema IQF de Alta Performance',
     specs: [
       { label: 'Temperatura de almacenamiento', value: '-25°C' },
       { label: 'Capacidad total', value: '5,000 TM' },
       { label: 'Tipo de sistema', value: 'Túnel y placas' },
-      { label: 'Tecnología', value: 'Premium Yantai Moon' },
+      { label: 'Tecnología', value: 'IQF Premium' },
     ],
     color: 'rgba(0,229,255,0.08)', border: 'rgba(0,229,255,0.25)',
   },

@@ -18,6 +18,7 @@ export interface Corte {
   descripcion?: string
   zona?: string
   emoji?: string
+  imagen?: string
 }
 
 export interface Producto {
@@ -51,7 +52,7 @@ export const pota: Producto = {
   badge: 'Producto Estrella',
   badgeColor: '#0ea5e9',
   zona: 'FAO 87 — Pacífico Sur',
-  imagen: STORAGE_URL + 'calamar_real.webp',
+  imagen: STORAGE_URL + 'pota_hero.webp',
   empaques: ['BLOCK 10kg', 'BLOCK 7kg', 'SACO 20kg', 'IQF'],
   mercados: ['China', 'España', 'Japón', 'EE.UU.', 'Corea', 'Tailandia'],
   descripcion: 'La pota peruana es nuestro producto estrella. Capturada en las ricas aguas del Pacífico Sur (FAO 87), procesada bajo estrictos estándares BRCGS Grado AA. Amplio portafolio de cortes para diferentes mercados y especificaciones.',
@@ -65,24 +66,24 @@ export const pota: Producto = {
   ],
 
   subProductos: [
-    { id: 'membrana', nombre: 'Membrana', nombreEN: 'Membrane', categoria: 'subproducto', empaques: ['BLOCK'], emoji: '📋' },
-    { id: 'membrana-cocida', nombre: 'Membrana Cocida', nombreEN: 'Boiled Membrane', categoria: 'subproducto', empaques: ['BLOCK'], emoji: '♨️' },
-    { id: 'telilla', nombre: 'Telilla', nombreEN: 'Belly', categoria: 'subproducto', empaques: ['BLOCK'], emoji: '📋' },
-    { id: 'telilla-cocida', nombre: 'Telilla Cocida', nombreEN: 'Boiled Belly', categoria: 'subproducto', empaques: ['BLOCK'], emoji: '♨️' },
-    { id: 'pico', nombre: 'Pico', nombreEN: 'Mouth', categoria: 'subproducto', empaques: ['BLOCK'], emoji: '🦷' },
-    { id: 'ventosa', nombre: 'Ventosa', nombreEN: 'Suckers', categoria: 'subproducto', empaques: ['BLOCK'], emoji: '🔵' },
-    { id: 'recortes', nombre: 'Recortes', nombreEN: 'Bits & Pieces', categoria: 'subproducto', empaques: ['IQF', 'BLOCK'], emoji: '📦' },
-    { id: 'recorte-precocido', nombre: 'Recorte Precocido', nombreEN: 'Boiled Bits & Pieces', categoria: 'subproducto', empaques: ['BLOCK'], emoji: '♨️' },
+    { id: 'membrana', nombre: 'Membrana', nombreEN: 'Membrane', categoria: 'subproducto', empaques: ['BLOCK'], emoji: '📋', imagen: STORAGE_URL + 'mebrana1.webp' },
+    { id: 'membrana-cocida', nombre: 'Membrana Cocida', nombreEN: 'Boiled Membrane', categoria: 'subproducto', empaques: ['BLOCK'], emoji: '♨️', imagen: STORAGE_URL + 'membrana-cocida.webp' }, // Notar que usamos el de 'actualizar'
+    { id: 'telilla', nombre: 'Telilla', nombreEN: 'Belly', categoria: 'subproducto', empaques: ['BLOCK'], emoji: '📋', imagen: STORAGE_URL + 'telilla.webp' },
+    { id: 'telilla-cocida', nombre: 'Telilla Cocida', nombreEN: 'Boiled Belly', categoria: 'subproducto', empaques: ['BLOCK'], emoji: '♨️', imagen: STORAGE_URL + 'telilla-cocida.webp' },
+    { id: 'pico', nombre: 'Pico', nombreEN: 'Mouth', categoria: 'subproducto', empaques: ['BLOCK'], emoji: '🦷', imagen: STORAGE_URL + 'pico2.webp' },
+    { id: 'ventosa', nombre: 'Ventosa', nombreEN: 'Suckers', categoria: 'subproducto', empaques: ['BLOCK'], emoji: '🔵', imagen: STORAGE_URL + 'ventosas.webp' },
+    { id: 'recortes', nombre: 'Recortes', nombreEN: 'Bits & Pieces', categoria: 'subproducto', empaques: ['IQF', 'BLOCK'], emoji: '📦', imagen: STORAGE_URL + 'recortes2.webp' },
+    { id: 'recorte-precocido', nombre: 'Recorte Precocido', nombreEN: 'Boiled Bits & Pieces', categoria: 'subproducto', empaques: ['BLOCK'], emoji: '♨️', imagen: STORAGE_URL + 'recorte-pre5.webp' },
+    { id: 'cono', nombre: 'Cono', nombreEN: 'Squid Cone', categoria: 'subproducto', empaques: ['BLOCK'], emoji: '🔺', imagen: STORAGE_URL + 'cono4.webp' },
   ],
 
   valorAgregado: [
-    { id: 'daruma', nombre: 'Daruma Cocida', nombreEN: 'Boiled Fillet', categoria: 'valorAgregado', empaques: ['BLOCK'], emoji: '🍣' },
-    { id: 'anillas', nombre: 'Anillas', nombreEN: 'Rings', categoria: 'valorAgregado', empaques: ['BLOCK', 'IQF'], emoji: '⭕' },
-    { id: 'alas-cocidas', nombre: 'Alas Cocidas', nombreEN: 'Boiled Wings', categoria: 'valorAgregado', empaques: ['BLOCK'], emoji: '♨️' },
-    { id: 'labios', nombre: 'Labios', nombreEN: 'Squid Lips', categoria: 'valorAgregado', empaques: ['BLOCK'], emoji: '💋' },
-    { id: 'cono', nombre: 'Cono', nombreEN: 'Squid Cone', categoria: 'valorAgregado', empaques: ['BLOCK'], emoji: '🔺' },
-    { id: 'botones', nombre: 'Botones', nombreEN: 'Buttons', categoria: 'valorAgregado', empaques: ['BLOCK', 'IQF'], emoji: '🔘' },
-    { id: 'rabas', nombre: 'Rabas', nombreEN: 'Squid Strips', categoria: 'valorAgregado', empaques: ['BLOCK', 'IQF'], emoji: '🍟' },
+    { id: 'daruma', nombre: 'Daruma Cocida', nombreEN: 'Boiled Fillet', categoria: 'valorAgregado', empaques: ['BLOCK'], emoji: '🍣', imagen: STORAGE_URL + 'daruma-cocida2.webp' },
+    { id: 'anillas', nombre: 'Anillas', nombreEN: 'Rings', categoria: 'valorAgregado', empaques: ['BLOCK', 'IQF'], emoji: '⭕', imagen: STORAGE_URL + 'anillas1.webp' },
+    { id: 'alas-cocidas', nombre: 'Alas Cocidas', nombreEN: 'Boiled Wings', categoria: 'valorAgregado', empaques: ['BLOCK'], emoji: '♨️', imagen: STORAGE_URL + 'ala-co.webp' },
+    { id: 'labios', nombre: 'Labios', nombreEN: 'Squid Lips', categoria: 'valorAgregado', empaques: ['BLOCK'], emoji: '💋', imagen: STORAGE_URL + 'labios.webp' },
+    { id: 'botones', nombre: 'Botones', nombreEN: 'Buttons', categoria: 'valorAgregado', empaques: ['BLOCK', 'IQF'], emoji: '🔘', imagen: STORAGE_URL + 'botones.webp' },
+    { id: 'rabas', nombre: 'Rabas', nombreEN: 'Squid Strips', categoria: 'valorAgregado', empaques: ['BLOCK', 'IQF'], emoji: '🍟', imagen: STORAGE_URL + 'rabas3.webp' },
   ],
 }
 
@@ -124,7 +125,7 @@ export const peces: Producto[] = [
     categoria: 'pez',
     badge: 'IQF / BLOCK',
     badgeColor: '#6366f1',
-    imagen: STORAGE_URL + 'merluza_premium.webp',
+    imagen: STORAGE_URL + 'pejerrey_premium.webp',
     empaques: ['IQF', 'BLOCK'],
     mercados: ['Chile', 'Argentina', 'Brasil'],
     descripcion: 'Pejerrey peruano procesado en IQF y bloque. Presentación entera o en filetes según especificación del cliente.',
@@ -137,7 +138,7 @@ export const peces: Producto[] = [
     categoria: 'pez',
     badge: 'BLOCK / IQF',
     badgeColor: '#ef4444',
-    imagen: STORAGE_URL + 'mahi_mahi_premium.webp',
+    imagen: STORAGE_URL + 'bonito.webp',
     empaques: ['BLOCK', 'IQF'],
     mercados: ['España', 'Italia', 'Colombia'],
     descripcion: 'Bonito del Pacífico peruano, ideal para conservas y filetes marinados. Procesado en planta propia bajo normas HACCP.',
@@ -150,7 +151,7 @@ export const peces: Producto[] = [
     categoria: 'pez',
     badge: 'BLOCK / IQF',
     badgeColor: '#10b981',
-    imagen: STORAGE_URL + 'merluza_premium.webp',
+    imagen: STORAGE_URL + 'anchoveta.webp',
     empaques: ['BLOCK', 'IQF'],
     mercados: ['España', 'Portugal', 'Italia'],
     descripcion: 'Anchoveta peruana, base de la cocina mediterránea. Procesada entera o en filetes, ideal para conservas de alta calidad.',
@@ -163,7 +164,7 @@ export const peces: Producto[] = [
     categoria: 'pez',
     badge: 'BLOCK / IQF',
     badgeColor: '#8b5cf6',
-    imagen: STORAGE_URL + 'mahi_mahi_premium.webp',
+    imagen: STORAGE_URL + 'jurel.webp',
     empaques: ['BLOCK', 'IQF'],
     mercados: ['China', 'Rusia', 'Alemania'],
     descripcion: 'Jurel del Pacífico Sur peruano, ideal para mercados asiáticos y europeos. Presentación entera o HGT.',
@@ -176,7 +177,7 @@ export const peces: Producto[] = [
     categoria: 'pez',
     badge: 'BLOCK / IQF',
     badgeColor: '#0ea5e9',
-    imagen: STORAGE_URL + 'mahi_mahi_premium.webp',
+    imagen: STORAGE_URL + 'caballa.webp',
     empaques: ['BLOCK', 'IQF'],
     mercados: ['Japón', 'Corea', 'China', 'España'],
     descripcion: 'Caballa peruana de alto valor nutricional, rica en Omega-3. Exportada entera o en filetes para mercados en Asia y Europa.',
@@ -189,7 +190,7 @@ export const peces: Producto[] = [
     categoria: 'pez',
     badge: 'BLOCK / IQF',
     badgeColor: '#f97316',
-    imagen: STORAGE_URL + 'merluza_premium.webp',
+    imagen: STORAGE_URL + 'chiri.webp',
     empaques: ['BLOCK', 'IQF'],
     mercados: ['China', 'Tailandia', 'Vietnam'],
     descripcion: 'Chiri del Pacífico, especie de alto valor en mercados asiáticos. Carne suave y de fácil fileteo.',

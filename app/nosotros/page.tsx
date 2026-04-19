@@ -18,42 +18,42 @@ const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.12 } }
 
 const milestones = [
   {
-    year: '2001', icon: '🚢', 
+    year: '2001', icon: '🚢',
     title: 'Fundación en Paita', titleEn: 'Founded in Paita',
     desc: 'Inicio de operaciones en la costa norte del Perú, con visión exportadora desde el primer día. Primeros embarques hacia mercados asiáticos.',
     descEn: 'Commencement of operations on the north coast of Peru, with an export vision from day one. First shipments to Asian markets.',
     stats: 'Costa norte · Puerto de Paita', statsEn: 'North coast · Paita Port',
   },
   {
-    year: '2008', icon: '🌍', 
+    year: '2008', icon: '🌍',
     title: 'Expansión Internacional', titleEn: 'International Expansion',
     desc: 'Primeras exportaciones directas a mercados europeos. Consolidación del modelo de trazabilidad completa desde la captura hasta el consumidor final.',
     descEn: 'First direct exports to European markets. Consolidation of the complete traceability model from catch to final consumer.',
     stats: '+12 países de destino', statsEn: '+12 destination countries',
   },
   {
-    year: '2015', icon: '🏆', 
+    year: '2015', icon: '🏆',
     title: 'Certificación BRCGS', titleEn: 'BRCGS Certification',
     desc: 'Obtención de la certificación BRCGS Food Safety, considerada el estándar de oro en inocuidad alimentaria. Hito que abrió las puertas a los mercados más exigentes.',
     descEn: 'Obtainment of the BRCGS Food Safety certification, considered the gold standard in food safety. A milestone that opened doors to the most demanding markets.',
     stats: 'Estándar de oro de la industria', statsEn: 'Industry gold standard',
   },
   {
-    year: '2018', icon: '🏭', 
+    year: '2018', icon: '🏭',
     title: 'Nueva Planta De Procesamiento', titleEn: 'New Processing Plant',
-    desc: 'Inauguración de la planta de última generación en Paita, equipada con tecnología Yantai Moon: túneles IQF, prensas de placas y sistema HACCP digital.',
-    descEn: 'Inauguration of the latest generation plant in Paita, equipped with Yantai Moon technology: IQF tunnels, plate freezers, and digital HACCP system.',
-    stats: 'Tecnología Premium Yantai Moon', statsEn: 'Premium Yantai Moon Technology',
+    desc: 'Inauguración de la planta de última generación en Paita, equipada con túneles IQF, prensas de placas y sistema HACCP digital.',
+    descEn: 'Inauguration of the latest generation plant in Paita, equipped with IQF tunnels, plate freezers, and digital HACCP system.',
+    stats: 'Tecnología de última generación', statsEn: 'Latest generation technology',
   },
   {
-    year: '2021', icon: '📋', 
+    year: '2021', icon: '📋',
     title: 'Constitución S.A.C.', titleEn: 'S.A.C. Incorporation',
     desc: 'Consolidación jurídica como PERÚ FROST S.A.C. con RUC 20607856517. Inicio de nueva etapa de crecimiento y acceso a nuevos mercados regulados.',
     descEn: 'Legal consolidation as PERÚ FROST S.A.C. with RUC 20607856517. Start of a new stage of growth and access to new regulated markets.',
     stats: 'RUC 20607856517 · Lima, Perú', statsEn: 'RUC 20607856517 · Lima, Peru',
   },
   {
-    year: '2024', icon: '⭐', 
+    year: '2024', icon: '⭐',
     title: 'BRCGS Grado AA', titleEn: 'BRCGS Grade AA',
     desc: 'Renovación de BRCGS con calificación Grado AA — la más alta posible en la industria pesquera mundial. Reconocimiento a años de trabajo y disciplina operativa.',
     descEn: 'BRCGS renewal with Grade AA rating — the highest possible in the global seafood industry. Recognition of years of hard work and operational discipline.',
@@ -63,7 +63,16 @@ const milestones = [
 
 const values = [
   {
-    icon: <Shield size={28} />, 
+    icon: <CheckCircle size={28} />,
+    title: 'Calidad', titleEn: 'Quality',
+    color: '#00E5FF',
+    desc: 'Buscamos la perfección en cada detalle del proceso productivo, garantizando productos de clase mundial certificados bajo los estándares más elevados.',
+    descEn: 'We strive for perfection in every detail of the production process, guaranteeing world-class products certified under the highest standards.',
+    bullets: ['Certificación BRCGS Grado AA', 'Control microbiológico por lote', 'Sistemas de inocuidad HACCP'],
+    bulletsEn: ['BRCGS Grade AA Certification', 'Microbiological control per batch', 'HACCP safety systems'],
+  },
+  {
+    icon: <Shield size={28} />,
     title: 'Integridad', titleEn: 'Integrity',
     color: '#00E5FF',
     desc: 'Actuamos con honestidad y transparencia en cada relación comercial. La confianza de nuestros clientes es nuestra mayor responsabilidad.',
@@ -72,7 +81,7 @@ const values = [
     bulletsEn: ['Clear and fulfilled contracts', 'Documented total traceability', 'Proactive communication in face of surprises'],
   },
   {
-    icon: <Award size={28} />, 
+    icon: <Award size={28} />,
     title: 'Excelencia', titleEn: 'Excellence',
     color: '#6EE7FA',
     desc: 'Exigimos los más altos estándares de calidad en cada etapa del proceso, desde la captura en el Pacífico hasta la entrega en destino.',
@@ -81,7 +90,7 @@ const values = [
     bulletsEn: ['BRCGS Grade AA — the highest rating', 'On-site lab analysis per batch', 'Latest generation JBT Marel equipment'],
   },
   {
-    icon: <Heart size={28} />, 
+    icon: <Heart size={28} />,
     title: 'Compromiso', titleEn: 'Commitment',
     color: '#00E5FF',
     desc: 'Comprometidos con nuestros clientes, proveedores, colaboradores y las comunidades pesqueras artesanales del norte del Perú.',
@@ -90,7 +99,7 @@ const values = [
     bulletsEn: ['Certified artisanal fleet and fair regime', 'Dignified working conditions at the plant', 'Support for Paita and surrounding communities'],
   },
   {
-    icon: <Globe size={28} />, 
+    icon: <Globe size={28} />,
     title: 'Visión Global', titleEn: 'Global Vision',
     color: '#6EE7FA',
     desc: 'Pensamos en escala global actuando con conocimiento local. Exportamos a +20 países porque entendemos lo que cada mercado exige.',
@@ -99,7 +108,7 @@ const values = [
     bulletsEn: ['+20 direct destination countries', 'Multilingual team (ES, EN, ZH)', 'Market specification adaptation'],
   },
   {
-    icon: <Leaf size={28} />, 
+    icon: <Leaf size={28} />,
     title: 'Sostenibilidad', titleEn: 'Sustainability',
     color: '#10B981',
     desc: 'Gestionamos nuestros recursos con responsabilidad ambiental, participando activamente en el FIP de la pota peruana liderado por CAPECAL.',
@@ -182,9 +191,6 @@ export default function NosotrosPage() {
               <span className="highlight-tag" style={{ marginBottom: '1.25rem', display: 'inline-block' }}>
                 {lang === 'es' ? 'Nuestro Propósito' : 'Our Purpose'}
               </span>
-              <h2 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: 'clamp(1.75rem, 4vw, 3rem)', lineHeight: 1.15 }}>
-                {lang === 'es' ? <>Por qué <span className="gradient-text">existimos</span></> : <>Why we <span className="gradient-text">exist</span></>}
-              </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
@@ -261,7 +267,7 @@ export default function NosotrosPage() {
               <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
                 <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '24px', overflow: 'hidden', border: '1px solid rgba(0,229,255,0.2)', background: '#0D1326' }}>
                   <video
-                    src={STORAGE_URL + 'video_institucional.mp4'}
+                    src={STORAGE_URL + (lang === 'en' ? 'nosotros_en.mp4' : 'video_institucional.mp4')}
                     autoPlay
                     loop
                     controls
@@ -278,8 +284,8 @@ export default function NosotrosPage() {
                 </h2>
                 <p style={{ color: '#8BA0B4', fontSize: '1.05rem', lineHeight: 1.85, marginBottom: '1.5rem' }}>
                   {lang === 'es'
-                    ? 'Conscientes del invaluable tesoro que es nuestro mar peruano, en Perú Frost nos hemos dedicado a extraer, procesar y entregar al mundo productos hidrobiológicos de la más alta calidad desde Paita, al norte del Perú.'
-                    : 'Aware of the invaluable treasure that is our Peruvian sea, at Perú Frost we have dedicated ourselves to extracting, processing and delivering the highest quality hydrobiological products to the world from Paita, northern Peru.'}
+                    ? 'En Perú Frost nos hemos dedicado a extraer, procesar y entregar al mundo productos hidrobiológicos de la más alta calidad desde Paita, al norte del Perú.'
+                    : 'At Perú Frost we have dedicated ourselves to extracting, processing and delivering the highest quality hydrobiological products to the world from Paita, northern Peru.'}
                 </p>
                 <p style={{ color: '#8BA0B4', fontSize: '1.05rem', lineHeight: 1.85, marginBottom: '2.75rem' }}>
                   {lang === 'es'
@@ -294,7 +300,7 @@ export default function NosotrosPage() {
           </div>
         </section>
 
-        {/* ─── TIMELINE ─── */}
+        {/* ─── TIMELINE ─── 
         <section style={{ padding: '7rem 0' }}>
           <div style={{ maxWidth: '1100px', margin: '0 auto', paddingInline: '1.5rem' }}>
             <div style={{ textAlign: 'center', marginBottom: '5rem' }}>
@@ -304,9 +310,9 @@ export default function NosotrosPage() {
               </h2>
             </div>
 
-            {/* Timeline vertical con línea real */}
+
             <div style={{ position: 'relative' }}>
-              {/* Línea vertical central */}
+
               <div style={{
                 position: 'absolute', left: '50%', top: '30px', bottom: '30px',
                 width: '2px', transform: 'translateX(-50%)',
@@ -314,7 +320,7 @@ export default function NosotrosPage() {
                 zIndex: 0,
               }} className="hidden lg:block" />
 
-              {/* Mobile: línea izquierda */}
+
               <div style={{
                 position: 'absolute', left: '28px', top: '30px', bottom: '30px',
                 width: '2px',
@@ -340,9 +346,9 @@ export default function NosotrosPage() {
                       }}
                       className="lg:flex"
                     >
-                      {/* Desktop layout */}
+
                       <div style={{ width: '100%', alignItems: 'flex-start', gap: '0' }} className="hidden lg:flex">
-                        {/* Left side */}
+
                         <div style={{ flex: 1, paddingRight: '2.5rem', display: 'flex', justifyContent: 'flex-end' }}>
                           {isLeft && (
                             <div style={{
@@ -366,7 +372,7 @@ export default function NosotrosPage() {
                           )}
                         </div>
 
-                        {/* Center dot */}
+
                         <div style={{
                           width: '18px', height: '18px', borderRadius: '50%', flexShrink: 0,
                           background: 'linear-gradient(135deg, #00E5FF, #0099BB)',
@@ -375,7 +381,7 @@ export default function NosotrosPage() {
                           marginTop: '1.75rem', zIndex: 1,
                         }} />
 
-                        {/* Right side */}
+
                         <div style={{ flex: 1, paddingLeft: '2.5rem' }}>
                           {!isLeft && (
                             <div style={{
@@ -400,9 +406,9 @@ export default function NosotrosPage() {
                         </div>
                       </div>
 
-                      {/* Mobile layout */}
+
                       <div style={{ paddingLeft: '56px', width: '100%', position: 'relative' }} className="lg:hidden">
-                        {/* Mobile dot */}
+
                         <div style={{
                           position: 'absolute', left: '29px', top: '1.5rem',
                           width: '16px', height: '16px', borderRadius: '50%',
@@ -431,6 +437,7 @@ export default function NosotrosPage() {
             </div>
           </div>
         </section>
+        */}
 
         {/* ─── VALUES ─── */}
         <section style={{ padding: '7rem 0', background: '#1A2238', position: 'relative', overflow: 'hidden' }}>
@@ -454,7 +461,7 @@ export default function NosotrosPage() {
               {values.map((v, i) => (
                 <motion.div
                   key={v.title}
-                  className={`w-full h-full ${i === 4 ? 'md:col-span-2' : ''}`}
+                  className="w-full h-full"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
@@ -555,7 +562,7 @@ export default function NosotrosPage() {
               {/* Paita */}
               <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
                 style={{ background: 'rgba(26,34,56,0.6)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '16px', padding: '2rem', display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-                <div style={{ width: '60px', height: '60px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.75rem', flexShrink: 0 }}>⚓</div>
+                <div style={{ width: '60px', height: '60px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.75rem', flexShrink: 0 }}></div>
                 <div>
                   <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1rem', color: '#fff', marginBottom: '0.3rem', lineHeight: 1.2 }}>Association of Fishing Companies</h3>
                   <p style={{ color: '#8BA0B4', fontSize: '0.85rem', lineHeight: 1.5 }}>Alianza de procesadores locales del norte del mar de Grau.</p>

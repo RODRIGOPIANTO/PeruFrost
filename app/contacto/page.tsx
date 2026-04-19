@@ -115,8 +115,8 @@ export default function ContactoPage() {
                     </h2>
                     <p style={{ color: '#8BA0B4', fontSize: '1.05rem', lineHeight: 1.8 }}>
                       {lang === 'es'
-                        ? 'Escríbanos directamente a nuestro correo de ventas. Nos encargaremos de procesar su solicitud, confirmar stock, capacidad de producción y preparar su proforma CIF/FOB en tiempo récord.'
-                        : 'Write directly to our sales email. We will process your request, confirm stock and production capacity, and prepare your CIF/FOB proforma in record time.'}
+                        ? 'Escríbanos directamente a nuestro correo de ventas. Nos encargaremos de procesar su solicitud, confirmar stock, capacidad de producción y preparar su proforma en tiempo récord.'
+                        : 'Write directly to our sales email. We will process your request, confirm stock and production capacity, and prepare your proforma in record time.'}
                     </p>
 
                     <div style={{ padding: '1.5rem', background: 'rgba(0,229,255,0.06)', borderRadius: '16px', border: '1px dashed rgba(0,229,255,0.3)' }}>

@@ -98,7 +98,6 @@ export default function CalidadPage() {
           <div className="grid-pattern" style={{ position: 'absolute', inset: 0, opacity: 0.15 }} />
           <div style={{ ...S.inner, position: 'relative', zIndex: 1 }}>
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} style={{ textAlign: 'center', marginBottom: '4.5rem' }}>
-              <motion.div variants={fadeUp}><span style={{ ...S.tag, color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>HACCP</span></motion.div>
               <motion.h2 variants={fadeUp} style={S.h2}>
                 Análisis de Peligros y<br />
                 <span className="gradient-text">Puntos Críticos de Control</span>
