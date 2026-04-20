@@ -530,8 +530,12 @@ export default function NosotrosPage() {
                   <img src={STORAGE_URL + 'partner_snp_new.webp'} alt="SNP" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                 </div>
                 <div>
-                  <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1rem', color: '#fff', marginBottom: '0.3rem', lineHeight: 1.2 }}>Sociedad Nacional de Pesquería</h3>
-                  <p style={{ color: '#8BA0B4', fontSize: '0.85rem', lineHeight: 1.5 }}>Miembro institucional comprometido con la industria peruana.</p>
+                  <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1rem', color: '#fff', marginBottom: '0.3rem', lineHeight: 1.2 }}>
+                    {lang === 'es' ? 'Sociedad Nacional de Pesquería' : 'National Fisheries Society (SNP)'}
+                  </h3>
+                  <p style={{ color: '#8BA0B4', fontSize: '0.85rem', lineHeight: 1.5 }}>
+                    {lang === 'es' ? 'Miembro institucional comprometido con la industria peruana.' : 'Institutional member committed to the Peruvian industry.'}
+                  </p>
                 </div>
               </motion.div>
 
@@ -542,8 +546,12 @@ export default function NosotrosPage() {
                   <img src={STORAGE_URL + 'partner_sni_new.webp'} alt="SNI" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                 </div>
                 <div>
-                  <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1rem', color: '#fff', marginBottom: '0.3rem', lineHeight: 1.2 }}>Sociedad Nacional de Industrias</h3>
-                  <p style={{ color: '#8BA0B4', fontSize: '0.85rem', lineHeight: 1.5 }}>Participación en la estandarización y calidad industrial.</p>
+                  <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1rem', color: '#fff', marginBottom: '0.3rem', lineHeight: 1.2 }}>
+                    {lang === 'es' ? 'Sociedad Nacional de Industrias' : 'National Society of Industries (SNI)'}
+                  </h3>
+                  <p style={{ color: '#8BA0B4', fontSize: '0.85rem', lineHeight: 1.5 }}>
+                    {lang === 'es' ? 'Participación en la estandarización y calidad industrial.' : 'Participation in industrial standardization and quality.'}
+                  </p>
                 </div>
               </motion.div>
 
@@ -554,8 +562,12 @@ export default function NosotrosPage() {
                   <img src={STORAGE_URL + 'partner_capecal_new.webp'} alt="CAPECAL" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
                 </div>
                 <div>
-                  <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1rem', color: '#fff', marginBottom: '0.3rem', lineHeight: 1.2 }}>Cámara Peruana del Calamar Gigante</h3>
-                  <p style={{ color: '#8BA0B4', fontSize: '0.85rem', lineHeight: 1.5 }}>Participación activa en el Proyecto de Mejora Pesquera (FIP).</p>
+                  <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1rem', color: '#fff', marginBottom: '0.3rem', lineHeight: 1.2 }}>
+                    {lang === 'es' ? 'Cámara Peruana del Calamar Gigante' : 'Peruvian Giant Squid Chamber (CAPECAL)'}
+                  </h3>
+                  <p style={{ color: '#8BA0B4', fontSize: '0.85rem', lineHeight: 1.5 }}>
+                    {lang === 'es' ? 'Participación activa en el Proyecto de Mejora Pesquera (FIP).' : 'Active participation in the Fishery Improvement Project (FIP).'}
+                  </p>
                 </div>
               </motion.div>
 
@@ -564,8 +576,12 @@ export default function NosotrosPage() {
                 style={{ background: 'rgba(26,34,56,0.6)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '16px', padding: '2rem', display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
                 <div style={{ width: '60px', height: '60px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.75rem', flexShrink: 0 }}></div>
                 <div>
-                  <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1rem', color: '#fff', marginBottom: '0.3rem', lineHeight: 1.2 }}>Association of Fishing Companies</h3>
-                  <p style={{ color: '#8BA0B4', fontSize: '0.85rem', lineHeight: 1.5 }}>Alianza de procesadores locales del norte del mar de Grau.</p>
+                  <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1rem', color: '#fff', marginBottom: '0.3rem', lineHeight: 1.2 }}>
+                    {lang === 'es' ? 'Gremio de Procesadores del Norte' : 'Northern Processors Association'}
+                  </h3>
+                  <p style={{ color: '#8BA0B4', fontSize: '0.85rem', lineHeight: 1.5 }}>
+                    {lang === 'es' ? 'Alianza de procesadores locales del norte del mar de Grau.' : 'Alliance of local seafood processors from the North of Grau Sea.'}
+                  </p>
                 </div>
               </motion.div>
             </div>
