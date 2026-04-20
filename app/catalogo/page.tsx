@@ -29,6 +29,7 @@ type Producto = {
   formatos: Formato[]
   destacado?: boolean
   subSeccion?: 'principal' | 'subproducto' | 'valorAgregado'
+  fichas?: { titulo: string; urlES: string; urlEN: string }[]
 }
 
 const FMT: Record<string, Formato> = {
@@ -43,26 +44,33 @@ const FMT: Record<string, Formato> = {
 
 const POTA: Producto[] = [
   // PRINCIPALES
-  { id: 'filete', nombre: 'Filete de Pota', nombreEN: 'Giant Squid Fillet', cientifico: 'Dosidicus gigas', descripcion: 'Filete premium limpio y calibrado. El corte más comercializado en mercados asiáticos y europeos.', imagen: STORAGE_URL + 'filetee.webp', formatos: [FMT.BLOCK], subSeccion: 'principal', destacado: true },
-  { id: 'alas', nombre: 'Alas de Pota', nombreEN: 'Giant Squid Wings', cientifico: 'Dosidicus gigas', descripcion: 'Textura firme y sabor intenso. Alta demanda en mercados españoles y coreanos.', imagen: STORAGE_URL + 'ala2.webp', formatos: [FMT.BLOCK], subSeccion: 'principal' },
-  { id: 'tentaculos', nombre: 'Tentáculos de Pota', nombreEN: 'Giant Squid Tentacles', cientifico: 'Dosidicus gigas', descripcion: 'Presentación entera. Mercado objetivo: España, Portugal y Japón.', imagen: STORAGE_URL + 'tentaculo2.webp', formatos: [FMT.BLOCK], subSeccion: 'principal' },
-  { id: 'reproductor', nombre: 'Reproductor', nombreEN: 'Sexual Tentacle', cientifico: 'Dosidicus gigas', descripcion: 'Corte especializado con alta valorización en mercados asiáticos.', imagen: STORAGE_URL + 'reproductor2.webp', formatos: [FMT.BLOCK], subSeccion: 'principal' },
-  { id: 'nucas', nombre: 'Nucas de Pota', nombreEN: 'Giant Squid Necks', cientifico: 'Dosidicus gigas', descripcion: 'Parte dorsal con músculo de alta proteína. Presentado en bloques.', imagen: STORAGE_URL + 'nuca_new.webp', formatos: [FMT.BLOCK], subSeccion: 'principal' },
+  { 
+    id: 'filete', nombre: 'Filete de Pota', nombreEN: 'Giant Squid Fillet', cientifico: 'Dosidicus gigas', descripcion: 'Filete premium limpio y calibrado. El corte más comercializado en mercados asiáticos y europeos.', imagen: STORAGE_URL + 'filetee.webp', formatos: [FMT.BLOCK], subSeccion: 'principal', destacado: true,
+    fichas: [
+      { titulo: 'Filete CM', urlES: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-fillet-cm-es.pdf', urlEN: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-fillet-cm-en.pdf' },
+      { titulo: 'Filete SM', urlES: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-fillet-sm-es.pdf', urlEN: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-fillet-sm-en.pdf' },
+      { titulo: 'Filete Precocido', urlES: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-fillet-precooked-es.pdf', urlEN: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-fillet-precooked-en.pdf' }
+    ]
+  },
+  { id: 'alas', nombre: 'Alas de Pota', nombreEN: 'Giant Squid Wings', cientifico: 'Dosidicus gigas', descripcion: 'Textura firme y sabor intenso. Alta demanda en mercados españoles y coreanos.', imagen: STORAGE_URL + 'ala2.webp', formatos: [FMT.BLOCK], subSeccion: 'principal', fichas: [{ titulo: 'Alas', urlES: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-wings-es.pdf', urlEN: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-wings-en.pdf' }] },
+  { id: 'tentaculos', nombre: 'Tentáculos de Pota', nombreEN: 'Giant Squid Tentacles', cientifico: 'Dosidicus gigas', descripcion: 'Presentación entera. Mercado objetivo: España, Portugal y Japón.', imagen: STORAGE_URL + 'tentaculo2.webp', formatos: [FMT.BLOCK], subSeccion: 'principal', fichas: [{ titulo: 'Tentáculos', urlES: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-tentacle-es.pdf', urlEN: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-tentacle-en.pdf' }] },
+  { id: 'reproductor', nombre: 'Reproductor', nombreEN: 'Sexual Tentacle', cientifico: 'Dosidicus gigas', descripcion: 'Corte especializado con alta valorización en mercados asiáticos.', imagen: STORAGE_URL + 'reproductor2.webp', formatos: [FMT.BLOCK], subSeccion: 'principal', fichas: [{ titulo: 'Reproductor', urlES: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-reproductive-es.pdf', urlEN: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-reproductive-en.pdf' }] },
+  { id: 'nucas', nombre: 'Nucas de Pota', nombreEN: 'Giant Squid Necks', cientifico: 'Dosidicus gigas', descripcion: 'Parte dorsal con músculo de alta proteína. Presentado en bloques.', imagen: STORAGE_URL + 'nuca_new.webp', formatos: [FMT.BLOCK], subSeccion: 'principal', fichas: [{ titulo: 'Nucas', urlES: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-mantles-es.pdf', urlEN: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-mantles-en.pdf' }] },
   // SUBPRODUCTOS
   { id: 'membrana', nombre: 'Membrana', nombreEN: 'Membrane', cientifico: 'Dosidicus gigas', descripcion: 'Subproducto de alto rendimiento para mercados industriales.', imagen: STORAGE_URL + 'mebrana12.jpg', formatos: [FMT.BLOCK], subSeccion: 'subproducto' },
   { id: 'membranaCoc', nombre: 'Membrana Cocida', nombreEN: 'Boiled Membrane', cientifico: 'Dosidicus gigas', descripcion: 'Procesada en planta bajo estrictos controles HACCP.', imagen: STORAGE_URL + 'membrana_cocida.webp', formatos: [FMT.BLOCK], subSeccion: 'subproducto' },
   { id: 'telilla', nombre: 'Telilla', nombreEN: 'Belly', cientifico: 'Dosidicus gigas', descripcion: 'Capa interna gelatinosa. Uso industrial en Asia.', imagen: STORAGE_URL + 'telilla.webp', formatos: [FMT.BLOCK], subSeccion: 'subproducto' },
   { id: 'telillaCoc', nombre: 'Telilla Cocida', nombreEN: 'Boiled Belly', cientifico: 'Dosidicus gigas', descripcion: 'Proceso térmico controlado para eliminar riesgo microbiológico.', imagen: STORAGE_URL + 'telilla-cocida.webp', formatos: [FMT.BLOCK], subSeccion: 'subproducto' },
   { id: 'pico', nombre: 'Pico (Boca)', nombreEN: 'Mouth / Beak', cientifico: 'Dosidicus gigas', descripcion: 'Subproducto de uso industrial con alta demanda en China.', imagen: STORAGE_URL + 'pico2.webp', formatos: [FMT.BLOCK], subSeccion: 'subproducto' },
-  { id: 'ventosa', nombre: 'Ventosas', nombreEN: 'Suckers', cientifico: 'Dosidicus gigas', descripcion: 'Uso culinario en Asia Oriental. Textura crujiente apreciada.', imagen: STORAGE_URL + 'ventosas.webp', formatos: [FMT.BLOCK], subSeccion: 'subproducto' },
-  { id: 'recortes', nombre: 'Recortes', nombreEN: 'Bits & Pieces', cientifico: 'Dosidicus gigas', descripcion: 'Trozos irregulares de alta proteína para procesadores de surimi.', imagen: STORAGE_URL + 'recortes2.webp', formatos: [FMT.IQF, FMT.BLOCK], subSeccion: 'subproducto' },
-  { id: 'cono', nombre: 'Cono de Pota', nombreEN: 'Squid Cone', cientifico: 'Dosidicus gigas', descripcion: 'Sifón completo ideal para relleno. Alta demanda en España.', imagen: STORAGE_URL + 'cono4.webp', formatos: [FMT.BLOCK], subSeccion: 'subproducto' },
-  { id: 'recortesCoc', nombre: 'Recorte Precocido', nombreEN: 'Boiled Bits & Pieces', cientifico: 'Dosidicus gigas', descripcion: 'Tratamiento térmico completo. Reducción enzimática garantizada.', imagen: STORAGE_URL + 'recorte-pre5.webp', formatos: [FMT.BLOCK], subSeccion: 'subproducto' },
+  { id: 'ventosa', nombre: 'Ventosas', nombreEN: 'Suckers', cientifico: 'Dosidicus gigas', descripcion: 'Uso culinario en Asia Oriental. Textura crujiente apreciada.', imagen: STORAGE_URL + 'ventosas.webp', formatos: [FMT.BLOCK], subSeccion: 'subproducto', fichas: [{ titulo: 'Ventosas', urlES: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-suckers-es.pdf', urlEN: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-suckers-en.pdf' }] },
+  { id: 'recortes', nombre: 'Recortes', nombreEN: 'Bits & Pieces', cientifico: 'Dosidicus gigas', descripcion: 'Trozos irregulares de alta proteína para procesadores de surimi.', imagen: STORAGE_URL + 'recortes2.webp', formatos: [FMT.IQF, FMT.BLOCK], subSeccion: 'subproducto', fichas: [{ titulo: 'Recortes', urlES: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-fresh-cuts-es.pdf', urlEN: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-fresh-cuts-en.pdf' }] },
+  { id: 'cono', nombre: 'Cono de Pota', nombreEN: 'Squid Cone', cientifico: 'Dosidicus gigas', descripcion: 'Sifón completo ideal para relleno. Alta demanda en España.', imagen: STORAGE_URL + 'cono4.webp', formatos: [FMT.BLOCK], subSeccion: 'subproducto', fichas: [{ titulo: 'Conos', urlES: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-cones-es.pdf', urlEN: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-cones-en.pdf' }] },
+  { id: 'recortesCoc', nombre: 'Recorte Precocido', nombreEN: 'Boiled Bits & Pieces', cientifico: 'Dosidicus gigas', descripcion: 'Tratamiento térmico completo. Reducción enzimática garantizada.', imagen: STORAGE_URL + 'recorte-pre5.webp', formatos: [FMT.BLOCK], subSeccion: 'subproducto', fichas: [{ titulo: 'Recorte Precocido', urlES: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-precooked-cuts-es.pdf', urlEN: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-precooked-cuts-en.pdf' }] },
   // VALOR AGREGADO
   { id: 'daruma', nombre: 'Daruma Cocida', nombreEN: 'Boiled Fillet (Daruma)', cientifico: 'Dosidicus gigas', descripcion: 'Filete cocido y laminado tipo japonés. Producto estrella de exportación a Japón.', imagen: STORAGE_URL + 'daruma-cocida2.webp', formatos: [FMT.BLOCK], subSeccion: 'valorAgregado' },
-  { id: 'anillas', nombre: 'Anillas de Pota', nombreEN: 'Squid Rings', cientifico: 'Dosidicus gigas', descripcion: 'Corte transversal uniforme ideal para calamares a la romana. Mercado europeo.', imagen: STORAGE_URL + 'anillas1.webp', formatos: [FMT.BLOCK, FMT.IQF], subSeccion: 'valorAgregado' },
-  { id: 'alasCoc', nombre: 'Alas Cocidas', nombreEN: 'Boiled Wings', cientifico: 'Dosidicus gigas', descripcion: 'Wings procesadas por cocción al vapor. Listas para marinar o servir.', imagen: STORAGE_URL + 'ala_co_new.webp', formatos: [FMT.BLOCK], subSeccion: 'valorAgregado' },
-  { id: 'labios', nombre: 'Labios de Pota', nombreEN: 'Squid Lips', cientifico: 'Dosidicus gigas', descripcion: 'Producto inusual de alta valorización en gastronomía asiática de vanguardia.', imagen: STORAGE_URL + 'labios.webp', formatos: [FMT.BLOCK], subSeccion: 'valorAgregado' },
+  { id: 'anillas', nombre: 'Anillas de Pota', nombreEN: 'Squid Rings', cientifico: 'Dosidicus gigas', descripcion: 'Corte transversal uniforme ideal para calamares a la romana. Mercado europeo.', imagen: STORAGE_URL + 'anillas1.webp', formatos: [FMT.BLOCK, FMT.IQF], subSeccion: 'valorAgregado', fichas: [{ titulo: 'Rodajas Precocido', urlES: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-slices-precooked-es.pdf', urlEN: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-slices-precooked-en.pdf' }] },
+  { id: 'alasCoc', nombre: 'Alas Cocidas', nombreEN: 'Boiled Wings', cientifico: 'Dosidicus gigas', descripcion: 'Wings procesadas por cocción al vapor. Listas para marinar o servir.', imagen: STORAGE_URL + 'ala_co_new.webp', formatos: [FMT.BLOCK], subSeccion: 'valorAgregado', fichas: [{ titulo: 'Aleta Precocido', urlES: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-fins-precooked-es.pdf', urlEN: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-fins-precooked-en.pdf' }] },
+  { id: 'labios', nombre: 'Labios de Pota', nombreEN: 'Squid Lips', cientifico: 'Dosidicus gigas', descripcion: 'Producto inusual de alta valorización en gastronomía asiática de vanguardia.', imagen: STORAGE_URL + 'labios.webp', formatos: [FMT.BLOCK], subSeccion: 'valorAgregado', fichas: [{ titulo: 'Labios', urlES: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-lips-es.pdf', urlEN: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-lips-en.pdf' }] },
   { id: 'botones', nombre: 'Botones de Pota', nombreEN: 'Squid Buttons', cientifico: 'Dosidicus gigas', descripcion: 'Porciones circulares de tamaño uniforme. Producto para foodservice y retail.', imagen: STORAGE_URL + 'botones.webp', formatos: [FMT.BLOCK, FMT.IQF], subSeccion: 'valorAgregado' },
   { id: 'rabas', nombre: 'Rabas de Pota', nombreEN: 'Squid Strips (Rabas)', cientifico: 'Dosidicus gigas', descripcion: 'Tiras longitudinales empanizables. El producto de mayor crecimiento en mercados latinoeuropeos.', imagen: STORAGE_URL + 'rabas_new.webp', formatos: [FMT.BLOCK, FMT.IQF], subSeccion: 'valorAgregado' },
 ]
@@ -124,8 +132,18 @@ function FormatoBadge({ f }: { f: Formato }) {
 
 function ProductCard({ p, index }: { p: Produto; index: number }) {
   const { lang } = useLang()
+  const [showOptions, setShowOptions] = useState(false)
   const placeholder = `https://placehold.co/600x400/0d2137/00e5ff?text=${encodeURIComponent(p.nombreEN)}`
   const imgSrc = p.imagen ?? placeholder
+
+  const handleDownload = (ficha?: { urlES: string; urlEN: string }) => {
+    const link = ficha || (p.fichas && p.fichas.length === 1 ? p.fichas[0] : null)
+    if (link) {
+      const url = lang === 'es' ? link.urlES : link.urlEN
+      window.open(url, '_blank')
+    }
+    setShowOptions(false)
+  }
 
   return (
     <motion.article
@@ -203,18 +221,67 @@ function ProductCard({ p, index }: { p: Produto; index: number }) {
           </div>
         </div>
 
-        {/* CTA */}
-        <button style={{
-          marginTop: 'auto', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px',
-          background: 'rgba(0,229,255,0.08)', color: '#00E5FF',
-          border: '1px solid rgba(0,229,255,0.2)',
-          borderRadius: '10px', padding: '0.875rem 1.5rem',
-          fontSize: '0.875rem', fontWeight: 700, cursor: 'pointer',
-          transition: 'all 0.2s',
-          width: '100%',
-        }}>
-          {lang === 'es' ? 'Ver Ficha Técnica' : 'View Spec Sheet'} <ArrowRight size={16} />
-        </button>
+        {/* CTA con lógica de descarga */}
+        <div style={{ position: 'relative', marginTop: 'auto' }}>
+          <button 
+            disabled={!p.fichas}
+            onClick={() => {
+              if (p.fichas && p.fichas.length > 1) {
+                setShowOptions(!showOptions)
+              } else {
+                handleDownload()
+              }
+            }}
+            style={{
+              display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px',
+              background: p.fichas ? 'rgba(0,229,255,0.08)' : 'rgba(255,255,255,0.03)', 
+              color: p.fichas ? '#00E5FF' : '#5C7285',
+              border: `1px solid ${p.fichas ? 'rgba(0,229,255,0.2)' : 'rgba(255,255,255,0.05)'}`,
+              borderRadius: '10px', padding: '0.875rem 1.5rem',
+              fontSize: '0.875rem', fontWeight: 700, 
+              cursor: p.fichas ? 'pointer' : 'default',
+              transition: 'all 0.2s',
+              width: '100%',
+            }}
+          >
+            {p.fichas ? (lang === 'es' ? 'Ver Ficha Técnica' : 'View Spec Sheet') : (lang === 'es' ? 'Próximamente' : 'Coming Soon')} 
+            {p.fichas && <ArrowRight size={16} />}
+          </button>
+
+          {/* Menú de opciones para Filete (múltiples PDFs) */}
+          <AnimatePresence>
+            {showOptions && p.fichas && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                style={{
+                  position: 'absolute', bottom: 'calc(100% + 8px)', left: 0, right: 0,
+                  background: '#1A2436', border: '1px solid rgba(0,229,255,0.3)',
+                  borderRadius: '12px', padding: '8px', zIndex: 50,
+                  boxShadow: '0 10px 40px rgba(0,0,0,0.5)',
+                }}
+              >
+                {p.fichas.map((f, i) => (
+                  <button
+                    key={i}
+                    onClick={() => handleDownload(f)}
+                    style={{
+                      width: '100%', padding: '10px', textAlign: 'left',
+                      background: 'transparent', color: '#fff', border: 'none',
+                      fontSize: '0.8rem', fontWeight: 600, cursor: 'pointer',
+                      borderRadius: '8px', transition: 'background 0.2s'
+                    }}
+                    onMouseEnter={(e) => (e.currentTarget.style.background = 'rgba(0,229,255,0.1)')}
+                    onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
+                  >
+                    📄 {f.titulo}
+                  </button>
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
     </motion.article>
   )
