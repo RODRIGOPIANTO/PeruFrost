@@ -23,50 +23,50 @@ const stagger = { hidden: {}, visible: { transition: { staggerChildren: 0.1 } } 
 const STORAGE_URL = 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/'
 
 const galleryImages = [
-  { type: 'video', src: STORAGE_URL + 'infra.mp4', caption: '' },
-  { type: 'image', src: STORAGE_URL + 'planta.webp', caption: 'Planta principal — Zona Industrial Paita' },
-  { type: 'image', src: STORAGE_URL + '120m.webp', caption: 'Instalaciones de alta tecnología' },
-  { type: 'image', src: STORAGE_URL + 'planta_osmosis.webp', caption: 'Planta de ósmosis inversa — 2,000 m³/día' },
+  { type: 'video', src: STORAGE_URL + 'infra.mp4', caption: '', captionEn: '' },
+  { type: 'image', src: STORAGE_URL + 'planta.webp', caption: 'Planta principal — Zona Industrial Paita', captionEn: 'Main plant — Paita Industrial Zone' },
+  { type: 'image', src: STORAGE_URL + '120m.webp', caption: 'Instalaciones de alta tecnología', captionEn: 'High-tech facilities' },
+  { type: 'image', src: STORAGE_URL + 'planta_osmosis.webp', caption: 'Planta de ósmosis inversa — 2,000 m³/día', captionEn: 'Reverse osmosis plant — 2,000 m³/day' },
 ];
 
 const techSpecs = [
   {
-    category: 'Refrigeración', icon: <Thermometer size={24} />, title: 'Sistema IQF de Alta Performance',
+    category: 'Refrigeración', categoryEn: 'Refrigeration', icon: <Thermometer size={24} />, title: 'Sistema IQF de Alta Performance', titleEn: 'High Performance IQF System',
     specs: [
-      { label: 'Temperatura de almacenamiento', value: '-25°C' },
-      { label: 'Capacidad total', value: '5,000 TM' },
-      { label: 'Tipo de sistema', value: 'Túnel y placas' },
-      { label: 'Tecnología', value: 'IQF Premium' },
+      { label: 'Temperatura de almacenamiento', labelEn: 'Storage temperature', value: '-25°C', valueEn: '-25°C' },
+      { label: 'Capacidad total', labelEn: 'Total capacity', value: '5,000 TM', valueEn: '5,000 MT' },
+      { label: 'Tipo de sistema', labelEn: 'System type', value: 'Túnel y placas', valueEn: 'Tunnel and plates' },
+      { label: 'Tecnología', labelEn: 'Technology', value: 'IQF Premium', valueEn: 'IQF Premium' },
     ],
     color: 'rgba(0,229,255,0.08)', border: 'rgba(0,229,255,0.25)',
   },
   {
-    category: 'Agua Purificada', icon: <Droplets size={24} />, title: 'Planta de Ósmosis Inversa',
+    category: 'Agua Purificada', categoryEn: 'Purified Water', icon: <Droplets size={24} />, title: 'Planta de Ósmosis Inversa', titleEn: 'Reverse Osmosis Plant',
     specs: [
-      { label: 'Capacidad diaria', value: '2,000 m³' },
-      { label: 'Sistema', value: 'Ósmosis inversa' },
-      { label: 'Propiedad', value: 'Propia' },
-      { label: 'Uso', value: 'Proceso y CIP' },
+      { label: 'Capacidad diaria', labelEn: 'Daily capacity', value: '2,000 m³', valueEn: '2,000 m³' },
+      { label: 'Sistema', labelEn: 'System', value: 'Ósmosis inversa', valueEn: 'Reverse osmosis' },
+      { label: 'Propiedad', labelEn: 'Property', value: 'Propia', valueEn: 'Own' },
+      { label: 'Uso', labelEn: 'Use', value: 'Proceso y CIP', valueEn: 'Process and CIP' },
     ],
     color: 'rgba(59,130,246,0.08)', border: 'rgba(59,130,246,0.25)',
   },
   {
-    category: 'Automatización', icon: <Cpu size={24} />, title: 'JBT Marel — Equipamiento',
+    category: 'Automatización', categoryEn: 'Automation', icon: <Cpu size={24} />, title: 'JBT Marel — Equipamiento', titleEn: 'JBT Marel — Equipment',
     specs: [
-      { label: 'Clasificadora', value: 'SmartLine' },
-      { label: 'Clasificadora compacta', value: 'Compact Grader' },
-      { label: 'Dosificador', value: 'SpeedBatcher' },
-      { label: 'Beneficio', value: 'Reducción error humano' },
+      { label: 'Clasificadora', labelEn: 'Grader', value: 'SmartLine', valueEn: 'SmartLine' },
+      { label: 'Clasificadora compacta', labelEn: 'Compact grader', value: 'Compact Grader', valueEn: 'Compact Grader' },
+      { label: 'Dosificador', labelEn: 'Batcher', value: 'SpeedBatcher', valueEn: 'SpeedBatcher' },
+      { label: 'Beneficio', labelEn: 'Benefit', value: 'Reducción error humano', valueEn: 'Human error reduction' },
     ],
     color: 'rgba(139,92,246,0.08)', border: 'rgba(139,92,246,0.25)',
   },
   {
-    category: 'Acceso Marítimo', icon: <Ship size={24} />, title: 'Puerto Directo',
+    category: 'Acceso Marítimo', categoryEn: 'Maritime Access', icon: <Ship size={24} />, title: 'Puerto Directo', titleEn: 'Direct Port',
     specs: [
-      { label: 'Muelle', value: 'Acceso directo' },
-      { label: 'Descarga', value: 'Controlada' },
-      { label: 'Ubicación', value: 'Paita, Piura' },
-      { label: 'Zona', value: 'Industrial 1' },
+      { label: 'Muelle', labelEn: 'Dock', value: 'Acceso directo', valueEn: 'Direct access' },
+      { label: 'Descarga', labelEn: 'Unloading', value: 'Controlada', valueEn: 'Controlled' },
+      { label: 'Ubicación', labelEn: 'Location', value: 'Paita, Piura', valueEn: 'Paita, Piura' },
+      { label: 'Zona', labelEn: 'Zone', value: 'Industrial 1', valueEn: 'Industrial 1' },
     ],
     color: 'rgba(16,185,129,0.08)', border: 'rgba(16,185,129,0.25)',
   },
@@ -74,7 +74,7 @@ const techSpecs = [
 
 export default function InfraestructuraPage() {
   const [galleryIdx, setGalleryIdx] = useState(0);
-  const { lang } = useLang();
+  const { lang, t } = useLang();
   const prev = () => setGalleryIdx((i) => (i - 1 + galleryImages.length) % galleryImages.length);
   const next = () => setGalleryIdx((i) => (i + 1) % galleryImages.length);
 
@@ -100,14 +100,12 @@ export default function InfraestructuraPage() {
           <div className="grid-pattern" style={{ position: 'absolute', inset: 0, opacity: 0.18 }} />
           <div style={{ ...S.inner, position: 'relative', zIndex: 1 }}>
             <motion.div initial="hidden" animate="visible" variants={stagger}>
-              <motion.div variants={fadeUp}><span style={{ ...S.tag, color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{lang === 'es' ? 'Planta Paita - Piura' : 'Paita Plant - Piura'}</span></motion.div>
+              <motion.div variants={fadeUp}><span style={{ ...S.tag, color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{t('infra.hero.tag')}</span></motion.div>
               <motion.h1 variants={fadeUp} style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: 'clamp(2.25rem, 5.5vw, 4.5rem)', lineHeight: 1.08, color: '#fff', marginBottom: '1.5rem', maxWidth: '780px' }}>
-                {lang === 'es' ? <>Infraestructura de <span className="gradient-text">clase mundial</span></> : <>World-class <span className="gradient-text">infrastructure</span></>}
+                {t('infra.hero.h1')} <span className="gradient-text">{t('infra.hero.h1.accent')}</span>
               </motion.h1>
               <motion.p variants={fadeUp} style={{ color: '#8BA0B4', fontSize: '1.1rem', maxWidth: '600px', lineHeight: 1.8 }}>
-                {lang === 'es'
-                  ? 'Nuestra planta en la Zona Industrial de Paita combina tecnología de última generación con procesos certificados para garantizar la máxima inocuidad y eficiencia productiva.'
-                  : 'Our plant in the Paita Industrial Zone combines latest-generation technology with certified processes to guarantee maximum safety and productive efficiency.'}
+                {t('infra.hero.body')}
               </motion.p>
             </motion.div>
           </div>
@@ -115,13 +113,13 @@ export default function InfraestructuraPage() {
 
         {/* Gallery */}
         <section style={S.section}>
-          <div style={S.inner}>
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} style={{ textAlign: 'center', marginBottom: '4rem' }}>
-              <motion.div variants={fadeUp}><span style={{ ...S.tag, color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{lang === 'es' ? 'Galería de Instalaciones' : 'Facility Gallery'}</span></motion.div>
-              <motion.h2 variants={fadeUp} style={S.h2}>
-                Infraestructura de <span className="gradient-text">{lang === 'es' ? 'clase mundial' : 'world class'}</span>
-              </motion.h2>
-            </motion.div>
+              <div style={{ ...S.inner, position: 'relative', zIndex: 1 }}>
+                <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} style={{ textAlign: 'center', marginBottom: '4rem' }}>
+                  <motion.div variants={fadeUp}><span style={{ ...S.tag, color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{t('infra.gallery.tag')}</span></motion.div>
+                  <motion.h2 variants={fadeUp} style={S.h2}>
+                    {t('infra.gallery.h2')} <span className="gradient-text">{t('infra.gallery.h2.accent')}</span>
+                  </motion.h2>
+                </motion.div>
 
             {/* Main image */}
             <div style={{ position: 'relative', height: '580px', borderRadius: '24px', overflow: 'hidden', marginBottom: '1rem', background: '#0D1326' }}>
@@ -140,7 +138,7 @@ export default function InfraestructuraPage() {
               )}
               <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(10,15,31,0.8) 0%, transparent 50%)' }} />
               <div style={{ position: 'absolute', bottom: '2rem', left: '2rem', right: '2rem', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', gap: '1rem' }}>
-                <p style={{ color: '#fff', fontWeight: 700, fontSize: '1rem', fontFamily: "'Inter Tight', sans-serif" }}>{galleryImages[galleryIdx].caption}</p>
+                <p style={{ color: '#fff', fontWeight: 700, fontSize: '1rem', fontFamily: "'Inter Tight', sans-serif" }}>{lang === 'es' ? galleryImages[galleryIdx].caption : galleryImages[galleryIdx].captionEn}</p>
                 <div style={{ display: 'flex', gap: '0.625rem', flexShrink: 0 }}>
                   <button onClick={prev} className="glass-card-strong" style={{ padding: '0.75rem', border: 'none', cursor: 'pointer', color: '#fff', borderRadius: '12px', display: 'flex', alignItems: 'center' }}>
                     <ChevronLeft size={20} />
@@ -166,7 +164,7 @@ export default function InfraestructuraPage() {
                       <Ship size={20} color="#00E5FF" />
                     </div>
                   ) : (
-                    <Image src={img.src} alt={img.caption} fill className="object-cover" sizes="25vw" />
+                    <Image src={img.src} alt={lang === 'es' ? img.caption : img.captionEn} fill className="object-cover" sizes="25vw" />
                   )}
                 </button>
               ))}
@@ -179,9 +177,9 @@ export default function InfraestructuraPage() {
           <div className="grid-pattern" style={{ position: 'absolute', inset: 0, opacity: 0.15 }} />
           <div style={{ ...S.inner, position: 'relative', zIndex: 1 }}>
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} style={{ textAlign: 'center', marginBottom: '4.5rem' }}>
-              <motion.div variants={fadeUp}><span style={{ ...S.tag, color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{lang === 'es' ? 'Tecnología' : 'Technology'}</span></motion.div>
+              <motion.div variants={fadeUp}><span style={{ ...S.tag, color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{t('infra.tech.tag')}</span></motion.div>
               <motion.h2 variants={fadeUp} style={S.h2}>
-                {lang === 'es' ? <>Equipamiento de <span className="gradient-text">vanguardia</span></> : <>Modern <span className="gradient-text">Equipment</span></>}
+                {t('infra.tech.h2')} <span className="gradient-text">{t('infra.tech.h2.accent')}</span>
               </motion.h2>
             </motion.div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1.5rem' }} className="md:grid-cols-2">
@@ -202,15 +200,15 @@ export default function InfraestructuraPage() {
                       {tech.icon}
                     </div>
                     <div>
-                      <p style={{ fontSize: '0.7rem', color: '#00E5FF', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '4px' }}>{tech.category}</p>
-                      <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1.2rem', color: '#fff' }}>{tech.title}</h3>
+                      <p style={{ fontSize: '0.7rem', color: '#00E5FF', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '4px' }}>{lang === 'es' ? tech.category : tech.categoryEn}</p>
+                      <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1.2rem', color: '#fff' }}>{lang === 'es' ? tech.title : tech.titleEn}</h3>
                     </div>
                   </div>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
                     {tech.specs.map((spec) => (
                       <div key={spec.label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.875rem 0', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-                        <span style={{ color: '#8BA0B4', fontSize: '0.875rem' }}>{spec.label}</span>
-                        <span style={{ color: '#fff', fontWeight: 700, fontSize: '0.875rem' }}>{spec.value}</span>
+                        <span style={{ color: '#8BA0B4', fontSize: '0.875rem' }}>{lang === 'es' ? spec.label : spec.labelEn}</span>
+                        <span style={{ color: '#fff', fontWeight: 700, fontSize: '0.875rem' }}>{lang === 'es' ? spec.value : spec.valueEn}</span>
                       </div>
                     ))}
                   </div>
@@ -225,21 +223,17 @@ export default function InfraestructuraPage() {
           <div style={S.inner}>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '4rem', alignItems: 'center' }} className="lg:grid-cols-2">
               <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-                <span style={{ ...S.tag, color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{lang === 'es' ? 'Nuestra Flota' : 'Our Fleet'}</span>
-                <h2 style={S.h2}>Embarcaciones propias para una <span className="gradient-text">pesca sostenible</span></h2>
+                <span style={{ ...S.tag, color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{t('infra.fleet.tag')}</span>
+                <h2 style={S.h2}>{t('infra.fleet.h2')} <span className="gradient-text">{t('infra.fleet.h2.accent')}</span></h2>
                 <p style={{ color: '#8BA0B4', fontSize: '1.05rem', lineHeight: 1.85, marginBottom: '1.5rem' }}>
-                  {lang === 'es'
-                    ? 'Operamos con tres embarcaciones exclusivamente dedicadas a la pesca de merluza, asegurando así el cumplimiento del 11% de la cuota nacional en Perú.'
-                    : 'We operate three vessels exclusively dedicated to hake fishing, ensuring compliance with 11% of the national quota in Peru.'}
+                  {t('infra.fleet.body')}
                 </p>
                 <div style={{ background: 'rgba(0,229,255,0.05)', border: '1px solid rgba(0,229,255,0.15)', borderRadius: '16px', padding: '1.5rem', marginBottom: '2rem' }}>
                   <h4 style={{ color: '#fff', fontWeight: 800, marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <Droplets size={18} color="#00E5FF" /> Tecnología de Preservación
+                    <Droplets size={18} color="#00E5FF" /> {t('infra.fleet.tech.title')}
                   </h4>
                   <p style={{ color: '#8BA0B4', fontSize: '0.95rem', lineHeight: 1.7 }}>
-                    {lang === 'es'
-                      ? 'Nuestras bodegas de barcos están equipadas con sistemas innovadores de agua de mar refrigerada para mantener la frescura durante todo el viaje. Este método preservativo es completamente natural, sin químicos, asegurando la calidad y protegiendo el ecosistema.'
-                      : 'Our ship holds are equipped with innovative refrigerated seawater systems to maintain freshness throughout the trip. This preservation method is completely natural, chemical-free, ensuring quality and protecting the ecosystem.'}
+                    {t('infra.fleet.tech.body')}
                   </p>
                 </div>
               </motion.div>
@@ -256,8 +250,8 @@ export default function InfraestructuraPage() {
                   <div style={{ position: 'absolute', bottom: '2rem', left: '2rem', right: '2rem' }}>
                     <div className="glass-card-strong" style={{ padding: '1.25rem', display: 'flex', alignItems: 'center', gap: '1rem', borderRadius: '16px' }}>
                       <div>
-                        <p style={{ fontWeight: 800, color: '#fff', fontSize: '1.1rem' }}>3 Embarcaciones Industriales</p>
-                        <p style={{ fontSize: '0.85rem', color: '#8BA0B4' }}>{lang === 'es' ? '11% de la cuota de Merluza Peruana' : '11% of the Peruvian Hake quota'}</p>
+                        <p style={{ fontWeight: 800, color: '#fff', fontSize: '1.1rem' }}>{t('infra.fleet.stats.title')}</p>
+                        <p style={{ fontSize: '0.85rem', color: '#8BA0B4' }}>{t('infra.fleet.stats.sub')}</p>
                       </div>
                     </div>
                   </div>
@@ -271,10 +265,10 @@ export default function InfraestructuraPage() {
           <div style={{ maxWidth: '1280px', margin: '0 auto', paddingInline: '1.5rem' }}>
             <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
               <span style={{ marginBottom: '1.25rem', display: 'inline-block', color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>
-                {lang === 'es' ? 'Logística Integral' : 'Integrated Logistics'}
+                {t('infra.map.tag')}
               </span>
               <h2 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: 'clamp(1.75rem, 4vw, 3rem)', lineHeight: 1.15 }}>
-                {lang === 'es' ? <>Encuéntranos en <span className="gradient-text">Paita, Piura</span></> : <>Find us in <span className="gradient-text">Paita, Piura</span></>}
+                {t('infra.map.h2')} <span className="gradient-text">{t('infra.map.h2.accent')}</span>
               </h2>
               <p style={{ color: '#8BA0B4', marginTop: '1rem', fontSize: '1rem' }}>
                 Av. Fortunato Chirichigno s/n, Zona Industrial — Paita, Piura, Perú
@@ -299,7 +293,7 @@ export default function InfraestructuraPage() {
                 className="btn-primary"
                 style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.95rem', padding: '0.875rem 2rem' }}
               >
-                📍 {lang === 'es' ? 'Ver en Google Maps' : 'Open in Google Maps'}
+                📍 {t('infra.map.btn')}
               </a>
             </div>
           </div>
@@ -308,12 +302,12 @@ export default function InfraestructuraPage() {
         {/* CTA */}
         <section style={{ padding: '5rem 0' }}>
           <div style={{ maxWidth: '800px', margin: '0 auto', paddingInline: '1.5rem', textAlign: 'center' }}>
-            <h2 style={{ ...S.h2, textAlign: 'center' }}>¿Le gustaría visitar nuestras instalaciones?</h2>
+            <h2 style={{ ...S.h2, textAlign: 'center' }}>{t('infra.cta.h2')}</h2>
             <p style={{ color: '#8BA0B4', fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '2.5rem' }}>
-              Estamos listos para recibir a importadores y auditores internacionales en nuestra planta de Paita. Coordine su visita con nuestro equipo comercial.
+              {t('infra.cta.body')}
             </p>
             <Link href="/contacto" className="btn-primary" style={{ fontSize: '1rem', padding: '1rem 2.5rem' }}>
-              Coordinar visita <ArrowRight size={18} />
+              {t('infra.cta.btn')} <ArrowRight size={18} />
             </Link>
           </div>
         </section>

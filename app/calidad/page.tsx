@@ -22,21 +22,21 @@ const S = {
 };
 
 const haccpSteps = [
-  { n: '01', title: 'Análisis de Peligros', desc: 'Identificación de peligros biológicos, químicos y físicos en cada etapa del proceso.', icon: <Microscope size={22} /> },
-  { n: '02', title: 'Puntos Críticos de Control', desc: 'Determinación y monitoreo continuo de CCPs en recepción, proceso y almacenamiento.', icon: <ShieldCheck size={22} /> },
-  { n: '03', title: 'Límites Críticos', desc: 'Establecimiento y control de límites de temperatura, tiempo y microbiología en cada PCC.', icon: <FlaskConical size={22} /> },
-  { n: '04', title: 'Monitoreo Continuo', desc: 'Sistema de vigilancia constante con registros digitales verificables en tiempo real.', icon: <CheckCircle size={22} /> },
-  { n: '05', title: 'Acciones Correctivas', desc: 'Protocolos inmediatos ante cualquier desviación detectada en parámetros de calidad.', icon: <ShieldCheck size={22} /> },
-  { n: '06', title: 'Verificación y Registros', desc: 'Auditorías internas periódicas y mantenimiento de registros 100% trazables.', icon: <CheckCircle size={22} /> },
+  { n: '01', title: 'Análisis de Peligros', titleEn: 'Hazard Analysis', desc: 'Identificación de peligros biológicos, químicos y físicos en cada etapa del proceso.', descEn: 'Identification of biological, chemical and physical hazards at each stage of the process.', icon: <Microscope size={22} /> },
+  { n: '02', title: 'Puntos Críticos de Control', titleEn: 'Critical Control Points', desc: 'Determinación y monitoreo continuo de CCPs en recepción, proceso y almacenamiento.', descEn: 'Determination and continuous monitoring of CCPs in reception, processing and storage.', icon: <ShieldCheck size={22} /> },
+  { n: '03', title: 'Límites Críticos', titleEn: 'Critical Limits', desc: 'Establecimiento y control de límites de temperatura, tiempo y microbiología en cada PCC.', descEn: 'Establishment and control of temperature, time and microbiology limits in each CCP.', icon: <FlaskConical size={22} /> },
+  { n: '04', title: 'Monitoreo Continuo', titleEn: 'Continuous Monitoring', desc: 'Sistema de vigilancia constante con registros digitales verificables en tiempo real.', descEn: 'Constant surveillance system with digital records verifiable in real time.', icon: <CheckCircle size={22} /> },
+  { n: '05', title: 'Acciones Correctivas', titleEn: 'Corrective Actions', desc: 'Protocolos inmediatos ante cualquier desviación detectada en parámetros de calidad.', descEn: 'Immediate protocols for any deviation detected in quality parameters.', icon: <ShieldCheck size={22} /> },
+  { n: '06', title: 'Verificación y Registros', titleEn: 'Verification and Records', desc: 'Auditorías internas periódicas y mantenimiento de registros 100% trazables.', descEn: 'Periodic internal audits and maintenance of 100% traceable records.', icon: <CheckCircle size={22} /> },
 ];
 
 const labTests = [
-  { test: 'Análisis Físico-Organoléptico', freq: 'Cada lote', detail: 'Color, olor, textura y apariencia evaluados por panel certificado.' },
-  { test: 'Análisis Microbiológico', freq: 'Por lote', detail: 'Recuento total, E. coli, Salmonella, Listeria según normativa internacional.' },
-  { test: 'Control de Histamina', freq: 'Continuo', detail: 'Monitoreo crítico para especies histamínicas según FDA/EU regulation.' },
-  { test: 'Metales Pesados', freq: 'Periódico', detail: 'Mercurio, cadmio, plomo y arsénico bajo límites EU/FDA.' },
-  { test: 'Contaminantes', freq: 'Mensual', detail: 'Dioxinas, PCBs y pesticidas según regulación internacional.' },
-  { test: 'Temperatura de Almacenamiento', freq: 'Cada hora', detail: 'Monitoreo automático 24/7 de todos los túneles y cámaras a -25°C.' },
+  { test: 'Análisis Físico-Organoléptico', testEn: 'Physical-Organoleptic Analysis', freq: 'Cada lote', freqEn: 'Each batch', detail: 'Color, olor, textura y apariencia evaluados por panel certificado.', detailEn: 'Color, smell, texture and appearance evaluated by certified panel.' },
+  { test: 'Análisis Microbiológico', testEn: 'Microbiological Analysis', freq: 'Por lote', freqEn: 'Per batch', detail: 'Recuento total, E. coli, Salmonella, Listeria según normativa internacional.', detailEn: 'Total count, E. coli, Salmonella, Listeria according to international regulations.' },
+  { test: 'Control de Histamina', testEn: 'Histamine Control', freq: 'Continuo', freqEn: 'Continuous', detail: 'Monitoreo crítico para especies histamínicas según FDA/EU regulation.', detailEn: 'Critical monitoring for histamine species according to FDA/EU regulation.' },
+  { test: 'Metales Pesados', testEn: 'Heavy Metals', freq: 'Periódico', freqEn: 'Periodic', detail: 'Mercurio, cadmio, plomo y arsénico bajo límites EU/FDA.', detailEn: 'Mercury, cadmium, lead and arsenic under EU/FDA limits.' },
+  { test: 'Contaminantes', testEn: 'Contaminants', freq: 'Mensual', freqEn: 'Monthly', detail: 'Dioxinas, PCBs y pesticidas según regulación internacional.', detailEn: 'Dioxins, PCBs and pesticides according to international regulation.' },
+  { test: 'Temperatura de Almacenamiento', testEn: 'Storage Temperature', freq: 'Cada hora', freqEn: 'Hourly', detail: 'Monitoreo automático 24/7 de todos los túneles y cámaras a -25°C.', detailEn: '24/7 automatic monitoring of all tunnels and chambers at -25°C.' },
 ];
 
 const fadeUp = { hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0, transition: { duration: 0.7 } } };
@@ -64,14 +64,12 @@ export default function CalidadPage() {
           <div className="grid-pattern" style={{ position: 'absolute', inset: 0, opacity: 0.12, zIndex: 1 }} />
           <div style={{ ...S.inner, position: 'relative', zIndex: 2 }}>
             <motion.div initial="hidden" animate="visible" variants={stagger}>
-              <motion.div variants={fadeUp}><span style={{ ...S.tag, color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{lang === 'es' ? 'Sistema de Calidad Total' : 'Total Quality System'}</span></motion.div>
+              <motion.div variants={fadeUp}><span style={{ ...S.tag, color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{t('calidad.hero.tag')}</span></motion.div>
               <motion.h1 variants={fadeUp} style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 900, fontSize: 'clamp(2.25rem, 5.5vw, 4.5rem)', lineHeight: 1.08, color: '#fff', marginBottom: '1.5rem', maxWidth: '780px' }}>
-                {lang === 'es' ? <>Calidad que <span className="gradient-text">inspira confianza</span></> : <>Quality that <span className="gradient-text">inspires confidence</span></>}
+                {t('calidad.hero.h1')} <span className="gradient-text">{t('calidad.hero.h1.accent')}</span>
               </motion.h1>
               <motion.p variants={fadeUp} style={{ color: '#8BA0B4', fontSize: '1.1rem', maxWidth: '580px', lineHeight: 1.8 }}>
-                {lang === 'es'
-                  ? 'Nuestro sistema integrado garantiza que cada producto que exportamos cumple con las normativas más exigentes del mundo.'
-                  : 'Our integrated system ensures that every product we export complies with the most demanding regulations in the world.'}
+                {t('calidad.hero.body')}
               </motion.p>
             </motion.div>
           </div>
@@ -81,12 +79,12 @@ export default function CalidadPage() {
         <section style={S.section}>
           <div style={S.innerNarrow}>
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} style={{ textAlign: 'center', marginBottom: '4rem' }}>
-              <motion.div variants={fadeUp}><span style={{ ...S.tag, color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>Aval Internacional</span></motion.div>
+              <motion.div variants={fadeUp}><span style={{ ...S.tag, color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{t('calidad.certs.tag')}</span></motion.div>
               <motion.h2 variants={fadeUp} style={S.h2}>
-                Certificaciones <span className="gradient-text">globales</span>
+                {t('calidad.certs.h2')} <span className="gradient-text">{t('calidad.certs.h2.accent')}</span>
               </motion.h2>
               <motion.p variants={fadeUp} style={{ color: '#8BA0B4', fontSize: '1rem', lineHeight: 1.75 }}>
-                Haz clic en cada certificación para ver su alcance y los mercados que habilita.
+                {t('calidad.certs.body')}
               </motion.p>
             </motion.div>
             <CertificationCarousel />
@@ -99,8 +97,8 @@ export default function CalidadPage() {
           <div style={{ ...S.inner, position: 'relative', zIndex: 1 }}>
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} style={{ textAlign: 'center', marginBottom: '4.5rem' }}>
               <motion.h2 variants={fadeUp} style={S.h2}>
-                Análisis de Peligros y<br />
-                <span className="gradient-text">Puntos Críticos de Control</span>
+                {t('calidad.haccp.h2')}<br />
+                <span className="gradient-text">{t('calidad.haccp.h2.accent')}</span>
               </motion.h2>
             </motion.div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1.5rem' }} className="md:grid-cols-2 lg:grid-cols-3">
@@ -126,8 +124,8 @@ export default function CalidadPage() {
                     </div>
                     <span style={{ fontSize: '2.5rem', fontWeight: 900, fontFamily: "'Inter Tight', sans-serif", color: 'rgba(0,229,255,0.25)', lineHeight: 1 }}>{step.n}</span>
                   </div>
-                  <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1.1rem', color: '#fff', marginBottom: '0.75rem' }}>{step.title}</h3>
-                  <p style={{ color: '#8BA0B4', fontSize: '0.9rem', lineHeight: 1.8 }}>{step.desc}</p>
+                  <h3 style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 800, fontSize: '1.1rem', color: '#fff', marginBottom: '0.75rem' }}>{lang === 'es' ? step.title : step.titleEn}</h3>
+                  <p style={{ color: '#8BA0B4', fontSize: '0.9rem', lineHeight: 1.8 }}>{lang === 'es' ? step.desc : step.descEn}</p>
                 </motion.div>
               ))}
             </div>
@@ -138,9 +136,9 @@ export default function CalidadPage() {
         <section style={S.section}>
           <div style={S.innerNarrow}>
             <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger} style={{ textAlign: 'center', marginBottom: '4rem' }}>
-              <motion.div variants={fadeUp}><span style={{ ...S.tag, color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>Control de Laboratorio</span></motion.div>
+              <motion.div variants={fadeUp}><span style={{ ...S.tag, color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{t('calidad.lab.tag')}</span></motion.div>
               <motion.h2 variants={fadeUp} style={S.h2}>
-                Análisis en <span className="gradient-text">cada lote</span>
+                {t('calidad.lab.h2')} <span className="gradient-text">{t('calidad.lab.h2.accent')}</span>
               </motion.h2>
             </motion.div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
@@ -163,18 +161,18 @@ export default function CalidadPage() {
                   >
                     <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
                       <div style={{ width: '8px', height: '8px', background: '#00E5FF', borderRadius: '50%', flexShrink: 0 }} />
-                      <span style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 700, fontSize: '1rem', color: '#fff' }}>{test.test}</span>
+                      <span style={{ fontFamily: "'Inter Tight', sans-serif", fontWeight: 700, fontSize: '1rem', color: '#fff' }}>{lang === 'es' ? test.test : test.testEn}</span>
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexShrink: 0 }}>
                       <span style={{ fontSize: '0.75rem', color: '#00E5FF', background: 'rgba(0,229,255,0.1)', border: '1px solid rgba(0,229,255,0.2)', borderRadius: '9999px', padding: '3px 12px', display: 'none' }} className="sm:inline">
-                        {test.freq}
+                        {lang === 'es' ? test.freq : test.freqEn}
                       </span>
                       <ChevronDown size={18} color="#8BA0B4" style={{ transform: openLab === i ? 'rotate(180deg)' : 'none', transition: 'transform 0.3s' }} />
                     </div>
                   </button>
                   {openLab === i && (
                     <div style={{ paddingInline: '1.75rem', paddingBottom: '1.4rem' }}>
-                      <p style={{ color: '#8BA0B4', fontSize: '0.9rem', lineHeight: 1.8, paddingLeft: '1.5rem', borderLeft: '2px solid rgba(0,229,255,0.25)' }}>{test.detail}</p>
+                      <p style={{ color: '#8BA0B4', fontSize: '0.9rem', lineHeight: 1.8, paddingLeft: '1.5rem', borderLeft: '2px solid rgba(0,229,255,0.25)' }}>{lang === 'es' ? test.detail : test.detailEn}</p>
                     </div>
                   )}
                 </motion.div>
@@ -189,12 +187,10 @@ export default function CalidadPage() {
           <div style={{ ...S.inner, position: 'relative', zIndex: 1 }}>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '4rem', alignItems: 'center' }} className="lg:grid-cols-2">
               <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-                <span style={{ ...S.tag, color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{lang === 'es' ? 'BPM y POES' : 'GMP & SSOP'}</span>
-                <h2 style={S.h2}>{lang === 'es' ? <>Buenas Prácticas de <span className="gradient-text">Manufactura</span></> : <>Good Manufacturing <span className="gradient-text">Practices</span></>}</h2>
+                <span style={{ ...S.tag, color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{t('calidad.bpm.tag')}</span>
+                <h2 style={S.h2}>{t('calidad.bpm.h2')} <span className="gradient-text">{t('calidad.bpm.h2.accent')}</span></h2>
                 <p style={{ color: '#8BA0B4', fontSize: '1rem', lineHeight: 1.85, marginBottom: '2rem' }}>
-                  {lang === 'es' 
-                    ? 'Cumplimiento estricto de las Buenas Prácticas de Manufactura (BPM) y Procedimientos Operacionales Estandarizados de Saneamiento (POES) en todas las áreas de nuestra planta.'
-                    : 'Strict compliance with Good Manufacturing Practices (GMP) and Sanitation Standard Operating Procedures (SSOP) in all areas of our plant.'}
+                  {t('calidad.bpm.body')}
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                   {(lang === 'es' 
@@ -237,21 +233,19 @@ export default function CalidadPage() {
                 </div>
               </motion.div>
               <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} style={{ order: 1 }} className="lg:order-2">
-                <span style={{ ...S.tag, color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{lang === 'es' ? 'Tecnología' : 'Technology'}</span>
-                <h2 style={S.h2}>{lang === 'es' ? <>Precisión <span className="gradient-text">Automatizada</span></> : <>Automated <span className="gradient-text">Precision</span></>}</h2>
+                <span style={{ ...S.tag, color: '#00E5FF', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.1em', fontSize: '0.75rem' }}>{t('calidad.tech.tag')}</span>
+                <h2 style={S.h2}>{t('calidad.tech.h2')} <span className="gradient-text">{t('calidad.tech.h2.accent')}</span></h2>
                 <p style={{ color: '#8BA0B4', fontSize: '1rem', lineHeight: 1.85, marginBottom: '2rem' }}>
-                  {lang === 'es' 
-                    ? 'Nuestras líneas de procesamiento JBT Marel de última generación aseguran una precisión milimétrica en el corte y una eficiencia operativa que minimiza la manipulación manual, garantizando la máxima inocuidad.'
-                    : 'Our state-of-the-art JBT Marel processing lines ensure millimeter precision in cutting and operational efficiency that minimizes manual handling, guaranteeing maximum safety.'}
+                  {t('calidad.tech.body')}
                 </p>
                 <div style={{ display: 'flex', gap: '2rem' }}>
                   <div>
                     <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#fff' }}>100%</div>
-                    <div style={{ fontSize: '0.8rem', color: '#00E5FF', textTransform: 'uppercase' }}>{lang === 'es' ? 'Trazable' : 'Traceable'}</div>
+                    <div style={{ fontSize: '0.8rem', color: '#00E5FF', textTransform: 'uppercase' }}>{t('calidad.tech.traceable')}</div>
                   </div>
                   <div style={{ borderLeft: '1px solid rgba(255,255,255,0.1)', paddingLeft: '2rem' }}>
                     <div style={{ fontSize: '1.5rem', fontWeight: 800, color: '#fff' }}>0%</div>
-                    <div style={{ fontSize: '0.8rem', color: '#00E5FF', textTransform: 'uppercase' }}>{lang === 'es' ? 'Contaminación' : 'Contamination'}</div>
+                    <div style={{ fontSize: '0.8rem', color: '#00E5FF', textTransform: 'uppercase' }}>{t('calidad.tech.contamination')}</div>
                   </div>
                 </div>
               </motion.div>
@@ -262,14 +256,12 @@ export default function CalidadPage() {
         {/* CTA */}
         <section style={{ ...S.sectionBg, padding: '6rem 0' }}>
           <div style={{ ...S.innerNarrow, textAlign: 'center', position: 'relative', zIndex: 1 }}>
-            <h2 style={{ ...S.h2, textAlign: 'center' }}>{lang === 'es' ? '¿Necesita documentación técnica?' : 'Need technical documentation?'}</h2>
+            <h2 style={{ ...S.h2, textAlign: 'center' }}>{t('calidad.doc.h2')}</h2>
             <p style={{ color: '#8BA0B4', fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '2.5rem' }}>
-              {lang === 'es'
-                ? 'Nuestro equipo puede proveer fichas técnicas, certificados y especificaciones para cada producto según los requisitos de su mercado.'
-                : 'Our team can provide technical data sheets, certificates and specifications for each product according to your market requirements.'}
+              {t('calidad.doc.body')}
             </p>
             <Link href="/contacto" className="btn-primary" style={{ fontSize: '1rem', padding: '1rem 2.5rem' }}>
-              {lang === 'es' ? 'Solicitar documentación' : 'Request documentation'} <ArrowRight size={18} />
+              {t('calidad.doc.btn')} <ArrowRight size={18} />
             </Link>
           </div>
         </section>

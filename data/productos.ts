@@ -9,6 +9,13 @@ export interface Empaque {
   tipo: string      // IQF, BLOCK, IWP, IVP, SKIN PACK, TRAY, BAGS
 }
 
+
+export interface FichaTecnica {
+  titulo: string
+  urlES: string
+  urlEN: string
+}
+
 export interface Corte {
   id: string
   nombre: string
@@ -19,6 +26,7 @@ export interface Corte {
   zona?: string
   emoji?: string
   imagen?: string
+  fichas?: FichaTecnica[]
 }
 
 export interface Producto {
@@ -58,11 +66,11 @@ export const pota: Producto = {
   descripcion: 'La pota peruana es nuestro producto estrella. Capturada en las ricas aguas del Pacífico Sur (FAO 87), procesada bajo estrictos estándares BRCGS Grado AA. Amplio portafolio de cortes para diferentes mercados y especificaciones.',
 
   cortes: [
-    { id: 'filete', nombre: 'Filete', nombreEN: 'Fillet', categoria: 'producto', empaques: ['BLOCK'], descripcion: 'Manto limpio sin piel, presentación principal para mercados europeos y asiáticos', zona: 'manto', emoji: '🦑' },
-    { id: 'alas', nombre: 'Alas', nombreEN: 'Wings', categoria: 'producto', empaques: ['BLOCK'], descripcion: 'Aletas laterales del manto, muy apreciadas en el mercado asiático', zona: 'alas', emoji: '🪶' },
-    { id: 'tentaculos', nombre: 'Tentáculos', nombreEN: 'Tentacles', categoria: 'producto', empaques: ['BLOCK'], descripcion: 'Ocho tentáculos más dos largos, alta demanda en Asia y Europa del Sur', zona: 'tentaculos', emoji: '🐙' },
-    { id: 'reproductor', nombre: 'Reproductor', nombreEN: 'Sexual Tentacle', categoria: 'producto', empaques: ['BLOCK'], descripcion: 'Tentáculos reproductores, presentación especial para mercados asiáticos', zona: 'tentaculos', emoji: '🎣' },
-    { id: 'nucas', nombre: 'Nucas', nombreEN: 'Necks', categoria: 'producto', empaques: ['BLOCK'], descripcion: 'Parte superior del manto, popular en mercados de comida rápida', zona: 'manto', emoji: '✂️' },
+    { id: 'filete', nombre: 'Filete', nombreEN: 'Fillet', categoria: 'producto', empaques: ['BLOCK'], descripcion: 'Manto limpio sin piel, presentación principal para mercados europeos y asiáticos', zona: 'manto', emoji: '🦑' , fichas: [{ titulo: 'Filete CM', urlES: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-fillet-cm-es.pdf', urlEN: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-fillet-cm-en.pdf' }, { titulo: 'Filete SM', urlES: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-fillet-sm-es.pdf', urlEN: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-fillet-sm-en.pdf' }, { titulo: 'Filete Precocido', urlES: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-fillet-precooked-es.pdf', urlEN: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-fillet-precooked-en.pdf' }] },
+    { id: 'alas', nombre: 'Alas', nombreEN: 'Wings', categoria: 'producto', empaques: ['BLOCK'], descripcion: 'Aletas laterales del manto, muy apreciadas en el mercado asiático', zona: 'alas', emoji: '🪶' , fichas: [{ titulo: 'Alas', urlES: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-wings-es.pdf', urlEN: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-wings-en.pdf' }] },
+    { id: 'tentaculos', nombre: 'Tentáculos', nombreEN: 'Tentacles', categoria: 'producto', empaques: ['BLOCK'], descripcion: 'Ocho tentáculos más dos largos, alta demanda en Asia y Europa del Sur', zona: 'tentaculos', emoji: '🐙' , fichas: [{ titulo: 'Tentáculos', urlES: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-tentacle-es.pdf', urlEN: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-tentacle-en.pdf' }] },
+    { id: 'reproductor', nombre: 'Reproductor', nombreEN: 'Sexual Tentacle', categoria: 'producto', empaques: ['BLOCK'], descripcion: 'Tentáculos reproductores, presentación especial para mercados asiáticos', zona: 'tentaculos', emoji: '🎣' , fichas: [{ titulo: 'Reproductor', urlES: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-reproductive-es.pdf', urlEN: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-reproductive-en.pdf' }] },
+    { id: 'nucas', nombre: 'Nucas', nombreEN: 'Necks', categoria: 'producto', empaques: ['BLOCK'], descripcion: 'Parte superior del manto, popular en mercados de comida rápida', zona: 'manto', emoji: '✂️' , fichas: [{ titulo: 'Nucas', urlES: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-mantles-es.pdf', urlEN: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-mantles-en.pdf' }] },
   ],
 
   subProductos: [
@@ -71,17 +79,17 @@ export const pota: Producto = {
     { id: 'telilla', nombre: 'Telilla', nombreEN: 'Belly', categoria: 'subproducto', empaques: ['BLOCK'], emoji: '📋', imagen: STORAGE_URL + 'telilla.webp' },
     { id: 'telilla-cocida', nombre: 'Telilla Cocida', nombreEN: 'Boiled Belly', categoria: 'subproducto', empaques: ['BLOCK'], emoji: '♨️', imagen: STORAGE_URL + 'telilla-cocida.webp' },
     { id: 'pico', nombre: 'Pico', nombreEN: 'Mouth', categoria: 'subproducto', empaques: ['BLOCK'], emoji: '🦷', imagen: STORAGE_URL + 'pico2.webp' },
-    { id: 'ventosa', nombre: 'Ventosa', nombreEN: 'Suckers', categoria: 'subproducto', empaques: ['BLOCK'], emoji: '🔵', imagen: STORAGE_URL + 'ventosas.webp' },
-    { id: 'recortes', nombre: 'Recortes', nombreEN: 'Bits & Pieces', categoria: 'subproducto', empaques: ['IQF', 'BLOCK'], emoji: '📦', imagen: STORAGE_URL + 'recortes2.webp' },
-    { id: 'recorte-precocido', nombre: 'Recorte Precocido', nombreEN: 'Boiled Bits & Pieces', categoria: 'subproducto', empaques: ['BLOCK'], emoji: '♨️', imagen: STORAGE_URL + 'recorte-pre5.webp' },
-    { id: 'cono', nombre: 'Cono', nombreEN: 'Squid Cone', categoria: 'subproducto', empaques: ['BLOCK'], emoji: '🔺', imagen: STORAGE_URL + 'cono4.webp' },
+    { id: 'ventosa', nombre: 'Ventosa', nombreEN: 'Suckers', categoria: 'subproducto', empaques: ['BLOCK'], emoji: '🔵', imagen: STORAGE_URL + 'ventosas.webp' , fichas: [{ titulo: 'Ventosas', urlES: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-suckers-es.pdf', urlEN: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-suckers-en.pdf' }] },
+    { id: 'recortes', nombre: 'Recortes', nombreEN: 'Bits & Pieces', categoria: 'subproducto', empaques: ['IQF', 'BLOCK'], emoji: '📦', imagen: STORAGE_URL + 'recortes2.webp' , fichas: [{ titulo: 'Recortes', urlES: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-fresh-cuts-es.pdf', urlEN: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-fresh-cuts-en.pdf' }] },
+    { id: 'recorte-precocido', nombre: 'Recorte Precocido', nombreEN: 'Boiled Bits & Pieces', categoria: 'subproducto', empaques: ['BLOCK'], emoji: '♨️', imagen: STORAGE_URL + 'recorte-pre5.webp' , fichas: [{ titulo: 'Recorte Precocido', urlES: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-precooked-cuts-es.pdf', urlEN: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-precooked-cuts-en.pdf' }] },
+    { id: 'cono', nombre: 'Cono', nombreEN: 'Squid Cone', categoria: 'subproducto', empaques: ['BLOCK'], emoji: '🔺', imagen: STORAGE_URL + 'cono4.webp' , fichas: [{ titulo: 'Conos', urlES: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-cones-es.pdf', urlEN: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-cones-en.pdf' }] },
   ],
 
   valorAgregado: [
     { id: 'daruma', nombre: 'Daruma Cocida', nombreEN: 'Boiled Fillet', categoria: 'valorAgregado', empaques: ['BLOCK'], emoji: '🍣', imagen: STORAGE_URL + 'daruma-cocida2.webp' },
-    { id: 'anillas', nombre: 'Anillas', nombreEN: 'Rings', categoria: 'valorAgregado', empaques: ['BLOCK', 'IQF'], emoji: '⭕', imagen: STORAGE_URL + 'anillas1.webp' },
-    { id: 'alas-cocidas', nombre: 'Alas Cocidas', nombreEN: 'Boiled Wings', categoria: 'valorAgregado', empaques: ['BLOCK'], emoji: '♨️', imagen: STORAGE_URL + 'ala-co.webp' },
-    { id: 'labios', nombre: 'Labios', nombreEN: 'Squid Lips', categoria: 'valorAgregado', empaques: ['BLOCK'], emoji: '💋', imagen: STORAGE_URL + 'labios.webp' },
+    { id: 'anillas', nombre: 'Anillas', nombreEN: 'Rings', categoria: 'valorAgregado', empaques: ['BLOCK', 'IQF'], emoji: '⭕', imagen: STORAGE_URL + 'anillas1.webp' , fichas: [{ titulo: 'Rodajas Precocido', urlES: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-slices-precooked-es.pdf', urlEN: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-slices-precooked-en.pdf' }] },
+    { id: 'alas-cocidas', nombre: 'Alas Cocidas', nombreEN: 'Boiled Wings', categoria: 'valorAgregado', empaques: ['BLOCK'], emoji: '♨️', imagen: STORAGE_URL + 'ala-co.webp' , fichas: [{ titulo: 'Aleta Precocido', urlES: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-fins-precooked-es.pdf', urlEN: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-fins-precooked-en.pdf' }] },
+    { id: 'labios', nombre: 'Labios', nombreEN: 'Squid Lips', categoria: 'valorAgregado', empaques: ['BLOCK'], emoji: '💋', imagen: STORAGE_URL + 'labios.webp' , fichas: [{ titulo: 'Labios', urlES: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-lips-es.pdf', urlEN: 'https://rywzpyzdyxzdhivjlclm.supabase.co/storage/v1/object/public/productos/fichas/peru-frost-technical-sheet-lips-en.pdf' }] },
     { id: 'botones', nombre: 'Botones', nombreEN: 'Buttons', categoria: 'valorAgregado', empaques: ['BLOCK', 'IQF'], emoji: '🔘', imagen: STORAGE_URL + 'botones.webp' },
     { id: 'rabas', nombre: 'Rabas', nombreEN: 'Squid Strips', categoria: 'valorAgregado', empaques: ['BLOCK', 'IQF'], emoji: '🍟', imagen: STORAGE_URL + 'rabas3.webp' },
   ],
