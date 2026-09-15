@@ -62,9 +62,11 @@ export default function CertificationCarousel() {
               <div className="text-center md:text-left md:max-w-[400px]">
                 <h3 className="text-2xl lg:text-3xl font-black text-white mb-2 font-tight tracking-tight uppercase">
                   {lang === 'es' ? activeCert.nombre : (activeCert as any).nombreEn}
-                  {activeCert.nivel && <span className="text-[#0ea5e9] ml-3 text-xl">{activeCert.nivel}</span>}
+                  {(activeCert as any).nivel && <span className="text-[#0ea5e9] ml-3 text-xl">{(activeCert as any).nivel}</span>}
                 </h3>
-                <p className="text-[#8BA0B4] text-lg font-medium">{lang === 'es' ? activeCert.subtitulo : (activeCert as any).subtituloEn}</p>
+                {(lang === 'es' ? (activeCert as any).subtitulo : (activeCert as any).subtituloEn) && (
+                  <p className="text-[#8BA0B4] text-lg font-medium">{lang === 'es' ? (activeCert as any).subtitulo : (activeCert as any).subtituloEn}</p>
+                )}
                 <p className="text-white/60 text-sm mt-3 italic">{lang === 'es' ? activeCert.descripcion : (activeCert as any).descripcionEn}</p>
               </div>
             </div>
