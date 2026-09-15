@@ -215,16 +215,6 @@ h6 {
   mix-blend-mode: difference;
 }
 
-.custom-cursor-follower {
-  width: 10px;
-  height: 10px;
-  background: #00E5FF;
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 10000;
-  transition: transform 0.05s ease-out;
-}
 
 /* ─── SCROLL PROGRESS ─── */
 .scroll-progress-bar {
