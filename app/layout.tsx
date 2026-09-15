@@ -1,7 +1,6 @@
 ﻿import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { LanguageProvider } from "@/components/LanguageContext";
-import CustomCursor from "@/components/CustomCursor";
 import ScrollProgress from "@/components/ScrollProgress";
 
 export const metadata: Metadata = {
@@ -49,7 +48,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className="bg-base text-frost antialiased">
         <LanguageProvider>
           <ScrollProgress />
-          <CustomCursor />
           {children}
         </LanguageProvider>
       </body>
