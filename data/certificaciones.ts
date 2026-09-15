@@ -8,7 +8,7 @@ export const certificaciones = [
     descripcion: 'Certificación GFSI requerida internacionalmente para estándares de calidad, seguridad y cumplimiento normativo en procesos.',
     descripcionEn: 'GFSI certification internationally required for quality, safety, and regulatory compliance standards in processes.',
     emoji: '🏆',
-    imagen: STORAGE_URL + 'qw.webp',
+    imagen: STORAGE_URL + 'BRGS_Food_Safety_logo_20260915153006.webp',
     color: '#f59e0b',
   },
   {
