@@ -1,10 +1,11 @@
-﻿import type { Metadata } from "next";
+﻿import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { LanguageProvider } from "@/components/LanguageContext";
 import CustomCursor from "@/components/CustomCursor";
 import ScrollProgress from "@/components/ScrollProgress";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://perufrost.com"),
   title: "Perú Frost S.A.C. | Exportación de Pota y Productos del Mar",
   description: "Empresa 100% peruana con 20+ años de experiencia en elaboración y exportación de productos hidrobiológicos congelados. Certificada BRCGS AA, MSC, FDA y DG SANTE. Planta en Paita, Piura.",
   keywords: "exportación pota perú, calamar gigante, dosidicus gigas, exportación hidrobiológicos, peru frost, paita piura, BRCGS, MSC",
@@ -17,6 +18,12 @@ export const metadata: Metadata = {
     type: "website",
   },
   robots: { index: true, follow: true },
+  alternates: { canonical: "/" },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0A0F1F",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
